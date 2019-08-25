@@ -47,7 +47,7 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        apple = this.matter.add.image(900, 150, 'o_apple', null, { isStatic : true }).setInteractive();
+        apple = this.matter.add.image(900, 150, 'o_apple').setInteractive();
         apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
         apple.setCollidesWith([
             constants.GARBAGE_BIN_COLLISION_CATEGORY,
@@ -74,7 +74,7 @@ var Level1 = new Phaser.Class({
     
         });
 
-        this.dragObject(apple);
+        //this.dragObject(apple);
     },
 
     dragObject: function (image){
