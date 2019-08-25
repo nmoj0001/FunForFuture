@@ -3,6 +3,7 @@ var category;
 var organic;
 var garbage;
 var recycling;
+var counter;
 
 var Level1 = new Phaser.Class({
 
@@ -37,14 +38,14 @@ var Level1 = new Phaser.Class({
     },
 
     setUp: function (){
+        counter = 5;
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.add.image(500, 600, 'organic').setOrigin(0);
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
         
-        waste = this.matter.add.image(900, 200, 'r_cereal', null, { isStatic : true }).setInteractive();
-        category = 'recycling';
+        updateWaste();
     },
 
     updateWaste: function(){
@@ -90,15 +91,18 @@ var Level1 = new Phaser.Class({
     },
 
     update: function (){
-        this.dragObject(waste);
-        this.sortWaste();
+        if(counter >0){
+            this.dragObject(waste);
+            this.sortWaste();
+        }
     },
 
     sortWaste: function (){
-        if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 700 && waste.y < 900)
+        if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100)
         {
             waste.destroy();
             this.updateWaste();
+            counter--;
         }
     },
 });
