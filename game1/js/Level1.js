@@ -43,7 +43,7 @@ var Level1 = new Phaser.Class({
         this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
         this.add.image(250, 900, 'r_tincan').setOrigin(0);
         this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
-        this.add.image(500, 1050, 'g_chips').setOrigin(0);         
+        this.add.image(500, 950, 'g_chips').setOrigin(0);         
     }
 
 });
