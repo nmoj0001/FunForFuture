@@ -34,8 +34,7 @@ var Level1 = new Phaser.Class({
     },
 
     setUp: function (){
-        this.cameras.main.setBackgroundColor('#000000');
-        // // this.matter.world.setBounds(510,0,900,1080,5);
+        this.matter.world.setBounds(510,0,900,1080,5);
         this.add.image(0,0, 'level1_background').setOrigin(0);
 
     }
