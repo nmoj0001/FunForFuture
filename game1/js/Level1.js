@@ -49,17 +49,17 @@ var Level1 = new Phaser.Class({
 
         organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
         organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
-        organic.setVisisble(false);
+        organic.setVisible(false);
 
-        garbage = this.matter.add.image(830, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
-        garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
+        // garbage = this.matter.add.image(830, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
+        // garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
 
-        recycling = this.matter.add.image(1130, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
-        recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
+        // recycling = this.matter.add.image(1130, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
+        // recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
 
-        apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
-        apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
-        this.dragObject(apple);
+        // apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
+        // apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
+        // this.dragObject(apple);
     },
 
     dragObject: function (image){
