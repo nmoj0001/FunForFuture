@@ -1,9 +1,5 @@
-var apple;
-var bananapeel;
-var cereal;
-var chips;
-var plasticbottle;
-var tincan;
+var waste;
+var category;
 var organic;
 var garbage;
 var recycling;
@@ -47,8 +43,13 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        apple = this.matter.add.image(900, 150, 'o_apple', null, { isStatic : true }).setInteractive();
-        this.dragObject(apple);
+        setWaste();
+        this.dragObject(waste);
+    },
+
+    setWaste: function(){
+        waste = this.matter.add.image(900, 150, 'cereal', null, { isStatic : true }).setInteractive();
+        category = 'recycling';
     },
 
     dragObject: function (image){
@@ -89,9 +90,13 @@ var Level1 = new Phaser.Class({
     },
 
     update: function (){
-        if(apple.x > 1100 && apple.x < 1400 && apple.y > 700 && apple.y < 900)
+        sortWaste();
+    },
+
+    sortWaste: function (){
+        if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 700 && waste.y < 900)
         {
-            apple.setVisible(false);
+            setWaste();
         }
     },
 });
