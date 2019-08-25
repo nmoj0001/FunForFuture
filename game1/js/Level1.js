@@ -1,3 +1,12 @@
+var apple;
+var bananapeel;
+var cereal;
+var chips;
+var plasticbottle;
+var tincan;
+var pointer;
+var score;
+
 var Level1 = new Phaser.Class({
 
     Extends: Phaser.Scene,
@@ -13,10 +22,6 @@ var Level1 = new Phaser.Class({
 
     create: function (){
         this.setUp();
-    },
-
-    update: function (){
-
     },
 
     loadAssets: function() {
@@ -36,14 +41,18 @@ var Level1 = new Phaser.Class({
     setUp: function (){
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
-        this.add.image(400, 600, 'organic').setOrigin(0);
-        this.add.image(700, 600, 'garbage').setOrigin(0);
-        this.add.image(1000, 600, 'recycling').setOrigin(0);
-        // this.add.image(550, 800, 'o_apple').setOrigin(0);
-        // this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
-        // this.add.image(250, 900, 'r_tincan').setOrigin(0);
-        // this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
-        // this.add.image(500, 950, 'g_chips').setOrigin(0);         
-    }
+        this.add.image(1000, 600, 'organic').setOrigin(0);
+        this.add.image(1300, 600, 'garbage').setOrigin(0);
+        this.add.image(1600, 600, 'recycling').setOrigin(0);
+        this.add.image(550, 800, 'o_apple').setOrigin(0);
+        this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
+        this.add.image(250, 900, 'r_tincan').setOrigin(0);
+        this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
+        this.add.image(500, 950, 'g_chips').setOrigin(0); 
 
+    },
+
+    update: function (){
+
+    },
 });
