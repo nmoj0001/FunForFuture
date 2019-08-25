@@ -96,7 +96,7 @@ var Level1 = new Phaser.Class({
     sortWaste: function (){
         if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 700 && waste.y < 900)
         {
-            setWaste();
+            this.setWaste();
         }
     },
 });
