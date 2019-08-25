@@ -47,13 +47,14 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true });
+        organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
         organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
+        organic.setVisisble(false);
 
-        garbage = this.add.image(830, 750, 'rectangle').setOrigin(0);
+        garbage = this.matter.add.image(830, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
         garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
 
-        recycling = this.add.image(1130, 750, 'rectangle').setOrigin(0);
+        recycling = this.matter.add.image(1130, 750, 'rectangle', null, { isStatic : true }).setOrigin(0);
         recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
 
         apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
