@@ -51,42 +51,45 @@ var Level1 = new Phaser.Class({
         // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
         
         apple = this.add.sprite(850, 150, 'o_apple').setOrigin(0).setInteractive();
-        apple.on('pointerover', function () {
-
-            this.setTint(fff2fc);
-    
-        });
-    
-        apple.on('pointerout', function () {
-    
-            this.clearTint();
-    
-        });
-
-        this.input.setDraggable(apple);
-
-    this.input.on('dragstart', function (pointer, gameObject) {
-
-        gameObject.setTint(0xff0000);
-
-    });
-
-    this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-
-        gameObject.x = dragX;
-        gameObject.y = dragY;
-
-    });
-
-    this.input.on('dragend', function (pointer, gameObject) {
-
-        gameObject.clearTint();
-        gameObject.x = 850;
-        gameObject.y = 150;
-
-    });
+        dragObject(apple);
     },
 
+    dragObject: function (image){
+        image.on('pointerover', function () {
+
+           this.setTint(0xfff2fc);
+        
+        });
+        
+        image.on('pointerout', function () {
+        
+            this.clearTint();
+        
+        });
+
+        this.input.setDraggable(image);
+
+        this.input.on('dragstart', function (pointer, gameObject) {
+
+            gameObject.setTint(xfff2fc);
+
+        });
+
+        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+
+            gameObject.x = dragX;
+            gameObject.y = dragY;
+
+        });
+
+        this.input.on('dragend', function (pointer, gameObject) {
+
+            gameObject.clearTint();
+            gameObject.x = 850;
+            gameObject.y = 150;
+
+        });
+    },
     update: function (){
 
     },
