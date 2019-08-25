@@ -25,10 +25,11 @@ var Level1 = new Phaser.Class({
         this.load.image('recycling', 'assets/bins/recycling.png');
         this.load.image('organic', 'assets/bins/organic.png');
         this.load.image('o_apple', 'assets/waste/apple.png');
-        this.load.image('g_diaper', 'assets/waste/diaper.png');
+        this.load.image('o_bananapeel', 'assets/waste/bananapeel.png');
         this.load.image('r_plasticbottle', 'assets/waste/plasticbottle.png');
-        this.load.image('r_plasticspoon', 'assets/waste/plasticspoon.png');
+        this.load.image('r_cereal', 'assets/waste/cereal.png');
         this.load.image('r_tincan', 'assets/waste/tincan.png');
+        this.load.image('g_chips', 'assets/waste/chips.png');
         this.load.image('level1_background', 'assets/level1_background.jpg');
     },
 
@@ -39,10 +40,11 @@ var Level1 = new Phaser.Class({
         this.add.image(1300, 600, 'garbage').setOrigin(0);
         this.add.image(1600, 600, 'recycling').setOrigin(0);
         this.add.image(700, 600, 'o_apple').setOrigin(0);
-        this.add.image(650, 900, 'g_diaper').setOrigin(0);
-        this.add.image(400, 1200, 'r_plasticbottle').setOrigin(0);
-        this.add.image(300, 800, 'r_tincan').setOrigin(0); 
-        this.add.image(300, 1100, 'r_plasticspoon').setOrigin(0);         
+        this.add.image(750, 600, 'o_bananapeel').setOrigin(0);
+        this.add.image(200, 900, 'r_tincan').setOrigin(0);
+        this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
+        this.add.image(550, 800, 'r_plasticspoon').setOrigin(0);
+        this.add.image(800, 650, 'g_chips').setOrigin(0);         
     }
 
 });
