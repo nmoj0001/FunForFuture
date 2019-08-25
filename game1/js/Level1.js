@@ -74,7 +74,7 @@ var Level1 = new Phaser.Class({
     
         });
 
-        //this.dragObject(apple);
+        this.dragObject(apple);
     },
 
     dragObject: function (image){
