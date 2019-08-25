@@ -53,7 +53,7 @@ var Level1 = new Phaser.Class({
         apple = this.add.sprite(850, 150, 'o_apple').setOrigin(0).setInteractive();
         apple.on('pointerover', function () {
 
-            this.setTint(#fff2fc);
+            this.setTint(fff2fc);
     
         });
     
