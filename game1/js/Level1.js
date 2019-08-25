@@ -43,7 +43,7 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        setWaste();
+        this.setWaste();
         this.dragObject(waste);
     },
 
@@ -90,7 +90,7 @@ var Level1 = new Phaser.Class({
     },
 
     update: function (){
-        sortWaste();
+        this.sortWaste();
     },
 
     sortWaste: function (){
