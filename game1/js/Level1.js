@@ -52,7 +52,8 @@ var Level1 = new Phaser.Class({
         apple.setCollidesWith([
             constants.GARBAGE_BIN_COLLISION_CATEGORY,
             constants.ORGANIC_BIN_COLLISION_CATEGORY,
-            constants.RECYCLING_BIN_COLLISION_CATEGORY
+            constants.RECYCLING_BIN_COLLISION_CATEGORY,
+            constants.DEFAULT_COLISSION_CATEGORY
         ]);
 
         organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true });
