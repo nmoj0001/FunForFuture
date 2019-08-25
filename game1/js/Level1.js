@@ -50,28 +50,41 @@ var Level1 = new Phaser.Class({
         // plasticbottle = this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
         // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
         
-        apple = this.add.image(850, 150, 'o_apple').setOrigin(0);
+        apple = this.add.sprite(850, 150, 'o_apple').setOrigin(0);
         apple.setInteractive();
-        this.input.on('pointerdown', this.startDrag, this);
+        image.on('pointerover', function () {
 
-    },
+            this.setTint(0x00ff00);
+    
+        });
+    
+        image.on('pointerout', function () {
+    
+            this.clearTint();
+    
+        });
+    
+        this.input.setDraggable(image);
+    
+        this.input.on('dragstart', function (pointer, gameObject) {
+    
+            gameObject.setTint(0xff0000);
+    
+        });
+    
+        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+    
+            gameObject.x = dragX;
+            gameObject.y = dragY;
+    
+        });
+    
+        this.input.on('dragend', function (pointer, gameObject) {
+    
+            gameObject.clearTint();
+    
+        });
 
-    startDrag: function (pointer, targets){
-        this.input.off('pointerdown', this.startDrag, this);
-        this.dragObj = targets[0];
-        this.input.on('pointermove', this.doDrag, this);
-        this.input.on('pointerup', this.stopDrag, this);
-    },
-
-    doDrag: function(pointer){
-        this.drgObj.x = pointer.x;
-        this.dragObj.y = pointer.y;
-    },
-
-    stopDrag: function() {
-        this.input.on('pointerdown', this.startDrag, this);
-        this.input.off('pointermove', this.doDrag, this);
-        this.input.off('pointerup', this.stopDrag, this);
     },
 
     update: function (){
