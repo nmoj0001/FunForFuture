@@ -67,6 +67,13 @@ var Level1 = new Phaser.Class({
             constants.RECYCLING_BIN_COLLISION_CATEGORY
         ]);
 
+        this.matter.world.on('collisionstart', function (event) {
+
+            event.pairs[0].bodyA.gameObject.setTint(0xff0000);
+            event.pairs[0].bodyB.gameObject.setTint(0x00ff00);
+    
+        });
+
         this.dragObject(apple);
     },
 
