@@ -45,7 +45,7 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
         
-        updateWaste();
+        this.updateWaste();
     },
 
     updateWaste: function(){
@@ -55,38 +55,28 @@ var Level1 = new Phaser.Class({
 
     dragObject: function (image){
         image.on('pointerover', function () {
-
            this.setTint(0xffc7f2);
-        
         });
         
         image.on('pointerout', function () {
-        
             this.clearTint();
-        
         });
 
         this.input.setDraggable(image);
 
         this.input.on('dragstart', function (pointer, gameObject) {
-
             gameObject.setTint(0xffc7f2);
-
         });
 
         this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-
             gameObject.x = dragX;
             gameObject.y = dragY;
-
         });
 
         this.input.on('dragend', function (pointer, gameObject) {
-
             gameObject.clearTint();
             gameObject.x = 850;
             gameObject.y = 150;
-
         });
     },
 
