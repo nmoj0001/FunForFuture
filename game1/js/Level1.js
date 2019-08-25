@@ -4,8 +4,9 @@ var cereal;
 var chips;
 var plasticbottle;
 var tincan;
-var pointer;
-var score;
+var organic;
+var garbage;
+var recycling;
 
 var Level1 = new Phaser.Class({
 
@@ -44,13 +45,16 @@ var Level1 = new Phaser.Class({
         this.add.image(500, 600, 'organic').setOrigin(0);
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
+
+        organic = new Phaser.Geom.Rectangle(500, 750, 400, 400);
+
         // apple = this.add.image(550, 800, 'o_apple').setOrigin(0);
         // bananapeel = this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
         // tincan = this.add.image(250, 900, 'r_tincan').setOrigin(0);
         // plasticbottle = this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
         // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
         
-        apple = this.add.sprite(850, 150, 'o_apple').setOrigin(0).setInteractive();
+        apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
         this.dragObject(apple);
     },
 
