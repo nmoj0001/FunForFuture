@@ -51,7 +51,7 @@ var Level1 = new Phaser.Class({
         // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
         
         apple = this.add.sprite(850, 150, 'o_apple').setOrigin(0).setInteractive();
-        dragObject(apple);
+        this.dragObject(apple);
     },
 
     dragObject: function (image){
