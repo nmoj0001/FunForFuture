@@ -57,7 +57,7 @@ var Level1 = new Phaser.Class({
     dragObject: function (image){
         image.on('pointerover', function () {
 
-           this.setTint(0xfff2fc);
+           this.setTint(0xffc7f2);
         
         });
         
@@ -71,7 +71,7 @@ var Level1 = new Phaser.Class({
 
         this.input.on('dragstart', function (pointer, gameObject) {
 
-            gameObject.setTint(0xfff2fc);
+            gameObject.setTint(0xffc7f2);
 
         });
 
