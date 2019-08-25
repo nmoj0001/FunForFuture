@@ -47,8 +47,7 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        organic = this.matter.add.image(530, 750, 'rectangle').setOrigin(0);
-        organic.body.setAllowGravity(false);
+        organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true });
         organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
 
         garbage = this.add.image(830, 750, 'rectangle').setOrigin(0);
