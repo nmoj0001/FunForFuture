@@ -26,6 +26,7 @@ var Level1 = new Phaser.Class({
     },
 
     loadAssets: function() {
+        this.load.image('rectangle', 'assets/rectangle.png');
         this.load.image('organic', 'assets/bins/organic.png');
         this.load.image('garbage', 'assets/bins/garbage.png');
         this.load.image('recycling', 'assets/bins/recycling.png');
@@ -46,17 +47,13 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        var graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00ff00 }, fillStyle: { color: 0xff0000 }});
-        organic = new Phaser.Geom.Rectangle(530, 750, 200, 300);
-        graphics.strokeRectShape(organic);
+        organic = this.add.image(530, 750, 'rectangle').setOrigin(0);
         organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
 
-        garbage = new Phaser.Geom.Rectangle(830, 750, 200, 300);
-        graphics.strokeRectShape(garbage);
+        garbage = this.add.image(830, 750, 'rectangle').setOrigin(0);
         garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
 
-        recycling = new Phaser.Geom.Rectangle(1130, 750, 200, 300);
-        graphics.strokeRectShape(recycling);
+        recycling = this.add.image(1130, 750, 'rectangle').setOrigin(0);
         recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
 
         apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
