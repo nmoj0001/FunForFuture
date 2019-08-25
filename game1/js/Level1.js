@@ -87,7 +87,11 @@ var Level1 = new Phaser.Class({
 
         });
     },
-    update: function (){
 
+    update: function (){
+        if(apple.x > 1100 && apple.x < 1400 && apple.y > 600 && apple.y < 900)
+        {
+            apple.destroy();
+        }
     },
 });
