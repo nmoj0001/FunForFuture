@@ -49,20 +49,18 @@ var Level1 = new Phaser.Class({
         var graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00ff00 }, fillStyle: { color: 0xff0000 }});
         organic = new Phaser.Geom.Rectangle(530, 750, 200, 300);
         graphics.strokeRectShape(organic);
+        organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
 
         garbage = new Phaser.Geom.Rectangle(830, 750, 200, 300);
         graphics.strokeRectShape(garbage);
+        garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
 
         recycling = new Phaser.Geom.Rectangle(1130, 750, 200, 300);
         graphics.strokeRectShape(recycling);
+        recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
 
-        // apple = this.add.image(550, 800, 'o_apple').setOrigin(0);
-        // bananapeel = this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
-        // tincan = this.add.image(250, 900, 'r_tincan').setOrigin(0);
-        // plasticbottle = this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
-        // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
-        
         apple = this.add.sprite(900, 150, 'o_apple').setOrigin(0).setInteractive();
+        apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
         this.dragObject(apple);
     },
 
