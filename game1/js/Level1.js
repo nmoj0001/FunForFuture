@@ -39,12 +39,11 @@ var Level1 = new Phaser.Class({
         this.add.image(1000, 600, 'organic').setOrigin(0);
         this.add.image(1300, 600, 'garbage').setOrigin(0);
         this.add.image(1600, 600, 'recycling').setOrigin(0);
-        this.add.image(700, 600, 'o_apple').setOrigin(0);
-        this.add.image(750, 600, 'o_bananapeel').setOrigin(0);
-        this.add.image(200, 900, 'r_tincan').setOrigin(0);
+        this.add.image(550, 800, 'o_apple').setOrigin(0);
+        this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
+        this.add.image(250, 900, 'r_tincan').setOrigin(0);
         this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
-        this.add.image(550, 800, 'r_plasticspoon').setOrigin(0);
-        this.add.image(800, 650, 'g_chips').setOrigin(0);         
+        this.add.image(500, 1050, 'g_chips').setOrigin(0);         
     }
 
 });
