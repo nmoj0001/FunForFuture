@@ -50,7 +50,7 @@ var Level1 = new Phaser.Class({
         // plasticbottle = this.add.image(350, 800, 'r_plasticbottle').setOrigin(0); 
         // chips = this.add.image(500, 950, 'g_chips').setOrigin(0);
         
-        apple = this.matter.add.image(850, 150, 'o_apple').setOrigin(0);
+        apple = this.add.image(850, 150, 'o_apple').setOrigin(0);
         apple.setInteractive();
         this.input.on('pointerdown', this.startDrag, this);
 
