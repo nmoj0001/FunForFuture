@@ -47,18 +47,6 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true });
-        organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
-        organic.setVisible(false);
-
-        garbage = this.matter.add.image(830, 750, 'rectangle', null, { isStatic : true });
-        garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
-        garbage.setVisible(false);
-
-        recycling = this.matter.add.image(1130, 750, 'rectangle', null, { isStatic : true });
-        recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
-        recycling.setVisible(false);
-
         apple = this.matter.add.image(900, 150, 'o_apple', null, { isStatic : true }).setInteractive();
         apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
         apple.setCollidesWith([
@@ -66,6 +54,18 @@ var Level1 = new Phaser.Class({
             constants.ORGANIC_BIN_COLLISION_CATEGORY,
             constants.RECYCLING_BIN_COLLISION_CATEGORY
         ]);
+
+        organic = this.matter.add.image(530, 750, 'rectangle', null, { isStatic : true });
+        organic.setCollisionCategory(constants.ORGANIC_BIN_COLLISION_CATEGORY);
+        //organic.setVisible(false);
+
+        garbage = this.matter.add.image(830, 750, 'rectangle', null, { isStatic : true });
+        garbage.setCollisionCategory(constants.GARBAGE_BIN_COLLISION_CATEGORY);
+        //garbage.setVisible(false);
+
+        recycling = this.matter.add.image(1130, 750, 'rectangle', null, { isStatic : true });
+        recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
+        //recycling.setVisible(false);
 
         this.matter.world.on('collisionstart', function (event) {
 
