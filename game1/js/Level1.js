@@ -47,8 +47,14 @@ var Level1 = new Phaser.Class({
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
         var graphics = this.add.graphics({ lineStyle: { width: 2, color: 0x00ff00 }, fillStyle: { color: 0xff0000 }});
-        organic = new Phaser.Geom.Rectangle(550, 750, 200, 350);
+        organic = new Phaser.Geom.Rectangle(520, 750, 200, 300);
         graphics.strokeRectShape(organic);
+
+        garbage = new Phaser.Geom.Rectangle(820, 750, 200, 300);
+        graphics.strokeRectShape(garbage);
+
+        recycling = new Phaser.Geom.Rectangle(1120, 750, 200, 300);
+        graphics.strokeRectShape(recycling);
 
         // apple = this.add.image(550, 800, 'o_apple').setOrigin(0);
         // bananapeel = this.add.image(700, 800, 'o_bananapeel').setOrigin(0);
