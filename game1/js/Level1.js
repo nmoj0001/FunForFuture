@@ -48,7 +48,7 @@ var Level1 = new Phaser.Class({
     },
 
     setWaste: function(){
-        waste = this.matter.add.image(900, 150, 'cereal', null, { isStatic : true }).setInteractive();
+        waste = this.matter.add.image(900, 150, 'r_cereal', null, { isStatic : true }).setInteractive();
         category = 'recycling';
     },
 
@@ -96,6 +96,7 @@ var Level1 = new Phaser.Class({
     sortWaste: function (){
         if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 700 && waste.y < 900)
         {
+            waste.setVisible(false);
             this.setWaste();
         }
     },
