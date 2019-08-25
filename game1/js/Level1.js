@@ -36,9 +36,9 @@ var Level1 = new Phaser.Class({
     setUp: function (){
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
-        this.add.image(300, 600, 'organic').setOrigin(0);
-        this.add.image(600, 600, 'garbage').setOrigin(0);
-        this.add.image(900, 600, 'organic').setOrigin(0);
+        this.add.image(1000, 600, 'organic').setOrigin(0);
+        this.add.image(1200, 600, 'garbage').setOrigin(0);
+        this.add.image(1400, 600, 'organic').setOrigin(0);
         
     }
 
