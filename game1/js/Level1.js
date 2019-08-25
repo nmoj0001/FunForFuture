@@ -71,7 +71,7 @@ var Level1 = new Phaser.Class({
 
         this.input.on('dragstart', function (pointer, gameObject) {
 
-            gameObject.setTint(xfff2fc);
+            gameObject.setTint(0xfff2fc);
 
         });
 
