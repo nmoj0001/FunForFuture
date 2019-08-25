@@ -59,7 +59,7 @@ var Level1 = new Phaser.Class({
         recycling.setCollisionCategory(constants.RECYCLING_BIN_COLLISION_CATEGORY);
         recycling.setVisible(false);
 
-        apple = this.matter.add.sprite(900, 150, 'o_apple', null, { isStatic : true }).setOrigin(0).setInteractive();
+        apple = this.matter.add.sprite(900, 150, 'o_apple', null, { isStatic : true }).setInteractive();
         apple.setCollisionCategory(constants.ORGANIC_COLLISION_CATEGORY);
         this.dragObject(apple);
     },
