@@ -49,8 +49,8 @@ var Level1 = new Phaser.Class({
     },
 
     updateWaste: function(){
-        waste = this.matter.add.image(900, 200, 'o_apple', null, { isStatic : true }).setInteractive();
-        category = 'organiic';
+        waste = this.matter.add.image(900, 200, 'r_cereal', null, { isStatic : true }).setInteractive();
+        category = 'recycling';
     },
 
     dragObject: function (image){
