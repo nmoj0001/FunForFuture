@@ -7,6 +7,9 @@ var counter;
 var min = 1;
 var max = 18;
 var num;
+var score = 0;
+var scoreText;
+var scoreImage;
 
 var Level1 = new Phaser.Class({
 
@@ -28,10 +31,11 @@ var Level1 = new Phaser.Class({
     loadAssets: function () {
         this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
 
-        this.load.image('organic', 'assets/bins/organic.png');
-        this.load.image('garbage', 'assets/bins/garbage.png');
-        this.load.image('recycling', 'assets/bins/recycling.png');
-        this.load.image('organic', 'assets/bins/organic.png');
+        this.load.image('organic', 'assets/common/organic.png');
+        this.load.image('garbage', 'assets/common/garbage.png');
+        this.load.image('recycling', 'assets/common/recycling.png');
+        this.load.image('organic', 'assets/common/organic.png');
+        this.load.image('score', 'assets/common/score.png');
 
         this.load.image('L1_1', 'assets/Level1/waste/1.png');
         this.load.image('L1_2', 'assets/Level1/waste/2.png');
@@ -105,10 +109,10 @@ var Level1 = new Phaser.Class({
     },
 
     update: function () {
-        // if (counter > 0) {
+        if (counter > 0) {
             this.dragObject(waste);
             this.sortWaste();
-        // }
+        }
     },
 
     sortWaste: function () {
@@ -117,7 +121,14 @@ var Level1 = new Phaser.Class({
             || (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste();
+            score += 100;
+            scoreText.setText(score);
             counter--;
         }
     },
+
+    showScore: function(){
+        scoreImage = this.add.image(1550,100, 'score');
+        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill:'ffffff', fontFamily: 'Source Sans Pro'})
+    }
 });
