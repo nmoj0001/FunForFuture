@@ -137,14 +137,14 @@ var Level1 = new Phaser.Class({
     },
 
     showScore: function(){
-        scoreImage = this.add.image(1550,100, 'score');
-        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', });
+        scoreImage = this.add.image(1550,70, 'score');
+        scoreText = this.add.text(1605, 50, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', });
 
         timerImage = this.add.image(1550,180, 'timer');
         timerText = this.add.text(1605, 160, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', })
 
-        bonus1Image = this.add.image(1605,220, 'bonus');
-        bonus2Image = this.add.image(1705,220, 'bonus');
-        bonus3Image = this.add.image(1805,220, 'bonus');
+        bonus1Image = this.add.image(1605,290, 'bonus');
+        bonus2Image = this.add.image(1705,290, 'bonus');
+        bonus3Image = this.add.image(1805,290, 'bonus');
     }
 });
