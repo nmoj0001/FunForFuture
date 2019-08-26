@@ -113,8 +113,8 @@ var Level1 = new Phaser.Class({
 
     sortWaste: function () {
         if ((category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100)
-            || (category == 'organic' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)
-            || (category == 'garbage' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100)) {
+            || (category == 'organic' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100)
+            || (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste();
             counter--;
