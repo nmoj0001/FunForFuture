@@ -4,6 +4,9 @@ var organic;
 var garbage;
 var recycling;
 var counter;
+var min = 1;
+var max = 18;
+var num;
 
 var Level1 = new Phaser.Class({
 
@@ -11,21 +14,20 @@ var Level1 = new Phaser.Class({
 
     initialize:
         function Level1() {
-            Phaser.Scene.call(this, { key : 'Level1' });
+            Phaser.Scene.call(this, { key: 'Level1' });
         },
 
-    preload: function() {
+    preload: function () {
         this.loadAssets();
     },
 
-    create: function (){
+    create: function () {
         this.setUp();
     },
 
-    loadAssets: function() {
+    loadAssets: function () {
         this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
 
-        this.load.image('rectangle', 'assets/rectangle.png');
         this.load.image('organic', 'assets/bins/organic.png');
         this.load.image('garbage', 'assets/bins/garbage.png');
         this.load.image('recycling', 'assets/bins/recycling.png');
@@ -51,32 +53,40 @@ var Level1 = new Phaser.Class({
         this.load.image('L1_18', 'assets/Level1/waste/18.png');
     },
 
-    setUp: function (){
+    setUp: function () {
         counter = 5;
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.add.image(500, 600, 'organic').setOrigin(0);
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
-        
+
         this.updateWaste();
     },
 
-    updateWaste: function(){
-        waste = this.matter.add.image(900, 200, 'L1_1', null, { isStatic : true }).setInteractive();
-        category = 'recycling';
+    updateWaste: function () {
+        num = Math.floor(Math.random() * (+max - +min)) + +min;
+
+        if (num >= 1 && num <= 5)
+            category = 'organic';
+        else if (num >= 6 && num <= 14)
+            category = 'recycling';
+        else if (num >= 15 && num <= 18)
+            category = 'garbage';
+
+        waste = this.matter.add.image(900, 200, 'L1_' + num, null, { isStatic: true }).setInteractive();
     },
 
-    dragObject: function (image){
-        image.on('pointerover', function () {
-           this.setTint(0xffc7f2);
+    dragObject: function (object) {
+        object.on('pointerover', function () {
+            this.setTint(0xffc7f2);
         });
-        
-        image.on('pointerout', function () {
+
+        object.on('pointerout', function () {
             this.clearTint();
         });
 
-        this.input.setDraggable(image);
+        this.input.setDraggable(object);
 
         this.input.on('dragstart', function (pointer, gameObject) {
             gameObject.setTint(0xffc7f2);
@@ -94,16 +104,17 @@ var Level1 = new Phaser.Class({
         });
     },
 
-    update: function (){
-        if(counter >0){
+    update: function () {
+        if (counter > 0) {
             this.dragObject(waste);
             this.sortWaste();
         }
     },
 
-    sortWaste: function (){
-        if(category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100)
-        {
+    sortWaste: function () {
+        if ((category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100)
+            || (category == 'organic' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)
+            || (category == 'garbage' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste();
             counter--;
