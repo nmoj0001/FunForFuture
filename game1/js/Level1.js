@@ -10,6 +10,7 @@ var max = 18;
 var score = 0;
 var scoreText;
 var scoreImage;
+var timedEvent;
 var bonusScore = 0;
 var bonus1Image;
 var bonus2Image;
@@ -73,6 +74,11 @@ var Level1 = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
+        bonus1Image = this.add.image(1605, 290, 'bonus');
+        bonus2Image = this.add.image(1705, 290, 'bonus');
+        bonus3Image = this.add.image(1805, 290, 'bonus');
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 30 });
+
         this.showScore();
         this.updateWaste();
     },
@@ -121,6 +127,10 @@ var Level1 = new Phaser.Class({
         if (counter > 0) {
             this.dragObject(waste);
             this.sortWaste();
+            this.updateBonusTimer();
+        }
+        else {
+            endLevel();
         }
     },
 
@@ -136,15 +146,36 @@ var Level1 = new Phaser.Class({
         }
     },
 
-    showScore: function(){
-        scoreImage = this.add.image(1550,70, 'score');
-        scoreText = this.add.text(1605, 50, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', });
+    showScore: function () {
+        scoreImage = this.add.image(1550, 70, 'score');
+        scoreText = this.add.text(1605, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
 
-        timerImage = this.add.image(1550,180, 'timer');
-        timerText = this.add.text(1605, 160, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', })
+        timerImage = this.add.image(1550, 180, 'timer');
+        timerText = this.add.text(1605, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', })
+    },
 
-        bonus1Image = this.add.image(1605,290, 'bonus');
-        bonus2Image = this.add.image(1705,290, 'bonus');
-        bonus3Image = this.add.image(1805,290, 'bonus');
+    updateBonusTimer: function () {
+        if (timedEvent.repeatCount == 60) {
+            bonusScore = 500;
+        }
+        else if (timedEvent.repeatCount == 30) {
+            bonusScore = 300;
+            bonus3Image.destroy();
+        }
+        else if (timedEvent.repeatCount == 10) {
+            bonusScore = 100;
+            bonus2Image.destroy();
+        }
+        else if (timedEvent.repeatCount == 0) {
+            bonusScore = 0;
+            bonus1Image.destroy();
+        }
+
+        timerText.setText(timedEvent.repeatCount);
+    },
+
+    endLevel: function () {
+        score += bonusScore;
+        scoreText.setText(score);
     }
 });
