@@ -54,7 +54,7 @@ var Level1 = new Phaser.Class({
     },
 
     setUp: function () {
-        counter = 5;
+        counter = 15;
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.add.image(500, 600, 'organic').setOrigin(0);
@@ -105,10 +105,10 @@ var Level1 = new Phaser.Class({
     },
 
     update: function () {
-        if (counter > 0) {
+        // if (counter > 0) {
             this.dragObject(waste);
             this.sortWaste();
-        }
+        // }
     },
 
     sortWaste: function () {
