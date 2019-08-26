@@ -11,7 +11,7 @@ var score = 0;
 var scoreText;
 var scoreImage;
 var timedEvent;
-var bonusScore = 0;
+var bonusScore = 500;
 var bonus1Image;
 var bonus2Image;
 var bonus3Image;
