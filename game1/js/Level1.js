@@ -130,6 +130,6 @@ var Level1 = new Phaser.Class({
 
     showScore: function(){
         scoreImage = this.add.image(1550,100, 'score');
-        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill:'ffffff', fontFamily: 'Source Sans Pro'})
+        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', })
     }
 });
