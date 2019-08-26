@@ -4,12 +4,18 @@ var organic;
 var garbage;
 var recycling;
 var counter;
+var num;
 var min = 1;
 var max = 18;
-var num;
 var score = 0;
 var scoreText;
 var scoreImage;
+var bonusScore = 0;
+var bonus1Image;
+var bonus2Image;
+var bonus3Image;
+var timerText;
+var timerImage;
 
 var Level1 = new Phaser.Class({
 
@@ -36,6 +42,8 @@ var Level1 = new Phaser.Class({
         this.load.image('recycling', 'assets/common/recycling.png');
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('score', 'assets/common/score.png');
+        this.load.image('score', 'assets/common/bonus.png');
+        this.load.image('score', 'assets/common/timer.png');
 
         this.load.image('L1_1', 'assets/Level1/waste/1.png');
         this.load.image('L1_2', 'assets/Level1/waste/2.png');
@@ -79,7 +87,7 @@ var Level1 = new Phaser.Class({
         else if (num >= 15 && num <= 18)
             category = 'garbage';
 
-        waste = this.matter.add.image(900, 200, 'L1_' + num, null, { isStatic: true }).setInteractive();
+        waste = this.matter.add.image(900, 250, 'L1_' + num, null, { isStatic: true }).setInteractive();
     },
 
     dragObject: function (object) {
@@ -130,6 +138,13 @@ var Level1 = new Phaser.Class({
 
     showScore: function(){
         scoreImage = this.add.image(1550,100, 'score');
-        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', })
+        scoreText = this.add.text(1605, 80, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', });
+
+        timerImage = this.add.image(1550,180, 'timer');
+        timerText = this.add.text(1605, 160, score, {fontSize : '48px' , fill: 0xfffdfc, fontFamily: 'Courier New', })
+
+        bonus1Image = this.add.image(1605,220, 'bonus');
+        bonus2Image = this.add.image(1705,220, 'bonus');
+        bonus3Image = this.add.image(1805,220, 'bonus');
     }
 });
