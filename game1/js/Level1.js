@@ -42,8 +42,8 @@ var Level1 = new Phaser.Class({
         this.load.image('recycling', 'assets/common/recycling.png');
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('score', 'assets/common/score.png');
-        this.load.image('score', 'assets/common/bonus.png');
-        this.load.image('score', 'assets/common/timer.png');
+        this.load.image('bonus', 'assets/common/bonus.png');
+        this.load.image('timer', 'assets/common/timer.png');
 
         this.load.image('L1_1', 'assets/Level1/waste/1.png');
         this.load.image('L1_2', 'assets/Level1/waste/2.png');
