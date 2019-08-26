@@ -3,7 +3,7 @@ var category;
 var organic;
 var garbage;
 var recycling;
-var counter;
+var counter = 5;
 var num;
 var min = 1;
 var max = 18;
@@ -67,7 +67,6 @@ var Level1 = new Phaser.Class({
     },
 
     setUp: function () {
-        counter = 15;
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.add.image(500, 600, 'organic').setOrigin(0);
@@ -77,7 +76,7 @@ var Level1 = new Phaser.Class({
         bonus1Image = this.add.image(1605, 290, 'bonus');
         bonus2Image = this.add.image(1705, 290, 'bonus');
         bonus3Image = this.add.image(1805, 290, 'bonus');
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 30 });
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.showScore();
         this.updateWaste();
