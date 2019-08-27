@@ -34,6 +34,7 @@ var Baselevel = new Phaser.Class({
         this.setUp();
     },
 
+
     loadAssets: function () {
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('garbage', 'assets/common/garbage.png');
@@ -129,14 +130,13 @@ var Baselevel = new Phaser.Class({
 
     updateBonusTimer: function () {
         if (timedEvent.repeatCount == 0) {
-            bonus1Image.destroy();
+            counter = 0;
         }
 
         timerText.setText(timedEvent.repeatCount);
     },
 
     endLevel: function () {
-        counter = 0;
         waste.setVisible(false);
     },
 });
