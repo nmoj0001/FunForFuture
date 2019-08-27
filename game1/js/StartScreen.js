@@ -20,12 +20,12 @@ var StartScreen = new Phaser.Class({
     create: function () {
         startScreenBg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         gameLogo = this.matter.add.sprite(game.scale.width / 2, game.scale.height / 2, 'game_logo', null, { isStatic: true });
-        cursor = Phaser.Input.Keyboard.KeyCodes.LEFT;
+        cursor = Phaser.Input.Keyboard.KeyCodes.ENTER;
     },
 
     update: function () {
         if (Phaser.Input.Keyboard.JustDown(cursor)) {
-            startGame();
+            this.startGame();
         }
     },
 
@@ -34,7 +34,7 @@ var StartScreen = new Phaser.Class({
         // enterKey.destroy();
         // startScreenBg.destroy();
         // this.scene.start('Baselevel');
-        gameLogo = this.matter.add.sprite(200,600, 'game_logo', null, { isStatic: true });
+        gameLogo = this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
     }
 
 });
