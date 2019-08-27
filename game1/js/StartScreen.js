@@ -25,6 +25,7 @@ var StartScreen = new Phaser.Class({
 
     update: function () {
         if (Phaser.Input.Keyboard.JustDown(cursor)) {
+            gameLogo = this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
             this.startGame();
         }
     },
