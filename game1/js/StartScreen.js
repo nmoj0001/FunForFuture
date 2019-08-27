@@ -1,6 +1,5 @@
 var startScreenBg;
 var gameLogo;
-var enterKey;
 
 var StartScreen = new Phaser.Class({
 
@@ -18,13 +17,12 @@ var StartScreen = new Phaser.Class({
     },
 
     create: function () {
-        enterKey = game.input.keyboard(Phaser.Input.Keyboard.ENTER);
         startScreenBg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         gameLogo = this.matter.add.sprite(game.scale.width / 2, game.scale.height / 2, 'game_logo', null, { isStatic: true });
     },
 
     update: function () {
-        if (enterKey.isDown) {
+        if (Phaser.Input.Keyboard.JustDown(Phser.Input.Keyboard.KeyCodes.ENTER)) {
             startGame();
         }
     },
