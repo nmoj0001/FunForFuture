@@ -13,10 +13,6 @@ var score = 0;
 var scoreText;
 var scoreImage;
 var timedEvent;
-var bonusScore = 500;
-var bonus1Image;
-var bonus2Image;
-var bonus3Image;
 var timerText;
 var timerImage;
 var level;
@@ -44,7 +40,6 @@ var Baselevel = new Phaser.Class({
         this.load.image('recycling', 'assets/common/recycling.png');
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('score', 'assets/common/score.png');
-        this.load.image('bonus', 'assets/common/bonus.png');
         this.load.image('timer', 'assets/common/timer.png');
     },
 
@@ -55,9 +50,6 @@ var Baselevel = new Phaser.Class({
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        bonus1Image = this.add.image(1605, 290, 'bonus');
-        bonus2Image = this.add.image(1705, 290, 'bonus');
-        bonus3Image = this.add.image(1805, 290, 'bonus');
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
@@ -136,19 +128,7 @@ var Baselevel = new Phaser.Class({
     },
 
     updateBonusTimer: function () {
-        if (timedEvent.repeatCount == 60) {
-            bonusScore = 500;
-        }
-        else if (timedEvent.repeatCount == 30) {
-            bonusScore = 300;
-            bonus3Image.destroy();
-        }
-        else if (timedEvent.repeatCount == 10) {
-            bonusScore = 100;
-            bonus2Image.destroy();
-        }
-        else if (timedEvent.repeatCount == 0) {
-            bonusScore = 0;
+        if (timedEvent.repeatCount == 0) {
             bonus1Image.destroy();
         }
 
@@ -156,6 +136,7 @@ var Baselevel = new Phaser.Class({
     },
 
     endLevel: function () {
+        counter = 0;
         waste.setVisible(false);
     },
 });
