@@ -20,7 +20,7 @@ var StartScreen = new Phaser.Class({
     create: function () {
         startScreenBg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         gameLogo = this.matter.add.sprite(game.scale.width / 2, game.scale.height / 2, 'game_logo', null, { isStatic: true });
-        cursor = Phaser.Input.Keyboard.KeyCodes.ENTER;
+        cursor = Phaser.Input.Keyboard.KeyCodes.LEFT;
     },
 
     update: function () {
