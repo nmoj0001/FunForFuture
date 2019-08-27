@@ -39,7 +39,6 @@ var Baselevel = new Phaser.Class({
     },
 
     loadAssets: function () {
-        this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('garbage', 'assets/common/garbage.png');
         this.load.image('recycling', 'assets/common/recycling.png');

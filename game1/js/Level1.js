@@ -9,6 +9,7 @@ var Level1 = new Phaser.Class({
 
     preload: function () {
         this.loadAssets();
+        this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
         this.load.image('l1_1', 'assets/Level1/waste/1.png');
         this.load.image('l1_2', 'assets/Level1/waste/2.png');
         this.load.image('l1_3', 'assets/Level1/waste/3.png');
