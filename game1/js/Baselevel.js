@@ -158,6 +158,5 @@ var Baselevel = new Phaser.Class({
 
     endLevel: function () {
         waste.setVisible(false);
-        this.finalScore();
     },
 });
