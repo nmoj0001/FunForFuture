@@ -24,21 +24,14 @@ var StartScreen = new Phaser.Class({
 
     update: function () {
         this.input.on('pointerdown', function (pointer) {
-            this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
+            this.startGame();
         }, this);
-
-        // if (Phaser.Input.Keyboard.JustDown(cursor)) {
-        //     gameLogo =
-        //         this.startGame();
-        // }
     },
 
     startGame: function () {
-        // gameLogo.destroy();
-        // enterKey.destroy();
-        // startScreenBg.destroy();
-        // this.scene.start('Baselevel');
-        gameLogo = this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
+        gameLogo.destroy();
+        enterKey.destroy();
+        startScreenBg.destroy();
+        this.scene.start('Baselevel');
     }
-
 });
