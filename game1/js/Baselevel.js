@@ -1,4 +1,5 @@
 var level1Bg;
+var startScreenBg;
 var waste;
 var category;
 var organic;
