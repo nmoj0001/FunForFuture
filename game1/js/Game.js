@@ -11,7 +11,7 @@ var config = {
         default: 'matter',
         matter: { debug : true }
     },
-    scene: [ Baselevel, Level1 ]
+    scene: [ StartScreen, Baselevel, Level1 ]
 };
 
 var game = new Phaser.Game(config);

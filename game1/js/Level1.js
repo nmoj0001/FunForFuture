@@ -3,13 +3,13 @@ var Level1 = new Phaser.Class({
     Extends: Baselevel,
 
     initialize:
-        function Baselevel() {
+        function Level1() {
             Phaser.Scene.call(this, { key: 'Level1' });
         },
 
     create: function () {
-        level = 1;
-        this.setUp();
+        var level = 1;
         level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
+        this.setUp();
     }
 });
