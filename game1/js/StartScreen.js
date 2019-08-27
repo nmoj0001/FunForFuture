@@ -22,7 +22,7 @@ var StartScreen = new Phaser.Class({
     },
 
     update: function () {
-        if (Phaser.Input.Keyboard.JustDown(Phser.Input.Keyboard.KeyCodes.ENTER)) {
+        if (Phaser.Input.Keyboard.JustDown(Phaser.Input.Keyboard.KeyCodes.ENTER)) {
             startGame();
         }
     },
