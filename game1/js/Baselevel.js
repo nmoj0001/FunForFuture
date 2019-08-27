@@ -148,6 +148,7 @@ var Baselevel = new Phaser.Class({
     },
 
     loseLevel: function () {
+        waste.setVisible(false);
         var loseText = this.add.text(850, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
         loseText.setText("You lose!");
     }
