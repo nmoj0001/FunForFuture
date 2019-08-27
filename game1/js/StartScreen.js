@@ -9,7 +9,7 @@ var StartScreen = new Phaser.Class({
     initialize:
 
         function StartScreen() {
-
+            Phaser.Scene.call(this, { key: 'StartScreen' });
         },
 
     preload: function () {
