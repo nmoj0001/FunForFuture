@@ -67,7 +67,6 @@ var Baselevel = new Phaser.Class({
     },
 
     setUp: function () {
-        level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
         this.add.image(500, 600, 'organic').setOrigin(0);
@@ -177,5 +176,6 @@ var Baselevel = new Phaser.Class({
     endLevel: function () {
         score += bonusScore;
         scoreText.setText(score);
+        waste.setVisible(false);
     }
 });
