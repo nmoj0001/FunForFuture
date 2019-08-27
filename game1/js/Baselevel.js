@@ -16,6 +16,7 @@ var timedEvent;
 var timerText;
 var timerImage;
 var level;
+var playLevel = true;
 
 var Baselevel = new Phaser.Class({
 
@@ -98,14 +99,20 @@ var Baselevel = new Phaser.Class({
     },
 
     update: function () {
-        if (counter > 0) {
-            this.dragObject(waste);
-            this.sortWaste();
-            this.updateBonusTimer();
+        if (playLevel == true) {
+            if (counter > 0) {
+                this.dragObject(waste);
+                this.sortWaste();
+                this.updateBonusTimer();
+            }
+            else {
+                this.endLevel();
+            }
         }
         else {
-            this.endLevel();
+            this.loseLevel();
         }
+
     },
 
     sortWaste: function () {
@@ -130,7 +137,7 @@ var Baselevel = new Phaser.Class({
 
     updateBonusTimer: function () {
         if (timedEvent.repeatCount == 0) {
-            counter = 0;
+            playLevel = false;
         }
 
         timerText.setText(timedEvent.repeatCount);
@@ -139,4 +146,9 @@ var Baselevel = new Phaser.Class({
     endLevel: function () {
         waste.setVisible(false);
     },
+
+    loseLevel: function () {
+        var loseText = this.add.text(800, 400, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
+        loseText.setText("You lose!");
+    }
 });
