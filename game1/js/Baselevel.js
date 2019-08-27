@@ -18,6 +18,7 @@ var bonus2Image;
 var bonus3Image;
 var timerText;
 var timerImage;
+var level;
 
 var Baselevel = new Phaser.Class({
 
@@ -45,25 +46,6 @@ var Baselevel = new Phaser.Class({
         this.load.image('score', 'assets/common/score.png');
         this.load.image('bonus', 'assets/common/bonus.png');
         this.load.image('timer', 'assets/common/timer.png');
-
-        this.load.image('l1_1', 'assets/Level1/waste/1.png');
-        this.load.image('l1_2', 'assets/Level1/waste/2.png');
-        this.load.image('l1_3', 'assets/Level1/waste/3.png');
-        this.load.image('l1_4', 'assets/Level1/waste/4.png');
-        this.load.image('l1_5', 'assets/Level1/waste/5.png');
-        this.load.image('l1_6', 'assets/Level1/waste/6.png');
-        this.load.image('l1_7', 'assets/Level1/waste/7.png');
-        this.load.image('l1_8', 'assets/Level1/waste/8.png');
-        this.load.image('l1_9', 'assets/Level1/waste/9.png');
-        this.load.image('l1_10', 'assets/Level1/waste/10.png');
-        this.load.image('l1_11', 'assets/Level1/waste/11.png');
-        this.load.image('l1_12', 'assets/Level1/waste/12.png');
-        this.load.image('l1_13', 'assets/Level1/waste/13.png');
-        this.load.image('l1_14', 'assets/Level1/waste/14.png');
-        this.load.image('l1_15', 'assets/Level1/waste/15.png');
-        this.load.image('l1_16', 'assets/Level1/waste/16.png');
-        this.load.image('l1_17', 'assets/Level1/waste/17.png');
-        this.load.image('l1_18', 'assets/Level1/waste/18.png');
     },
 
     setUp: function () {
@@ -79,10 +61,9 @@ var Baselevel = new Phaser.Class({
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.showScore();
-        this.updateWaste();
     },
 
-    updateWaste: function () {
+    updateWaste: function (level) {
         num = Math.floor(Math.random() * (+max - +min)) + +min;
 
         if (num >= 1 && num <= 5)
@@ -92,7 +73,7 @@ var Baselevel = new Phaser.Class({
         else if (num >= 15 && num <= 18)
             category = 'garbage';
 
-        waste = this.matter.add.image(900, 250, 'l1_' + num, null, { isStatic: true }).setInteractive();
+        waste = this.matter.add.image(900, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
     },
 
     dragObject: function (object) {
@@ -138,7 +119,7 @@ var Baselevel = new Phaser.Class({
             || (category == 'organic' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100)
             || (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
             waste.destroy();
-            this.updateWaste();
+            this.updateWaste(level);
             score += 100;
             scoreText.setText(score);
             counter--;
