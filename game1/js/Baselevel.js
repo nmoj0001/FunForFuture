@@ -60,6 +60,7 @@ var Baselevel = new Phaser.Class({
         bonus3Image = this.add.image(1805, 290, 'bonus');
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
+        this.updateWaste(level);
         this.showScore();
     },
 
@@ -110,7 +111,7 @@ var Baselevel = new Phaser.Class({
             this.updateBonusTimer();
         }
         else {
-            endLevel();
+            this.endLevel();
         }
     },
 
@@ -155,8 +156,12 @@ var Baselevel = new Phaser.Class({
     },
 
     endLevel: function () {
+        waste.setVisible(false);
+        this.finalScore();
+    },
+
+    finalScore: function () {
         score += bonusScore;
         scoreText.setText(score);
-        waste.setVisible(false);
     }
 });

@@ -33,6 +33,12 @@ var Level1 = new Phaser.Class({
         level = 1;
         level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.setUp();
-        this.updateWaste();
+    },
+
+    endLevel: function () {
+        waste.setVisible(false);
+        this.finalScore();
+        var endtext = this.add.text(800, 800, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
+        endtext.setText("Level complete");
     }
 });
