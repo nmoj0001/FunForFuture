@@ -1,3 +1,4 @@
+var level1Bg;
 var waste;
 var category;
 var organic;
@@ -46,29 +47,30 @@ var Level1 = new Phaser.Class({
         this.load.image('bonus', 'assets/common/bonus.png');
         this.load.image('timer', 'assets/common/timer.png');
 
-        this.load.image('L1_1', 'assets/Level1/waste/1.png');
-        this.load.image('L1_2', 'assets/Level1/waste/2.png');
-        this.load.image('L1_3', 'assets/Level1/waste/3.png');
-        this.load.image('L1_4', 'assets/Level1/waste/4.png');
-        this.load.image('L1_5', 'assets/Level1/waste/5.png');
-        this.load.image('L1_6', 'assets/Level1/waste/6.png');
-        this.load.image('L1_7', 'assets/Level1/waste/7.png');
-        this.load.image('L1_8', 'assets/Level1/waste/8.png');
-        this.load.image('L1_9', 'assets/Level1/waste/9.png');
-        this.load.image('L1_10', 'assets/Level1/waste/10.png');
-        this.load.image('L1_11', 'assets/Level1/waste/11.png');
-        this.load.image('L1_12', 'assets/Level1/waste/12.png');
-        this.load.image('L1_13', 'assets/Level1/waste/13.png');
-        this.load.image('L1_14', 'assets/Level1/waste/14.png');
-        this.load.image('L1_15', 'assets/Level1/waste/15.png');
-        this.load.image('L1_16', 'assets/Level1/waste/16.png');
-        this.load.image('L1_17', 'assets/Level1/waste/17.png');
-        this.load.image('L1_18', 'assets/Level1/waste/18.png');
+        this.load.image('l1_1', 'assets/Level1/waste/1.png');
+        this.load.image('l1_2', 'assets/Level1/waste/2.png');
+        this.load.image('l1_3', 'assets/Level1/waste/3.png');
+        this.load.image('l1_4', 'assets/Level1/waste/4.png');
+        this.load.image('l1_5', 'assets/Level1/waste/5.png');
+        this.load.image('l1_6', 'assets/Level1/waste/6.png');
+        this.load.image('l1_7', 'assets/Level1/waste/7.png');
+        this.load.image('l1_8', 'assets/Level1/waste/8.png');
+        this.load.image('l1_9', 'assets/Level1/waste/9.png');
+        this.load.image('l1_10', 'assets/Level1/waste/10.png');
+        this.load.image('l1_11', 'assets/Level1/waste/11.png');
+        this.load.image('l1_12', 'assets/Level1/waste/12.png');
+        this.load.image('l1_13', 'assets/Level1/waste/13.png');
+        this.load.image('l1_14', 'assets/Level1/waste/14.png');
+        this.load.image('l1_15', 'assets/Level1/waste/15.png');
+        this.load.image('l1_16', 'assets/Level1/waste/16.png');
+        this.load.image('l1_17', 'assets/Level1/waste/17.png');
+        this.load.image('l1_18', 'assets/Level1/waste/18.png');
     },
 
     setUp: function () {
+        level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.matter.world.setBounds(0, 0, 1920, 1080);
-        this.add.image(0, 0, 'level1_background').setOrigin(0);
+
         this.add.image(500, 600, 'organic').setOrigin(0);
         this.add.image(800, 600, 'garbage').setOrigin(0);
         this.add.image(1100, 600, 'recycling').setOrigin(0);
@@ -92,7 +94,7 @@ var Level1 = new Phaser.Class({
         else if (num >= 15 && num <= 18)
             category = 'garbage';
 
-        waste = this.matter.add.image(900, 250, 'L1_' + num, null, { isStatic: true }).setInteractive();
+        waste = this.matter.add.image(900, 250, 'l1_' + num, null, { isStatic: true }).setInteractive();
     },
 
     dragObject: function (object) {
