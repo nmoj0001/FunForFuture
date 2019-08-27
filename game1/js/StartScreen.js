@@ -1,6 +1,5 @@
 var startScreenBg;
 var gameLogo;
-var cursor;
 
 var StartScreen = new Phaser.Class({
 
@@ -24,10 +23,14 @@ var StartScreen = new Phaser.Class({
     },
 
     update: function () {
-        if (Phaser.Input.Keyboard.JustDown(cursor)) {
-            gameLogo = this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
-            this.startGame();
-        }
+        this.input.on('pointerdown', function (pointer) {
+            this.matter.add.sprite(200, 600, 'game_logo', null, { isStatic: true });
+        }, this);
+
+        // if (Phaser.Input.Keyboard.JustDown(cursor)) {
+        //     gameLogo =
+        //         this.startGame();
+        // }
     },
 
     startGame: function () {
