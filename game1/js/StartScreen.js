@@ -4,6 +4,8 @@ var enterKey;
 
 var StartScreen = new Phaser.Class({
 
+    Extends: Phaser.Scene,
+
     initialize:
 
         function StartScreen() {
@@ -31,7 +33,7 @@ var StartScreen = new Phaser.Class({
         gameLogo.destroy();
         enterKey.destroy();
         startScreenBg.destroy();
-        this.scene.start('Level1');
+        this.scene.start('Baselevel');
     }
 
 });

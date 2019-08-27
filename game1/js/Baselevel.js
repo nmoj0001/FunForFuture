@@ -19,13 +19,13 @@ var bonus3Image;
 var timerText;
 var timerImage;
 
-var Level1 = new Phaser.Class({
+var Baselevel = new Phaser.Class({
 
     Extends: Phaser.Scene,
 
     initialize:
-        function Level1() {
-            Phaser.Scene.call(this, { key: 'Level1' });
+        function Baselevel() {
+            Phaser.Scene.call(this, { key: 'Baselevel' });
         },
 
     preload: function () {
@@ -38,7 +38,6 @@ var Level1 = new Phaser.Class({
 
     loadAssets: function () {
         this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
-
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('garbage', 'assets/common/garbage.png');
         this.load.image('recycling', 'assets/common/recycling.png');
