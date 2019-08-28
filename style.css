@@ -21,7 +21,6 @@ body {
 .carousel-inner img {
   width: 100%;
   max-height: 100vh;
-
   height: auto;
 }
 .carousel-inner h1 {
