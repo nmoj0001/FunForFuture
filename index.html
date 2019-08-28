@@ -1,3 +1,6 @@
+<?php
+	include_once 'includes/dbh.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +10,10 @@
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -102,19 +109,18 @@
           <img src="img/slider14.jpg" />
           <div class="carousel-caption">
             <h1 class="display-2">FunForFuture</h1>
-            <h2>Design Games For Education</h2>
-            <button onclick="window.location.href = 'game1/sortyourwaste.html';">
-              <img src="/pix/web_graphics/free_website_graphics/icons/books/book13.gif" alt="Read book">
-              <br>Read Book!</button>
-            <a class="btn btn-lg px-3 btn-primary" href="#" role="button"
-              >USA <img src="img/game1.png" height="30" alt="Play"
-            /></a>
-
-            <button
-              onclick=
-            >
-              Click Here
-            </button>
+            <h2>
+              <button
+                onclick="window.location.href = 'game1/sortyourwaste.html';"
+                style="font-size:24px"
+                type="button"
+                class="bg-transparent"
+              >
+                <i class="material-icons" style="font-size:48px;color:red"
+                  >videogame_asset</i
+                ><span>Play</span>
+              </button>
+            </h2>
           </div>
         </div>
         <div class="carousel-item">
@@ -254,7 +260,12 @@
 	</div>
 </div>
 </div> -->
+    <?php
+  $sql = "SELECT factdescription FROM facts ORDER BY RAND() LIMIT 1;";
+  $result = mysqli_query($conn, $sql);
+  echo $result;
 
+  ?>
     <!--- Footer -->
     <footer>
       <div class="container-fluid padding">
