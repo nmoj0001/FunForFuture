@@ -7,8 +7,20 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #222;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+p {
+  margin-top: 0;
+}
 /* navbar */
 .navbar {
+  position: absolute;
   border-bottom: 1px solid gray;
   padding: 0.4rem;
   color: black;
@@ -47,22 +59,22 @@ body {
 
 .carousel-caption {
   position: absolute;
-  top: 36rem;
+  top: 50%;
   transform: translateY(-50%);
 }
+
 .carousel-caption h1 {
   font-size: 500%;
   text-transform: uppercase;
   text-shadow: 1px 1px 15px #000;
 }
-.carousel-caption input {
-  max-height: 25rem;
-  max-width: 100rem;
+
+/* .carousel-caption input {
+  max-height: 50rem;
+  max-width: 50rem;
   background: transparent;
-  background-size: cover;
-  border-radius: 100%;
   background-clip: content-box;
-}
+} */
 .btn-primary {
   background-color: #6648b1;
   border: 1px solid #563d7c;
@@ -77,7 +89,7 @@ body {
   border-radius: 0;
 }
 .padding {
-  padding-bottom: 2rem;
+  padding-bottom: 0rem;
 }
 .welcome {
   width: 75%;
@@ -137,7 +149,9 @@ body {
 .fa-youtube:hover {
   color: #d5d5d5;
 }
-
+.dataVisua {
+  margin-bottom: 0;
+}
 footer {
   background-color: #b7bfae;
   color: black;

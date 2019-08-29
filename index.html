@@ -60,15 +60,16 @@
         </div>
       </div>
     </nav> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
       <a class="navbar-brand" href="#"
         ><img
           src="img/Teamlogo2.png"
           width="80rem"
           height="80rem"
-          class="d-inline-block align-top"
+          class="d-inline-block "
           alt="FunForFuture"
-      /></a>
+        />Fun For Future</a
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -82,7 +83,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item active">
             <a class="nav-link" href="#"
               >Home <span class="sr-only">(current)</span></a
@@ -96,10 +97,13 @@
           </li>
         </ul>
       </div>
-      <h2 class="display-6">FunForFuture</h2>
     </nav>
     <!--- Image Slider -->
-    <div id="slides" class="carousel slide" data-ride="carousel">
+    <div
+      id="slides"
+      class="carousel slide container-fluid padding"
+      data-ride="carousel"
+    >
       <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>
         <li data-target="#slides" data-slide-to="1"></li>
@@ -108,9 +112,43 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="img/slider14.jpg" />
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Sort your Waste</h1>
+              <button
+                onclick="window.location.href = 'game1/sortyourwaste.html';"
+                style="font-size:24px"
+                type="button"
+                class="bg-transparent"
+              >
+                Click me
+              </button>
+              <!-- <h2 class="display-2">Sort Your Waste</h2> -->
+
+              <!-- <p>
+                  <button
+                    onclick="window.location.href = 'game1/sortyourwaste.html';"
+                    style="font-size:24px"
+                    type="button"
+                    class="bg-transparent"
+                  >
+                    <input
+                      type="image"
+                      height="30"
+                      width="30"
+                      alt="Play"
+                      src="img/playButton.png"
+                    />
+                  </button>
+                </p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/slider15.jpg" />
           <div class="carousel-caption">
-            <img src="img/showgame.png" alt="" />
-            <h2 class="display-2">Sort Your Waste</h2>
+            <img src="img/game3.png" alt="" />
 
             <button
               onclick="window.location.href = 'game1/sortyourwaste.html';"
@@ -118,42 +156,24 @@
               type="button"
               class="bg-transparent"
             >
-              <input type="image" alt="Play" src="img/game1.png" />
+              <input type="image" alt="Play" src="img/playButton.png" />
             </button>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <img src="img/slider15.jpg" />
-          <div class="carousel-caption">
-            <h1 class="display-2">FunForFuture</h1>
-            <h2>
-              <button
-                onclick="window.location.href = 'game1/sortyourwaste.html';"
-                style="font-size:24px"
-                type="button"
-                class="bg-transparent"
-              >
-                <input type="image" alt="Play" src="img/game1.png" />
-              </button>
-            </h2>
           </div>
         </div>
 
         <div class="carousel-item">
           <img src="img/slider18.jpg" />
           <div class="carousel-caption">
-            <h1 class="display-2">FunForFuture</h1>
-            <h2>
-              <button
-                onclick="window.location.href = 'game1/sortyourwaste.html';"
-                style="font-size:24px"
-                type="button"
-                class="bg-transparent"
-              >
-                <input type="image" alt="Play" src="img/game1.png" />
-              </button>
-            </h2>
+            <img src="img/game3.png" alt="" />
+
+            <button
+              onclick="window.location.href = 'game1/sortyourwaste.html';"
+              style="font-size:24px"
+              type="button"
+              class="bg-transparent"
+            >
+              <input type="image" alt="Play" src="img/playButton.png" />
+            </button>
           </div>
         </div>
       </div>
@@ -175,8 +195,8 @@
       </div>
     </div>
 
-    <!--- Two Column Section -->
-    <div class="container-fluid padding">
+    <!--- Data Visualization-->
+    <div class="dataVisua container-fluid padding pb-0">
       <div class="row padding">
         <div class="col-md-12 col-lg-12">
           <script src="//my.visme.co/visme.js"></script>
@@ -187,9 +207,10 @@
             data-h="1099"
             data-domain="my"
           ></div>
-          <p
+          <!-- <p
             style="width: 220px; font-family: Montserrat,serif; border-radius:3px; padding: 3px; font-size: 12px; color: #314152"
           >
+            <br />
             Made with
             <a
               href="https://www.visme.co/make-infographics?utm_source=CTA&utm_medium=Embed"
@@ -197,9 +218,9 @@
               style="color: #314152; font-size: 12px; font-family: Montserrat,serif; font-weight: 600; text-decoration: none"
               >Visme Infographic Maker</a
             >
-          </p>
-          <br />
-          <a href="#" class="btn btn-primary">Learn more</a>
+          </p> -->
+          <!-- <br />
+          <a href="#" class="btn btn-primary">Learn more</a> -->
         </div>
       </div>
     </div>
