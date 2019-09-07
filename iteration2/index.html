@@ -300,40 +300,20 @@
 	</div>
 </div>
 </div> -->
-    <p>
+    <p id="demo">
 	<h3> fact Section </h3>
+	<button type="button" onclick="loadDoc()">Read Todays Fact</button>
       <script>
-        var mysql = require('mysql');
-
-        var con = mysql.createConnection({
-          host: 'ec2-18-218-62-68.us-east-2.compute.amazonaws.com',
-          user: 'root',
-          password: 'jeyganesh',
-          database: 'waste'
-        });
-
-        con.connect(function(err) {
-          if (err) throw err;
-          var sql = 'SELECT factdescription FROM facts ORDER BY RAND() LIMIT 1';
-          con.query(sql, function(err, result) {
-            if (err) throw err;
-			document.write(11+5);
-            console.log(result);
-          });
-        });
-
-        var http = require('http');
-
-        //create a server object:
-        http.createServer(function(req, res) {
-            res.write('Todays Fact');
-            res.write('result');
-            //write a response to the client
-            res.end();
-            //end the response
-          })
-          .listen(80);
-        //the server object listens on port 80
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "databasefact.php", true);
+  xhttp.send();
+}
       </script>
     </p>
     <!--- Footer -->
