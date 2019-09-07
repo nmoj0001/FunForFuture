@@ -6,7 +6,7 @@ $dbPassword = "jeyganesh";
 $dbName = "waste";
 
 //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
-$mysqli = new mysqli("ec2-18-218-62-68.us-east-2.compute.amazonaws.com","root","jeyganesh","waste");
+$mysqli = new mysqli("localhost","root","jeyganesh","waste");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
