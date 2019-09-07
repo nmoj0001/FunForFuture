@@ -21,6 +21,6 @@ $stmt->fetch();
 $stmt->close();
 
 echo "Fact";
-echo "<h3>".$factdescription. "</h3>;
+echo "<h3>".$factdescription."</h3>";
 
 ?>
