@@ -11,7 +11,7 @@ if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-$sql = "SELECT factdescription FROM facts ORDER BY RAND() LIMIT 1";
+$sql = "SELECT factdescription FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 $stmt->execute();
