@@ -20,6 +20,7 @@ $stmt->bind_result($factdescription);
 $stmt->fetch();
 $stmt->close();
 
-echo "Fact:". $factdescription .;
+echo "Fact";
+echo "<h3>".$factdescription. "</h3>;
 
 ?>
