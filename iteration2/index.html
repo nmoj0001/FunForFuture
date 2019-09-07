@@ -317,6 +317,7 @@
           var sql = 'SELECT factdescription FROM facts ORDER BY RAND() LIMIT 1';
           con.query(sql, function(err, result) {
             if (err) throw err;
+			document.write(result);
             console.log(result);
           });
         });
@@ -324,8 +325,7 @@
         var http = require('http');
 
         //create a server object:
-        http
-          .createServer(function(req, res) {
+        http.createServer(function(req, res) {
             res.write('Todays Fact');
             res.write('result');
             //write a response to the client
