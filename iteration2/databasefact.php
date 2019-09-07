@@ -5,7 +5,7 @@ $dbUsername = "root";
 $dbPassword = "jeyganesh";
 $dbName = "waste";
 
-$mysqli = new mysqli("dbServername", "dbUsername", "dbPassword", "dbName");
+$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
