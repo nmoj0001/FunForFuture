@@ -12,16 +12,16 @@ if($mysqli->connect_error) {
 }
 
 //$sql = "SELECT factdescription FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
-$sql = "Select * from Fact";
+$sql = "Select fact_description from Fact";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result($factdescription);
+$stmt->bind_result($fact_description);
 $stmt->fetch();
 $stmt->close();
 
 echo "Fact";
-echo "<h3>".$factdescription."</h3>";
+echo "<h3>".$fact_description."</h3>";
 
 ?>
