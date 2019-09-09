@@ -6,12 +6,13 @@ $dbPassword = "jeyganesh";
 $dbName = "waste";
 
 //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
-$mysqli = new mysqli("localhost","root","jeyganesh","waste");
+$mysqli = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com","jeyganesh","jeyganesh","jeyganesh");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-$sql = "SELECT factdescription FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
+//$sql = "SELECT factdescription FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
+$sql = "Select * from Fact";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 $stmt->execute();
