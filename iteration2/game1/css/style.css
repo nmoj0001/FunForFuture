@@ -24,7 +24,8 @@ html {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    display: inline-block;
+    position: relative;
+    /* display: inline-block; */
 }
 
 .cta {
