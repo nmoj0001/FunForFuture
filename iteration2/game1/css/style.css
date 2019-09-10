@@ -26,7 +26,7 @@ html {
 }
 
 .cta {
-    display: flex;
+    /* display: flex; */
     padding: 10px 45px;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
