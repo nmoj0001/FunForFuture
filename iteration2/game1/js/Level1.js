@@ -9,7 +9,6 @@ var Level1 = new Phaser.Class({
 
     preload: function () {
         this.loadAssets();
-        this.load.image('level1_backgroundtest', 'assets/common/test.jpg');
         this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
         this.load.image('l1_1', 'assets/Level1/waste/1.png');
         this.load.image('l1_2', 'assets/Level1/waste/2.png');
@@ -33,7 +32,7 @@ var Level1 = new Phaser.Class({
 
     create: function () {
         level = 1;
-        level1Bg = this.add.image(0, 0, 'level1_backgroundtest').setOrigin(0);
+        level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
         this.setUp();
     },
 
