@@ -4,7 +4,7 @@ body, html {
   }
   
   .bg {
-    background-image: url("assets/common/start_screen_bg.jpg");
+    background-image: url("game1/assets/common/start_screen_bg.jpg");
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
