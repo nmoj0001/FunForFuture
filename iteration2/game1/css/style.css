@@ -1,63 +1,111 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:900");
-
+@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 * {
-    height: 100%;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: Raleway, serif;
 }
 
-  
+body,
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .bg {
     background-image: url("/iteration2/game1/assets/common/start_screen_bg.jpg");
-    height: 100%; 
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-svg {
-    width: 80vw;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    max-width: 430px;
-    transform: translateY(-50%) translateX(-50%);
-    z-index: 2;
-    filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.3));
 }
 
-path {
-    cursor: pointer;
-    animation: blob 2s infinite forwards;
-    transform-origin: 50% 50%;  
+.wrapper {
+    display: flex;
+    justify-content: center;
 }
 
-hover {
-        fill: #fafafa;
-    }
-
-text {
-    font-size: 45px;
+.cta {
+    display: flex;
+    padding: 10px 45px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    color: white;
+    background: #6225E6;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
 }
 
-@keyframes blob {
-    25% {
-        d: path(
-            "M 90 210 C 90 180 110 160 130 160 C 160 160 180 140 200 130 C 230 120 270 100 290 140 C 310 170 340 100 360 140 C 370 160 390 180 390 210 C 390 240 380 290 350 280 C 330 270 300 280 280 290 C 260 300 230 300 220 290 C 200 270 160 310 140 280 C 130 260 90 240 90 210 "
-        );
-        transform: rotate(-5deg);
+.cta:focus {
+    outline: none;
+}
+
+.cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #FBC638;
+}
+
+.cta span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 0px;
+}
+
+.cta:hover span:nth-child(2) {
+    transition: 0.5s;
+    margin-right: 45px;
+}
+
+span {
+    transform: skewX(15deg)
+}
+
+span:nth-child(2) {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+}
+
+
+/**************SVG****************/
+
+path.one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+path.two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.cta:hover path.three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover path.one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover path.two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+
+/* SVG animations */
+
+@keyframes color_anim {
+    0% {
+        fill: white;
     }
     50% {
-        d: path(
-            "M 90 210 C 90 180 100 150 120 130 C 150 100 180 140 200 130 C 230 120 270 100 290 140 C 300 160 330 130 360 140 C 390 150 390 180 390 210 C 390 240 380 300 350 280 C 330 270 320 230 280 260 C 260 280 220 310 200 290 C 180 270 160 280 140 280 C 110 280 90 240 90 210"
-        );
+        fill: #FBC638;
     }
-    75% {
-        d: path(
-            "M 90 210 C 90 180 110 180 130 170 C 150 160 170 130 200 130 C 240 130 260 150 290 140 C 310 130 340 120 360 140 C 380 160 390 180 390 210 C 390 240 380 260 350 270 C 320 280 290 270 270 260 C 240 250 230 280 210 290 C 180 310 130 300 110 280 C 90 260 90 240 90 210"
-        );
-        transform: rotate(5deg);
+    100% {
+        fill: white;
     }
 }
