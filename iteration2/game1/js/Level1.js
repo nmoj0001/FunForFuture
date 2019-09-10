@@ -33,10 +33,10 @@ var Level1 = new Phaser.Class({
     create: function () {
         level = 1;
         level1Bg = this.add.image(this.cameras.main.width / 2, this.cameras.main.height / 2, 'level1_background').setOrigin(0);
-        scaleX = this.cameras.main.width / image.width
-        scaleY = this.cameras.main.height / image.height
-        scale = Math.max(scaleX, scaleY)
-        level1Bg.setScale(scale).setScrollFactor(0)
+        // scaleX = this.cameras.main.width / image.width
+        // scaleY = this.cameras.main.height / image.height
+        // scale = Math.max(scaleX, scaleY)
+        // level1Bg.setScale(scale).setScrollFactor(0)
 
         this.setUp();
     },
