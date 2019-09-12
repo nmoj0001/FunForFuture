@@ -6,8 +6,8 @@ $dbPassword = "jeyganesh";
 $dbName = "waste";
 
 //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
-$mysqli = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com","jeyganesh","jeyganesh","jeyganesh");
-if($mysqli->connect_error) {
+$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com","jeyganesh","jeyganesh","jeyganesh");
+if($conn->connect_error) {
   exit('Could not connect');
 }
 
@@ -22,7 +22,7 @@ if($mysqli->connect_error) {
 //$stmt->fetch();
 //$stmt->close();
 
-$sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
+$sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND() LIMIT 1";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
