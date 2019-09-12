@@ -38,7 +38,7 @@ ul {
 .wrapper {
     display: flex;
     justify-content: center;
-    margin: 5px auto;
+    margin: 15px auto;
     position: relative;
 }
 
