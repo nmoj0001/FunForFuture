@@ -23,6 +23,12 @@ html {
     align-items: center;
 }
 
+li div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 700px;
+}
+
 .wrapper {
     display: flex;
     justify-content: center;
