@@ -35,6 +35,7 @@ ul {
 ul li div span {
     width: 350px;
     align-items: center;
+    text-align: center;
 }
 
 .wrapper {
