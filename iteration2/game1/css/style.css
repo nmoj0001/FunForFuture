@@ -26,13 +26,10 @@ html {
 li div {
     display: table-cell;
     vertical-align: middle;
-    width: 700px;
-    margin: 5px 5px 5px 5px;
 }
 
 ul {
     list-style-type: none;
-    margin: 5px 5px 5px 5px;
 }
 
 .wrapper {
