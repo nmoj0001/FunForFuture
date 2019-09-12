@@ -11,17 +11,19 @@ if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-//$sql = "SELECT factdescription FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
-$sql = "Select fact_description from Fact";
+//$sql = "SELECT factdescription, fact_source FROM facts ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
+//$sql = "Select fact_description, fact_source from Fact";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result($fact_description);
+$stmt->bind_result($fact_description, $fact_source);
 $stmt->fetch();
 $stmt->close();
 
 echo "Fact";
 echo "<h3>".$fact_description."</h3>";
+echo "Source";
+echo "<h4>".$fact_source."</h4>";
 
 ?>
