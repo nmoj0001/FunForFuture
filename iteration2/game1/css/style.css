@@ -23,7 +23,7 @@ html {
     align-items: center;
 }
 
-li {
+li div {
     display: table-cell;
     vertical-align: middle;
     width: 700px;
@@ -119,7 +119,7 @@ path.two {
         fill: white;
     }
     50% {
-        fill: #FBC638;
+        fill: #7bf542;
     }
     100% {
         fill: white;
