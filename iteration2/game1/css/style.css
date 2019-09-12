@@ -27,17 +27,18 @@ li div {
     display: table-cell;
     vertical-align: middle;
     width: 700px;
-    margin: 1em 0;
+    margin: 5px 5px 5px 5px;
 }
 
 ul {
     list-style-type: none;
+    margin: 5px 5px 5px 5px;
 }
 
 .wrapper {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 5px auto;
     position: relative;
 }
 
