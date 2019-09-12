@@ -33,7 +33,8 @@ ul {
 }
 
 ul li div span {
-    width: 400px;
+    width: 350px;
+    align-items: center;
 }
 
 .wrapper {
