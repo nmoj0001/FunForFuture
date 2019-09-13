@@ -2,7 +2,7 @@
 
 <?php
 
-$sql = "SELECT sno,name FROM sample LIMIT 1";
+$sql = "SELECT sno FROM sample LIMIT 1";
 $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
 <h3>"Is this recyclable?"</h3>;
