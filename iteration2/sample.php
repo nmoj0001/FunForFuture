@@ -11,7 +11,8 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 <h3>"Is this recyclable?"</h3>;
-<img src="<?=$row["name"]?>" width="175" height="200" />;
+
+echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name'] ).'" height="200" width="200"/>';
 
 ?>
 
