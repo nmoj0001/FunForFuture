@@ -7,8 +7,8 @@ $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
 
 echo $row1["sno"]; 
-echo $row1["name"];
-echo '<img src="data:name/jpeg;base64,'.base64_encode($row1['name'] ).'" height="200" width="200"/>';
+//echo $row1["name"];
+echo '<img src="data:name/jpeg;base64,'.base64_encode($row1["name"] ).'" height="200" width="200"/>';
 //(isset($_POST["submit2"]))
 
 //$res=mysqli_query($conn,"select * from sample");
