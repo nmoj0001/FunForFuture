@@ -1,10 +1,6 @@
+<?php include("dbconnection.php"); ?> 
 
 <?php
-
-$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com","jeyganesh","jeyganesh","jeyganesh");
-if($conn->connect_error) {
-  exit('Could not connect');
-}
 
 $sql = "SELECT name from sample";
 $result = $conn->query($sql);
