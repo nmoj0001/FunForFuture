@@ -8,7 +8,8 @@ $row1 = $result->fetch_assoc();
 
 echo $row1["sno"]; 
 //echo $row1["name"];
-echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['name']->load()) .'" />';
+//echo '<img src="data:image/jpeg;base64,'.base64_encode($row1['name']->load()) .'" />';
+echo "<div class='caption'><h3><img src='http://placehold.it/150x150' alt=''><center>" . $row1['name'] . "</h3></div>";
 
 /*
 
