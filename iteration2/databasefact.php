@@ -1,6 +1,6 @@
-<? include("dbconnection.php"); ?> 
+<?php include("dbconnection.php"); ?> 
 
-<?
+<?php
 
 //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
 //$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com","jeyganesh","jeyganesh","jeyganesh");
