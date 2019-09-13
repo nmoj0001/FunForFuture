@@ -5,7 +5,7 @@
 $sql = "SELECT sno, name FROM sample LIMIT 1";
 $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
-$image = $row1["name"];
+$image = $row1["image"];
 
 ?>
 <form name="quiz" method="post" action="sample.php"> 
