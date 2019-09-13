@@ -7,8 +7,14 @@ $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
 $image = $row1["name"];
 
+?>
+<form name="quiz" method="post" action="sample.php"> 
+<img src="data:image/jpeg;base64,'.base64_encode($image).'" height="200" width="200"/>
+</form>
+
+<?php
 echo $row1["sno"]; 
-print $image;
+
 //echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name']).'" height="200" width="200"/>';
 //echo $row1["name"];
 
