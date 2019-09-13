@@ -7,6 +7,7 @@ $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
 
 echo $row1["sno"]; 
+echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name']).'" height="200" width="200"/>';
 //echo $row1["name"];
 
 //echo "<div class='caption'><h3><img src='http://placehold.it/150x150' alt=''><center>" . $row1['name'] . "</h3></div>";
@@ -23,11 +24,11 @@ $res=mysqli_query($conn,"select * from sample");
 $row=mysqli_fetch_array($res);
 echo "quiz game";
 echo $row['sno']; 
- echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name']).'" height="200" width="200"/>';
+ 
    
 */
 ?>
-<img src="data:image/jpeg;base64,'.base64_encode($row1['name']->load()) .'" />
+
 
 
 
