@@ -5,9 +5,11 @@
 $sql = "SELECT sno, name FROM sample LIMIT 1";
 $result = $conn->query($sql);
 $row1 = $result->fetch_assoc();
+$image = $row1["name"];
 
 echo $row1["sno"]; 
-echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name']).'" height="200" width="200"/>';
+print $image;
+//echo '<img src="data:name/jpeg;base64,'.base64_encode($row['name']).'" height="200" width="200"/>';
 //echo $row1["name"];
 
 //echo "<div class='caption'><h3><img src='http://placehold.it/150x150' alt=''><center>" . $row1['name'] . "</h3></div>";
