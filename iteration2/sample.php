@@ -27,7 +27,9 @@ echo $row['sno'];
    
 */
 ?>
-<img src="data:name/jpeg;base64,'.base64_encode($row1["name"] ).'" height="200" width="200"/>
+<img src="data:name/jpeg;base64,'.base64_encode($row1["name"] ).'" height="200" width="200"/>;
+
+
 
 
 
