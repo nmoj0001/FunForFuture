@@ -1,6 +1,5 @@
 <?php include("dbconnection.php"); ?> 
 
-
 <?php
 
 //$sql = "SELECT * FROM sample LIMIT 1";
