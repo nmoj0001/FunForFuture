@@ -8,10 +8,10 @@ $row1 = $result->fetch_assoc();
 
 echo $row1["sno"]; 
 //echo $row1["name"];
-echo <img src="data:image/jpeg;base64,'.base64_encode($row1['name']->load()) .'" />;
 
 //echo "<div class='caption'><h3><img src='http://placehold.it/150x150' alt=''><center>" . $row1['name'] . "</h3></div>";
 //$image = getImageFromDatabase($row1["name"]);
+//echo $image;
 
 /*
 
@@ -27,6 +27,8 @@ echo $row['sno'];
    
 */
 ?>
+<img src="data:name/jpeg;base64,'.base64_encode($row1["name"] ).'" height="200" width="200"/>
+
 
 
 
