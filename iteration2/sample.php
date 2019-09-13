@@ -1,5 +1,5 @@
 <?php include("dbconnection.php"); ?> 
-<h3>"Is this recyclable?"</h3>;
+<h3>Is this recyclable?</h3>
 <?php
 
 $sql = "SELECT sno, name FROM sample LIMIT 1";
@@ -27,7 +27,7 @@ echo $row['sno'];
    
 */
 ?>
-<img src="data:name/jpeg;base64,'.base64_encode($row1["name"] ).'" height="200" width="200"/>;
+<img src="data:image/jpeg;base64,'.base64_encode($row1['name']->load()) .'" />
 
 
 
