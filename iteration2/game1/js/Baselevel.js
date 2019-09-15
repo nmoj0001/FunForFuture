@@ -47,9 +47,9 @@ var Baselevel = new Phaser.Class({
     setUp: function() {
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
-        var organic = this.add.image(500, 600, 'organic').setOrigin(0);
-        var garbage = this.add.image(800, 600, 'garbage').setOrigin(0);
-        var recycling = this.add.image(1100, 600, 'recycling').setOrigin(0);
+        var organic = this.add.image(600, 500, 'organic').setOrigin(0);
+        var garbage = this.add.image(900, 500, 'garbage').setOrigin(0);
+        var recycling = this.add.image(1200, 500, 'recycling').setOrigin(0);
 
         organic.setScale(.7);
         garbage.setScale(.7);
