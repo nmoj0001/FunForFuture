@@ -5,7 +5,7 @@ var category;
 var organic;
 var garbage;
 var recycling;
-var counter = 5;
+var counter = 10;
 var num;
 var min = 1;
 var max = 18;
@@ -134,7 +134,6 @@ var Baselevel = new Phaser.Class({
             waste.setY(250);
             score -= 10;
             scoreText.setText(score);
-            counter--;
         }
     },
 
