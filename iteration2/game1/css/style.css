@@ -34,13 +34,11 @@ ul li {
 .button {
     display: table-cell;
     vertical-align: middle;
-    width: 350px;
 }
 
 .icon {
     display: inline;
     text-align: center;
-    text-decoration: none;
 }
 
 .wrapper {
