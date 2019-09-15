@@ -46,7 +46,6 @@ var Baselevel = new Phaser.Class({
     },
 
     setUp: function() {
-        this.camera.setBackgroundColor('rgba(255, 0, 0, 0.5)');
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
         var organic = this.add.image(650, 580, 'organic').setOrigin(0);
