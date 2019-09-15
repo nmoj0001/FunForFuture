@@ -44,8 +44,10 @@ ul li {
 }
 
 .icon {
-    display: inline;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    position: relative;
 }
 
 .wrapper {
