@@ -36,30 +36,21 @@
         </div>
     </div>
 
-    <!-- The Modal -->
     <div id="myModal" class="modal">
-
-        <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <h1>Welcome to Sort Your Waste!</h1>
+            <p>Drag the items that show up on top corner of screen to correct bin and gain points! Put item in wrong bin and you lose points</p>
+            <p>Finish game within the timer to complete level. Complete all three level to WIN!!!</p>
         </div>
-
     </div>
-
 </body>
 
 <script>
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
 
     btn.onclick = function() {
         modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
     }
 
     window.onclick = function(event) {
