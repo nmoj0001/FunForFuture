@@ -117,12 +117,22 @@ var Baselevel = new Phaser.Class({
     },
 
     sortWaste: function() {
-        if ((category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100) ||
-            (category == 'organic' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100) ||
-            (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
+        if (((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
+                (category == 'organic' && waste.x > 650 && waste.x < 900) ||
+                (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
+            waste.y > 700 && waste.y < 1100) {
             waste.destroy();
             this.updateWaste(level);
             score += 100;
+            scoreText.setText(score);
+            counter--;
+        } else if ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
+            (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
+            (category == 'garbage' && (waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150)) &&
+            waste.y > 700 && waste.y < 1100) {
+            waste.setX(1000);
+            waste.setY(250);
+            score -= 10;
             scoreText.setText(score);
             counter--;
         }
