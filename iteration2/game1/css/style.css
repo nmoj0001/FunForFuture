@@ -31,16 +31,13 @@ ul li {
     text-align: center;
 }
 
-ul li div span {
+.button {
+    display: table-cell;
+    vertical-align: middle;
     width: 350px;
 }
 
-li div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-li img {
+.icon {
     display: inline;
     text-align: center;
     text-decoration: none;
