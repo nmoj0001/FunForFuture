@@ -51,9 +51,9 @@ var Baselevel = new Phaser.Class({
         var garbage = this.add.image(800, 600, 'garbage').setOrigin(0);
         var recycling = this.add.image(1100, 600, 'recycling').setOrigin(0);
 
-        organic.setScale(.5);
-        garbage.setScale(.5);
-        recycling.setScale(.5);
+        organic.setScale(.8);
+        garbage.setScale(.8);
+        recycling.setScale(.8);
 
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
