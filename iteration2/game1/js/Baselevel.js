@@ -96,8 +96,8 @@ var Baselevel = new Phaser.Class({
 
         this.input.on('dragend', function(pointer, gameObject) {
             gameObject.clearTint();
-            gameObject.x = 850;
-            gameObject.y = 150;
+            gameObject.x = 1000;
+            gameObject.y = 250;
         });
     },
 
@@ -120,7 +120,7 @@ var Baselevel = new Phaser.Class({
         if (((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
                 (category == 'organic' && waste.x > 650 && waste.x < 900) ||
                 (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
-            waste.y > 700 && waste.y < 1100) {
+            (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste(level);
             score += 100;
@@ -136,6 +136,14 @@ var Baselevel = new Phaser.Class({
         //     score -= 10;
         //     scoreText.setText(score);
         // }
+        else if ((waste.y > 700 && waste.y < 1100) &&
+            (category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150)))) {
+            waste.setX(1000);
+            waste.setY(250);
+            score -= 10;
+            scoreText.setText(score);
+        }
+
     },
 
     showScore: function() {
