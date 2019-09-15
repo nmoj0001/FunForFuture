@@ -4,8 +4,8 @@ var config = {
         parent: 'phaser-example',
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 2500,
-        height: 1200,
+        width: 1920,
+        height: 800,
     },
     physics: {
         default: 'matter',
