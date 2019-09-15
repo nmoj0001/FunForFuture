@@ -132,8 +132,8 @@ var Baselevel = new Phaser.Class({
         scoreImage = this.add.image(1650, 70, 'score');
         timerImage = this.add.image(1650, 180, 'timer');
 
-        scoreText = this.add.text(1705, 50, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('##ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        timerText = this.add.text(1705, 160, 'Timer Text', { font: "40px Arial Black", fill: "#fff" }).setStroke('##ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);;
+        scoreText = this.add.text(1705, 50, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        timerText = this.add.text(1705, 160, 'Timer Text', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);;
     },
 
     updateBonusTimer: function() {
@@ -141,7 +141,7 @@ var Baselevel = new Phaser.Class({
             playLevel = false;
         }
 
-        timerText.setText(timedEvent.repeatCount);
+        timerText.setText('00:' + timedEvent.repeatCount);
     },
 
     endLevel: function() {
