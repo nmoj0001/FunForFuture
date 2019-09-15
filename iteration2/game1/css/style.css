@@ -36,7 +36,7 @@ ul li div span {
 }
 
 li div {
-    display: table-cell;
+    /* display: table-cell; */
     vertical-align: middle;
 }
 
