@@ -7,9 +7,6 @@ body,
 html {
     height: 100%;
     margin: 0;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
 }
 
 .bg {
@@ -19,8 +16,8 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 }
 
 li div {
@@ -41,6 +38,7 @@ ul li div span {
 .wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 15px auto;
     position: relative;
 }
