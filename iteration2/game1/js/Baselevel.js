@@ -71,7 +71,7 @@ var Baselevel = new Phaser.Class({
         else if (num >= 15 && num <= 18)
             category = 'garbage';
 
-        waste = this.matter.add.image(900, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
+        waste = this.matter.add.image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
     },
 
     dragObject: function(object) {
@@ -129,11 +129,11 @@ var Baselevel = new Phaser.Class({
     },
 
     showScore: function() {
-        scoreImage = this.add.image(1550, 70, 'score');
-        scoreText = this.add.text(1605, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
+        scoreImage = this.add.image(1650, 70, 'score');
+        scoreText = this.add.text(1705, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
 
-        timerImage = this.add.image(1550, 180, 'timer');
-        timerText = this.add.text(1605, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', })
+        timerImage = this.add.image(1650, 180, 'timer');
+        timerText = this.add.text(1705, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', })
     },
 
     updateBonusTimer: function() {
