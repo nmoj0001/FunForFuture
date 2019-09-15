@@ -130,17 +130,10 @@ var Baselevel = new Phaser.Class({
 
     showScore: function() {
         scoreImage = this.add.image(1650, 70, 'score');
-        scoreText = this.add.text(1705, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
-
         timerImage = this.add.image(1650, 180, 'timer');
-        // timerText = this.add.text(1705, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New' });
 
-
-        timerText = this.add.text(1705, 160, 'Rainbow Text', { font: "74px Arial Black", fill: "#fff" });
-        timerText.setStroke('#00f', 16);
-        timerText.setShadow(2, 2, "#333333", 2, true, true);
-
-
+        scoreText = this.add.text(1705, 50, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('##ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        timerText = this.add.text(1705, 160, 'Timer Text', { font: "40px Arial Black", fill: "#fff" }).setStroke('##ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);;
     },
 
     updateBonusTimer: function() {
