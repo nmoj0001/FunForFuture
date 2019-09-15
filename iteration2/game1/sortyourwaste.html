@@ -5,6 +5,17 @@
     <title>SortYourWaste</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script>
+        $("#js-open-modal").click(function() {
+            $(".modal").addClass("visible");
+        });
+
+        $(document).click(function(event) {
+            if (!$(event.target).closest(".modal,#js-open-modal").length) {
+                $("body").find(".modal").removeClass("visible");
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -32,9 +43,16 @@
         </div>
         <div class="button">
             <a href="/iteration2/index.html" class="action-button shadow animate blue"><i class="fa fa-home"></i></a>
-            <a href="#" class="action-button shadow animate blue"><i class="fa fa-info"></i></a>
+            <a href="#" id="js-open-modal" class="action-button shadow animate blue"><i class="fa fa-info"></i></a>
         </div>
     </div>
+
+    <div class="modal">
+        <p>
+            hey there, I'm the modal
+        </p>
+    </div>
+
 </body>
 
 </html>
