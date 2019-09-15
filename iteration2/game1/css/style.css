@@ -148,7 +148,7 @@ path.two {
     position: relative;
     padding: 10px 40px;
     margin-left: 10px;
-    float: left;
+    float: center;
     border-radius: 10px;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
