@@ -126,6 +126,13 @@ var Baselevel = new Phaser.Class({
             score += 100;
             scoreText.setText(score);
             counter--;
+        } else if ((waste.y > 700 && waste.y < 1100) &&
+            (category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150)))) {
+            waste.destroy();
+            this.updateWaste(level);
+            score -= 50;
+            scoreText.setText(score);
+            counter--;
         }
         // else if ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
         //     (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
@@ -136,13 +143,7 @@ var Baselevel = new Phaser.Class({
         //     score -= 10;
         //     scoreText.setText(score);
         // }
-        else if ((waste.y > 700 && waste.y < 1100) &&
-            (category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150)))) {
-            waste.setX(1000);
-            waste.setY(250);
-            score -= 10;
-            scoreText.setText(score);
-        }
+
 
     },
 
