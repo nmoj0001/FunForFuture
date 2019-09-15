@@ -146,7 +146,8 @@ path.two {
 
 .action-button {
     position: relative;
-    padding: 10px 30px;
+    padding: 10px 40px;
+    margin-left: 10px;
     float: left;
     border-radius: 10px;
     font-family: 'Pacifico', cursive;
