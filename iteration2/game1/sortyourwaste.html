@@ -5,20 +5,10 @@
     <title>SortYourWaste</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script>
-        $("#js-open-modal").click(function() {
-            $(".modal").addClass("visible");
-        });
-
-        $(document).click(function(event) {
-            if (!$(event.target).closest(".modal,#js-open-modal").length) {
-                $("body").find(".modal").removeClass("visible");
-            }
-        });
-    </script>
 </head>
 
 <body>
+    <script type="text/javascript" src="js/modal.js"></script>
     <img src="assets/common/start_screen_bg.jpg" class="bg" />
     <div class="container">
         <div class="button">
