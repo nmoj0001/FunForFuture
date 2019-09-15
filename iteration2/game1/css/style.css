@@ -26,7 +26,6 @@ html {
 .icon {
     position: absolute;
     left: 0;
-    transform: translateY(-50%);
 }
 
 li div {
