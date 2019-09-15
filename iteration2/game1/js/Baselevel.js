@@ -126,7 +126,7 @@ var Baselevel = new Phaser.Class({
             this.updateWaste(level);
             score += 100;
             scoreText.setText(score);
-            updateScoreText('+100');
+            this.updateScoreText('+100');
             counter--;
         } else if ((waste.y > 700 && waste.y < 1100) &&
             ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
@@ -136,7 +136,7 @@ var Baselevel = new Phaser.Class({
             this.updateWaste(level);
             if (score > 0) {
                 score -= 50;
-                updateScoreText('-50');
+                this.updateScoreText('-50');
             }
             scoreText.setText(score);
             counter--;
