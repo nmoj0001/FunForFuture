@@ -23,7 +23,12 @@ html {
     position: relative;
 }
 
-.icon {
+.icon_home {
+    position: absolute;
+    left: 5px;
+}
+
+.icon_info {
     position: absolute;
     left: 5px;
 }
