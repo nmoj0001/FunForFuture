@@ -35,10 +35,5 @@ var Level2 = new Phaser.Class({
         this.setUp();
     },
 
-    endLevel: function() {
-        waste.setVisible(false);
-        var endtext = this.add.text(800, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New' });
-        endtext.setText("Level complete");
-        totalScore += score;
-    }
+    endLevel: function() {}
 });
