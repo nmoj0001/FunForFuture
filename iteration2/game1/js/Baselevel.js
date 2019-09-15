@@ -46,12 +46,12 @@ var Baselevel = new Phaser.Class({
     },
 
     setUp: function() {
+        game.stage.backgroundColor = "#4488AA";
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
         var organic = this.add.image(650, 580, 'organic').setOrigin(0);
         var garbage = this.add.image(900, 580, 'garbage').setOrigin(0);
         var recycling = this.add.image(1150, 580, 'recycling').setOrigin(0);
-
         organic.setScale(.7);
         garbage.setScale(.7);
         recycling.setScale(.7);
@@ -124,7 +124,7 @@ var Baselevel = new Phaser.Class({
             (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste(level);
-            this.updateScore(100);
+            this.updateScore(+100);
         } else if ((waste.y > 700 && waste.y < 1100) &&
             ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
                 (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
