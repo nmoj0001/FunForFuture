@@ -22,17 +22,11 @@ html {
     align-items: center;
 }
 
-li div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 ul {
     list-style-type: none;
 }
 
 ul li img {
-    width: 350px;
     align-items: center;
     text-align: center;
 }
@@ -41,6 +35,16 @@ ul li div span {
     width: 350px;
     align-items: center;
     text-align: center;
+}
+
+li div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+li img {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .wrapper {
