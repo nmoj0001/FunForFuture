@@ -133,7 +133,8 @@ var Baselevel = new Phaser.Class({
         scoreText = this.add.text(1705, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
 
         timerImage = this.add.image(1650, 180, 'timer');
-        timerText = this.add.bitmapText(1705, 160, 'atari', 'test', 50);
+        timerText = this.add.text(1705, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
+        timerText.setTint(0xff00ff, 0xffff00, 0x0000ff, 0xff0000);
 
     },
 
