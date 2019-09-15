@@ -11,6 +11,7 @@ var min = 1;
 var max = 18;
 var score = 0;
 var scoreText;
+var scoreUpdateText;
 var scoreImage;
 var timedEvent;
 var timerText;
@@ -125,6 +126,7 @@ var Baselevel = new Phaser.Class({
             this.updateWaste(level);
             score += 100;
             scoreText.setText(score);
+            updateScoreText('+100');
             counter--;
         } else if ((waste.y > 700 && waste.y < 1100) &&
             ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
@@ -132,7 +134,10 @@ var Baselevel = new Phaser.Class({
                 (category == 'garbage' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))))) {
             waste.destroy();
             this.updateWaste(level);
-            score -= 50;
+            if (score > 0) {
+                score -= 50;
+                updateScoreText('-50');
+            }
             scoreText.setText(score);
             counter--;
         }
@@ -154,15 +159,19 @@ var Baselevel = new Phaser.Class({
         timerText.setText('00:' + timedEvent.repeatCount);
     },
 
-    // createFloatingText: function (x, y, message, tint, font) {
-    //     var animation = this.add.bitmapText(x, y, font, message).setTint(tint);
-    //     let tween: Phaser.Tweens.Tween = this.add.tween({
-    //         targets: animation, duration: 750, ease: 'Exponential.In', y: y - 50,
-    //         onComplete: () => {
-    //             animation.destroy();
-    //         }, callbackScope: this
-    //     });
-    // },
+    updateScoreText: function(update) {
+        scoreUpdateText = this.add.text(1810, 50, '+' + update, { font: "40px Arial Black", fill: "#ffdd00" }).setShadow(2, 2, "#333333", 2, true, true);
+        var tween = this.tweens.add({
+            targets: scoreUpdateText,
+            y: 200,
+            ease: 'Power1',
+            duration: 1000,
+            alpha: 0.3,
+            onComplete: () => {
+                scoreUpdateText.destroy();
+            },
+        });
+    },
 
     endLevel: function() {
         waste.setVisible(false);
