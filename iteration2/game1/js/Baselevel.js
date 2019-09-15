@@ -158,7 +158,7 @@ var Baselevel = new Phaser.Class({
         scoreText.setText(score);
         counter--;
 
-        scoreUpdateText = this.add.text(1000, 250, update, { font: "40px Arial Black", fill: "#ffdd00" }).setShadow(2, 2, "#333333", 2, true, true);
+        scoreUpdateText = this.add.text(1000, 250, update, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         var tween = this.tweens.add({
             targets: scoreUpdateText,
             y: 300,
