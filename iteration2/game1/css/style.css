@@ -26,11 +26,8 @@ html {
 .icon_home {
     position: absolute;
     left: 5px;
-}
-
-.icon_info {
-    position: absolute;
-    left: 5px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 li div {
