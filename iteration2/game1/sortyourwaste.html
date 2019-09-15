@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="js/modal.js"></script>
     <img src="assets/common/start_screen_bg.jpg" class="bg" />
     <div class="container">
         <div class="button">
@@ -33,16 +32,36 @@
         </div>
         <div class="button">
             <a href="/iteration2/index.html" class="action-button shadow animate blue"><i class="fa fa-home"></i></a>
-            <a href="#" id="js-open-modal" class="action-button shadow animate blue"><i class="fa fa-info"></i></a>
+            <a href="#" id="myBtn" class="action-button shadow animate blue"><i class="fa fa-info"></i></a>
         </div>
     </div>
 
-    <div class="modal">
+    <div id="myModal" class="modal">
         <p>
             hey there, I'm the modal
         </p>
     </div>
 
 </body>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </html>
