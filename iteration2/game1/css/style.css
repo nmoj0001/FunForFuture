@@ -158,8 +158,8 @@ path.two {
 
 .blue {
     background-color: #6225E6;
-    border-bottom: 5px solid #7bf542;
-    text-shadow: 0px -2px #7bf542;
+    border-bottom: 5px solid black;
+    text-shadow: 0px -2px black;
 }
 
 .action-button:active {
