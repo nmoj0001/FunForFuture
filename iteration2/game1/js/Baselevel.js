@@ -46,7 +46,7 @@ var Baselevel = new Phaser.Class({
     },
 
     setUp: function() {
-        game.stage.backgroundColor = "#4488AA";
+        this.stage.backgroundColor = "#4488AA";
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
         var organic = this.add.image(650, 580, 'organic').setOrigin(0);
