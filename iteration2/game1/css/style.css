@@ -185,11 +185,11 @@ path.two {
 }
 
 .modal-content {
-    background-color: #7bf542;
+    background-color: #6225E6;
+    color: #ffffff;
     margin: auto;
     padding: 20px;
-    border: 1px solid #6225E6;
+    border: 1px solid #7bf542;
     width: 80%;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
