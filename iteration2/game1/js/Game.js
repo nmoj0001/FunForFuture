@@ -4,14 +4,14 @@ var config = {
         parent: 'phaser-example',
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 1920,
+        width: 2500,
         height: 1080,
     },
     physics: {
         default: 'matter',
-        matter: { debug : true }
+        matter: { debug: true }
     },
-    scene: [ Level1 ]
+    scene: [Level1]
 };
 
 var game = new Phaser.Game(config);
