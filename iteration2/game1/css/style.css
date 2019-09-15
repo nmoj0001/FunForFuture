@@ -38,14 +38,7 @@ ul li {
     text-align: center;
 }
 
-.icon {
-    display: flex;
-    justify-content: center;
-    margin: 15px auto;
-    position: relative;
-}
-
-.wrapper {
+.button {
     display: flex;
     justify-content: center;
     margin: 15px auto;
