@@ -38,11 +38,6 @@ ul li {
     text-align: center;
 }
 
-.button {
-    display: table-cell;
-    vertical-align: middle;
-}
-
 .icon {
     display: flex;
     justify-content: center;
