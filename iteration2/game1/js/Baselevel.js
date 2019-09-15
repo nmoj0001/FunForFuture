@@ -22,21 +22,20 @@ var Baselevel = new Phaser.Class({
 
     Extends: Phaser.Scene,
 
-    initialize:
-        function Baselevel() {
-            Phaser.Scene.call(this, { key: 'Baselevel' });
-        },
+    initialize: function Baselevel() {
+        Phaser.Scene.call(this, { key: 'Baselevel' });
+    },
 
-    preload: function () {
+    preload: function() {
         this.loadAssets();
     },
 
-    create: function () {
+    create: function() {
         this.setUp();
     },
 
 
-    loadAssets: function () {
+    loadAssets: function() {
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('garbage', 'assets/common/garbage.png');
         this.load.image('recycling', 'assets/common/recycling.png');
@@ -45,12 +44,16 @@ var Baselevel = new Phaser.Class({
         this.load.image('timer', 'assets/common/timer.png');
     },
 
-    setUp: function () {
+    setUp: function() {
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
-        this.add.image(500, 600, 'organic').setOrigin(0);
-        this.add.image(800, 600, 'garbage').setOrigin(0);
-        this.add.image(1100, 600, 'recycling').setOrigin(0);
+        var organic = this.add.image(500, 600, 'organic').setOrigin(0);
+        var garbage = this.add.image(800, 600, 'garbage').setOrigin(0);
+        var recycling = this.add.image(1100, 600, 'recycling').setOrigin(0);
+
+        organic.setScale(.5);
+        garbage.setScale(.5);
+        recycling.setScale(.5);
 
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
@@ -58,7 +61,7 @@ var Baselevel = new Phaser.Class({
         this.showScore();
     },
 
-    updateWaste: function (level) {
+    updateWaste: function(level) {
         num = Math.floor(Math.random() * (+max - +min)) + +min;
 
         if (num >= 1 && num <= 5)
@@ -71,54 +74,52 @@ var Baselevel = new Phaser.Class({
         waste = this.matter.add.image(900, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
     },
 
-    dragObject: function (object) {
-        object.on('pointerover', function () {
+    dragObject: function(object) {
+        object.on('pointerover', function() {
             this.setTint(0xffc7f2);
         });
 
-        object.on('pointerout', function () {
+        object.on('pointerout', function() {
             this.clearTint();
         });
 
         this.input.setDraggable(object);
 
-        this.input.on('dragstart', function (pointer, gameObject) {
+        this.input.on('dragstart', function(pointer, gameObject) {
             gameObject.setTint(0xffc7f2);
         });
 
-        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+        this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
             gameObject.x = dragX;
             gameObject.y = dragY;
         });
 
-        this.input.on('dragend', function (pointer, gameObject) {
+        this.input.on('dragend', function(pointer, gameObject) {
             gameObject.clearTint();
             gameObject.x = 850;
             gameObject.y = 150;
         });
     },
 
-    update: function () {
+    update: function() {
         if (playLevel == true) {
             if (counter > 0) {
                 this.dragObject(waste);
                 this.sortWaste();
                 this.updateBonusTimer();
-            }
-            else {
+            } else {
                 this.endLevel();
             }
-        }
-        else {
+        } else {
             this.loseLevel();
         }
 
     },
 
-    sortWaste: function () {
-        if ((category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100)
-            || (category == 'organic' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100)
-            || (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
+    sortWaste: function() {
+        if ((category == 'recycling' && waste.x > 1100 && waste.x < 1400 && waste.y > 800 && waste.y < 1100) ||
+            (category == 'organic' && waste.x > 500 && waste.x < 800 && waste.y > 800 && waste.y < 1100) ||
+            (category == 'garbage' && waste.x > 800 && waste.x < 1100 && waste.y > 800 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste(level);
             score += 100;
@@ -127,7 +128,7 @@ var Baselevel = new Phaser.Class({
         }
     },
 
-    showScore: function () {
+    showScore: function() {
         scoreImage = this.add.image(1550, 70, 'score');
         scoreText = this.add.text(1605, 50, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
 
@@ -135,7 +136,7 @@ var Baselevel = new Phaser.Class({
         timerText = this.add.text(1605, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', })
     },
 
-    updateBonusTimer: function () {
+    updateBonusTimer: function() {
         if (timedEvent.repeatCount == 0) {
             playLevel = false;
         }
@@ -143,11 +144,11 @@ var Baselevel = new Phaser.Class({
         timerText.setText(timedEvent.repeatCount);
     },
 
-    endLevel: function () {
+    endLevel: function() {
         waste.setVisible(false);
     },
 
-    loseLevel: function () {
+    loseLevel: function() {
         waste.setVisible(false);
         var loseText = this.add.text(850, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
         loseText.setText("You lose!");

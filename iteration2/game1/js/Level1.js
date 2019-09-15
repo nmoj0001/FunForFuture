@@ -2,12 +2,11 @@ var Level1 = new Phaser.Class({
 
     Extends: Baselevel,
 
-    initialize:
-        function Level1() {
-            Phaser.Scene.call(this, { key: 'Level1' });
-        },
+    initialize: function Level1() {
+        Phaser.Scene.call(this, { key: 'Level1' });
+    },
 
-    preload: function () {
+    preload: function() {
         this.loadAssets();
         this.load.image('level1_background', 'assets/Level1/level1_background.jpg');
         this.load.image('l1_1', 'assets/Level1/waste/1.png');
@@ -30,13 +29,14 @@ var Level1 = new Phaser.Class({
         this.load.image('l1_18', 'assets/Level1/waste/18.png');
     },
 
-    create: function () {
+    create: function() {
         level = 1;
         level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
+        level1Bg.setScale(.8);
         this.setUp();
     },
 
-    endLevel: function () {
+    endLevel: function() {
         waste.setVisible(false);
         var endtext = this.add.text(800, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
         endtext.setText("Level complete");
