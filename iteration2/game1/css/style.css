@@ -20,14 +20,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-}
-
-.icon {
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    vertical-align: top;
 }
 
 li div {
