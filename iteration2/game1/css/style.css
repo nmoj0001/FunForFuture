@@ -43,7 +43,6 @@ li div {
 }
 
 li img {
-    display: table-cell;
     vertical-align: middle;
 }
 
