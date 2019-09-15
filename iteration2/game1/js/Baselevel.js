@@ -124,10 +124,7 @@ var Baselevel = new Phaser.Class({
             (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
             this.updateWaste(level);
-            score += 100;
-            scoreText.setText(score);
-            this.updateScoreText('+100');
-            counter--;
+            this.updateScore(100);
         } else if ((waste.y > 700 && waste.y < 1100) &&
             ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
                 (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
@@ -135,11 +132,8 @@ var Baselevel = new Phaser.Class({
             waste.destroy();
             this.updateWaste(level);
             if (score > 0) {
-                score -= 50;
-                this.updateScoreText('-50');
+                this.updateScore(-50);
             }
-            scoreText.setText(score);
-            counter--;
         }
     },
 
@@ -159,13 +153,17 @@ var Baselevel = new Phaser.Class({
         timerText.setText('00:' + timedEvent.repeatCount);
     },
 
-    updateScoreText: function(update) {
-        scoreUpdateText = this.add.text(1810, 50, '+' + update, { font: "40px Arial Black", fill: "#ffdd00" }).setShadow(2, 2, "#333333", 2, true, true);
+    updateScore: function(update) {
+        score += update;
+        scoreText.setText(score);
+        counter--;
+
+        scoreUpdateText = this.add.text(1000, 250, update, { font: "40px Arial Black", fill: "#ffdd00" }).setShadow(2, 2, "#333333", 2, true, true);
         var tween = this.tweens.add({
             targets: scoreUpdateText,
-            y: 200,
+            y: 300,
             ease: 'Power1',
-            duration: 1000,
+            duration: 1500,
             alpha: 0.3,
             onComplete: () => {
                 scoreUpdateText.destroy();
