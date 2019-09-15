@@ -22,19 +22,20 @@ html {
     align-items: center;
 }
 
-li div {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-ul {
+ul li img {
     list-style-type: none;
+    align-items: center;
 }
 
 ul li div span {
     width: 350px;
     align-items: center;
     text-align: center;
+}
+
+li div {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .wrapper {
