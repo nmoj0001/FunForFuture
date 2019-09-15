@@ -26,15 +26,13 @@ ul {
     list-style-type: none;
 }
 
-ul li img {
+ul li {
     align-items: center;
     text-align: center;
 }
 
 ul li div span {
     width: 350px;
-    align-items: center;
-    text-align: center;
 }
 
 li div {
