@@ -20,6 +20,13 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 li div {
