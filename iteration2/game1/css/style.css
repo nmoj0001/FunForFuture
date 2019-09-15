@@ -43,10 +43,10 @@ ul li {
 }
 
 .wrapper {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     margin: 15px auto;
-    position: relative;
+    /* position: relative; */
 }
 
 .cta {
