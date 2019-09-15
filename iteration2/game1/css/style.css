@@ -31,10 +31,11 @@ ul li {
     text-align: center;
 }
 
-.button {
+
+/* .button {
     display: table-cell;
     vertical-align: middle;
-}
+} */
 
 .icon {
     display: inline;
