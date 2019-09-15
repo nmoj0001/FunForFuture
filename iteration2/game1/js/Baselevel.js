@@ -134,7 +134,12 @@ var Baselevel = new Phaser.Class({
 
         timerImage = this.add.image(1650, 180, 'timer');
         timerText = this.add.text(1705, 160, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New' });
-        timerText.setTint(0xff00ff, 0xffff00, 0x0000ff, 0xff0000);
+
+
+        var text1 = this.add.text(50, 100, 'Rainbow Text', { font: "74px Arial Black", fill: "#fff" });
+        text1.setStroke('#00f', 16);
+        text1.setShadow(2, 2, "#333333", 2, true, true);
+
 
     },
 
