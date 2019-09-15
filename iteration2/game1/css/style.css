@@ -23,9 +23,9 @@ html {
     position: relative;
 }
 
-.icon_home {
+.icon {
     position: absolute;
-    left: 5px;
+    left: 0;
     display: inline-block;
     vertical-align: top;
 }
