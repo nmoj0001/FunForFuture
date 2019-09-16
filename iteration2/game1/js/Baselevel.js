@@ -21,6 +21,8 @@ var playLevel = true;
 var dialogueBox;
 var replay;
 var playNext;
+var loseLevelText;
+var winLevelText;
 
 var Baselevel = new Phaser.Class({
 
