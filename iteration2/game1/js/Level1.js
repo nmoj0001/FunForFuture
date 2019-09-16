@@ -38,12 +38,35 @@ var Level1 = new Phaser.Class({
 
     endLevel: function() {
         waste.setVisible(false);
-        this.levelUpDialogue('Level1', 'Level2');
+        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
+        replay = this.add.image(900, 520, 'replay').setVisible(false);
+        playNext = this.add.image(900, 520, 'playNext').setVisible(false);
+
+        // this.playNextLevel(nextLevel);
+        // this.replayLevel(currentLevel);
     },
 
     loseLevel: function() {
         waste.setVisible(false);
-        this.levelLoseDialogue('Level1');
+        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
+        replay = this.add.image(900, 520, 'replay').setVisible(false);
+
+        // this.playNextLevel(''nextLevel'');
+        // this.replayLevel(currentLevel);
+    },
+
+    replayLevel: function(level) {
+        replay.setInteractive({ useHandCursor: true })
+            .on('pointerup', function() {
+                this.scene.start(level);
+            }, this)
+    },
+
+    playNextLevel: function(level) {
+        playNext.setInteractive({ useHandCursor: true })
+            .on('pointerup', function() {
+                this.scene.start(level);
+            }, this)
     },
 
 });
