@@ -35,9 +35,15 @@ var Level1 = new Phaser.Class({
         this.setUp();
     },
 
+
     endLevel: function() {
         waste.setVisible(false);
-        var endtext = this.add.text(800, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New' });
-        this.scene.start('Level2');
-    }
+        this.levelUpDialogue('Level1', 'Level2');
+    },
+
+    loseLevel: function() {
+        waste.setVisible(false);
+        this.levelLoseDialogue('Level1');
+    },
+
 });

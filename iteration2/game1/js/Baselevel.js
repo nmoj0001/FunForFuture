@@ -18,6 +18,9 @@ var timerText;
 var timerImage;
 var level;
 var playLevel = true;
+var dialogueBox;
+var replay;
+var playNext;
 
 var Baselevel = new Phaser.Class({
 
@@ -43,6 +46,9 @@ var Baselevel = new Phaser.Class({
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('score', 'assets/common/score.png');
         this.load.image('timer', 'assets/common/timer.png');
+        his.load.image('dialogueBox', 'assets/common/dialogue_box.png');
+        his.load.image('playNext', 'assets/common/play_next.png');
+        his.load.image('replay', 'assets/common/replay.png');
     },
 
     setUp: function() {
@@ -170,13 +176,32 @@ var Baselevel = new Phaser.Class({
         });
     },
 
-    endLevel: function() {
-        waste.setVisible(false);
+    replayLevel: function(level) {
+        replay.setInteractive({ useHandCursor: true })
+            .on('pointerup', function() {
+                this.scene.start(level);
+            }, this)
     },
 
-    loseLevel: function() {
-        waste.setVisible(false);
-        var loseText = this.add.text(850, 400, score, { fontSize: '48px', fill: 0xfffdfc, fontFamily: 'Courier New', });
-        loseText.setText("You lose!");
+    playNextLevel: function(level) {
+        playNext.setInteractive({ useHandCursor: true })
+            .on('pointerup', function() {
+                this.scene.start(level);
+            }, this)
+    },
+
+    levelUpDialogue: function(currentLevel, nextLevel) {
+        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
+        replay = this.add.image(900, 520, 'replay').setVisible(false);
+        playNext = this.add.image(900, 520, 'playNext').setVisible(false);
+
+        this.playNextLevel(nextLevel);
+        this.replayLevel(currentLevel);
+    },
+
+    levelLoseDialogue: function(currentLevel) {
+        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
+        replay = this.add.image(900, 520, 'replay').setVisible(false);
+        this.replayLevel(currentLevel);
     }
 });
