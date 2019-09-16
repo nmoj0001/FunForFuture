@@ -61,6 +61,10 @@ var Baselevel = new Phaser.Class({
         garbage.setScale(.7);
         recycling.setScale(.7);
 
+        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
+        replay = this.add.image(900, 520, 'replay').setVisible(false);
+        playNext = this.add.image(900, 520, 'playNext').setVisible(false);
+
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
@@ -169,7 +173,7 @@ var Baselevel = new Phaser.Class({
             y: 300,
             ease: 'Power1',
             duration: 1500,
-            alpha: 0.3,
+            alpha: 0,
             onComplete: () => {
                 scoreUpdateText.destroy();
             },
@@ -190,18 +194,4 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
-    levelUpDialogue: function(currentLevel, nextLevel) {
-        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
-        replay = this.add.image(900, 520, 'replay').setVisible(false);
-        playNext = this.add.image(900, 520, 'playNext').setVisible(false);
-
-        this.playNextLevel(nextLevel);
-        this.replayLevel(currentLevel);
-    },
-
-    levelLoseDialogue: function(currentLevel) {
-        dialogueBox = this.add.image(900, 520, 'dialogueBox').setVisible(false);
-        replay = this.add.image(900, 520, 'replay').setVisible(false);
-        this.replayLevel(currentLevel);
-    }
 });
