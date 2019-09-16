@@ -61,9 +61,9 @@ var Baselevel = new Phaser.Class({
         garbage.setScale(.7);
         recycling.setScale(.7);
 
-        dialogueBox = this.add.image(680, 300, 'dialogueBox').setVisible(false);
-        replay = this.add.image(750, 400, 'replay').setVisible(false);
-        playNext = this.add.image(950, 400, 'playNext').setVisible(false);
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox').setVisible(false);
+        replay = this.add.image(1050, 400, 'replay').setVisible(false);
+        playNext = this.add.image(1250, 400, 'playNext').setVisible(false);
 
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
