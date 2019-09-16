@@ -5,7 +5,7 @@ var category;
 var organic;
 var garbage;
 var recycling;
-var counter = 10;
+var counter = 1;
 var num;
 var min = 1;
 var max = 18;
