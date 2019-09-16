@@ -46,9 +46,9 @@ var Baselevel = new Phaser.Class({
         this.load.image('organic', 'assets/common/organic.png');
         this.load.image('score', 'assets/common/score.png');
         this.load.image('timer', 'assets/common/timer.png');
-        his.load.image('dialogueBox', 'assets/common/dialogue_box.png');
-        his.load.image('playNext', 'assets/common/play_next.png');
-        his.load.image('replay', 'assets/common/replay.png');
+        this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
+        this.load.image('playNext', 'assets/common/play_next.png');
+        this.load.image('replay', 'assets/common/replay.png');
     },
 
     setUp: function() {
