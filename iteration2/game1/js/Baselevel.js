@@ -81,7 +81,7 @@ var Baselevel = new Phaser.Class({
        
 
         score = 0;
-        counter = 2;
+        counter = 12;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
