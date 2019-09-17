@@ -69,7 +69,7 @@ var Baselevel = new Phaser.Class({
         recycling.setScale(.7);
 
         score = 0;
-        counter = 2;
+        counter = 5;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
