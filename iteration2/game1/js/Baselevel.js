@@ -8,7 +8,7 @@ var recycling;
 var counter;
 var num;
 var min = 1;
-var max = 18;
+var max = 15;
 var score;
 var scoreText;
 var scoreUpdateText;
