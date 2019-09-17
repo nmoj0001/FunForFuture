@@ -40,7 +40,7 @@ var Level3 = new Phaser.Class({
         reload = this.add.image(1150, 440, 'reload');
         winLevelText = this.add.text(800, 150, 'You Win!!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        totalScorePrompt = this.add.text(1000, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(970, 330, 'totalScore');
         totalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
