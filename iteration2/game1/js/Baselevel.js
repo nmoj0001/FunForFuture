@@ -30,6 +30,7 @@ var loseLevelText;
 var winLevelText;
 var girl;
 var speechBubble;
+var speechBubbleText;
 
 var Baselevel = new Phaser.Class({
 
@@ -76,6 +77,8 @@ var Baselevel = new Phaser.Class({
 
         girl = this.add.image(50, 420, 'girl').setOrigin(0);
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
+        scoreText = this.add.text(180, 150, 'Welcome', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+       
 
         score = 0;
         counter = 2;
@@ -132,9 +135,11 @@ var Baselevel = new Phaser.Class({
                 this.sortWaste();
                 this.updateBonusTimer();
             } else {
+                speechBubbleText.setText('Good Job!');
                 this.levelUp();
             }
         } else {
+            speechBubbleText.setText('Better Luck Next Time!');
             this.loseLevel();
         }
 
@@ -146,6 +151,7 @@ var Baselevel = new Phaser.Class({
             (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
             (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
+            speechBubbleText.setText('Good Job identifying ' + catagory);
             counter--;
             this.updateWaste(level);
             this.updateScore(+100);
@@ -154,6 +160,7 @@ var Baselevel = new Phaser.Class({
                 (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
                 (category == 'garbage' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))))) {
             waste.destroy();
+            speechBubbleText.setText('Opps! This is ' + catagory);
             counter--;
             this.updateWaste(level);
             if (score > 0) {
