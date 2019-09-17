@@ -12,6 +12,8 @@ var max = 18;
 var score;
 var scoreText;
 var scoreUpdateText;
+var totalScore = 0;
+var totalScoreText;
 var scoreImage;
 var timedEvent;
 var timerText;
@@ -132,6 +134,7 @@ var Baselevel = new Phaser.Class({
                 (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
             (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
+            counter--;
             this.updateWaste(level);
             this.updateScore(+100);
         } else if ((waste.y > 700 && waste.y < 1100) &&
@@ -139,6 +142,7 @@ var Baselevel = new Phaser.Class({
                 (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
                 (category == 'garbage' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))))) {
             waste.destroy();
+            counter--;
             this.updateWaste(level);
             if (score > 0) {
                 this.updateScore(-50);
@@ -165,7 +169,6 @@ var Baselevel = new Phaser.Class({
     updateScore: function(update) {
         score += update;
         scoreText.setText(score);
-        counter--;
 
         scoreUpdateText = this.add.text(1000, 250, update, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         var tween = this.tweens.add({
@@ -197,4 +200,22 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
+    levelUp: function() {
+        waste.setVisible(false);
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+        replay = this.add.image(850, 380, 'replay');
+        playNext = this.add.image(1150, 380, 'playNext');
+
+        winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+
+        totalScore += score;
+        totalScoreText = this.add.text(800, 220, 'Your total score: ' + totalScoreText, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+    },
+
+    loseLevel: function() {
+        waste.setVisible(false);
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+        replay = this.add.image(1000, 380, 'replay');
+        loseLevelText = this.add.text(850, 150, 'You failed!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+    }
 });
