@@ -43,8 +43,11 @@ var Level1 = new Phaser.Class({
 
         winLevelText = this.add.text(900, 150, 'You Win!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        this.replayLevel('Level1');
-        this.playNextLevel('Level2');
+        replay.setInteractive({ useHandCursor: true })
+            .on('pointerup', function() {
+                this.scene.start('Level1');
+                waste.setVisible(true);
+            }, this)
     },
 
     loseLevel: function() {

@@ -185,8 +185,8 @@ var Baselevel = new Phaser.Class({
     replayLevel: function(level) {
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
-                this.resetLevel();
                 this.scene.start(level);
+                waste.setVisible(true);
             }, this)
     },
 
@@ -194,16 +194,8 @@ var Baselevel = new Phaser.Class({
         playNext.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
                 this.scene.start(level);
-                this.resetLevel();
+                waste.setVisible(true);
             }, this)
     },
-
-    resetLevel: function() {
-        dialogueBox.setVisible(false);
-        replay.setVisible(false);
-        playNext.setVisible(false);
-        waste.setVisible(true);
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
-    }
 
 });
