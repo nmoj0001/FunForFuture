@@ -13,9 +13,9 @@ var score;
 var scoreText;
 var scoreUpdateText;
 var totalScore = 0;
-var totalScorePrompt;
-var totalScoreText;
-var totalScoreImage;
+var finalScorePrompt;
+var finalScoreText;
+var finalScoreImage;
 var scoreImage;
 var timedEvent;
 var timerText;
@@ -123,7 +123,6 @@ var Baselevel = new Phaser.Class({
                 this.sortWaste();
                 this.updateBonusTimer();
             } else {
-                totalScore += score;
                 this.levelUp();
             }
         } else {
@@ -198,6 +197,7 @@ var Baselevel = new Phaser.Class({
     playNextLevel: function(level) {
         playNext.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
+                totalScore += score;
                 this.scene.start(level);
                 replay.disableInteractive();
                 playNext.disableInteractive();
@@ -211,9 +211,9 @@ var Baselevel = new Phaser.Class({
         playNext = this.add.image(1150, 440, 'playNext');
         winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        totalScorePrompt = this.add.text(820, 220, 'Your total score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        totalScoreImage = this.add.image(930, 340, 'totalScore');
-        totalScoreText = this.add.text(980, 300, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        finalScorePrompt = this.add.text(820, 220, 'Your Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        finalScoreImage = this.add.image(930, 340, 'totalScore');
+        finalScoreText = this.add.text(980, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
     setLoseLevel: function() {
