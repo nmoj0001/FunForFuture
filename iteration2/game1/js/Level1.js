@@ -37,18 +37,17 @@ var Level1 = new Phaser.Class({
 
     endLevel: function() {
         waste.setVisible(false);
-        dialogueBox.setVisible(true);
-        replay.setVisible(true);
-        playNext.setVisible(true);
-
-        winLevelText = this.add.text(900, 150, 'You Win!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+        replay = this.add.image(850, 380, 'replay');
+        playNext = this.add.image(1150, 380, 'playNext');
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
-                score = 0;
+                replay.disableInteractive();
+                playNext.disableInteractive();
                 this.scene.start('Level1');
-                waste.setVisible(true);
             }, this)
+
+        winLevelText = this.add.text(900, 150, 'You Win!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
     loseLevel: function() {

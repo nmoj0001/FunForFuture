@@ -5,11 +5,11 @@ var category;
 var organic;
 var garbage;
 var recycling;
-var counter = 1;
+var counter;
 var num;
 var min = 1;
 var max = 18;
-var score = 0;
+var score;
 var scoreText;
 var scoreUpdateText;
 var scoreImage;
@@ -63,10 +63,8 @@ var Baselevel = new Phaser.Class({
         garbage.setScale(.7);
         recycling.setScale(.7);
 
-        dialogueBox = this.add.image(1000, 300, 'dialogueBox').setVisible(false);
-        replay = this.add.image(850, 380, 'replay').setVisible(false);
-        playNext = this.add.image(1150, 380, 'playNext').setVisible(false);
-
+        score = 0;
+        counter = 2;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
