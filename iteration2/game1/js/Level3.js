@@ -6,7 +6,7 @@ var Level3 = new Phaser.Class({
         Phaser.Scene.call(this, { key: 'Level3' });
     },
 
-    preload: function() {
+    preload: function () {
         this.loadAssets();
         this.load.image('level3_background', 'assets/Level3/level3_background.jpg');
         this.load.image('l3_1', 'assets/Level3/waste/1.png');
@@ -26,19 +26,29 @@ var Level3 = new Phaser.Class({
         this.load.image('l3_15', 'assets/Level3/waste/15.png');
     },
 
-    create: function() {
+    create: function () {
         level = 3;
         level3Bg = this.add.image(0, 0, 'level3_background').setOrigin(0);
         this.setUp();
     },
 
-    levelUp: function() {
-        this.setLevelUp();
+    levelUp: function () {
+        waste.setVisible(false);
+
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+        replay = this.add.image(850, 440, 'replay');
+        endGame = this.add.image(1150, 440, 'endGame');
+        winLevelText = this.add.text(800, 150, 'Level Complete!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+
+        totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScoreImage = this.add.image(970, 330, 'totalScore');
+        totalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+
+        this.endGame();
         this.replayLevel('Level3');
-        //this.playNextLevel('Level3');
     },
 
-    loseLevel: function() {
+    loseLevel: function () {
         this.setLoseLevel();
         this.replayLevel('Level3');
     },

@@ -25,6 +25,8 @@ var playLevel = true;
 var dialogueBox;
 var replay;
 var playNext;
+var endGame;
+var reload;
 var loseLevelText;
 var winLevelText;
 
@@ -55,6 +57,8 @@ var Baselevel = new Phaser.Class({
         this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
         this.load.image('playNext', 'assets/common/play_next.png');
         this.load.image('replay', 'assets/common/replay.png');
+        this.load.image('endGame', 'assets/common/replay.png');
+        this.load.image('reload', 'assets/common/replay.png');
         this.load.image('totalScore', 'assets/common/total_score.png');
     },
 
@@ -204,15 +208,36 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
+    endGame: function () {
+        endGame.setInteractive({ useHandCursor: true })
+            .on('pointerup', function () {
+                totalScore += score;
+                winLevelText.setText('YOU WIN!!!');
+                totalScorePrompt.setText('Total Score:');
+                totalScoreText.setText(totalScore);
+                replay.setVisible(false);
+                endGame.setVisible(false);
+                reload = this.add.image(1000, 380, 'replay');
+                this.reloadGame();
+            }, this)
+    },
+
+    reloadGame: function () {
+        reload.setInteractive({ useHandCursor: true })
+            .on('pointerup', function () {
+                this.scene.start('Level1');
+            }, this)
+    },
+
     setLevelUp: function () {
         waste.setVisible(false);
 
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(850, 440, 'replay');
         playNext = this.add.image(1150, 440, 'playNext');
-        winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        winLevelText = this.add.text(800, 150, 'Level Complete!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        totalScorePrompt = this.add.text(880, 220, 'Your Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(970, 330, 'totalScore');
         totalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
@@ -222,5 +247,9 @@ var Baselevel = new Phaser.Class({
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(1000, 380, 'replay');
         loseLevelText = this.add.text(850, 150, 'You failed!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+    },
+
+    setGameEnd: function () {
+
     }
 });
