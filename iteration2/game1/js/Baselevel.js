@@ -206,6 +206,7 @@ var Baselevel = new Phaser.Class({
 
     setLevelUp: function() {
         waste.setVisible(false);
+        
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(850, 440, 'replay');
         playNext = this.add.image(1150, 440, 'playNext');
