@@ -24,9 +24,6 @@ var Level1 = new Phaser.Class({
         this.load.image('l1_13', 'assets/Level1/waste/13.png');
         this.load.image('l1_14', 'assets/Level1/waste/14.png');
         this.load.image('l1_15', 'assets/Level1/waste/15.png');
-        this.load.image('l1_16', 'assets/Level1/waste/16.png');
-        this.load.image('l1_17', 'assets/Level1/waste/17.png');
-        this.load.image('l1_18', 'assets/Level1/waste/18.png');
     },
 
     create: function() {
