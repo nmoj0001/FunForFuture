@@ -27,7 +27,7 @@ var Level2 = new Phaser.Class({
     },
 
     create: function() {
-        level = 1;
+        level = 2;
         level2Bg = this.add.image(0, 0, 'level2_background').setOrigin(0);
         this.setUp();
     },
