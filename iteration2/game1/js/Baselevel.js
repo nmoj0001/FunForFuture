@@ -77,7 +77,7 @@ var Baselevel = new Phaser.Class({
 
         girl = this.add.image(50, 420, 'girl').setOrigin(0);
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
-        speechBubbleText = this.add.text(220, 170, 'Welcome to\nSort Your Waste', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        speechBubbleText = this.add.text(250, 140, 'Welcome to\nSort Your Waste', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
        
 
         score = 0;
