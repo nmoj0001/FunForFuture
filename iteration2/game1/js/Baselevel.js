@@ -71,15 +71,11 @@ var Baselevel = new Phaser.Class({
         organic = this.add.image(650, 580, 'organic').setOrigin(0);
         garbage = this.add.image(900, 580, 'garbage').setOrigin(0);
         recycling = this.add.image(1150, 580, 'recycling').setOrigin(0);
-        organic.setScale(.7);
-        garbage.setScale(.7);
-        recycling.setScale(.7);
 
         girl = this.add.image(50, 420, 'girl').setOrigin(0);
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
         speechBubbleText = this.add.text(250, 140, 'Welcome to\nSort Your Waste', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
        
-
         score = 0;
         counter = 12;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
