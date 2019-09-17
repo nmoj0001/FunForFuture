@@ -35,25 +35,22 @@ var Level1 = new Phaser.Class({
         this.setUp();
     },
 
-    endLevel: function() {
+    levelUp: function() {
         waste.setVisible(false);
-        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-        replay = this.add.image(850, 380, 'replay');
-        playNext = this.add.image(1150, 380, 'playNext');
-        replay.setInteractive({ useHandCursor: true })
-            .on('pointerup', function() {
-                replay.disableInteractive();
-                playNext.disableInteractive();
-                this.scene.start('Level1');
-            }, this)
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox').setVisible(false);
+        replay = this.add.image(850, 380, 'replay').setVisible(false);
+        playNext = this.add.image(1150, 380, 'playNext').setVisible(false);
 
         winLevelText = this.add.text(900, 150, 'You Win!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+
+        this.replayLevel('Level1');
+        this.playNextLevel('Level2');
     },
 
     loseLevel: function() {
         waste.setVisible(false);
-        dialogueBox.setVisible(true);
-        replay.setVisible(true);
+        dialogueBox = this.add.image(1000, 300, 'dialogueBox').setVisible(false);
+        replay = this.add.image(1000, 380, 'replay').setVisible(false);
 
         loseLevelText = this.add.text(900, 150, 'You Lost!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 

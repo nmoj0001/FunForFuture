@@ -118,7 +118,7 @@ var Baselevel = new Phaser.Class({
                 this.sortWaste();
                 this.updateBonusTimer();
             } else {
-                this.endLevel();
+                this.levelUp();
             }
         } else {
             this.loseLevel();
@@ -184,7 +184,7 @@ var Baselevel = new Phaser.Class({
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
                 this.scene.start(level);
-                waste.setVisible(true);
+                replay.disableInteractive();
             }, this)
     },
 
@@ -192,7 +192,8 @@ var Baselevel = new Phaser.Class({
         playNext.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
                 this.scene.start(level);
-                waste.setVisible(true);
+                replay.disableInteractive();
+                playNext.disableInteractive();
             }, this)
     },
 
