@@ -151,7 +151,7 @@ var Baselevel = new Phaser.Class({
             (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
             (waste.y > 700 && waste.y < 1100)) {
             waste.destroy();
-            speechBubbleText.setText('Good Job identifying ' + catagory);
+            speechBubbleText.setText('Good Job identifying ' + category);
             counter--;
             this.updateWaste(level);
             this.updateScore(+100);
@@ -160,7 +160,7 @@ var Baselevel = new Phaser.Class({
                 (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
                 (category == 'garbage' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))))) {
             waste.destroy();
-            speechBubbleText.setText('Opps! This is ' + catagory);
+            speechBubbleText.setText('Opps! This is ' + category);
             counter--;
             this.updateWaste(level);
             if (score > 0) {
