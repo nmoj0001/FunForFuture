@@ -25,10 +25,11 @@ var playLevel = true;
 var dialogueBox;
 var replay;
 var playNext;
-var endGame;
 var reload;
 var loseLevelText;
 var winLevelText;
+var girl;
+var speechBubble;
 
 var Baselevel = new Phaser.Class({
 
@@ -57,9 +58,10 @@ var Baselevel = new Phaser.Class({
         this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
         this.load.image('playNext', 'assets/common/play_next.png');
         this.load.image('replay', 'assets/common/replay.png');
-        this.load.image('endGame', 'assets/common/replay.png');
         this.load.image('reload', 'assets/common/replay.png');
         this.load.image('totalScore', 'assets/common/total_score.png');
+        this.load.image('girl', 'assets/common/girl_happy.png');
+        this.load.image('speechBubble', 'assets/common/speech_bubble.png');
     },
 
     setUp: function () {
@@ -71,6 +73,9 @@ var Baselevel = new Phaser.Class({
         organic.setScale(.7);
         garbage.setScale(.7);
         recycling.setScale(.7);
+
+        girl = this.add.image(200, 580, 'organic').setOrigin(0);
+        speechBubble = this.add.image(300, 100, 'organic').setOrigin(0);
 
         score = 0;
         counter = 2;
