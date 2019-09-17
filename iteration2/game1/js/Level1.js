@@ -45,6 +45,7 @@ var Level1 = new Phaser.Class({
 
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function() {
+                score = 0;
                 this.scene.start('Level1');
                 waste.setVisible(true);
             }, this)
