@@ -29,8 +29,8 @@ var Level2 = new Phaser.Class({
     create: function() {
         level = 2;
         level2Bg = this.add.image(0, 0, 'level2_background').setOrigin(0);
-        speechBubbleText.setText('Level2');
         this.setUp();
+        speechBubbleText.setText('Level2');
     },
 
     levelUp: function() {
