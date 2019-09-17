@@ -41,7 +41,7 @@ var Level1 = new Phaser.Class({
         replay = this.add.image(850, 380, 'replay');
         playNext = this.add.image(1150, 380, 'playNext');
 
-        winLevelText = this.add.text(900, 150, 'You Win!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        winLevelText = this.add.text(900, 150, 'You have cleaned your kitchen successfully', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         this.replayLevel('Level1');
         this.playNextLevel('Level2');
@@ -52,7 +52,7 @@ var Level1 = new Phaser.Class({
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(1000, 380, 'replay');
 
-        loseLevelText = this.add.text(900, 150, 'You Lost!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        loseLevelText = this.add.text(900, 150, 'You failed to sort your waste properly!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         this.replayLevel('Level1');
     },
