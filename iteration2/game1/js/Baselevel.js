@@ -81,9 +81,9 @@ var Baselevel = new Phaser.Class({
 
         if (num >= 1 && num <= 5)
             category = 'organic';
-        else if (num >= 6 && num <= 14)
+        else if (num >= 6 && num <= 10)
             category = 'recycling';
-        else if (num >= 15 && num <= 18)
+        else if (num >= 11 && num <= 15)
             category = 'garbage';
 
         waste = this.matter.add.image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
