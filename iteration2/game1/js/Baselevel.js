@@ -13,7 +13,9 @@ var score;
 var scoreText;
 var scoreUpdateText;
 var totalScore = 0;
+var totalScorePrompt;
 var totalScoreText;
+var totalScoreImage;
 var scoreImage;
 var timedEvent;
 var timerText;
@@ -53,6 +55,7 @@ var Baselevel = new Phaser.Class({
         this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
         this.load.image('playNext', 'assets/common/play_next.png');
         this.load.image('replay', 'assets/common/replay.png');
+        this.load.image('totalScore', 'assets/common/total_score.png');
     },
 
     setUp: function() {
@@ -208,7 +211,9 @@ var Baselevel = new Phaser.Class({
         winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         totalScore += score;
-        totalScoreText = this.add.text(800, 220, 'Your total score: ' + totalScoreText, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScorePrompt = this.add.text(820, 220, 'Your total score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScoreImage = this.add.image(820, 220, 'totalScoreImage');
+        totalScoreText = this.add.text(820, 220, 'Your total score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
     setLoseLevel: function() {
