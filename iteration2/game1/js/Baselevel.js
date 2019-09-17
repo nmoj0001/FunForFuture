@@ -75,8 +75,9 @@ var Baselevel = new Phaser.Class({
         this.updateWaste(level);
         this.showScore();
 
-        if (playLevel == true && counter == 0) {
-            this.levelUp();
+        if (playLevel == true) {
+            if (counter == 0)
+                this.levelUp();
         } else {
             this.loseLevel();
         }
