@@ -12,11 +12,13 @@ var max = 18;
 var score;
 var scoreText;
 var scoreUpdateText;
+var scoreImage;
 var totalScore = 0;
+var totalScoreText;
+var totalScoreImage;
 var finalScorePrompt;
 var finalScoreText;
 var finalScoreImage;
-var scoreImage;
 var timedEvent;
 var timerText;
 var timerImage;
@@ -61,9 +63,9 @@ var Baselevel = new Phaser.Class({
     setUp: function() {
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
-        var organic = this.add.image(650, 580, 'organic').setOrigin(0);
-        var garbage = this.add.image(900, 580, 'garbage').setOrigin(0);
-        var recycling = this.add.image(1150, 580, 'recycling').setOrigin(0);
+        organic = this.add.image(650, 580, 'organic').setOrigin(0);
+        garbage = this.add.image(900, 580, 'garbage').setOrigin(0);
+        recycling = this.add.image(1150, 580, 'recycling').setOrigin(0);
         organic.setScale(.7);
         garbage.setScale(.7);
         recycling.setScale(.7);
@@ -71,6 +73,9 @@ var Baselevel = new Phaser.Class({
         score = 0;
         counter = 2;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+
+        totalScoreImage = this.add.image(215, 70, 'score');
+        totalScoreText = this.add.text(270, 50, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         this.updateWaste(level);
         this.showScore();
@@ -211,9 +216,9 @@ var Baselevel = new Phaser.Class({
         playNext = this.add.image(1150, 440, 'playNext');
         winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        finalScorePrompt = this.add.text(820, 220, 'Your Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        finalScoreImage = this.add.image(930, 340, 'totalScore');
-        finalScoreText = this.add.text(980, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        finalScorePrompt = this.add.text(880, 220, 'Your Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        finalScoreImage = this.add.image(980, 340, 'score');
+        finalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
     setLoseLevel: function() {
