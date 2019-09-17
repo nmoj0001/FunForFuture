@@ -36,16 +36,15 @@ var Level3 = new Phaser.Class({
         waste.setVisible(false);
 
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-        replay = this.add.image(850, 440, 'replay');
-        endGame = this.add.image(1150, 440, 'endGame');
-        winLevelText = this.add.text(800, 150, 'Level Complete!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        reload = this.add.image(1000, 380, 'reload');
+        winLevelText = this.add.text(800, 150, 'You Win!!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(970, 330, 'totalScore');
         totalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        this.endGame();
         this.replayLevel('Level3');
+        this.reloadGame();
     },
 
     loseLevel: function () {

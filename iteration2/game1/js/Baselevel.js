@@ -208,19 +208,19 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
-    endGame: function () {
-        endGame.setInteractive({ useHandCursor: true })
-            .on('pointerup', function () {
-                totalScore += score;
-                winLevelText.setText('YOU WIN!!!');
-                totalScorePrompt.setText('Total Score:');
-                totalScoreText.setText(totalScore);
-                replay.setVisible(false);
-                endGame.setVisible(false);
-                reload = this.add.image(1000, 380, 'replay');
-                this.reloadGame();
-            }, this)
-    },
+    // endGame: function () {
+    //     endGame.setInteractive({ useHandCursor: true })
+    //         .on('pointerup', function () {
+    //             totalScore += score;
+    //             winLevelText.setText('YOU WIN!!!');
+    //             totalScorePrompt.setText('Total Score:');
+    //             totalScoreText.setText(totalScore);
+    //             replay.setVisible(false);
+    //             endGame.setVisible(false);
+    //             reload = this.add.image(1000, 380, 'replay');
+    //             this.reloadGame();
+    //         }, this)
+    // },
 
     reloadGame: function () {
         reload.setInteractive({ useHandCursor: true })
@@ -248,8 +248,4 @@ var Baselevel = new Phaser.Class({
         replay = this.add.image(1000, 380, 'replay');
         loseLevelText = this.add.text(850, 150, 'You failed!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
-
-    setGameEnd: function () {
-
-    }
 });
