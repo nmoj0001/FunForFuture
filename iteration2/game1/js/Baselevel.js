@@ -68,9 +68,9 @@ var Baselevel = new Phaser.Class({
     setUp: function () {
         this.matter.world.setBounds(0, 0, 1920, 1080);
 
-        organic = this.add.image(650, 550, 'organic').setOrigin(0);
-        garbage = this.add.image(900, 550, 'garbage').setOrigin(0);
-        recycling = this.add.image(1150, 550, 'recycling').setOrigin(0);
+        organic = this.add.image(650, 540, 'organic').setOrigin(0);
+        garbage = this.add.image(900, 540, 'garbage').setOrigin(0);
+        recycling = this.add.image(1150, 540, 'recycling').setOrigin(0);
 
         girl = this.add.image(50, 420, 'girl').setOrigin(0);
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
