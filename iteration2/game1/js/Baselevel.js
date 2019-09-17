@@ -200,19 +200,18 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
-    levelUp: function() {
+    setLevelUp: function() {
         waste.setVisible(false);
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(850, 380, 'replay');
         playNext = this.add.image(1150, 380, 'playNext');
-
         winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         totalScore += score;
         totalScoreText = this.add.text(800, 220, 'Your total score: ' + totalScoreText, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
-    loseLevel: function() {
+    setLoseLevel: function() {
         waste.setVisible(false);
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(1000, 380, 'replay');
