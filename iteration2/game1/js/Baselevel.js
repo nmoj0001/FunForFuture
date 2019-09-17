@@ -123,6 +123,7 @@ var Baselevel = new Phaser.Class({
                 this.sortWaste();
                 this.updateBonusTimer();
             } else {
+                totalScore += score;
                 this.levelUp();
             }
         } else {
@@ -210,7 +211,6 @@ var Baselevel = new Phaser.Class({
         playNext = this.add.image(1150, 440, 'playNext');
         winLevelText = this.add.text(800, 150, 'You are succesful!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        totalScore += score;
         totalScorePrompt = this.add.text(820, 220, 'Your total score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(930, 340, 'totalScore');
         totalScoreText = this.add.text(980, 300, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
