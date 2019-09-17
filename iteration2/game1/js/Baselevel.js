@@ -74,8 +74,8 @@ var Baselevel = new Phaser.Class({
         garbage.setScale(.7);
         recycling.setScale(.7);
 
-        girl = this.add.image(150, 400, 'girl').setOrigin(0);
-        speechBubble = this.add.image(300, 200, 'speechBubble').setOrigin(0);
+        girl = this.add.image(50, 400, 'girl').setOrigin(0);
+        speechBubble = this.add.image(200, 200, 'speechBubble').setOrigin(0);
 
         score = 0;
         counter = 2;
