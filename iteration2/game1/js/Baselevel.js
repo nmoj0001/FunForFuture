@@ -13,7 +13,7 @@ var score;
 var scoreText;
 var scoreUpdateText;
 var scoreImage;
-var totalScore = 0;
+var totalScore;
 var totalScoreText;
 var totalScoreImage;
 var totalScorePrompt;
@@ -238,7 +238,7 @@ var Baselevel = new Phaser.Class({
         playNext = this.add.image(1150, 440, 'playNext');
         winLevelText = this.add.text(800, 150, 'Level Complete!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
-        totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScorePrompt = this.add.text(880, 220, 'Total Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(970, 330, 'totalScore');
         totalScoreText = this.add.text(1020, 300, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
