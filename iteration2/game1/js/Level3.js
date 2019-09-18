@@ -35,6 +35,11 @@ var Level3 = new Phaser.Class({
     },
 
     levelUp: function () {
+        if (addTotal) {
+            totalScore += score;
+            addTotal = false;
+        }
+        
         waste.setVisible(false);
 
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
