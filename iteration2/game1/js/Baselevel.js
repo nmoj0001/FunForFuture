@@ -31,6 +31,7 @@ var winLevelText;
 var girl;
 var speechBubble;
 var speechBubbleText;
+var addTotal = true;
 
 var Baselevel = new Phaser.Class({
 
@@ -59,7 +60,7 @@ var Baselevel = new Phaser.Class({
         this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
         this.load.image('playNext', 'assets/common/play_next.png');
         this.load.image('replay', 'assets/common/replay.png');
-        this.load.image('reload', 'assets/common/replay.png');
+        this.load.image('reload', 'assets/common/reload.png');
         this.load.image('totalScore', 'assets/common/total_score.png');
         this.load.image('girl', 'assets/common/girl_happy.png');
         this.load.image('speechBubble', 'assets/common/speech_bubble.png');
@@ -201,6 +202,7 @@ var Baselevel = new Phaser.Class({
     replayLevel: function (level) {
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
+                totalScore-=score;
                 this.scene.start(level);
                 replay.disableInteractive();
             }, this)
@@ -216,20 +218,6 @@ var Baselevel = new Phaser.Class({
             }, this)
     },
 
-    // endGame: function () {
-    //     endGame.setInteractive({ useHandCursor: true })
-    //         .on('pointerup', function () {
-    //             totalScore += score;
-    //             winLevelText.setText('YOU WIN!!!');
-    //             totalScorePrompt.setText('Total Score:');
-    //             totalScoreText.setText(totalScore);
-    //             replay.setVisible(false);
-    //             endGame.setVisible(false);
-    //             reload = this.add.image(1000, 380, 'replay');
-    //             this.reloadGame();
-    //         }, this)
-    // },
-
     reloadGame: function () {
         reload.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
@@ -238,6 +226,11 @@ var Baselevel = new Phaser.Class({
     },
 
     setLevelUp: function () {
+        if (addTotal) {
+            totalScore += score;
+            addTotal = false;
+        }
+
         waste.setVisible(false);
 
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
@@ -247,7 +240,7 @@ var Baselevel = new Phaser.Class({
 
         totalScorePrompt = this.add.text(880, 220, 'Level Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
         totalScoreImage = this.add.image(970, 330, 'totalScore');
-        totalScoreText = this.add.text(1020, 300, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+        totalScoreText = this.add.text(1020, 300, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
     },
 
     setLoseLevel: function () {
