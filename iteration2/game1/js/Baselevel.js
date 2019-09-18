@@ -202,9 +202,10 @@ var Baselevel = new Phaser.Class({
     replayLevel: function (level) {
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
-                //totalScore -= score;
+                totalScore -= score;
+                playLevel == true;
                 this.scene.start(level);
-                replay.disableInteractive();
+                //replay.disableInteractive();
             }, this)
     },
 
