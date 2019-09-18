@@ -78,7 +78,7 @@ var Baselevel = new Phaser.Class({
         speechBubbleText = this.add.text(250, 140, 'Welcome', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
         score = 0;
-        counter = 12;
+        counter = 5;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
         this.updateWaste(level);
@@ -202,7 +202,6 @@ var Baselevel = new Phaser.Class({
     replayLevel: function (level) {
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
-                totalScore-=score;
                 this.scene.start(level);
                 replay.disableInteractive();
             }, this)
@@ -211,7 +210,6 @@ var Baselevel = new Phaser.Class({
     playNextLevel: function (level) {
         playNext.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
-                totalScore += score;
                 this.scene.start(level);
                 replay.disableInteractive();
                 playNext.disableInteractive();
