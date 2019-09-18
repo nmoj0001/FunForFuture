@@ -21,7 +21,7 @@ var timedEvent;
 var timerText;
 var timerImage;
 var level;
-var playLevel = true;
+var playLevel;
 var dialogueBox;
 var replay;
 var playNext;
@@ -77,6 +77,7 @@ var Baselevel = new Phaser.Class({
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
         speechBubbleText = this.add.text(250, 140, 'Welcome', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
+        playLevel = true;
         score = 0;
         counter = 5;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
@@ -203,9 +204,8 @@ var Baselevel = new Phaser.Class({
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
                 totalScore -= score;
-                playLevel == true;
                 this.scene.start(level);
-                //replay.disableInteractive();
+                replay.disableInteractive();
             }, this)
     },
 
