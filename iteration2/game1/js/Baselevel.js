@@ -202,7 +202,7 @@ var Baselevel = new Phaser.Class({
     replayLevel: function (level) {
         replay.setInteractive({ useHandCursor: true })
             .on('pointerup', function () {
-                totalScore -= score;
+                //totalScore -= score;
                 this.scene.start(level);
                 replay.disableInteractive();
             }, this)
@@ -244,6 +244,7 @@ var Baselevel = new Phaser.Class({
 
     setLoseLevel: function () {
         waste.setVisible(false);
+
         dialogueBox = this.add.image(1000, 300, 'dialogueBox');
         replay = this.add.image(1000, 380, 'replay');
         loseLevelText = this.add.text(850, 150, 'You failed!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
