@@ -31,7 +31,7 @@ var winLevelText;
 var girl;
 var speechBubble;
 var speechBubbleText;
-var addTotal = true;
+var addTotal;
 
 var Baselevel = new Phaser.Class({
 
@@ -77,6 +77,7 @@ var Baselevel = new Phaser.Class({
         speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
         speechBubbleText = this.add.text(250, 140, 'Welcome', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
 
+        addTotal = true;
         playLevel = true;
         score = 0;
         counter = 5;
