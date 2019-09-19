@@ -7,8 +7,8 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 echo "Fact";
-echo "<h3>".$row["fact_description"]."</h3>";
+echo "<h3>" . $row["fact_description"] . "</h3>";
 echo "Source";
-echo "<h4>".$row["fact_source"]."</h4>";
+echo "<h4>" . $row["fact_source"] . "</h4>";
 
 ?>

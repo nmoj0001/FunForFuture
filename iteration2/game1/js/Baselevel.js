@@ -34,221 +34,267 @@ var speechBubbleText;
 var addTotal;
 
 var Baselevel = new Phaser.Class({
+  Extends: Phaser.Scene,
 
-    Extends: Phaser.Scene,
+  initialize: function Baselevel() {
+    Phaser.Scene.call(this, { key: 'Baselevel' });
+  },
 
-    initialize: function Baselevel() {
-        Phaser.Scene.call(this, { key: 'Baselevel' });
-    },
+  preload: function() {
+    this.loadAssets();
+  },
 
-    preload: function () {
-        this.loadAssets();
-    },
+  create: function() {
+    this.setUp();
+  },
 
-    create: function () {
-        this.setUp();
-    },
+  loadAssets: function() {
+    this.load.image('organic', 'assets/common/organic.png');
+    this.load.image('garbage', 'assets/common/garbage.png');
+    this.load.image('recycling', 'assets/common/recycling.png');
+    this.load.image('organic', 'assets/common/organic.png');
+    this.load.image('score', 'assets/common/score.png');
+    this.load.image('timer', 'assets/common/timer.png');
+    this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
+    this.load.image('playNext', 'assets/common/play_next.png');
+    this.load.image('replay', 'assets/common/replay.png');
+    this.load.image('reload', 'assets/common/reload.png');
+    this.load.image('totalScore', 'assets/common/total_score.png');
+    this.load.image('girl', 'assets/common/girl_happy.png');
+    this.load.image('speechBubble', 'assets/common/speech_bubble.png');
+  },
 
+  setUp: function() {
+    this.matter.world.setBounds(0, 0, 1920, 1080);
 
-    loadAssets: function () {
-        this.load.image('organic', 'assets/common/organic.png');
-        this.load.image('garbage', 'assets/common/garbage.png');
-        this.load.image('recycling', 'assets/common/recycling.png');
-        this.load.image('organic', 'assets/common/organic.png');
-        this.load.image('score', 'assets/common/score.png');
-        this.load.image('timer', 'assets/common/timer.png');
-        this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
-        this.load.image('playNext', 'assets/common/play_next.png');
-        this.load.image('replay', 'assets/common/replay.png');
-        this.load.image('reload', 'assets/common/reload.png');
-        this.load.image('totalScore', 'assets/common/total_score.png');
-        this.load.image('girl', 'assets/common/girl_happy.png');
-        this.load.image('speechBubble', 'assets/common/speech_bubble.png');
-    },
+    organic = this.add.image(650, 540, 'organic').setOrigin(0);
+    garbage = this.add.image(900, 540, 'garbage').setOrigin(0);
+    recycling = this.add.image(1150, 540, 'recycling').setOrigin(0);
 
-    setUp: function () {
-        this.matter.world.setBounds(0, 0, 1920, 1080);
+    girl = this.add.image(50, 420, 'girl').setOrigin(0);
+    speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
+    speechBubbleText = this.add
+      .text(250, 140, 'Welcome', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
 
-        organic = this.add.image(650, 540, 'organic').setOrigin(0);
-        garbage = this.add.image(900, 540, 'garbage').setOrigin(0);
-        recycling = this.add.image(1150, 540, 'recycling').setOrigin(0);
+    addTotal = true;
+    playLevel = true;
+    score = 0;
+    counter = 5;
+    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
-        girl = this.add.image(50, 420, 'girl').setOrigin(0);
-        speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
-        speechBubbleText = this.add.text(250, 140, 'Welcome', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
+    this.updateWaste(level);
+    this.showScore();
+  },
 
-        addTotal = true;
-        playLevel = true;
-        score = 0;
-        counter = 5;
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+  updateWaste: function(level) {
+    num = Math.floor(Math.random() * (+max - +min)) + +min;
 
-        this.updateWaste(level);
-        this.showScore();
-    },
+    if (num >= 1 && num <= 5) category = 'organic';
+    else if (num >= 6 && num <= 10) category = 'recycling';
+    else if (num >= 11 && num <= 15) category = 'garbage';
 
-    updateWaste: function (level) {
-        num = Math.floor(Math.random() * (+max - +min)) + +min;
+    waste = this.matter.add
+      .image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true })
+      .setInteractive();
+  },
 
-        if (num >= 1 && num <= 5)
-            category = 'organic';
-        else if (num >= 6 && num <= 10)
-            category = 'recycling';
-        else if (num >= 11 && num <= 15)
-            category = 'garbage';
+  dragObject: function(object) {
+    object.on('pointerover', function() {
+      this.setTint(0xffc7f2);
+    });
 
-        waste = this.matter.add.image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true }).setInteractive();
-    },
+    object.on('pointerout', function() {
+      this.clearTint();
+    });
 
-    dragObject: function (object) {
-        object.on('pointerover', function () {
-            this.setTint(0xffc7f2);
-        });
+    this.input.setDraggable(object);
 
-        object.on('pointerout', function () {
-            this.clearTint();
-        });
+    this.input.on('dragstart', function(pointer, gameObject) {
+      gameObject.setTint(0xffc7f2);
+    });
 
-        this.input.setDraggable(object);
+    this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
+      gameObject.x = dragX;
+      gameObject.y = dragY;
+    });
 
-        this.input.on('dragstart', function (pointer, gameObject) {
-            gameObject.setTint(0xffc7f2);
-        });
+    this.input.on('dragend', function(pointer, gameObject) {
+      gameObject.clearTint();
+      gameObject.x = 1000;
+      gameObject.y = 250;
+    });
+  },
 
-        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
-            gameObject.x = dragX;
-            gameObject.y = dragY;
-        });
+  update: function() {
+    if (playLevel == true) {
+      if (counter > 0) {
+        this.dragObject(waste);
+        this.sortWaste();
+        this.updateBonusTimer();
+      } else {
+        speechBubbleText.setText('Good Job!');
+        this.levelUp();
+      }
+    } else {
+      speechBubbleText.setText('Better Luck\nNext Time!');
+      this.loseLevel();
+    }
+  },
 
-        this.input.on('dragend', function (pointer, gameObject) {
-            gameObject.clearTint();
-            gameObject.x = 1000;
-            gameObject.y = 250;
-        });
-    },
+  sortWaste: function() {
+    if (
+      ((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
+        (category == 'organic' && waste.x > 650 && waste.x < 900) ||
+        (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
+      (waste.y > 700 && waste.y < 1100)
+    ) {
+      waste.destroy();
+      speechBubbleText.setText('Good Job\nidentifying\n' + category);
+      counter--;
+      this.updateWaste(level);
+      this.updateScore(+100);
+    } else if (
+      waste.y > 700 &&
+      waste.y < 1100 &&
+      ((category == 'recycling' &&
+        ((waste.x > 650 && waste.x < 900) ||
+          (waste.x > 900 && waste.x < 1150))) ||
+        (category == 'organic' &&
+          ((waste.x > 1150 && waste.x < 1450) ||
+            (waste.x > 900 && waste.x < 1150))) ||
+        (category == 'garbage' &&
+          ((waste.x > 1150 && waste.x < 1450) ||
+            (waste.x > 900 && waste.x < 1150))))
+    ) {
+      waste.destroy();
+      speechBubbleText.setText('Opps!\nThis is\n' + category);
+      counter--;
+      this.updateWaste(level);
+      if (score > 0) {
+        this.updateScore(-50);
+      }
+    }
+  },
 
-    update: function () {
-        if (playLevel == true) {
-            if (counter > 0) {
-                this.dragObject(waste);
-                this.sortWaste();
-                this.updateBonusTimer();
-            } else {
-                speechBubbleText.setText('Good Job!');
-                this.levelUp();
-            }
-        } else {
-            speechBubbleText.setText('Better Luck\nNext Time!');
-            this.loseLevel();
-        }
+  showScore: function() {
+    scoreImage = this.add.image(1650, 70, 'score');
+    timerImage = this.add.image(1650, 180, 'timer');
 
-    },
+    scoreText = this.add
+      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    timerText = this.add
+      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+  },
 
-    sortWaste: function () {
-        if (((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
-            (category == 'organic' && waste.x > 650 && waste.x < 900) ||
-            (category == 'garbage' && waste.x > 900 && waste.x < 1150)) &&
-            (waste.y > 700 && waste.y < 1100)) {
-            waste.destroy();
-            speechBubbleText.setText('Good Job\nidentifying\n' + category);
-            counter--;
-            this.updateWaste(level);
-            this.updateScore(+100);
-        } else if ((waste.y > 700 && waste.y < 1100) &&
-            ((category == 'recycling' && ((waste.x > 650 && waste.x < 900) || (waste.x > 900 && waste.x < 1150))) ||
-                (category == 'organic' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))) ||
-                (category == 'garbage' && ((waste.x > 1150 && waste.x < 1450) || (waste.x > 900 && waste.x < 1150))))) {
-            waste.destroy();
-            speechBubbleText.setText('Opps!\nThis is\n' + category);
-            counter--;
-            this.updateWaste(level);
-            if (score > 0) {
-                this.updateScore(-50);
-            }
-        }
-    },
+  updateBonusTimer: function() {
+    if (timedEvent.repeatCount == 0) {
+      playLevel = false;
+    }
 
-    showScore: function () {
-        scoreImage = this.add.image(1650, 70, 'score');
-        timerImage = this.add.image(1650, 180, 'timer');
+    timerText.setText('00:' + timedEvent.repeatCount);
+  },
 
-        scoreText = this.add.text(1705, 50, score, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        timerText = this.add.text(1705, 160, 'Timer Text', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-    },
+  updateScore: function(update) {
+    score += update;
+    scoreText.setText(score);
 
-    updateBonusTimer: function () {
-        if (timedEvent.repeatCount == 0) {
-            playLevel = false;
-        }
+    scoreUpdateText = this.add
+      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    var tween = this.tweens.add({
+      targets: scoreUpdateText,
+      y: 300,
+      ease: 'Power1',
+      duration: 1500,
+      alpha: 0,
+      onComplete: () => {
+        scoreUpdateText.destroy();
+      }
+    });
+  },
 
-        timerText.setText('00:' + timedEvent.repeatCount);
-    },
+  replayLevel: function(level) {
+    replay.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function() {
+        totalScore -= score;
+        this.scene.start(level);
+        replay.disableInteractive();
+      },
+      this
+    );
+  },
 
-    updateScore: function (update) {
-        score += update;
-        scoreText.setText(score);
+  playNextLevel: function(level) {
+    playNext.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function() {
+        this.scene.start(level);
+        replay.disableInteractive();
+        playNext.disableInteractive();
+      },
+      this
+    );
+  },
 
-        scoreUpdateText = this.add.text(1000, 250, update, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        var tween = this.tweens.add({
-            targets: scoreUpdateText,
-            y: 300,
-            ease: 'Power1',
-            duration: 1500,
-            alpha: 0,
-            onComplete: () => {
-                scoreUpdateText.destroy();
-            },
-        });
-    },
+  reloadGame: function() {
+    reload.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function() {
+        this.scene.start('Level1');
+      },
+      this
+    );
+  },
 
-    replayLevel: function (level) {
-        replay.setInteractive({ useHandCursor: true })
-            .on('pointerup', function () {
-                totalScore -= score;
-                this.scene.start(level);
-                replay.disableInteractive();
-            }, this)
-    },
+  setLevelUp: function() {
+    if (addTotal) {
+      totalScore += score;
+      addTotal = false;
+    }
 
-    playNextLevel: function (level) {
-        playNext.setInteractive({ useHandCursor: true })
-            .on('pointerup', function () {
-                this.scene.start(level);
-                replay.disableInteractive();
-                playNext.disableInteractive();
-            }, this)
-    },
+    waste.setVisible(false);
 
-    reloadGame: function () {
-        reload.setInteractive({ useHandCursor: true })
-            .on('pointerup', function () {
-                this.scene.start('Level1');
-            }, this)
-    },
+    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+    replay = this.add.image(850, 440, 'replay');
+    playNext = this.add.image(1150, 440, 'playNext');
+    winLevelText = this.add
+      .text(800, 150, 'Level Complete!', {
+        font: '40px Arial Black',
+        fill: '#fff'
+      })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
 
-    setLevelUp: function () {
-        if (addTotal) {
-            totalScore += score;
-            addTotal = false;
-        }
+    totalScorePrompt = this.add
+      .text(880, 220, 'Total Score:', {
+        font: '40px Arial Black',
+        fill: '#fff'
+      })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    totalScoreImage = this.add.image(970, 330, 'totalScore');
+    totalScoreText = this.add
+      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+  },
 
-        waste.setVisible(false);
+  setLoseLevel: function() {
+    waste.setVisible(false);
 
-        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-        replay = this.add.image(850, 440, 'replay');
-        playNext = this.add.image(1150, 440, 'playNext');
-        winLevelText = this.add.text(800, 150, 'Level Complete!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-
-        totalScorePrompt = this.add.text(880, 220, 'Total Score:', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-        totalScoreImage = this.add.image(970, 330, 'totalScore');
-        totalScoreText = this.add.text(1020, 300, totalScore, { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-    },
-
-    setLoseLevel: function () {
-        waste.setVisible(false);
-
-        dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-        replay = this.add.image(1000, 380, 'replay');
-        loseLevelText = this.add.text(850, 150, 'You failed!', { font: "40px Arial Black", fill: "#fff" }).setStroke('#ffdd00', 16).setShadow(2, 2, "#333333", 2, true, true);
-    },
+    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+    replay = this.add.image(1000, 380, 'replay');
+    loseLevelText = this.add
+      .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+  }
 });
