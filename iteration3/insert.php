@@ -22,7 +22,7 @@ if (!empty($username) || !empty($psw)) {
       echo "Signup sucessfull";
      }
 	 else {
-     echo "Name already exists. Enter new name";
+     echo '<script type= "text/JavaScript"> alert("Name already exists. Enter new name."); </script>';
      }
      $stmt->close();
      $conn->close();
