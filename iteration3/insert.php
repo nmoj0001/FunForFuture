@@ -2,11 +2,11 @@
 
 <?php
 $username = $_POST['username'];
-$password = $_POST['password'];
-if (!empty($username) || !empty($password)) {
+$psw = $_POST['psw'];
+if (!empty($username) || !empty($psw)) {
 
      $SELECT = "SELECT username From user Where username = ? Limit 1";
-     $INSERT = "INSERT Into user (username, password) values(?, ?)";
+     $INSERT = "INSERT Into user (username, psw) values(?, ?)";
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
      $stmt->bind_param("s", $username);
@@ -17,7 +17,7 @@ if (!empty($username) || !empty($password)) {
      if ($rnum==0) {
       $stmt->close();
       $stmt = $conn->prepare($INSERT);
-      $stmt->bind_param("ss", $username, $password);
+      $stmt->bind_param("ss", $username, $psw);
       $stmt->execute();
       echo "Signup sucessfull";
      }
