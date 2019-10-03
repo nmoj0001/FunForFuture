@@ -5,8 +5,8 @@ $username = $_POST['username'];
 $psw = $_POST['psw'];
 if (!empty($username) || !empty($psw)) {
 
-     $SELECT = "SELECT username From user Where username = ? Limit 1";
-     $INSERT = "INSERT Into user (username, psw) values(?, ?)";
+     $SELECT = "SELECT username From jeyganesh.user Where username = ? Limit 1";
+     $INSERT = "INSERT Into jeyganesh.user (username, psw) values(?, ?)";
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
      $stmt->bind_param("s", $username);
