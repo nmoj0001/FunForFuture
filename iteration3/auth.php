@@ -16,16 +16,22 @@ if (!empty($username) || !empty($psw)) {
      $rnum = $stmt->num_rows;
      if ($rnum==1) {
       echo '<script type= "text/JavaScript"> alert("Signin successful"); </script>';
-	  include_once('index.html');
+	  session_start();
+  $_SESSION['logged']=true;
+  $_SESSION ['username']=$username;
+  header("refresh:1;url=onlinestore.html");
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
-	 include_once('signin.html');
-	 echo '<script type= "text/JavaScript"> alert("Welcome $username"); </script>';
+	    $_SESSION['logged']=false;
+   header("refresh:2;url=signin.html");
+	 //include_once('signin.html');
+	 //echo '<script type= "text/JavaScript"> alert("Welcome $username"); </script>';
      }
      $stmt->close();
      $conn->close();
     } 
+
 else {
  echo "All fields are required";
  die();
