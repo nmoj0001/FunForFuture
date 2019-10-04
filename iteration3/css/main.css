@@ -198,10 +198,15 @@ h4 {
   padding-top: 1rem; }
   #main-nav ul {
     display: flex; 
+	position:absolute;
+left:50%;top:0;
+margin-left:-375px; /* negative margin equal to half the width */
+width:750px;
 	}
   #main-nav li {
     padding: 1rem 1.5rem; }
   #main-nav a {
+	  width:150px;
     text-decoration: none;
     color: #fff;
     text-shadow: 2px 2px 4px #000000;
@@ -209,8 +214,7 @@ h4 {
     border-bottom: 3px transparent solid;
     padding-bottom: 0.5rem;
     transition: border-color 0.5s;
-text-align:centre;
-width:100px;	}
+	}
     #main-nav a:hover {
       border-color: #ccc; }
     #main-nav a.current {
