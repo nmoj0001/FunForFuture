@@ -46,36 +46,3 @@ button {
 button:hover {
   opacity: 0.8;
 }
-
-#main-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 1rem; }
-  #main-nav ul {
-    display: flex; 
-	position:absolute;
-left:50%;
-margin-left:-200px; /* negative margin equal to half the width */
-	}
-  #main-nav li {
-    padding: 1rem 1.5rem; }
-  #main-nav a {
-	  width:150px;
-    text-decoration: none;
-    color: #fff;
-    text-shadow: 2px 2px 4px #000000;
-    text-transform: uppercase;
-    border-bottom: 3px transparent solid;
-    padding-bottom: 0.5rem;
-    transition: border-color 0.5s;
-	}
-    #main-nav a:hover {
-      border-color: #ccc; }
-    #main-nav a.current {
-      border-color: #ffbc00; }
-  #header-home .header-content {
-    text-align: center;
-    padding-top: 20%; }
-    #header-home .header-content h1 {
-      font-size: 4rem;
-      line-height: 1.2; }
