@@ -179,8 +179,8 @@ a {
 
 ul {
   list-style: none; 
- 
-    }
+  text-align: center;
+     }
 
 h2,
 h3,
@@ -199,7 +199,7 @@ h4 {
   padding-top: 1rem; }
   #main-nav ul {
     display: flex; 
-	position: Centre;}
+	text-align: center;}
   #main-nav li {
     padding: 1rem 1.5rem; }
   #main-nav a {
