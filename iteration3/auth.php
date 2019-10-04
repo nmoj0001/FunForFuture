@@ -21,6 +21,7 @@ if (!empty($username) || !empty($psw)) {
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
 	 include_once('signin.html');
+	 echo '<script type= "text/JavaScript"> alert("Welcome $username"); </script>';
      }
      $stmt->close();
      $conn->close();
