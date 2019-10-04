@@ -19,7 +19,7 @@ if (!empty($username) || !empty($psw)) {
 	  session_start();
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
-  header("refresh:1;url=onlinestore.html");
+  header("refresh:1;url=index.html");
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
