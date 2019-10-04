@@ -19,7 +19,8 @@ if (!empty($username) || !empty($psw)) {
       $stmt = $conn->prepare($INSERT);
       $stmt->bind_param("ss", $username, $psw);
       $stmt->execute();
-      echo "Signup sucessfull";
+      echo '<script type= "text/JavaScript"> alert("Signup successful"); </script>';
+	  include_once('sigin.html');
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Name already exists. Enter new name."); </script>';
