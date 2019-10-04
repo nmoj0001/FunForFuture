@@ -178,7 +178,9 @@ a {
   color: #333; }
 
 ul {
-  list-style: none; }
+  list-style: none; 
+  position:relative;
+    left:50%;}
 
 h2,
 h3,
