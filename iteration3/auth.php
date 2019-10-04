@@ -16,10 +16,11 @@ if (!empty($username) || !empty($psw)) {
      $rnum = $stmt->num_rows;
      if ($rnum==1) {
       echo '<script type= "text/JavaScript"> alert("Signin successful"); </script>';
+	  include_once('index.html');
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
-	 include_once('index.html');
+	 include_once('signin.html');
      }
      $stmt->close();
      $conn->close();
