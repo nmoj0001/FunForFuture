@@ -33,3 +33,16 @@ body, html {
   padding: 20px;
   text-align: center;
 }
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 10px;
+  margin: 2px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
