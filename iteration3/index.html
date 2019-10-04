@@ -1,4 +1,7 @@
 <?php include("auth.php"); ?> 
+<?php
+session_start(); // Right at the top of your script
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +66,7 @@
 			<?php 
     session_start();
     if($_SESSION['logged']==true){ 
-      echo '<a href="logout.php"><span>' + $_SESSION["username"] + ' (Logout)</span></a></li>';
+      echo '<a href="logout.php"><span>' + $_SESSION['username'] + ' (Logout)</span></a></li>';
     }
     elseif($_SESSION['logged']==false) 
       echo '<a href="signin.html"><span>Signin</span></a></li>';
