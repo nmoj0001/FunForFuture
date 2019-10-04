@@ -209,7 +209,8 @@ h4 {
     border-bottom: 3px transparent solid;
     padding-bottom: 0.5rem;
     transition: border-color 0.5s;
-text-align:centre;	}
+text-align:centre;
+width:100px;	}
     #main-nav a:hover {
       border-color: #ccc; }
     #main-nav a.current {
