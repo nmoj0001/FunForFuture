@@ -73,3 +73,9 @@ margin-left:-200px; /* negative margin equal to half the width */
       border-color: #ccc; }
     #main-nav a.current {
       border-color: #ffbc00; }
+  #header-home .header-content {
+    text-align: center;
+    padding-top: 20%; }
+    #header-home .header-content h1 {
+      font-size: 4rem;
+      line-height: 1.2; }
