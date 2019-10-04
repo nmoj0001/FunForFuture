@@ -179,7 +179,7 @@ a {
 
 ul {
   list-style: none; 
-  position:Centre;
+ 
     }
 
 h2,
@@ -198,7 +198,8 @@ h4 {
   justify-content: space-between;
   padding-top: 1rem; }
   #main-nav ul {
-    display: flex; }
+    display: flex; 
+	position: Centre;}
   #main-nav li {
     padding: 1rem 1.5rem; }
   #main-nav a {
