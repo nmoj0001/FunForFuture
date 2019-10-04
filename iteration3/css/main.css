@@ -199,9 +199,8 @@ h4 {
   #main-nav ul {
     display: flex; 
 	position:absolute;
-left:50%;top:0;
-margin-left:-375px; /* negative margin equal to half the width */
-width:750px;
+left:50%;
+margin-left:-200px; /* negative margin equal to half the width */
 	}
   #main-nav li {
     padding: 1rem 1.5rem; }
