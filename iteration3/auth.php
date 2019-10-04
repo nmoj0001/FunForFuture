@@ -19,7 +19,7 @@ if (!empty($username) || !empty($psw)) {
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
-	 include_once('signin.html');
+	 include_once('index.html');
      }
      $stmt->close();
      $conn->close();
