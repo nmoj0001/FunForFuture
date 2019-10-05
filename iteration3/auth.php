@@ -18,7 +18,8 @@ if (!empty($username) || !empty($psw)) {
      session_start();
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
-  echo '<script type= "text/JavaScript"> alert("welcome $username"); </script>';
+  $message = "Welcome" + $username;
+  echo '<script type= "text/JavaScript"> alert('$message'); </script>';
     header("refresh:1;url=index1.html");
 	
      }
