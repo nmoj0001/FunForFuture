@@ -21,7 +21,7 @@ if (!empty($username) || !empty($psw)) {
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
 
-	echo '<script type= "text/JavaScript"> alert("welcome $username"); </script>';
+	echo '<script type= "text/JavaScript"> alert("Welcome"); </script>';
     header("refresh:1;url=index1.html");
 	
      }
