@@ -60,23 +60,8 @@
             <li><a href="index.html" class="current">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
-			<li><a href="signin.html" id="demo1">signin</a></li>
-			 
-			 <script>
-              function loadDoc1() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById(
-                      'demo1'
-                    ).innerHTML = this.responseText;
-                  }
-                };
-                xhttp.open('GET', 'auth.php', true);
-                xhttp.send();
-              }
-            </script>
-    
+			<li><a><?php echo $_SESSION ['username'] ?></a></li>
+			 		     
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
           </ul>
         </nav>
