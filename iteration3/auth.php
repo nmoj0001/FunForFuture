@@ -23,7 +23,7 @@ if (!empty($username) || !empty($psw)) {
 
 	echo '<script type= "text/JavaScript"> alert("welcome"); </script>';
     header("refresh:1;url=index1.html");
-	echo $_SESSION ['username'];
+	
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
