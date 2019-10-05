@@ -15,17 +15,17 @@ if (!empty($username) || !empty($psw)) {
      $stmt->store_result();
      $rnum = $stmt->num_rows;
      if ($rnum==1) {
-      echo '<script type= "text/JavaScript"> alert("Signin successful"); </script>';
-	  session_start();
+     session_start();
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
+  echo '<script type= "text/JavaScript"> alert("welcome $username"); </script>';
     header("refresh:1;url=index1.html");
 	
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
 	    $_SESSION['logged']=false;
-   header("refresh:2;url=index.html");
+   header("refresh:2;url=signin.html");
   
 	 //include_once('signin.html');
 	 //echo '<script type= "text/JavaScript"> alert("Welcome $username"); </script>';
