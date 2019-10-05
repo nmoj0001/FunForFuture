@@ -67,8 +67,8 @@
       echo '<a href="logout.php"><span>' + $_SESSION['username'] + ' (Logout)</span></a>';
      session_start();
 	}
-    elseif($_SESSION['logged']==false) 
-      echo '<a href="signin.html"><span>Signin</span></a>';
+    else($_SESSION['logged']==false) 
+      echo '<a href="signin.html">Signin</a>';
   ?>
 			</li>
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
