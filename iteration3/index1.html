@@ -1,6 +1,6 @@
 <?php include("auth.php"); ?> 
-<?php>
 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -61,14 +61,14 @@
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
 			<li>
-			 
+			 <?php
     if($_SESSION['logged']==true){ 
       echo '<a href="logout.php"><span>' + $_SESSION['username'] + ' (Logout)</span></a>';
      
 	}
     else($_SESSION['logged']==false) 
       echo '<a href="signin.html">Signin</a>';
- 
+ ?>
 			</li>
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
           </ul>
@@ -154,4 +154,3 @@
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
   </body>
 </html>
-?>

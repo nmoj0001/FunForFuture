@@ -19,7 +19,7 @@ if (!empty($username) || !empty($psw)) {
 	  session_start();
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
-    header("refresh:1;url=index1.php");
+    header("refresh:1;url=index1.html");
 	
      }
 	 else {
