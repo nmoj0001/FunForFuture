@@ -60,7 +60,16 @@
             <li><a href="index.html" class="current">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
-			<li><a href="signin.html">Signin</a></li>
+			<li>
+			<?php 
+    if($_SESSION['logged']==true){ 
+      echo '<a href="logout.php"><span>' + $_SESSION['username'] + ' (Logout)</span></a>';
+     
+	}
+    else($_SESSION['logged']==false) 
+      echo '<a href="signin.html">Signin</a>';
+  ?>
+			</li>
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
           </ul>
         </nav>
