@@ -20,9 +20,9 @@ if (!empty($username) || !empty($psw)) {
      
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
-  echo $_SESSION ['username'];
-	//echo '<script type= "text/JavaScript"> alert("welcome"); </script>';
-    //header("refresh:1;url=index1.html");
+
+	echo '<script type= "text/JavaScript"> alert("welcome" + $_SESSION ['username']); </script>';
+    header("refresh:1;url=index1.html");
 	
      }
 	 else {
