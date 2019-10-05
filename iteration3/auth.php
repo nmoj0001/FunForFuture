@@ -20,13 +20,13 @@ if (!empty($username) || !empty($psw)) {
   $_SESSION['logged']=true;
   $_SESSION ['username']=$username;
     header("refresh:1;url=index1.php");
-	exit();
+	
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Invalid username and psw"); </script>';
 	    $_SESSION['logged']=false;
    header("refresh:2;url=index.html");
-   exit();
+  
 	 //include_once('signin.html');
 	 //echo '<script type= "text/JavaScript"> alert("Welcome $username"); </script>';
      }
