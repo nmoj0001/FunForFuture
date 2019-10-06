@@ -23,7 +23,7 @@ if (!empty($username) || !empty($psw)) {
   $_SESSION ['username']=$username;
 
 	echo '<script type= "text/JavaScript"> alert("Welcome"); </script>';
-    header("refresh:1;url=index1.html");
+    header("refresh:1;url=index1.php");
 	
      }
 	 else {

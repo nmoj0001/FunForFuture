@@ -1,8 +1,12 @@
 <?php include("auth.php"); ?> 
 <?php
 session_start();
+$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+echo $Vdata;
+echo $_SESSION ['username'];
 ?>
-<!DOCTYPE html>
+
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -66,11 +70,10 @@ session_start();
 			<li><a href="work.html"><?php echo $_SESSION ['username']; ?></a></li>
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
           </ul>
-		  <p> <?php echo $_SESSION ['username']; ?> </p>
         </nav>
         <div class="header-content">
           <h1>
-            Welcome to
+            <?php echo $_SESSION ['username']; ?>
             <span
               class="txt-type"
               data-wait="2000"
