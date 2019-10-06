@@ -66,6 +66,7 @@ session_start();
 			<li><a href="work.html"><?php echo $_SESSION ['username']; ?></a></li>
             <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
           </ul>
+		  <p> <?php echo $_SESSION ['username']; ?> </p>
         </nav>
         <div class="header-content">
           <h1>
