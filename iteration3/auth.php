@@ -1,6 +1,5 @@
 <?php include("dbconnection.php"); ?> 
 
- <?php include("index1.html"); ?>
 <?php
 session_start();
 ?>
