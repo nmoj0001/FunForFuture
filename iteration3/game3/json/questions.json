@@ -1,0 +1,121 @@
+{
+    "levels": [
+        {
+            "level1": [
+                {
+                    "question": "Does Plastic affect marine life?",
+                    "choice1": "Marine species cannot digest it",
+                    "choice2": "Marine species get tangled in it",
+                    "choice3": "Does not affect marine life",
+                    "answer": "Above 2 are correct"
+                },
+                {
+                    "question": "Which contributes more to marine pollution?",
+                    "choice1": "Food waste",
+                    "choice2": "Household waste",
+                    "choice3": "Death of aquatic organism",
+                    "answer": "Pipes discharge waste in sea"
+                },
+                {
+                    "question": "Oil pollution is worst because -",
+                    "choice1": "Density",
+                    "choice2": "volume",
+                    "choice3": "Mass",
+                    "answer": "Visibility"
+                },
+                {
+                    "question": "How to reduce the pollution on ocean?",
+                    "choice1": "Manual cleaning of pollutants",
+                    "choice2": "Damping the pollutants during winter",
+                    "choice3": "Ban the license of industries near sea",
+                    "answer": "Introducing sewage treatment plants"
+                },
+                {
+                    "question": "Which is highest waste discharge to water?",
+                    "choice1": "Spillage from oil pipelines",
+                    "choice2": "Nuclear waste",
+                    "choice3": "Spillage from tankers",
+                    "answer": "Sewage"
+                }
+            ]
+        },
+        {
+            "level2": [
+                {
+                    "question": "What is recycling?",
+                    "choice1": "Buying new clothes",
+                    "choice2": "Throwing things in the garbage can",
+                    "choice3": "Selling items",
+                    "answer": "Reuse material to make new thing"
+                },
+                {
+                    "question": "What are the 3 R’s?",
+                    "choice1": "Redirect, Rude, Round",
+                    "choice2": "Respectful, Responsible, Right",
+                    "choice3": "Rewrite, Rewind, Respond",
+                    "answer": "Reduce, Reuse, Recycle"
+                },
+                {
+                    "question": "Household waste is recycled most in -",
+                    "choice1": "Australia",
+                    "choice2": "India",
+                    "choice3": "China",
+                    "answer": "Austria"
+                },
+                {
+                    "question": "Which does not go in compost heap?",
+                    "choice1": "Coffee grounds",
+                    "choice2": "Vacuum cleaner waste",
+                    "choice3": "White paper bags",
+                    "answer": "Meat Scraps"
+                },
+                {
+                    "question": "What is the benefit of recycling?",
+                    "choice1": "Reducing landfills",
+                    "choice2": "Less pollution",
+                    "choice3": "Fewer resources are taken from earth",
+                    "answer": "All the above"
+                }
+            ]
+        },
+        {
+            "level3": [
+                {
+                    "question": "What is the major problem of Landfills?",
+                    "choice1": "Running out of space for landfills",
+                    "choice2": "Cannot hold enough garbage",
+                    "choice3": "Smell bad",
+                    "answer": "Emit toxins nd greenhouse gases"
+                },
+                {
+                    "question": "Which does not belong to landfill?",
+                    "choice1": "Certain plastics",
+                    "choice2": "Painted wood",
+                    "choice3": "Old mattresses",
+                    "answer": "Waste water"
+                },
+                {
+                    "question": "What does a landfill contain?",
+                    "choice1": "Paper and plastic",
+                    "choice2": "Things that cannot be recycled",
+                    "choice3": "Recyclable dropped wrongly",
+                    "answer": "All the above"
+                },
+                {
+                    "question": "Landfill site should be chosen carefully cause -",
+                    "choice1": "Farmers get annoyed",
+                    "choice2": "People don’t like the smell",
+                    "choice3": "None of the above",
+                    "answer": "Water supplies will get contaminated"
+                },
+                {
+                    "question": "One way to reduce landfill is?",
+                    "choice1": "Reuse materials",
+                    "choice2": "Recycle materials",
+                    "choice3": "Avoid using packaging not needed",
+                    "answer": "All the above"
+                }
+            ]
+        }
+    ]
+}
