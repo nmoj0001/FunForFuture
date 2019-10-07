@@ -1,23 +1,40 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>Register Form</title>
-</head>
-<body>
- <form action="insert.php" method="POST">
-  <table>
-   <tr>
-    <td>Name :</td>
-    <td><input type="text" name="username" required></td>
-   </tr>
-   <tr>
-    <td>Password :</td>
-    <td><input type="password" name="psw" required></td>
-   </tr>
-   <tr>
-    <td><input type="submit" value="Signup"></td>
-   </tr>
-  </table>
- </form>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset-ult-8" />
+
+    <title>signup</title>
+    <link rel="stylesheet" href="css/signup.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Play"
+    />
+  </head>
+  <body>
+    <div class="signup" style="background-image: url('img/homepagefull.png');">
+      <form action="insert.php" method="POST">
+        <h2 style="color:#fff;">Sign Up</h2>
+        <input
+          type="text"
+          name="username"
+          placeholder="Your nickname"
+          required
+        /><br /><br />
+        
+        <input type="password" name="psw" placeholder="Password" required /><br /><br />
+        <input
+          type="password"
+          name="pass"
+          placeholder="Confirm Password"
+        /><br /><br />
+        <input type="submit" value="Sign up" /><br /><br />
+        Already have account?<a
+          href="login.html"
+          style="text-decoration: none; font-family: 'Play',sans-serif; color:yellow;"
+          >&nbsp;Log In</a
+        >
+      </form>
+    </div>
+  </body>
 </html>
