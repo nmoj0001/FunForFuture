@@ -14,23 +14,24 @@ var Baselevel = new Phaser.Class({
   },
 
   loadAssets: function () {
-    // this.load.image('background', 'assets/common/background.jpg');
-    // this.load.image('girl', 'assets/common/girl_happy.png');
-    // this.load.image('speechBubble', 'assets/common/speech_bubble.png');
-    // this.load.image('score', 'assets/common/score.png');
-    // this.load.image('choice1', 'assets/common/choice1.png');
-    // this.load.image('choice2', 'assets/common/choice2.png');
-    // this.load.image('choice3', 'assets/common/choice3.png');
-    // this.load.image('choice4', 'assets/common/choice4.png');
-    // this.load.json('questions', 'json/questions.json');
-    // this.load.image('replay', 'assets/common/replay.png');
+    this.load.image('background', 'assets/common/background.png');
+    this.load.image('recycle', 'assets/common/recycle_badge.png');
+    this.load.image('bin', 'assets/common/bin.png');
+    this.load.image('platform_long', 'assets/common/platform_long.png');
+    this.load.image('platform_medium', 'assets/common/platform_medium.png');
+    this.load.image('platform_short', 'assets/common/platform_short.png');
+    this.load.spritesheet('girl', 
+        'assets/common/girl.png',
+        { frameWidth: 32, frameHeight: 48 }
+    );
   },
 
   setUp: function () {
-    // this.matter.world.setBounds(0, 0, 1920, 1080);
+    this.matter.world.setBounds(0, 0, 1920, 1080);
     // counter = 0;
 
-    // background = this.add.image(0, 0, 'background').setOrigin(0);
+    background = this.add.image(0, 0, 'background').setOrigin(0);
+    recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
 
     // scoreImage = this.add.image(1750, 70, 'score');
     // scoreText = this.add

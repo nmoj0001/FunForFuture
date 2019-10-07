@@ -13,7 +13,6 @@ var Level1 = new Phaser.Class({
 
   preload: function() {
     this.loadAssets();
-    // this.load.image('level1_background', 'assets/Level1/level1_background.png');
     // this.load.image('fish1', 'assets/Level1/fish1.png');
     // this.load.image('fish2', 'assets/Level1/fish2.png');
     // this.load.image('fish3', 'assets/Level1/fish3.png');
@@ -26,7 +25,10 @@ var Level1 = new Phaser.Class({
     score = 0;
 
     this.setUp();
-    // level1Bg = this.add.image(0, 650, 'level1_background').setOrigin(0);
+    platform_1 = this.add.image(750, 1650, 'platform_long').setOrigin(0);
+    platform_2 = this.add.image(0, 200, 'platform_medium').setOrigin(0);
+    platform_3 = this.add.image(600, 650, 'platform_short').setOrigin(0);
+    platform_4 = this.add.image(1000, 450, 'platform_short').setOrigin(0);
   },
 
   levelUp: function() {
