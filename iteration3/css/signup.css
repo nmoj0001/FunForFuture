@@ -1,8 +1,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-position: center;
+  background: no-repeat;
 }
+
 .signup {
   background: rgba(44, 62, 80, 0.7);
   padding: 40px;
@@ -18,7 +21,7 @@ form {
   width: 240px;
   text-align: center;
 }
-input[type='text'] {
+input {
   width: 240px;
   text-align: center;
   background: transparent;
@@ -51,6 +54,6 @@ h2 {
   color: #000;
 }
 ::placeholder {
-  color: aliceblue;
+  color: white;
   opacity: 0.8;
 }

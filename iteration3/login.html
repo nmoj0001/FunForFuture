@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset-ult-8" />
 
     <title>Login</title>
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/login.css" type="text/css" />
     <link
       rel="stylesheet"
@@ -12,8 +13,23 @@
     />
   </head>
 
-  <body>
-    <div class="signin" style="background-image: url('img/homepagefull.png');">
+  <body style="background-image: url('img/homepagefull.png');">
+    <!-- Header -->
+    <header id="header-inner">
+      <div class="container">
+        <nav id="main-nav">
+          <img src="img/Teamlogo4.png" alt="My Portfolio" id="logo" />
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Statistics</a></li>
+            <li><a href="work.html" class="current">Games</a></li>
+            <!-- <li><a href="contact.html">Contact</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="signin">
       <form action="auth.php" method="POST">
         <h2 style="color:white">Log in</h2>
         <input type="text" name="username" placeholder="Username" required />
