@@ -75,6 +75,8 @@ input[class^='btn-']:hover {
 
 .py-3 {
   padding: 3rem 0;
+  height: 73vh;
+  bottom: 1rem;
   background-color: #3498db;
   opacity: 0.9;
 }
@@ -327,12 +329,12 @@ h4 {
   background: transparent;
   background-color: #2e86c1;
   color: black;
-  height: 11rem;
+  height: 3rem;
 }
 #main-footer .footer-content {
   display: flex;
   justify-content: space-between;
-  height: 5rem;
+  height: 1rem;
   align-items: center;
   bottom: 0;
   background-color: #2e86c1;
