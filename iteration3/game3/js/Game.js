@@ -9,7 +9,7 @@ var config = {
   },
   physics: {
     default: 'matter',
-    matter: { debug: false }
+    matter: { debug: true }
   },
   scene: [Level1, Level2, Level3]
 };
