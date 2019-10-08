@@ -20,7 +20,7 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
       $username = $_SESSION ['username']; 
 	  echo $username;
 	  
-	$sql = "select gameScore from jeyganesh.score where gameID = 1 and username = '{$username}'";
+	$sql = "select gameScore from jeyganesh.score where gameID = 1 and username = '".$username."'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	
@@ -32,8 +32,7 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
 	  {
 	  echo "Complete sort your waste game to view your score";
 	  }
-  
-	  
+    
     ?>
 </p>	
   </body>
