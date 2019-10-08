@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT username, gameScore, RANK() OVER (ORDER BY score DESC) position FROM jeyganesh.score WHERE gameId = 1;";
 
-    $result = $conn->query($sql1);
+    $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         echo"
         <table style='width:100%' border='1'>
