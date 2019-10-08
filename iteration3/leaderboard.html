@@ -11,7 +11,8 @@ if ($conn->connect_error) {
   exit('Could not connect');
 }
 
-$sql1 = "SELECT username, gameScore, RANK() OVER (ORDER BY score) position FROM jeyganesh.score where gameid = 1;";
+$sql = "SELECT username, gameScore, RANK() OVER (ORDER BY score DESC) position FROM jeyganesh.score WHERE gameId = 1;";
+
     $result = $conn->query($sql1);
     if ($result->num_rows > 0) {
         echo"

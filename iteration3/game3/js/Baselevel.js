@@ -30,7 +30,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('platform_short', 'assets/common/platform_short.png');
     this.load.spritesheet('girl',
       'assets/common/girl.png',
-      { frameWidth: 135, frameHeight: 250 }
+      { frameWidth: 130, frameHeight: 240 }
     );
   },
 
@@ -87,7 +87,7 @@ var Baselevel = new Phaser.Class({
     }
 
     if (cursors.up.isDown && player.body.touching.down) {
-      player.setVelocityY(-330);
+      player.setVelocityY(-400);
     }
   },
 
