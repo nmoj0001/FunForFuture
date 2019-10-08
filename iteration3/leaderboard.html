@@ -85,23 +85,7 @@ if ($conn->connect_error) {
         </h1>
        
         <p class="lead font-italic">
-          <?php 
-          $username = $_SESSION ['username']; 
-
-            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1;";
-            $result1 = $conn->query($sql1);
-            $row1 = $result->fetch_assoc();
-
-            echo 'your socre for Sort your waste is' . $row['gameScore'] ;
-            
-            $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = '$_SESSION ['username']'";
-            $result2 = $conn->query($sql2);
-            echo 'your socre for Know your waste is' . $result2;
-            
-            $sql3 = "select gameScore from jeyganesh.score where gameID = 3 and username = '$_SESSION ['username']'";
-            $result3 = $conn->query($sql3);
-            echo 'your socre for Learn unique waste is' . $result3;
-          ?> 
+          fff
         </p>
       </div>
     </div>
