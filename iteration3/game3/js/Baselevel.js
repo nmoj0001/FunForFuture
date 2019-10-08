@@ -254,7 +254,6 @@ var Baselevel = new Phaser.Class({
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
         player.setVisible(true);
-        this.createPlatforms();
         this.createWaste();
         this.createBin(5);
         this.createRecycleBonus(15);

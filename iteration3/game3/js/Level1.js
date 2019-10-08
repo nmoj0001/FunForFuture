@@ -31,6 +31,7 @@ var Level1 = new Phaser.Class({
     totalScore = 0;
 
     this.setUp();
+    this.createPlatforms();
     this.createPlayer();
     this.setOpening();
   },
