@@ -134,32 +134,29 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-            </tbody>
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 2 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $b = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    
+                    echo "
+                  <tr>
+                    "; echo "
+                    <td>" . $a . "</td>
+                    " . "
+                    <td>" . $row['username'] . "</td>
+                    " . "
+                    <td>" . $row['gameScore'] . "</td>
+                    "; echo "
+                  </tr>
+                  "; 
+                $b++;
+                } echo "
+                </table>
+  
+                "; } Else { echo "Unable to load...come back later"; } ?>
+              </tbody>
           </table>
         </div>
         <div class="col">
@@ -172,32 +169,29 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-            </tbody>
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 3 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $c = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    
+                    echo "
+                  <tr>
+                    "; echo "
+                    <td>" . $a . "</td>
+                    " . "
+                    <td>" . $row['username'] . "</td>
+                    " . "
+                    <td>" . $row['gameScore'] . "</td>
+                    "; echo "
+                  </tr>
+                  "; 
+                $c++;
+                } echo "
+                </table>
+  
+                "; } Else { echo "Unable to load...come back later"; } ?>
+              </tbody>
           </table>
         </div>
       </div>
