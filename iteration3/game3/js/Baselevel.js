@@ -40,7 +40,7 @@ var Baselevel = new Phaser.Class({
   },
 
   createPlayer: function () {
-    var player = this.physics.add.sprite(850, 300, 'girl');
+    var player = this.physics.add.sprite(850, 50, 'girl');
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
