@@ -74,7 +74,7 @@ var Baselevel = new Phaser.Class({
     playLevel = true;
     score = 0;
     counter = 5;
-    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+    timedEvent = this.time.addEvent({ delay: 1000, repeat: 2 });
     this.showScore();
   },
 
@@ -279,6 +279,9 @@ var Baselevel = new Phaser.Class({
   },
 
   setLevelUp: function () {
+
+    SVGLinearGradientElement.setVisible(false);
+
     if (addTotal) {
       totalScore += score;
       addTotal = false;
@@ -306,14 +309,14 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 900) {
-    //   totalScoreImage = this.add.image(990, 440, 'totalScore');
-    //   achievement = 'Beginner';
-    // }
-    // if (totalScore > 900 && totalScore <= 1000) {
-    //   totalScoreImage = this.add.image(970, 440, 'totalScore');
-    //   totalScoreImage = this.add.image(1060, 440, 'totalScore');
-    //   achievement = 'Medium';
-    // } if (totalScore > 1000) {
+      //   totalScoreImage = this.add.image(990, 440, 'totalScore');
+      //   achievement = 'Beginner';
+      // }
+      // if (totalScore > 900 && totalScore <= 1000) {
+      //   totalScoreImage = this.add.image(970, 440, 'totalScore');
+      //   totalScoreImage = this.add.image(1060, 440, 'totalScore');
+      //   achievement = 'Medium';
+      // } if (totalScore > 1000) {
       totalScoreImage = this.add.image(920, 440, 'totalScore');
       totalScoreImage = this.add.image(1015, 440, 'totalScore');
       totalScoreImage = this.add.image(1110, 440, 'totalScore');
@@ -327,10 +330,11 @@ var Baselevel = new Phaser.Class({
   },
 
   setLoseLevel: function () {
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(1000, 380, 'replay');
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    replay = this.add.image(1000, 600, 'replay');
     loseLevelText = this.add
-      .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .text(810, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   }
