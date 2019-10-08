@@ -25,8 +25,10 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
 	$row = $result->fetch_assoc();
 	echo $row["gameScore"];
 	
-  	  if ($row->num_rows = 1)
+  	  if ($result->num_rows = 1)
 	  { 
+	  $row = $result->fetch_assoc();
+	  echo $row["gameScore"];
 	  echo "Your score for Sort your waste game is ". $row["gameScore"];
 	  }
 	  Else 
