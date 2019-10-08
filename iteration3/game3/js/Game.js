@@ -8,8 +8,11 @@ var config = {
     height: 920
   },
   physics: {
-    default: 'matter',
-    matter: { debug: true }
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 300 },
+      debug: false
+    }
   },
   scene: [Level1, Level2, Level3]
 };
