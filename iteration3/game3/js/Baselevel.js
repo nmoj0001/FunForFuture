@@ -51,6 +51,13 @@ var Baselevel = new Phaser.Class({
     this.load.image('platform_long', 'assets/common/platform_long.png');
     this.load.image('platform_medium', 'assets/common/platform_medium.png');
     this.load.image('platform_short', 'assets/common/platform_short.png');
+    this.load.image('score', 'assets/common/score.png');
+    this.load.image('timer', 'assets/common/timer.png');
+    this.load.image('playNext', 'assets/common/play_next.png');
+    this.load.image('replay', 'assets/common/replay.png');
+    this.load.image('reload', 'assets/common/reload.png');
+    this.load.image('totalScore', 'assets/common/total_score.png');
+    this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
     this.load.spritesheet('girl',
       'assets/common/girl.png',
       { frameWidth: 130, frameHeight: 240 }
@@ -67,8 +74,6 @@ var Baselevel = new Phaser.Class({
     counter = 5;
     timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
     this.showScore();
-
-    //scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
   },
 
   setUpCollision: function () {
@@ -169,7 +174,15 @@ var Baselevel = new Phaser.Class({
 
   update: function () {
     if (playLevel == true) {
-      this.updateBonusTimer();
+
+      if (waste.countActive(true) === 0) {
+        this.levelUp();
+      } else {
+        this.updateBonusTimer();
+      }
+    }
+    else {
+      this.loseLevel();
     }
 
     if (cursors.left.isDown) {
@@ -227,5 +240,79 @@ var Baselevel = new Phaser.Class({
     bin.disableBody(true, true);
     this.updateScore(-50);
     player.anims.play('turn');
+  },
+
+  replayLevel: function (level) {
+    replay.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        totalScore -= score;
+        this.scene.start(level);
+        replay.disableInteractive();
+      },
+      this
+    );
+  },
+
+  playNextLevel: function (level) {
+    playNext.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        this.scene.start(level);
+        replay.disableInteractive();
+        playNext.disableInteractive();
+      },
+      this
+    );
+  },
+
+  reloadGame: function () {
+    reload.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        this.scene.start('Level1');
+      },
+      this
+    );
+  },
+
+  setLevelUp: function () {
+    if (addTotal) {
+      totalScore += score;
+      addTotal = false;
+    }
+
+    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+    replay = this.add.image(850, 440, 'replay');
+    playNext = this.add.image(1150, 440, 'playNext');
+    winLevelText = this.add
+      .text(800, 150, 'Level Complete!', {
+        font: '40px Arial Black',
+        fill: '#fff'
+      })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+
+    totalScorePrompt = this.add
+      .text(880, 220, 'Total Score:', {
+        font: '40px Arial Black',
+        fill: '#fff'
+      })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    totalScoreImage = this.add.image(970, 330, 'totalScore');
+    totalScoreText = this.add
+      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+  },
+
+  setLoseLevel: function () {
+    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+    replay = this.add.image(1000, 380, 'replay');
+    loseLevelText = this.add
+      .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
   }
 });
