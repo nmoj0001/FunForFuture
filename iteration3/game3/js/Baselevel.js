@@ -6,7 +6,6 @@ var cursors;
 var player;
 var waste;
 var bin;
-var startLevel = false;
 var score;
 var scoreText;
 var scoreUpdateText;
@@ -75,10 +74,6 @@ var Baselevel = new Phaser.Class({
 
     addTotal = true;
     playLevel = true;
-    score = 0;
-    counter = 5;
-    timedEvent = this.time.addEvent({ delay: 1000, repeat: 2 });
-    this.showScore();
   },
 
   setUpCollision: function () {
@@ -254,7 +249,8 @@ var Baselevel = new Phaser.Class({
         dialogueBox.setVisible(false);
         play.setVisible(false);
         openingText.setVisible(false);
-        startLevel = true;
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        this.showScore();
       },
       this
     );
@@ -347,7 +343,7 @@ var Baselevel = new Phaser.Class({
   setLoseLevel: function () {
     player.setVisible(false);
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
-    dialogueBox.setScale(0.5)
+    dialogueBox.setScale(0.7)
     replay = this.add.image(1000, 500, 'replay');
     loseLevelText = this.add
       .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })

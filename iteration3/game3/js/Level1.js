@@ -55,7 +55,7 @@ var Level1 = new Phaser.Class({
   setOpening: function () {
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7)
-    play = this.add.image(1000, 650, 'play');
+    play = this.add.image(1000, 600, 'play');
     openingText = this.add
       .text(870, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
