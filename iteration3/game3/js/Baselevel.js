@@ -3,6 +3,7 @@ var recycle;
 var player;
 var platforms;
 var cursors;
+var player;
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -40,7 +41,8 @@ var Baselevel = new Phaser.Class({
   },
 
   createPlayer: function () {
-    var player = this.physics.add.sprite(850, 600, 'girl');
+    
+    player = this.physics.add.sprite(850, 600, 'girl');
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);

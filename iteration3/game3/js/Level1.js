@@ -11,7 +11,7 @@ var Level1 = new Phaser.Class({
     Phaser.Scene.call(this, { key: 'Level1' });
   },
 
-  preload: function() {
+  preload: function () {
     this.loadAssets();
     // this.load.image('fish1', 'assets/Level1/fish1.png');
     // this.load.image('fish2', 'assets/Level1/fish2.png');
@@ -20,21 +20,21 @@ var Level1 = new Phaser.Class({
     // this.load.image('fish5', 'assets/Level1/fish5.png');
   },
 
-  create: function() {
+  create: function () {
     level = 1;
     score = 0;
 
     this.setUp();
     platforms = this.physics.add.staticGroup();
-    platforms.create(0, 770, 'ground').setOrigin(0);
-    platforms.create(1250, 500, 'platform_long').setOrigin(0);
-    platforms.create(0, 150, 'platform_medium').setOrigin(0);
-    platforms.create(950, 380, 'platform_short').setOrigin(0);
-    platforms.create(600, 300, 'platform_short').setOrigin(0);
+    platforms.create(960, 850, 'ground');
+    platforms.create(1600, 650, 'platform_long');
+    platforms.create(200, 200, 'platform_medium');
+    platforms.create(1100, 450, 'platform_short');
+    platforms.create(650, 350, 'platform_short');
     this.createPlayer();
   },
 
-  levelUp: function() {
+  levelUp: function () {
     this.scene.start('Level2');
   }
 });
