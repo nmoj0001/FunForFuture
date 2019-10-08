@@ -87,7 +87,7 @@ var Baselevel = new Phaser.Class({
     }
 
     if (cursors.up.isDown && player.body.touching.down) {
-      player.setVelocityY(-330);
+      player.setVelocityY(-400);
     }
   },
 
