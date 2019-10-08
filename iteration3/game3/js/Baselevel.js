@@ -379,7 +379,7 @@ var Baselevel = new Phaser.Class({
     home.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
-        window.open('https://www.google.com');
+        window.open('https://www.google.com', "_blank");
       },
       this
     );
