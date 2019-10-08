@@ -30,6 +30,7 @@ var Level1 = new Phaser.Class({
     platforms.create(0, 200, 'platform_medium').setOrigin(0);
     platforms.create(900, 450, 'platform_short').setOrigin(0);
     platforms.create(550, 350, 'platform_short').setOrigin(0);
+    this.createPlayers();
   },
 
   levelUp: function() {
