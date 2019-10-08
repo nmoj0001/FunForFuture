@@ -28,13 +28,14 @@ var Level1 = new Phaser.Class({
   create: function () {
     level = 1;
     score = 0;
+    totalScore = 0;
 
     this.setUp();
     this.createPlatforms();
     this.createPlayer();
     this.createWaste();
     this.createBin(3);
-    this.createRecycleBonus(5);
+    this.createRecycleBonus(10);
     this.setUpCollision();
   },
 

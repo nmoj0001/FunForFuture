@@ -26,6 +26,8 @@ var reload;
 var loseLevelText;
 var winLevelText;
 var addTotal;
+var achievement;
+var achievementText;
 
 
 var Baselevel = new Phaser.Class({
@@ -155,12 +157,12 @@ var Baselevel = new Phaser.Class({
     timerImage = this.add.image(1650, 180, 'timer');
 
     scoreText = this.add
-      .text(1705, 50, score, { font: '40px Comic Sans', fill: '#000000' })
-      .setStroke('#f5b042', 10)
+      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, 'Timer Text', { font: '40px Comic Sans', fill: '#000000' })
-      .setStroke('#f5b042', 10)
+      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -211,8 +213,8 @@ var Baselevel = new Phaser.Class({
     scoreText.setText(score);
 
     scoreUpdateText = this.add
-      .text(1000, 250, update, { font: '40px Comic Sans', fill: '#000000' })
-      .setStroke('#f5b042', 10)
+      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#f5b042', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     var tween = this.tweens.add({
       targets: scoreUpdateText,
@@ -284,10 +286,10 @@ var Baselevel = new Phaser.Class({
 
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7)
-    replay = this.add.image(850, 440, 'replay');
-    playNext = this.add.image(1150, 440, 'playNext');
+    replay = this.add.image(850, 640, 'replay');
+    playNext = this.add.image(1150, 640, 'playNext');
     winLevelText = this.add
-      .text(800, 150, 'Level Complete!', {
+      .text(800, 350, 'Level Complete!', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -295,15 +297,31 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(880, 220, 'Total Score:', {
+      .text(880, 420, 'Total Score:' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-    totalScoreImage = this.add.image(970, 330, 'totalScore');
-    totalScoreText = this.add
-      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
+
+
+    if (totalScore <= 1000) {
+      totalScoreImage = this.add.image(970, 530, 'totalScore');
+      achievement = 'Beginner';
+    }
+    if (totalScore > 1000 && totalScore <= 1200) {
+      totalScoreImage = this.add.image(930, 530, 'totalScore');
+      totalScoreImage = this.add.image(980, 530, 'totalScore');
+      achievement = 'Intermediate';
+    } if (totalScore > 1200) {
+      totalScoreImage = this.add.image(900, 530, 'totalScore');
+      totalScoreImage = this.add.image(950, 530, 'totalScore');
+      totalScoreImage = this.add.image(1000, 530, 'totalScore');
+      achievement = 'Expert';
+    }
+
+    achievementText = this.add
+      .text(1020, 500, 'You are an ' + achievement, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
