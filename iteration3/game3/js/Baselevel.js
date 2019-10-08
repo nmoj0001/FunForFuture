@@ -107,7 +107,7 @@ var Baselevel = new Phaser.Class({
 
     var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-    var bin = bins.create(x, 16, 'bin');
+    var bin = bins.create(x, 10, 'bin');
     bin.setBounce(1);
     bin.setCollideWorldBounds(true);
     bin.setVelocity(Phaser.Math.Between(-200, 200), 20);

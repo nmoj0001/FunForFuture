@@ -34,11 +34,11 @@ var Level1 = new Phaser.Class({
     this.createPlayer();
     this.createWastes();
 
-    this.physics.add.collider(player, platforms);
-    this.physics.add.collider(waste, platforms);
-    this.physics.add.collider(bin, platforms);
-    this.physics.add.overlap(player, waste, this.collectWaste, null, this);
-    this.physics.add.collider(player, bin, this.hitBin, null, this);
+    // this.physics.add.collider(player, platforms);
+    // this.physics.add.collider(waste, platforms);
+    // this.physics.add.collider(bin, platforms);
+    // this.physics.add.overlap(player, waste, this.collectWaste, null, this);
+    // this.physics.add.collider(player, bin, this.hitBin, null, this);
   },
 
   levelUp: function () {
