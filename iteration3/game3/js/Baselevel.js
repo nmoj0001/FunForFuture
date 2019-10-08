@@ -297,7 +297,7 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(880, 420, 'Total Score:' + totalScore, {
+      .text(850, 320, 'Total Score:' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -306,22 +306,22 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 900) {
-      totalScoreImage = this.add.image(970, 530, 'totalScore');
+      totalScoreImage = this.add.image(970, 430, 'totalScore');
       achievement = 'Beginner';
     }
     if (totalScore > 900 && totalScore <= 1100) {
-      totalScoreImage = this.add.image(930, 530, 'totalScore');
-      totalScoreImage = this.add.image(980, 530, 'totalScore');
+      totalScoreImage = this.add.image(930, 430, 'totalScore');
+      totalScoreImage = this.add.image(980, 430, 'totalScore');
       achievement = 'Intermediate';
     } if (totalScore > 1200) {
-      totalScoreImage = this.add.image(900, 530, 'totalScore');
-      totalScoreImage = this.add.image(950, 530, 'totalScore');
-      totalScoreImage = this.add.image(1000, 530, 'totalScore');
+      totalScoreImage = this.add.image(900, 430, 'totalScore');
+      totalScoreImage = this.add.image(950, 430, 'totalScore');
+      totalScoreImage = this.add.image(1000, 430, 'totalScore');
       achievement = 'Expert';
     }
 
     achievementText = this.add
-      .text(1020, 500, 'You are an ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .text(1020, 540, 'You are an ' + achievement, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
