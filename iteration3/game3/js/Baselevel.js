@@ -26,6 +26,7 @@ var replay;
 var resume;
 var home;
 var info;
+var instructions;
 var playNext;
 var reload;
 var loseLevelText;
@@ -52,6 +53,7 @@ var Baselevel = new Phaser.Class({
   loadAssets: function () {
     this.load.image('home', 'assets/common/icon_home.png');
     this.load.image('info', 'assets/common/icon_info.png');
+    this.load.image('instructions', 'assets/common/instructions.png');
     this.load.image('background', 'assets/common/background.png');
     this.load.image('ground', 'assets/common/ground.png');
     this.load.image('recycle', 'assets/common/recycle_badge.png');
@@ -78,6 +80,8 @@ var Baselevel = new Phaser.Class({
     background = this.add.image(0, 0, 'background').setOrigin(0);
     home = this.add.image(15, 15, 'home').setOrigin(0);
     info = this.add.image(115, 15, 'info').setOrigin(0);
+    this.goHome();
+    this.showInfo();
     cursors = this.input.keyboard.createCursorKeys();
 
     addTotal = true;
@@ -380,7 +384,20 @@ var Baselevel = new Phaser.Class({
     home.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
-        this.scene.start('Level1');
+        instructions = this.add.image(1000, 200, 'instructions');
+        resume = this.add.image(1000, 650, 'resume');
+        this.resumeGame();
+      },
+      this
+    );
+  },
+
+  resumeGame: function () {
+    home.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        instructions.setVisible(false);
+        resume.setVisible(false);
       },
       this
     );
