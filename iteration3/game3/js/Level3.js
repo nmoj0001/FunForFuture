@@ -29,3 +29,79 @@ var Level3 = new Phaser.Class({
     this.scene.start('Level1');
   }
 });
+var toxic_1;
+var toxic_2;
+var toxic_3;
+var toxic_4;
+var toxic_5;
+
+var Level3 = new Phaser.Class({
+  Extends: Baselevel,
+
+  initialize: function Level3() {
+    Phaser.Scene.call(this, { key: 'Level3' });
+  },
+
+  preload: function () {
+    this.loadAssets();
+    this.load.image('toxic_1', 'assets/Level3/toxic_1.png');
+    this.load.image('toxic_2', 'assets/Level3/toxic_2.png');
+    this.load.image('toxic_3', 'assets/Level3/toxic_3.png');
+    this.load.image('toxic_4', 'assets/Level3/toxic_4.png');
+    this.load.image('toxic_5', 'assets/Level3/toxic_5.png');
+    this.load.image('toxic_6', 'assets/Level3/toxic_6.png');
+    this.load.image('toxic_7', 'assets/Level3/toxic_7.png');
+    this.load.image('toxic_8', 'assets/Level3/toxic_8.png');
+    this.load.image('toxic_9', 'assets/Level3/toxic_9.png');
+    this.load.image('toxic_10', 'assets/Level3/toxic_10.png');
+    this.load.image('toxic_11', 'assets/Level3/toxic_11.png');
+    this.load.image('toxic_12', 'assets/Level3/toxic_12.png');
+    this.load.image('toxic_13', 'assets/Level3/toxic_13.png');
+    this.load.image('toxic_14', 'assets/Level3/toxic_14.png');
+    this.load.image('toxic_15', 'assets/Level3/toxic_15.png');
+  },
+
+  create: function () {
+    level = 3;
+    score = 0;
+
+    this.setUp();
+    this.createPlatforms();
+    this.createPlayer();
+    this.setOpening();
+  },
+
+  createWaste: function () {
+    waste = this.physics.add.group({
+      key: ['toxic_1', 'toxic_2', 'toxic_3', 'toxic_4', 'toxic_5', 'toxic_6', 'toxic_7', 'toxic_8', 'toxic_9', 'toxic_10', 'toxic_11', 'toxic_12', 'toxic_13', 'toxic_14', 'toxic_15'],
+      setXY: { x: 50, y: 0, stepX: 220 }
+    });
+
+    waste.children.iterate(function (child) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+
+    });
+  },
+
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    openingText = this.add
+      .text(680, 200, '     Electronic waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest e-wate collection.\n   Collect these e-waste items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp();
+    this.replayLevel('Level3');
+    this.playNextLevel('Level3');
+  },
+
+  loseLevel: function () {
+    this.setLoseLevel();
+    this.replayLevel('Level3');
+  }
+});

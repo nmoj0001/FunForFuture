@@ -29,3 +29,76 @@ var Level2 = new Phaser.Class({
     this.scene.start('Level3');
   }
 });
+var e_waste_1;
+var e_waste_2;
+var e_waste_3;
+var e_waste_4;
+var e_waste_5;
+
+var Level2 = new Phaser.Class({
+  Extends: Baselevel,
+
+  initialize: function Level2() {
+    Phaser.Scene.call(this, { key: 'Level2' });
+  },
+
+  preload: function () {
+    this.loadAssets();
+    this.load.image('e_waste_1', 'assets/Level2/e_waste_1.png');
+    this.load.image('e_waste_2', 'assets/Level2/e_waste_2.png');
+    this.load.image('e_waste_3', 'assets/Level2/e_waste_3.png');
+    this.load.image('e_waste_4', 'assets/Level2/e_waste_4.png');
+    this.load.image('e_waste_5', 'assets/Level2/e_waste_5.png');
+    this.load.image('e_waste_6', 'assets/Level2/e_waste_6.png');
+    this.load.image('e_waste_7', 'assets/Level2/e_waste_7.png');
+    this.load.image('e_waste_8', 'assets/Level2/e_waste_8.png');
+    this.load.image('e_waste_9', 'assets/Level2/e_waste_9.png');
+    this.load.image('e_waste_10', 'assets/Level2/e_waste_10.png');
+    this.load.image('e_waste_11', 'assets/Level2/e_waste_11.png');
+    this.load.image('e_waste_12', 'assets/Level2/e_waste_12.png');
+  },
+
+  create: function () {
+    level = 2;
+    score = 0;
+
+    this.setUp();
+    this.createPlatforms();
+    this.createPlayer();
+    this.setOpening();
+  },
+
+  createWaste: function () {
+    waste = this.physics.add.group({
+      key: ['e_waste_1', 'e_waste_2', 'e_waste_3', 'e_waste_4', 'e_waste_5', 'e_waste_6', 'e_waste_7', 'e_waste_8', 'e_waste_9', 'e_waste_10', 'e_waste_11', 'e_waste_12'],
+      setXY: { x: 50, y: 0, stepX: 220 }
+    });
+
+    waste.children.iterate(function (child) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+
+    });
+  },
+
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    openingText = this.add
+      .text(680, 200, '     Electronic waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest e-wate collection.\n   Collect these e-waste items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp();
+    this.replayLevel('Level2');
+    this.playNextLevel('Level2');
+  },
+
+  loseLevel: function () {
+    this.setLoseLevel();
+    this.replayLevel('Level2');
+  }
+});
