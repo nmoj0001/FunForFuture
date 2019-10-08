@@ -21,21 +21,20 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
 	  echo $username;
 	  
 	  $sql = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-echo "<h3>" . $row["gameScore"] . "</h3>";
-echo "Your score for Sort your waste game is ". $row["gameScore"];   
+$result1 = $conn->query($sql);
+//$row1 = $result->fetch_assoc();
+//echo "<h3>" . $row["gameScore"] . "</h3>";
+
+//echo "Your score for Sort your waste game is ". $row1["gameScore"];   
 	  
-      $sql = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1;";
-      $result1 = $conn->query($sql); 
 	  if ($result1->num_rows = 1)
 	  {
 	  $row1 = $result->fetch_assoc(); 
-	  echo $row['gameScore']; 
+	  echo "Your score for Sort your waste game is ". $row1["gameScore"];
 	  }
 	  Else 
 	  {
-	  echo "Play the game to view your score";
+	  echo "Complete sort your waste game to view your score";
 	  }
     ?>
 </p>	
