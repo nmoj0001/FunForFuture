@@ -1,3 +1,10 @@
+<?php
+session_start();
+//$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+//echo $Vdata;
+//echo $_SESSION ['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,7 +69,7 @@
     <div class="jumbotron jumbotron-fluid bg-warning" style="margin-bottom: 0;">
       <div class="container ">
         <h1 class="display-4">
-          Hello username<span
+          <?php echo Hello $_SESSION ['username']; ?><span
             ><img
               src="/img/gamegirl1.jpeg"
               style="display:inline; float:right; height:200px;"
@@ -70,10 +77,21 @@
           /></span>
         </h1>
         <p class="lead font-italic">
-          Your total socre is xxx, <br />
-          your socre for Sort your waste is xxx,<br />
-          your socre for Sort your waste is xxx,<br />
-          your socre for Sort your waste is xxx,
+          <?php  
+          $username = $_SESSION ['username']; 
+
+            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = $username";
+            $result1 = $conn->query($sql1);
+            echo "your socre for Sort your waste is" . $result1 . "<br>";
+            
+            $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = $username";
+            $result2 = $conn->query($sql2);
+            echo "your socre for Know your waste is" . $result2 . "<br>";
+            
+            $sql3 = "select gameScore from jeyganesh.score where gameID = 3 and username = $username";
+            $result3 = $conn->query($sql3);
+            echo "your socre for Learn unique waste is" . $result3;
+          ?> 
         </p>
       </div>
     </div>
