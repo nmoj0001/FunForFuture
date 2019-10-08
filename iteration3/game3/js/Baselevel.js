@@ -92,8 +92,8 @@ var Baselevel = new Phaser.Class({
     platforms.create(960, 850, 'ground');
     platforms.create(1600, 600, 'platform_long');
     platforms.create(200, 550, 'platform_medium');
-    platforms.create(950, 450, 'platform_short');
-    platforms.create(650, 300, 'platform_short');
+    platforms.create(1050, 450, 'platform_short');
+    platforms.create(700, 300, 'platform_short');
   },
 
   createPlayer: function () {
