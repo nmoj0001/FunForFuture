@@ -27,20 +27,9 @@ var Baselevel = new Phaser.Class({
   },
 
   setUp: function () {
-    this.matter.world.setBounds(0, 0, 1920, 1080);
-    // counter = 0;
-
     background = this.add.image(0, 0, 'background').setOrigin(0);
     recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
     this.createPlayer();
-
-    // scoreImage = this.add.image(1750, 70, 'score');
-    // scoreText = this.add
-    //   .text(1805, 50, score, { font: '40px Arial Black', fill: '#fff' })
-    //   .setStroke('#ffdd00', 16)
-    //   .setShadow(2, 2, '#333333', 2, true, true);
-
-    // this.updateScore();
   },
 
   createPlayer: function () {
