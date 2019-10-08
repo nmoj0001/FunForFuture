@@ -2,6 +2,7 @@ var background;
 var recycle;
 var player;
 var platforms;
+var cursors;
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -35,6 +36,7 @@ var Baselevel = new Phaser.Class({
   setUp: function () {
     background = this.add.image(0, 0, 'background').setOrigin(0);
     recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
+    cursors = this.input.keyboard.createCursorKeys();
   },
 
   createPlayer: function () {
