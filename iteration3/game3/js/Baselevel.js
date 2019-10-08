@@ -98,6 +98,7 @@ var Baselevel = new Phaser.Class({
 
   createPlayer: function () {
     player = this.physics.add.sprite(850, 600, 'girl');
+    player.setVisible(false);
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
@@ -252,8 +253,8 @@ var Baselevel = new Phaser.Class({
         openingText.setVisible(false);
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        player.setVisible(true);
         this.createPlatforms();
-        this.createPlayer();
         this.createWaste();
         this.createBin(5);
         this.createRecycleBonus(15);
