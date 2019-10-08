@@ -310,14 +310,14 @@ var Baselevel = new Phaser.Class({
     //   achievement = 'Beginner';
     // }
     // if (totalScore > 900 && totalScore <= 1100) {
-      totalScoreImage = this.add.image(980, 440, 'totalScore');
-      totalScoreImage = this.add.image(1070, 440, 'totalScore');
-      achievement = 'Medium';
+    //   totalScoreImage = this.add.image(970, 440, 'totalScore');
+    //   totalScoreImage = this.add.image(1060, 440, 'totalScore');
+    //   achievement = 'Medium';
     // } if (totalScore > 1200) {
-    //   totalScoreImage = this.add.image(900, 440, 'totalScore');
-    //   totalScoreImage = this.add.image(950, 440, 'totalScore');
-    //   totalScoreImage = this.add.image(1000, 440, 'totalScore');
-    //   achievement = 'Expert';
+      totalScoreImage = this.add.image(900, 440, 'totalScore');
+      totalScoreImage = this.add.image(990, 440, 'totalScore');
+      totalScoreImage = this.add.image(1090, 440, 'totalScore');
+      achievement = 'Expert';
     }
 
     achievementText = this.add
