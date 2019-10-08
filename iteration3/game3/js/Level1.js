@@ -29,7 +29,7 @@ var Level1 = new Phaser.Class({
     platforms.create(960, 850, 'ground');
     platforms.create(1600, 650, 'platform_long');
     platforms.create(200, 200, 'platform_medium');
-    platforms.create(1000, 450, 'platform_short');
+    platforms.create(950, 500, 'platform_short');
     platforms.create(650, 350, 'platform_short');
     this.createPlayer();
   },
