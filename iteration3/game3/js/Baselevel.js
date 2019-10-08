@@ -6,7 +6,27 @@ var cursors;
 var player;
 var waste;
 var bin;
+var score;
 var scoreText;
+var scoreUpdateText;
+var scoreImage;
+var totalScore;
+var totalScoreText;
+var totalScoreImage;
+var totalScorePrompt;
+var timedEvent;
+var timerText;
+var timerImage;
+var level;
+var playLevel;
+var dialogueBox;
+var replay;
+var playNext;
+var reload;
+var loseLevelText;
+var winLevelText;
+var addTotal;
+
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -40,7 +60,15 @@ var Baselevel = new Phaser.Class({
   setUp: function () {
     background = this.add.image(0, 0, 'background').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+
+    addTotal = true;
+    playLevel = true;
+    score = 0;
+    counter = 5;
+    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+    this.showScore();
+
+    //scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
   },
 
   setUpCollision: function () {
@@ -50,7 +78,7 @@ var Baselevel = new Phaser.Class({
     this.physics.add.collider(recycle, platforms);
     this.physics.add.overlap(player, waste, this.collectWaste, null, this);
     this.physics.add.collider(player, bin, this.hitBin, null, this);
-    this.physics.add.overlap(player, recycle, this.createRecycleBonus, null, this);
+    this.physics.add.overlap(player, recycle, this.collectRecycleBonus, null, this);
   },
 
   createPlatforms: function () {
@@ -117,7 +145,33 @@ var Baselevel = new Phaser.Class({
     });
   },
 
+  showScore: function () {
+    scoreImage = this.add.image(1650, 70, 'score');
+    timerImage = this.add.image(1650, 180, 'timer');
+
+    scoreText = this.add
+      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    timerText = this.add
+      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+  },
+
+  updateBonusTimer: function () {
+    if (timedEvent.repeatCount == 0) {
+      playLevel = false;
+    }
+
+    timerText.setText('00:' + timedEvent.repeatCount);
+  },
+
   update: function () {
+    if (playLevel == true) {
+      this.updateBonusTimer();
+    }
+
     if (cursors.left.isDown) {
       player.setVelocityX(-160);
 
@@ -139,23 +193,39 @@ var Baselevel = new Phaser.Class({
     }
   },
 
-  updateScore: function () {
-    score += 10;
-    scoreText.setText('Score: ' + score);
+  updateScore: function (update) {
+    score += update;
+    scoreText.setText(score);
+
+    scoreUpdateText = this.add
+      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffdd00', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    var tween = this.tweens.add({
+      targets: scoreUpdateText,
+      y: 300,
+      ease: 'Power1',
+      duration: 1500,
+      alpha: 0,
+      onComplete: () => {
+        scoreUpdateText.destroy();
+      }
+    });
   },
 
   collectWaste: function (player, waste) {
     waste.disableBody(true, true);
-    this.updateScore();
+    this.updateScore(100);
   },
 
   collectRecycleBonus: function (player, recycle) {
     recycle.disableBody(true, true);
-    this.updateScore();
+    this.updateScore(50);
   },
 
   hitBin: function (player, bin) {
     bin.disableBody(true, true);
+    this.updateScore(-50);
     player.anims.play('turn');
   }
 });
