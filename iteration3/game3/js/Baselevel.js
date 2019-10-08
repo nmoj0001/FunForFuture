@@ -297,7 +297,7 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(830, 320, 'Total Score:' + totalScore, {
+      .text(830, 320, 'Total Score: ' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
