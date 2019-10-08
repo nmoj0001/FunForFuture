@@ -20,7 +20,10 @@ var Baselevel = new Phaser.Class({
     this.load.image('platform_long', 'assets/common/platform_long.png');
     this.load.image('platform_medium', 'assets/common/platform_medium.png');
     this.load.image('platform_short', 'assets/common/platform_short.png');
-    this.load.spritesheet('girl', 'assets/common/girl.png');
+    this.load.spritesheet('girl',
+      'assets/common/girl.png',
+      { frameWidth: 150, frameHeight: 240 }
+    );
   },
 
   setUp: function () {
