@@ -158,11 +158,11 @@ var Baselevel = new Phaser.Class({
 
     scoreText = this.add
       .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#f5b002', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
       .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#f5b002', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -306,13 +306,13 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 1500) {
-      totalScoreImage = this.add.image(990, 460, 'totalScore');
-      achievement = 'Beginner';
-    }
+    //   totalScoreImage = this.add.image(990, 460, 'totalScore');
+    //   achievement = 'Beginner';
+    // }
     // if (totalScore > 900 && totalScore <= 1100) {
-    //   totalScoreImage = this.add.image(930, 430, 'totalScore');
-    //   totalScoreImage = this.add.image(980, 430, 'totalScore');
-    //   achievement = 'Intermediate';
+      totalScoreImage = this.add.image(900, 430, 'totalScore');
+      totalScoreImage = this.add.image(1000, 430, 'totalScore');
+      achievement = 'Intermediate';
     // } if (totalScore > 1200) {
     //   totalScoreImage = this.add.image(900, 430, 'totalScore');
     //   totalScoreImage = this.add.image(950, 430, 'totalScore');
