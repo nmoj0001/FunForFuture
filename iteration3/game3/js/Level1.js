@@ -62,7 +62,7 @@ var Level1 = new Phaser.Class({
     });
 
     waste.children.iterate(function (child) {
-      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
 
     });
   },

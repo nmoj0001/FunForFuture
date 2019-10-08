@@ -39,9 +39,7 @@ var Baselevel = new Phaser.Class({
 
   setUp: function () {
     background = this.add.image(0, 0, 'background').setOrigin(0);
-    recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
-    bins = this.physics.add.group();
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
   },
 
@@ -80,6 +78,24 @@ var Baselevel = new Phaser.Class({
       repeat: 3,
       setXY: { x: 200, y: 0, stepX: 500 }
     });
+
+    bin.children.iterate(function (child) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+
+    });
+  },
+
+  createRecycleBonus: function () {
+    recycle = this.physics.add.group({
+      key: 'recycle',
+      repeat: 5,
+      setXY: { x: 300, y: 0, stepX: 600 }
+    });
+
+    recycle.children.iterate(function (child) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+
+    });
   },
 
   update: function () {
@@ -114,7 +130,13 @@ var Baselevel = new Phaser.Class({
     this.updateScore();
   },
 
+  collectRecycleBonus: function (player, recycle) {
+    recycle.disableBody(true, true);
+    this.updateScore();
+  },
+
   hitBin: function (player, bin) {
+    bin.disableBody(true, true);
     player.anims.play('turn');
   }
 });
