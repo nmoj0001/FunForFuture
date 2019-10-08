@@ -314,6 +314,7 @@ var Baselevel = new Phaser.Class({
 
   setLevelUp: function (winText) {
     player.setVisible(false);
+    info.disableInteractive();
 
     if (addTotal) {
       totalScore += score;
@@ -341,15 +342,15 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
 
-    if (totalScore <= 900) {
+    if (totalScore <= 1200) {
       totalScoreImage = this.add.image(990, 440, 'totalScore');
       achievement = 'Beginner';
     }
-    if (totalScore > 900 && totalScore <= 1000) {
+    if (totalScore > 1200 && totalScore <= 2000) {
       totalScoreImage = this.add.image(970, 440, 'totalScore');
       totalScoreImage = this.add.image(1060, 440, 'totalScore');
       achievement = 'Medium';
-    } if (totalScore > 1000) {
+    } if (totalScore > 2000) {
       totalScoreImage = this.add.image(920, 440, 'totalScore');
       totalScoreImage = this.add.image(1015, 440, 'totalScore');
       totalScoreImage = this.add.image(1110, 440, 'totalScore');
@@ -364,6 +365,7 @@ var Baselevel = new Phaser.Class({
 
   setLoseLevel: function () {
     player.setVisible(false);
+    info.disableInteractive();
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7)
     replay = this.add.image(1000, 500, 'replay');

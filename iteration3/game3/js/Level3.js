@@ -95,11 +95,12 @@ var Level3 = new Phaser.Class({
   },
 
   levelUp: function () {
-    this.setLevelUp('Level 3 Complete');
+    this.setLevelUp('Level 3 Complete!');
     replay.setVisible(false);
     playNext.setVisible(false);
     reload = this.add.image(850, 620, 'reload');
     submit = this.add.image(1150, 620, 'submit');
+    this.reloadGame();
   },
 
   loseLevel: function () {
