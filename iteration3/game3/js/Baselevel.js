@@ -318,7 +318,7 @@ var Baselevel = new Phaser.Class({
     //   totalScoreImage = this.add.image(950, 430, 'totalScore');
     //   totalScoreImage = this.add.image(1000, 430, 'totalScore');
     //   achievement = 'Expert';
-    // }
+    }
 
     achievementText = this.add
       .text(800, 520, 'You are: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
