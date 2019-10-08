@@ -314,9 +314,9 @@ var Baselevel = new Phaser.Class({
     //   totalScoreImage = this.add.image(1060, 440, 'totalScore');
     //   achievement = 'Medium';
     // } if (totalScore > 1200) {
-      totalScoreImage = this.add.image(900, 440, 'totalScore');
-      totalScoreImage = this.add.image(990, 440, 'totalScore');
-      totalScoreImage = this.add.image(1090, 440, 'totalScore');
+      totalScoreImage = this.add.image(910, 440, 'totalScore');
+      totalScoreImage = this.add.image(1005, 440, 'totalScore');
+      totalScoreImage = this.add.image(1100, 440, 'totalScore');
       achievement = 'Expert';
     }
 
