@@ -44,7 +44,7 @@ var Baselevel = new Phaser.Class({
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
-    this.physics.add.collider(player, platforms);
+    //this.physics.add.collider(player, platforms);
     this.physics.add.collider(player, ground);
 
     this.anims.create({
