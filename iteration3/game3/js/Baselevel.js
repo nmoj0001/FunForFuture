@@ -74,6 +74,14 @@ var Baselevel = new Phaser.Class({
     });
   },
 
+  createBin: function () {
+    bin = this.physics.add.group({
+      key: 'bin',
+      repeat: 3,
+      setXY: { x: 200, y: 0, stepX: 500 }
+    });
+  },
+
   update: function () {
     if (cursors.left.isDown) {
       player.setVelocityX(-160);
@@ -104,18 +112,9 @@ var Baselevel = new Phaser.Class({
   collectWaste: function (player, waste) {
     waste.disableBody(true, true);
     this.updateScore();
-
-    var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-    var bin = bins.create(x, 10, 'bin');
-    bin.setBounce(1);
-    bin.setCollideWorldBounds(true);
-    bin.setVelocity(Phaser.Math.Between(-200, 200), 20);
-    bon.allowGravity = false;
-
   },
 
-  hitBomb: function (player, bin) {
+  hitBin: function (player, bin) {
     player.anims.play('turn');
   }
 });

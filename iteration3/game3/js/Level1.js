@@ -32,13 +32,14 @@ var Level1 = new Phaser.Class({
     this.setUp();
     this.createPlatforms();
     this.createPlayer();
-    this.createWastes();
+    this.createWaste();
+    this.createBin();
 
-    // this.physics.add.collider(player, platforms);
-    // this.physics.add.collider(waste, platforms);
-    // this.physics.add.collider(bin, platforms);
-    // this.physics.add.overlap(player, waste, this.collectWaste, null, this);
-    // this.physics.add.collider(player, bin, this.hitBin, null, this);
+    this.physics.add.collider(player, platforms);
+    this.physics.add.collider(waste, platforms);
+    this.physics.add.collider(bin, platforms);
+    this.physics.add.overlap(player, waste, this.collectWaste, null, this);
+    this.physics.add.collider(player, bin, this.hitBin, null, this);
   },
 
   levelUp: function () {
@@ -54,15 +55,15 @@ var Level1 = new Phaser.Class({
     platforms.create(650, 300, 'platform_short');
   },
 
-  createWastes: function () {
+  createWaste: function () {
     waste = this.physics.add.group({
       key: ['solid_1', 'solid_2', 'solid_3', 'solid_4', 'solid_5', 'solid_6', 'solid_7', 'solid_8', 'solid_9', 'solid_10'],
-      setXY: { x: 0, y: 0, stepX: 100 }
+      setXY: { x: 50, y: 0, stepX: 200 }
     });
 
     waste.children.iterate(function (child) {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
 
     });
-  }
+  },
 });
