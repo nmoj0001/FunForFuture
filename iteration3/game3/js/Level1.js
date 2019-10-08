@@ -32,8 +32,6 @@ var Level1 = new Phaser.Class({
 
     this.setUp();
     this.setOpening();
-    this.createPlatforms();
-    this.createPlayer();
   },
 
   createWaste: function () {
