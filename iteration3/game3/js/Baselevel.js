@@ -332,9 +332,9 @@ var Baselevel = new Phaser.Class({
     player.setVisible(false);
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.5)
-    replay = this.add.image(1000, 600, 'replay');
+    replay = this.add.image(1000, 500, 'replay');
     loseLevelText = this.add
-      .text(810, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   }
