@@ -155,12 +155,12 @@ var Baselevel = new Phaser.Class({
     timerImage = this.add.image(1650, 180, 'timer');
 
     scoreText = this.add
-      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 50, score, { font: '40px Comic Sans', fill: '#000000' })
+      .setStroke('#f5b042', 10)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 160, 'Timer Text', { font: '40px Comic Sans', fill: '#000000' })
+      .setStroke('#f5b042', 10)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
