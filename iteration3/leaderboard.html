@@ -87,8 +87,7 @@ if ($conn->connect_error) {
         <p class="lead font-italic">
           <?php 
       $username = $_SESSION ['username']; 
-	  echo $username;
-	  
+		  
 	$sql = "select gameScore from jeyganesh.score where gameID = 1 and username = '".$username."'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
