@@ -6,6 +6,7 @@ var cursors;
 var player;
 var waste;
 var bin;
+var scoreText;
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -42,12 +43,6 @@ var Baselevel = new Phaser.Class({
     cursors = this.input.keyboard.createCursorKeys();
     bins = this.physics.add.group();
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-
-    this.physics.add.collider(player, platforms);
-    this.physics.add.collider(waste, platforms);
-    this.physics.add.collider(bin, platforms);
-    // this.physics.add.overlap(player, waste, this.collectWaste, null, this);
-    // this.physics.add.collider(player, bin, this.hitBin, null, this);
   },
 
   createPlayer: function () {

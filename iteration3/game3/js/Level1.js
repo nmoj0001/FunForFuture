@@ -33,6 +33,12 @@ var Level1 = new Phaser.Class({
     this.createPlatforms();
     this.createPlayer();
     this.createWastes();
+
+    this.physics.add.collider(player, platforms);
+    this.physics.add.collider(waste, platforms);
+    this.physics.add.collider(bin, platforms);
+    this.physics.add.overlap(player, waste, this.collectWaste, null, this);
+    this.physics.add.collider(player, bin, this.hitBin, null, this);
   },
 
   levelUp: function () {
@@ -51,7 +57,7 @@ var Level1 = new Phaser.Class({
   createWastes: function () {
     waste = this.physics.add.group({
       key: ['solid_1', 'solid_2', 'solid_3', 'solid_4', 'solid_5', 'solid_6', 'solid_7', 'solid_8', 'solid_9', 'solid_10'],
-      setXY: { x: 12, y: 0, stepX: 70 }
+      setXY: { x: 0, y: 0, stepX: 100 }
     });
 
     waste.children.iterate(function (child) {
