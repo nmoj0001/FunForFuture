@@ -51,9 +51,9 @@ var Level1 = new Phaser.Class({
   setOpening: function () {
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7)
-    play = this.add.image(1000, 600, 'play');
+    play = this.add.image(1000, 700, 'play');
     openingText = this.add
-      .text(650, 200, '     Some solid waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n Municipal solid waste collection.\n Collect these solid waste items\n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(700, 250, '     Some solid waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n Municipal solid waste collection.\n Collect these solid waste items\n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
