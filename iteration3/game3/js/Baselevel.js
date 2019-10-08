@@ -47,6 +47,7 @@ var Baselevel = new Phaser.Class({
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(waste, platforms);
     this.physics.add.collider(bin, platforms);
+    this.physics.add.collider(recycle, platforms);
     this.physics.add.overlap(player, waste, this.collectWaste, null, this);
     this.physics.add.collider(player, bin, this.hitBin, null, this);
     this.physics.add.overlap(player, recycle, this.createRecycleBonus, null, this);
