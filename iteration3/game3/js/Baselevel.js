@@ -4,6 +4,8 @@ var player;
 var platforms;
 var cursors;
 var player;
+var waste;
+var bin;
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -38,10 +40,18 @@ var Baselevel = new Phaser.Class({
     background = this.add.image(0, 0, 'background').setOrigin(0);
     recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
+    bins = this.physics.add.group();
+    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+
+    this.physics.add.collider(player, platforms);
+    this.physics.add.collider(waste, platforms);
+    this.physics.add.collider(bin, platforms);
+    this.physics.add.overlap(player, waste, this.collectWaste, null, this);
+    this.physics.add.collider(player, bin, this.hitBin, null, this);
   },
 
   createPlayer: function () {
-    
+
     player = this.physics.add.sprite(850, 600, 'girl');
 
     player.setBounce(0.2);
@@ -92,5 +102,25 @@ var Baselevel = new Phaser.Class({
   },
 
   updateScore: function () {
+    score += 10;
+    scoreText.setText('Score: ' + score);
+  },
+
+  collectWaste: function (player, waste) {
+    waste.disableBody(true, true);
+    this.updateScore();
+
+    var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+    var bin = bins.create(x, 16, 'bin');
+    bin.setBounce(1);
+    bin.setCollideWorldBounds(true);
+    bin.setVelocity(Phaser.Math.Between(-200, 200), 20);
+    bon.allowGravity = false;
+
+  },
+
+  hitBomb: function (player, bin) {
+    player.anims.play('turn');
   }
 });
