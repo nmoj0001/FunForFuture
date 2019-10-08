@@ -53,7 +53,7 @@ var Level1 = new Phaser.Class({
     dialogueBox.setScale(0.7)
     play = this.add.image(1000, 600, 'play');
     openingText = this.add
-      .text(870, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .text(870, 350, 'Some solid waste materials\ncannot be disposed by\nputting in kerbside bins\nThey must be taken to\nMunicipal solid waste collection sites.\nCollect these solid waste items\nTo keep the playground clean!', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
