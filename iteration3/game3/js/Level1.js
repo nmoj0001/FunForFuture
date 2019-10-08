@@ -24,16 +24,12 @@ var Level1 = new Phaser.Class({
     level = 1;
     score = 0;
 
-    //this.setUp();
+    this.setUp();
     platforms = this.physics.add.staticGroup();
-    platforms.create(1250, 550, 'platform_long');
-    platforms.create(0, 200, 'platform_medium');
-    platforms.create(900, 450, 'platform_short');
-    platforms.create(550, 350, 'platform_short');
-    // platform_1 = this.add.image(1250, 550, 'platform_long').setOrigin(0);
-    // platform_2 = this.add.image(0, 200, 'platform_medium').setOrigin(0);
-    // platform_3 = this.add.image(900, 450, 'platform_short').setOrigin(0);
-    // platform_4 = this.add.image(550, 350, 'platform_short').setOrigin(0);
+    platforms.create(1250, 550, 'platform_long').setOrigin(0);
+    platforms.create(0, 200, 'platform_medium').setOrigin(0);
+    platforms.create(900, 450, 'platform_short').setOrigin(0);
+    platforms.create(550, 350, 'platform_short').setOrigin(0);
   },
 
   levelUp: function() {
