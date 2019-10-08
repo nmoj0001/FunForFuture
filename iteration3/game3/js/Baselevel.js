@@ -286,10 +286,10 @@ var Baselevel = new Phaser.Class({
 
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7)
-    replay = this.add.image(850, 640, 'replay');
-    playNext = this.add.image(1150, 640, 'playNext');
+    replay = this.add.image(850, 620, 'replay');
+    playNext = this.add.image(1150, 620, 'playNext');
     winLevelText = this.add
-      .text(810, 250, 'Level Complete!', {
+      .text(810, 230, 'Level Complete!', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -297,7 +297,7 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(830, 320, 'Total Score: ' + totalScore, {
+      .text(830, 300, 'Total Score: ' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -306,22 +306,22 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 1500) {
-    //   totalScoreImage = this.add.image(990, 460, 'totalScore');
+    //   totalScoreImage = this.add.image(990, 440, 'totalScore');
     //   achievement = 'Beginner';
     // }
     // if (totalScore > 900 && totalScore <= 1100) {
-      totalScoreImage = this.add.image(950, 430, 'totalScore');
-      totalScoreImage = this.add.image(1100, 430, 'totalScore');
+      totalScoreImage = this.add.image(980, 440, 'totalScore');
+      totalScoreImage = this.add.image(1070, 440, 'totalScore');
       achievement = 'Medium';
     // } if (totalScore > 1200) {
-    //   totalScoreImage = this.add.image(900, 430, 'totalScore');
-    //   totalScoreImage = this.add.image(950, 430, 'totalScore');
-    //   totalScoreImage = this.add.image(1000, 430, 'totalScore');
+    //   totalScoreImage = this.add.image(900, 440, 'totalScore');
+    //   totalScoreImage = this.add.image(950, 440, 'totalScore');
+    //   totalScoreImage = this.add.image(1000, 440, 'totalScore');
     //   achievement = 'Expert';
     }
 
     achievementText = this.add
-      .text(790, 520, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .text(790, 500, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
