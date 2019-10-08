@@ -384,7 +384,7 @@ var Baselevel = new Phaser.Class({
     info.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
-        instructions = this.add.image(900, 200, 'instructions');
+        instructions = this.add.image(1000, 450, 'instructions');
         instructions.setScale(0.8);
         resume = this.add.image(1000, 650, 'resume');
         this.resumeGame();
