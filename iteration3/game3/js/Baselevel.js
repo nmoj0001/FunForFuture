@@ -289,7 +289,7 @@ var Baselevel = new Phaser.Class({
     replay = this.add.image(850, 640, 'replay');
     playNext = this.add.image(1150, 640, 'playNext');
     winLevelText = this.add
-      .text(830, 250, 'Level Complete!', {
+      .text(810, 250, 'Level Complete!', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -306,7 +306,7 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 1500) {
-      totalScoreImage = this.add.image(970, 430, 'totalScore');
+      totalScoreImage = this.add.image(990, 430, 'totalScore');
       achievement = 'Beginner';
     }
     // if (totalScore > 900 && totalScore <= 1100) {
@@ -321,7 +321,7 @@ var Baselevel = new Phaser.Class({
     // }
 
     achievementText = this.add
-      .text(830, 520, 'You are an ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .text(800, 520, 'You are an ' + achievement, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
