@@ -86,11 +86,14 @@ session_start();
         ?>
         <p class="lead font-italic">
           <?php  
+          
           $username = $_SESSION ['username']; 
 
-            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika'";
+            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' ";
             $result1 = $conn->query($sql1);
-            echo 'your socre for Sort your waste is' . $result1 ;
+            $row1 = $result->fetch_assoc();
+
+            echo 'your socre for Sort your waste is' . $row1 ;
             
             $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = '$_SESSION ['username']'";
             $result2 = $conn->query($sql2);
