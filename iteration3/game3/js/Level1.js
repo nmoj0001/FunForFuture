@@ -26,9 +26,9 @@ var Level1 = new Phaser.Class({
 
     this.setUp();
     platform_1 = this.add.image(1250, 550, 'platform_long').setOrigin(0);
-    platform_2 = this.add.image(0, 150, 'platform_medium').setOrigin(0);
-    platform_3 = this.add.image(900, 400, 'platform_short').setOrigin(0);
-    platform_4 = this.add.image(550, 300, 'platform_short').setOrigin(0);
+    platform_2 = this.add.image(0, 200, 'platform_medium').setOrigin(0);
+    platform_3 = this.add.image(900, 450, 'platform_short').setOrigin(0);
+    platform_4 = this.add.image(550, 350, 'platform_short').setOrigin(0);
   },
 
   levelUp: function() {
