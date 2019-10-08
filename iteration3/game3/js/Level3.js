@@ -88,16 +88,18 @@ var Level3 = new Phaser.Class({
     dialogueBox.setScale(0.8)
     play = this.add.image(1020, 680, 'play');
     openingText = this.add
-      .text(680, 200, '     Electronic waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest e-wate collection.\n   Collect these e-waste items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(680, 200, '     Hazardous waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest toxic-waste collection.\n   Collect these hazardous items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
   },
 
   levelUp: function () {
-    this.setLevelUp();
-    this.replayLevel('Level3');
-    this.playNextLevel('Level3');
+    this.setLevelUp('Level 3 Complete');
+    replay.setVisible(false);
+    playNext.setVisible(false);
+    reload = this.add.image(850, 620, 'reload');
+    submit = this.add.image(1150, 620, 'submit');
   },
 
   loseLevel: function () {

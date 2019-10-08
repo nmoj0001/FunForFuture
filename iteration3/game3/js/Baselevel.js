@@ -24,6 +24,7 @@ var dialogueBox;
 var play;
 var replay;
 var resume;
+var submit;
 var home;
 var info;
 var instructions;
@@ -68,6 +69,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('resume', 'assets/common/resume.png');
     this.load.image('replay', 'assets/common/replay.png');
     this.load.image('reload', 'assets/common/reload.png');
+    this.load.image('submit', 'assets/common/submit_score.png');
     this.load.image('totalScore', 'assets/common/total_score.png');
     this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
     this.load.spritesheet('girl',
@@ -310,7 +312,7 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  setLevelUp: function () {
+  setLevelUp: function (winText) {
     player.setVisible(false);
 
     if (addTotal) {
@@ -323,7 +325,7 @@ var Baselevel = new Phaser.Class({
     replay = this.add.image(850, 620, 'replay');
     playNext = this.add.image(1150, 620, 'playNext');
     winLevelText = this.add
-      .text(810, 230, 'Level Complete!', {
+      .text(800, 230, winText, {
         font: '40px Arial Black',
         fill: '#fff'
       })

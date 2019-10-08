@@ -54,7 +54,7 @@ var Level1 = new Phaser.Class({
   },
 
   levelUp: function () {
-    this.setLevelUp();
+    this.setLevelUp('Level 1 Complete');
     this.replayLevel('Level1');
     this.playNextLevel('Level2');
   },
