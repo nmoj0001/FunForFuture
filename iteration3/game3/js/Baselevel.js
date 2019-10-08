@@ -21,7 +21,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('platform_medium', 'assets/common/platform_medium.png');
     this.load.image('platform_short', 'assets/common/platform_short.png');
     this.load.spritesheet('girl',
-      'assets/common/girl.png',
+      'assets/common/dude.png',
       { frameWidth: 32, frameHeight: 48 }
     );
   },
@@ -44,7 +44,7 @@ var Baselevel = new Phaser.Class({
   },
 
   createPlayer: function () {
-    player = this.physics.add.sprite(1000, 800, 'girl');
+    var player = this.physics.add.sprite(1000, 800, 'girl');
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
