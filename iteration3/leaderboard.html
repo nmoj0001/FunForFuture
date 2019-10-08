@@ -4,7 +4,14 @@ session_start();
 //echo $Vdata;
 //echo $_SESSION ['username'];
 ?>
+<?php
 
+//$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
+$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com", "jeyganesh", "jeyganesh", "jeyganesh");
+if ($conn->connect_error) {
+  exit('Could not connect');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,13 +85,7 @@ session_start();
         </h1>
        
         <p class="lead font-italic">
-            <?php
-
-            //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
-            $conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com", "jeyganesh", "jeyganesh", "jeyganesh");
-            if ($conn->connect_error) {
-              exit('Could not connect');
-            }
+          <?php 
           $username = $_SESSION ['username']; 
 
             $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1;";
