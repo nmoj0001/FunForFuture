@@ -37,7 +37,6 @@ var Level1 = new Phaser.Class({
     this.createWaste();
     this.createBin(3);
     this.createRecycleBonus(10);
-    this.setUpCollision();
   },
 
   createWaste: function () {

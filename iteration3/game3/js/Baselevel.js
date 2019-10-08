@@ -6,6 +6,7 @@ var cursors;
 var player;
 var waste;
 var bin;
+var startLevel = false;
 var score;
 var scoreText;
 var scoreUpdateText;
@@ -96,7 +97,6 @@ var Baselevel = new Phaser.Class({
   },
 
   createPlayer: function () {
-
     player = this.physics.add.sprite(850, 600, 'girl');
 
     player.setBounce(0.2);
@@ -173,7 +173,7 @@ var Baselevel = new Phaser.Class({
   },
 
   update: function () {
-    if (playLevel == true) {
+    if (playLevel == true && startLevel == true) {
 
       if (waste.countActive(true) === 9) {
         this.levelUp();
@@ -249,7 +249,9 @@ var Baselevel = new Phaser.Class({
         dialogueBox.setVisible(false);
         play.setVisible(false);
         openingText.setVisible(false);
+        startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        this.setUpCollision();
         this.showScore();
       },
       this
