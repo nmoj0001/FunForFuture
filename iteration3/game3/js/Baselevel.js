@@ -279,7 +279,7 @@ var Baselevel = new Phaser.Class({
   },
 
   setLevelUp: function () {
-    girl.setVisible(false);
+    player.setVisible(false);
 
     if (addTotal) {
       totalScore += score;
@@ -329,7 +329,7 @@ var Baselevel = new Phaser.Class({
   },
 
   setLoseLevel: function () {
-    girl.setVisible(false);
+    player.setVisible(false);
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.5)
     replay = this.add.image(1000, 600, 'replay');
