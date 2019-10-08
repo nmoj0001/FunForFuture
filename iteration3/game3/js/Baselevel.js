@@ -211,8 +211,8 @@ var Baselevel = new Phaser.Class({
     scoreText.setText(score);
 
     scoreUpdateText = this.add
-      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1000, 250, update, { font: '40px Comic Sans', fill: '#000000' })
+      .setStroke('#f5b042', 10)
       .setShadow(2, 2, '#333333', 2, true, true);
     var tween = this.tweens.add({
       targets: scoreUpdateText,
@@ -282,7 +282,8 @@ var Baselevel = new Phaser.Class({
       addTotal = false;
     }
 
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
     replay = this.add.image(850, 440, 'replay');
     playNext = this.add.image(1150, 440, 'playNext');
     winLevelText = this.add
