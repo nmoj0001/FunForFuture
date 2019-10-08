@@ -25,10 +25,10 @@ var Level1 = new Phaser.Class({
     score = 0;
 
     this.setUp();
-    platform_1 = this.add.image(750, 650, 'platform_long').setOrigin(0);
-    platform_2 = this.add.image(0, 800, 'platform_medium').setOrigin(0);
-    platform_3 = this.add.image(600, 650, 'platform_short').setOrigin(0);
-    platform_4 = this.add.image(1000, 50, 'platform_short').setOrigin(0);
+    platform_1 = this.add.image(1150, 750, 'platform_long').setOrigin(0);
+    platform_2 = this.add.image(0, 150, 'platform_medium').setOrigin(0);
+    platform_3 = this.add.image(600, 450, 'platform_short').setOrigin(0);
+    platform_4 = this.add.image(1000, 350, 'platform_short').setOrigin(0);
   },
 
   levelUp: function() {
