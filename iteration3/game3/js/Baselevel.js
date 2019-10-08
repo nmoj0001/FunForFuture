@@ -252,6 +252,9 @@ var Baselevel = new Phaser.Class({
         openingText.setVisible(false);
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        this.createWaste();
+        this.createBin(3);
+        this.createRecycleBonus(10);
         this.setUpCollision();
         this.showScore();
       },
