@@ -19,6 +19,12 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
     <?php 
       $username = $_SESSION ['username']; 
 	  echo $username;
+	  
+	  $sql = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+echo "<h3>" . $row["gameScore"] . "</h3>";
+	  
       $sql = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1;";
       $result1 = $conn->query($sql); 
 	  if ($result1->num_rows = 1)
