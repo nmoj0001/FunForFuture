@@ -88,7 +88,7 @@ session_start();
           <?php  
           $username = $_SESSION ['username']; 
 
-            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = '$_SESSION ['username']'";
+            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika'";
             $result1 = $conn->query($sql1);
             echo 'your socre for Sort your waste is' . $result1 ;
             
