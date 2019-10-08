@@ -310,9 +310,9 @@ var Baselevel = new Phaser.Class({
     //   achievement = 'Beginner';
     // }
     // if (totalScore > 900 && totalScore <= 1100) {
-      totalScoreImage = this.add.image(900, 430, 'totalScore');
-      totalScoreImage = this.add.image(1000, 430, 'totalScore');
-      achievement = 'Intermediate';
+      totalScoreImage = this.add.image(950, 430, 'totalScore');
+      totalScoreImage = this.add.image(1100, 430, 'totalScore');
+      achievement = 'Medium';
     // } if (totalScore > 1200) {
     //   totalScoreImage = this.add.image(900, 430, 'totalScore');
     //   totalScoreImage = this.add.image(950, 430, 'totalScore');
@@ -321,7 +321,7 @@ var Baselevel = new Phaser.Class({
     }
 
     achievementText = this.add
-      .text(800, 520, 'You are: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .text(790, 520, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
