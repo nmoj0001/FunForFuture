@@ -140,7 +140,7 @@ var Baselevel = new Phaser.Class({
     bin = this.physics.add.group({
       key: 'bin',
       repeat: num,
-      setXY: { x: 1500, y: 0, stepX: 400 }
+      setXY: { x: 150, y: 0, stepX: 400 }
     });
 
     bin.children.iterate(function (child) {
@@ -153,7 +153,7 @@ var Baselevel = new Phaser.Class({
     recycle = this.physics.add.group({
       key: 'recycle',
       repeat: num,
-      setXY: { x: 300, y: 0, stepX: 600 }
+      setXY: { x: 200, y: 0, stepX: 100 }
     });
 
     recycle.children.iterate(function (child) {
@@ -381,7 +381,7 @@ var Baselevel = new Phaser.Class({
   },
 
   showInfo: function () {
-    home.setInteractive({ useHandCursor: true }).on(
+    info.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
         instructions = this.add.image(1000, 200, 'instructions');
@@ -393,7 +393,7 @@ var Baselevel = new Phaser.Class({
   },
 
   resumeGame: function () {
-    home.setInteractive({ useHandCursor: true }).on(
+    resume.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
         instructions.setVisible(false);
