@@ -24,6 +24,7 @@ if ($conn->connect_error) { exit('Could not connect'); } ?>
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	echo $row["gameScore"];
+	echo "Your score for Sort your waste game is ". $row["gameScore"];
 	
   	  if ($result->num_rows = 1)
 	  { 
