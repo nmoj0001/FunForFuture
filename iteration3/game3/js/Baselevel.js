@@ -1,5 +1,4 @@
 var background;
-var ground;
 var recycle;
 var player;
 var platforms;
@@ -35,7 +34,6 @@ var Baselevel = new Phaser.Class({
 
   setUp: function () {
     background = this.add.image(0, 0, 'background').setOrigin(0);
-    //ground = this.add.image(0, 770, 'ground').setOrigin(0);
     recycle = this.add.image(0, 0, 'recycle').setOrigin(0);
   },
 
@@ -44,8 +42,7 @@ var Baselevel = new Phaser.Class({
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
-    //this.physics.add.collider(player, platforms);
-    this.physics.add.collider(player, ground);
+    this.physics.add.collider(player, platforms);
 
     this.anims.create({
       key: 'left',
