@@ -173,12 +173,13 @@ var Baselevel = new Phaser.Class({
   },
 
   update: function () {
-    if (playLevel == true && startLevel == true) {
-
-      if (waste.countActive(true) === 9) {
-        this.levelUp();
-      } else {
-        this.updateBonusTimer();
+    if (playLevel == true) {
+      if (startLevel == true) {
+        if (waste.countActive(true) === 0) {
+          this.levelUp();
+        } else {
+          this.updateBonusTimer();
+        }
       }
     }
     else {
