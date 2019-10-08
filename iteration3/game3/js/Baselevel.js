@@ -23,6 +23,9 @@ var playLevel;
 var dialogueBox;
 var play;
 var replay;
+var resume;
+var home;
+var info;
 var playNext;
 var reload;
 var loseLevelText;
@@ -30,7 +33,6 @@ var winLevelText;
 var addTotal;
 var achievement;
 var achievementText;
-
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -48,6 +50,8 @@ var Baselevel = new Phaser.Class({
   },
 
   loadAssets: function () {
+    this.load.image('home', 'assets/common/icon_home.png');
+    this.load.image('info', 'assets/common/icon_info.png');
     this.load.image('background', 'assets/common/background.png');
     this.load.image('ground', 'assets/common/ground.png');
     this.load.image('recycle', 'assets/common/recycle_badge.png');
@@ -59,6 +63,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('timer', 'assets/common/timer.png');
     this.load.image('playNext', 'assets/common/play_next.png');
     this.load.image('play', 'assets/common/play.png');
+    this.load.image('resume', 'assets/common/resume.png');
     this.load.image('replay', 'assets/common/replay.png');
     this.load.image('reload', 'assets/common/reload.png');
     this.load.image('totalScore', 'assets/common/total_score.png');
@@ -71,6 +76,8 @@ var Baselevel = new Phaser.Class({
 
   setUp: function () {
     background = this.add.image(0, 0, 'background').setOrigin(0);
+    home = this.add.image(15, 15, 'home').setOrigin(0);
+    info = this.add.image(115, 15, 'info').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
 
     addTotal = true;
@@ -92,7 +99,7 @@ var Baselevel = new Phaser.Class({
     platforms.create(960, 850, 'ground');
     platforms.create(1600, 600, 'platform_long');
     platforms.create(200, 550, 'platform_medium');
-    platforms.create(1050, 450, 'platform_short');
+    platforms.create(1100, 450, 'platform_short');
     platforms.create(700, 300, 'platform_short');
   },
 
@@ -357,5 +364,25 @@ var Baselevel = new Phaser.Class({
       .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-  }
+  },
+
+  goHome: function () {
+    home.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        this.scene.start('Level1');
+      },
+      this
+    );
+  },
+
+  showInfo: function () {
+    home.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        this.scene.start('Level1');
+      },
+      this
+    );
+  },
 });
