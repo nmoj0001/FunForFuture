@@ -141,7 +141,7 @@ var Baselevel = new Phaser.Class({
     bin = this.physics.add.group({
       key: 'bin',
       repeat: num,
-      setXY: { x: 150, y: 0, stepX: 400 }
+      setXY: { x: 150, y: 0, stepX: 200 }
     });
 
     bin.children.iterate(function (child) {

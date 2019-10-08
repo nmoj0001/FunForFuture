@@ -74,7 +74,7 @@ var Level3 = new Phaser.Class({
   createWaste: function () {
     waste = this.physics.add.group({
       key: ['toxic_1', 'toxic_2', 'toxic_3', 'toxic_4', 'toxic_5', 'toxic_6', 'toxic_7', 'toxic_8', 'toxic_9', 'toxic_10', 'toxic_11', 'toxic_12', 'toxic_13', 'toxic_14', 'toxic_15'],
-      setXY: { x: 50, y: 0, stepX: 220 }
+      setXY: { x: 50, y: 0, stepX: 120 }
     });
 
     waste.children.iterate(function (child) {

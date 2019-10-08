@@ -33,7 +33,7 @@ var Level1 = new Phaser.Class({
   createWaste: function () {
     waste = this.physics.add.group({
       key: ['solid_1', 'solid_2', 'solid_3', 'solid_4', 'solid_5', 'solid_6', 'solid_7', 'solid_8', 'solid_9', 'solid_10'],
-      setXY: { x: 50, y: 0, stepX: 220 }
+      setXY: { x: 50, y: 0, stepX: 120 }
     });
 
     waste.children.iterate(function (child) {
