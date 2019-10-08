@@ -1,3 +1,10 @@
+<?php
+session_start();
+//$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+//echo $Vdata;
+//echo $_SESSION ['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -62,29 +69,44 @@
     <div class="jumbotron jumbotron-fluid bg-warning" style="margin-bottom: 0;">
       <div class="container ">
         <h1 class="display-4">
-          Hello username<span
+          <?php echo 'Hello ' . $_SESSION ['username']; ?><span
             ><img
               src="/img/gamegirl1.jpeg"
               style="display:inline; float:right; height:200px;"
               alt="..."
           /></span>
         </h1>
+        <?php
+
+        //$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
+        $conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com", "jeyganesh", "jeyganesh", "jeyganesh");
+        if ($conn->connect_error) {
+          exit('Could not connect');
+        }
+        ?>
         <p class="lead font-italic">
-          Your total socre is xxx, <br />
-          your socre for Sort your waste is xxx,<br />
-          your socre for Sort your waste is xxx,<br />
-          your socre for Sort your waste is xxx,
+          <?php  
+          
+          $username = $_SESSION ['username']; 
+
+            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = 'rithika' LIMIT 1;";
+            $result1 = $conn->query($sql1);
+            $row1 = $result->fetch_assoc();
+
+            echo 'your socre for Sort your waste is' . $row['gameScore'] ;
+            
+            $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = '$_SESSION ['username']'";
+            $result2 = $conn->query($sql2);
+            echo 'your socre for Know your waste is' . $result2;
+            
+            $sql3 = "select gameScore from jeyganesh.score where gameID = 3 and username = '$_SESSION ['username']'";
+            $result3 = $conn->query($sql3);
+            echo 'your socre for Learn unique waste is' . $result3;
+          ?> 
         </p>
       </div>
     </div>
-    <?php
-
-//$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
-$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com", "jeyganesh", "jeyganesh", "jeyganesh");
-if ($conn->connect_error) {
-  exit('Could not connect');
-}
-?>
+   
 
     <div style="padding:0; " class="container-fluid bg-light">
       <div class="row">
@@ -101,25 +123,29 @@ if ($conn->connect_error) {
               <?php
               $sql = "select username, gameScore from jeyganesh.score where
               gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-               if ($result->num_rows > 0) {  while($row =
-                $result->fetch_assoc()) { echo "
+               if ($result->num_rows > 0) { $a = 1; while($row =
+                $result->fetch_assoc()) { 
+                  
+                  echo "
                 <tr>
                   "; echo "
-                  <td>" . $row['username'] . "</td>
+                  <td>" . $a . "</td>
                   " . "
                   <td>" . $row['username'] . "</td>
                   " . "
                   <td>" . $row['gameScore'] . "</td>
                   "; echo "
                 </tr>
-                "; } echo "
+                "; 
+              $a++;
+              } echo "
               </table>
 
               "; } Else { echo "Unable to load...come back later"; } ?>
             </tbody>
           </table>
         </div>
-?>
+
         <div class="col">
           <table class="table table-hover">
             <thead>
@@ -130,32 +156,29 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-            </tbody>
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 2 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $b = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    
+                    echo "
+                  <tr>
+                    "; echo "
+                    <td>" . $b . "</td>
+                    " . "
+                    <td>" . $row['username'] . "</td>
+                    " . "
+                    <td>" . $row['gameScore'] . "</td>
+                    "; echo "
+                  </tr>
+                  "; 
+                $b++;
+                } echo "
+                </table>
+  
+                "; } Else { echo "Unable to load...come back later"; } ?>
+              </tbody>
           </table>
         </div>
         <div class="col">
@@ -168,32 +191,29 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Larry</td>
-                <td>Thornton</td>
-              </tr>
-            </tbody>
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 3 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $c = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    
+                    echo "
+                  <tr>
+                    "; echo "
+                    <td>" . $c . "</td>
+                    " . "
+                    <td>" . $row['username'] . "</td>
+                    " . "
+                    <td>" . $row['gameScore'] . "</td>
+                    "; echo "
+                  </tr>
+                  "; 
+                $c++;
+                } echo "
+                </table>
+  
+                "; } Else { echo "Unable to load...come back later"; } ?>
+              </tbody>
           </table>
         </div>
       </div>
