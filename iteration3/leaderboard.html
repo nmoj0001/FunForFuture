@@ -88,15 +88,15 @@ session_start();
           <?php  
           $username = $_SESSION ['username']; 
 
-            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = $username";
+            $sql1 = "select gameScore from jeyganesh.score where gameID = 1 and username = $_SESSION ['username']";
             $result1 = $conn->query($sql1);
             echo 'your socre for Sort your waste is' . $result1 ;
             
-            $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = $username";
+            $sql2 = "select gameScore from jeyganesh.score where gameID = 2 and username = $_SESSION ['username']";
             $result2 = $conn->query($sql2);
             echo 'your socre for Know your waste is' . $result2;
             
-            $sql3 = "select gameScore from jeyganesh.score where gameID = 3 and username = $username";
+            $sql3 = "select gameScore from jeyganesh.score where gameID = 3 and username = $_SESSION ['username']";
             $result3 = $conn->query($sql3);
             echo 'your socre for Learn unique waste is' . $result3;
           ?> 
