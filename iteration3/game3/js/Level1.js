@@ -27,10 +27,10 @@ var Level1 = new Phaser.Class({
     this.setUp();
     platforms = this.physics.add.staticGroup();
     platforms.create(0, 770, 'ground').setOrigin(0);
-    platforms.create(1250, 550, 'platform_long').setOrigin(0);
-    platforms.create(0, 200, 'platform_medium').setOrigin(0);
-    platforms.create(950, 450, 'platform_short').setOrigin(0);
-    platforms.create(600, 350, 'platform_short').setOrigin(0);
+    platforms.create(1250, 500, 'platform_long').setOrigin(0);
+    platforms.create(0, 150, 'platform_medium').setOrigin(0);
+    platforms.create(950, 400, 'platform_short').setOrigin(0);
+    platforms.create(600, 300, 'platform_short').setOrigin(0);
     this.createPlayer();
   },
 
