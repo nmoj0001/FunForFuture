@@ -158,11 +158,11 @@ var Baselevel = new Phaser.Class({
 
     scoreText = this.add
       .text(1705, 40, score, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
       .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -214,7 +214,7 @@ var Baselevel = new Phaser.Class({
 
     scoreUpdateText = this.add
       .text(900, 250, update, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     var tween = this.tweens.add({
       targets: scoreUpdateText,
@@ -293,7 +293,7 @@ var Baselevel = new Phaser.Class({
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
@@ -301,7 +301,7 @@ var Baselevel = new Phaser.Class({
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
 
@@ -322,7 +322,7 @@ var Baselevel = new Phaser.Class({
 
     achievementText = this.add
       .text(790, 500, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -331,7 +331,7 @@ var Baselevel = new Phaser.Class({
     replay = this.add.image(1000, 380, 'replay');
     loseLevelText = this.add
       .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   }
 });
