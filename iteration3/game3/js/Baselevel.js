@@ -6,6 +6,7 @@ var cursors;
 var player;
 var waste;
 var bin;
+var startLevel = false;
 var score;
 var scoreText;
 var scoreUpdateText;
@@ -20,6 +21,7 @@ var timerImage;
 var level;
 var playLevel;
 var dialogueBox;
+var play;
 var replay;
 var playNext;
 var reload;
@@ -56,6 +58,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('score', 'assets/common/score.png');
     this.load.image('timer', 'assets/common/timer.png');
     this.load.image('playNext', 'assets/common/play_next.png');
+    this.load.image('play', 'assets/common/play.png');
     this.load.image('replay', 'assets/common/replay.png');
     this.load.image('reload', 'assets/common/reload.png');
     this.load.image('totalScore', 'assets/common/total_score.png');
@@ -242,6 +245,19 @@ var Baselevel = new Phaser.Class({
     bin.disableBody(true, true);
     this.updateScore(-50);
     player.anims.play('turn');
+  },
+
+  startLevel: function (level) {
+    play.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        dialogueBox.setVisible(false);
+        play.setVisible(false);
+        openingText.setVisible(false);
+        startLevel = true;
+      },
+      this
+    );
   },
 
   replayLevel: function (level) {

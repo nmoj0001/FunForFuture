@@ -31,6 +31,7 @@ var Level1 = new Phaser.Class({
     totalScore = 0;
 
     this.setUp();
+    this.setOpening();
     this.createPlatforms();
     this.createPlayer();
     this.createWaste();
@@ -49,6 +50,17 @@ var Level1 = new Phaser.Class({
       child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
 
     });
+  },
+
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    play = this.add.image(1000, 650, 'play');
+    openingText = this.add
+      .text(870, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
   },
 
   levelUp: function () {
