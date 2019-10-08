@@ -41,13 +41,22 @@ var Baselevel = new Phaser.Class({
     background = this.add.image(0, 0, 'background').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-    
+
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(waste, platforms);
     this.physics.add.collider(bin, platforms);
     this.physics.add.overlap(player, waste, this.collectWaste, null, this);
     this.physics.add.collider(player, bin, this.hitBin, null, this);
     this.physics.add.overlap(player, recycle, this.createRecycleBonus, null, this);
+  },
+
+  createPlatforms: function () {
+    platforms = this.physics.add.staticGroup();
+    platforms.create(960, 850, 'ground');
+    platforms.create(1600, 600, 'platform_long');
+    platforms.create(200, 550, 'platform_medium');
+    platforms.create(950, 450, 'platform_short');
+    platforms.create(650, 300, 'platform_short');
   },
 
   createPlayer: function () {
@@ -79,10 +88,10 @@ var Baselevel = new Phaser.Class({
     });
   },
 
-  createBin: function () {
+  createBin: function (num) {
     bin = this.physics.add.group({
       key: 'bin',
-      repeat: 3,
+      repeat: num,
       setXY: { x: 200, y: 0, stepX: 500 }
     });
 
@@ -92,10 +101,10 @@ var Baselevel = new Phaser.Class({
     });
   },
 
-  createRecycleBonus: function () {
+  createRecycleBonus: function (num) {
     recycle = this.physics.add.group({
       key: 'recycle',
-      repeat: 5,
+      repeat: num,
       setXY: { x: 300, y: 0, stepX: 600 }
     });
 

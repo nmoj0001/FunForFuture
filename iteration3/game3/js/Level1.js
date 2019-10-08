@@ -33,20 +33,23 @@ var Level1 = new Phaser.Class({
     this.createPlatforms();
     this.createPlayer();
     this.createWaste();
-    this.createBin();
-    this.createRecycleBonus();
+    this.createBin(3);
+    this.createRecycleBonus(5);
+  },
+
+  createWaste: function () {
+    waste = this.physics.add.group({
+      key: ['solid_1', 'solid_2', 'solid_3', 'solid_4', 'solid_5', 'solid_6', 'solid_7', 'solid_8', 'solid_9', 'solid_10'],
+      setXY: { x: 50, y: 0, stepX: 200 }
+    });
+
+    waste.children.iterate(function (child) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+
+    });
   },
 
   levelUp: function () {
     this.scene.start('Level2');
-  },
-
-  createPlatforms: function () {
-    platforms = this.physics.add.staticGroup();
-    platforms.create(960, 850, 'ground');
-    platforms.create(1600, 600, 'platform_long');
-    platforms.create(200, 550, 'platform_medium');
-    platforms.create(950, 450, 'platform_short');
-    platforms.create(650, 300, 'platform_short');
-  },
+  }
 });
