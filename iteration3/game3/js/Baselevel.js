@@ -41,7 +41,9 @@ var Baselevel = new Phaser.Class({
     background = this.add.image(0, 0, 'background').setOrigin(0);
     cursors = this.input.keyboard.createCursorKeys();
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+  },
 
+  setUpCollision: function () {
     this.physics.add.collider(player, platforms);
     this.physics.add.collider(waste, platforms);
     this.physics.add.collider(bin, platforms);
