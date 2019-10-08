@@ -385,7 +385,6 @@ var Baselevel = new Phaser.Class({
       'pointerup',
       function () {
         instructions = this.add.image(1000, 450, 'instructions');
-        instructions.setScale(0.8);
         resume = this.add.image(1000, 650, 'resume');
         this.resumeGame();
       },
