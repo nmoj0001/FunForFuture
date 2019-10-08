@@ -1,3 +1,9 @@
+var background;
+var ground;
+var recycle;
+var player;
+var platforms;
+
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
 
