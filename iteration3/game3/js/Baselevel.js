@@ -407,4 +407,14 @@ var Baselevel = new Phaser.Class({
       this
     );
   },
+
+  submitScore: function () {
+    resume.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+      
+      },
+      this
+    );
+  },
 });

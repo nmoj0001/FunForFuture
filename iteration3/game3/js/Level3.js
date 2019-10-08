@@ -101,6 +101,7 @@ var Level3 = new Phaser.Class({
     reload = this.add.image(850, 620, 'reload');
     submit = this.add.image(1150, 620, 'submit');
     this.reloadGame();
+    this.submitScore();
   },
 
   loseLevel: function () {
