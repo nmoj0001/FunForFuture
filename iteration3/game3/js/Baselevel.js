@@ -6,7 +6,7 @@ var cursors;
 var player;
 var waste;
 var bin;
-var startLevel = false;
+var startLevel;
 var score;
 var scoreText;
 var scoreUpdateText;
@@ -77,6 +77,7 @@ var Baselevel = new Phaser.Class({
   },
 
   setUp: function () {
+    startLevel = false;
     background = this.add.image(0, 0, 'background').setOrigin(0);
     home = this.add.image(15, 15, 'home').setOrigin(0);
     info = this.add.image(115, 15, 'info').setOrigin(0);

@@ -1,9 +1,3 @@
-var solid_1;
-var solid_2;
-var solid_3;
-var solid_4;
-var solid_5;
-
 var Level1 = new Phaser.Class({
   Extends: Baselevel,
 
