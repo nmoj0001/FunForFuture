@@ -17,10 +17,9 @@
   <p>
     <?php 
     session_start();
-    $session_value=(isset($_SESSION['username']))?$_SESSION['username']:'test'; 
+    $session_value=(isset($_SESSION['username']))?$_SESSION['username']:''; 
     ?></p>
   <script type="text/javascript">
-    window.alert('<?php echo $session_value;?>');
     var username = '<?php echo $session_value;?>';
   </script>
   <script type="text/javascript" src="js/Baselevel.js"></script>
