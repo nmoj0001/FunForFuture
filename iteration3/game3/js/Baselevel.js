@@ -106,7 +106,7 @@ var Baselevel = new Phaser.Class({
     platforms.create(960, 850, 'ground');
     platforms.create(1600, 600, 'platform_long');
     platforms.create(200, 550, 'platform_medium');
-    platforms.create(1100, 450, 'platform_short');
+    platforms.create(950, 450, 'platform_short');
     platforms.create(700, 300, 'platform_short');
   },
 
@@ -143,7 +143,7 @@ var Baselevel = new Phaser.Class({
     bin = this.physics.add.group({
       key: 'bin',
       repeat: num,
-      setXY: { x: 180, y: 0, stepX: 350 }
+      setXY: { x: 280, y: 0, stepX: 400 }
     });
 
     bin.children.iterate(function (child) {
@@ -268,7 +268,7 @@ var Baselevel = new Phaser.Class({
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
         player.setVisible(true);
-        this.createBin(5);
+        this.createBin(3);
         this.createRecycleBonus(5);
         this.createWaste();
         this.setUpCollision();
@@ -343,7 +343,7 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 1200) {
-      totalScoreImage = this.add.image(990, 440, 'totalScore');
+      totalScoreImage = this.add.image(1010, 440, 'totalScore');
       achievement = 'Beginner';
     }
     if (totalScore > 1200 && totalScore <= 2000) {
