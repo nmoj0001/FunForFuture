@@ -86,6 +86,9 @@ var Baselevel = new Phaser.Class({
     info = this.add.image(115, 15, 'info').setOrigin(0);
     this.goHome();
     this.showInfo();
+    instructions = this.add.image(1000, 450, 'instructions');
+    resume = this.add.image(1000, 650, 'resume');
+    this.resumeGame();
     cursors = this.input.keyboard.createCursorKeys();
     addTotal = true;
     playLevel = true;
