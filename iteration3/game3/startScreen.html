@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+        }
 
-.bg {
-  /* The image used */
-  background-image: url("/iteration3/game3/assets/Webpage/startScreen.jpg");
-
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
+        #bg img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            min-width: 50%;
+            min-height: 50%;
+        }
+    </style>
 </head>
+
 <body>
-<div class="bg"></div>
+    <div id="bg"><img src="/iteration3/game3/assets/Webpage/startScreen.jpg" alt=""></div>
 </body>
+
 </html>
