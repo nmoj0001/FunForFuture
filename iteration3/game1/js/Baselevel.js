@@ -162,7 +162,9 @@ var Baselevel = new Phaser.Class({
       (waste.y > 700 && waste.y < 1100)
     ) {
       waste.destroy();
-      speechBubbleText.setText('Good Job\nidentifying\n' + category);
+      speechBubbleText.setText('Good Job identifying\n    ' + category);
+      speechBubbleText.setX(230);
+      speechBubbleText.setY(200);
       counter--;
       this.updateWaste(level);
       this.updateScore(+100);
@@ -181,7 +183,7 @@ var Baselevel = new Phaser.Class({
     ) {
       waste.destroy();
       speechBubbleText.setText('     Oops!\nThis is ' + category);
-      speechBubbleText.setX(220);
+      speechBubbleText.setX(230);
       speechBubbleText.setY(200);
       counter--;
       this.updateWaste(level);
