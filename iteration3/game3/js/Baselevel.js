@@ -1,4 +1,3 @@
-var session = "";
 var background;
 var recycle;
 var player;
@@ -81,7 +80,7 @@ var Baselevel = new Phaser.Class({
 
   setUp: function () {
     this.add
-      .text(1705, 160, 'The session' + session, { font: '40px Arial Black', fill: '#fff' })
+      .text(100, 100, 'The session' + session, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     startLevel = false;
