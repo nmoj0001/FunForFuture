@@ -144,7 +144,9 @@ var Baselevel = new Phaser.Class({
           this.sortWaste();
           this.updateBonusTimer();
         } else {
-          speechBubbleText.setText('Good Job!');
+          speechBubbleText.setText('Congratulation!');
+          speechBubbleText.setX(280);
+          speechBubbleText.setY(220);
           this.levelUp();
         }
       }
@@ -163,8 +165,8 @@ var Baselevel = new Phaser.Class({
     ) {
       waste.destroy();
       speechBubbleText.setText('Good Job identifying\n    ' + category);
-      speechBubbleText.setX(230);
-      speechBubbleText.setY(200);
+      speechBubbleText.setX(220);
+      speechBubbleText.setY(210);
       counter--;
       this.updateWaste(level);
       this.updateScore(+100);
