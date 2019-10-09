@@ -83,10 +83,9 @@ if ($conn->connect_error) {
               alt="..."
           /></span>
         </h1>
-		
-       
+		     
         <p class="lead font-italic" align = "centre">
-	<script>
+	<script type="text/javascript">
  
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
@@ -94,19 +93,67 @@ var queries = queryString.split("&");
 for (var i = 0; i < queries.length; i++)
 {
   document.write(queries[i] + "<br>");
+  
 }
+var array = queryString.split('&');
+var a = array[0];
+var b = array[1];
+var c = array[2];
+document.write(a);
+document.write(b);
+document.write(c);
+// if (window.XMLHttpRequest) {
+//                        xmlhttp = new XMLHttpRequest();
+//                    }
+//                    xmlhttp.open("GET", "ajax.html?a=" + a + "&b=" + b + "&c=" +  c , true);
+//                    xmlhttp.send();
+
+// $.ajax({
+//		url:"c.php",
+//	method: "post",
+//	data: c,
+//	success: function(res){
+//	console.log(res);
+//	}
+//})
+
+function showUser(c) {
+  //if (str=="") {
+    //document.getElementById("aws").innerHTML="";
+    //return;
+  //}
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("aws").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("POST","score.php?q="+c,true);
+  xmlhttp.send();
+}
+
 <?php
-$_SESSION['gameID'] = queries[0];
-$_SESSION['score'] = queries[2];
+
+//$_SESSION['gameID'] = <script> document.write(a) </script>;
+//$_SESSION['score'] = <script> document.writeln(c); </script>;
+
 ?> 
- 
 </script>
+
+ 
+<h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
+<h3 align = "centre"><?php echo $_SESSION ['gameID']; ?></h3>
 		 <h3 align = "centre"><?php echo 'Your score for Know your waste game is' . $_SESSION ['score']; ?></h3>
 		 <h3 align = "centre">"Your score for Know your waste game is "</h3>
 		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
 		  
 		  <a href="work.html" class="btn-light">Replay Game</a>
-		<a href="leaderboard.html" class="btn-light">Submit Score</a>
+		<a href="leaderboard.html" class="btn-light" id = "aws">Submit Score</a>
 		
         </p>
       </div>
