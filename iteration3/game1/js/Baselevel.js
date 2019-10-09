@@ -98,7 +98,6 @@ var Baselevel = new Phaser.Class({
     counter = 5;
 
     this.updateWaste(level);
-    this.showScore();
   },
 
   updateWaste: function (level) {
@@ -202,7 +201,7 @@ var Baselevel = new Phaser.Class({
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
+      .text(1705, 160, '00:00', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },

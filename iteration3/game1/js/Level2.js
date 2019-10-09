@@ -30,16 +30,32 @@ var Level2 = new Phaser.Class({
     addTotal = true;
     level2Bg = this.add.image(0, 0, 'level2_background').setOrigin(0);
     this.setUp();
+    this.setOpening();
     speechBubbleText.setText('Level2');
   },
 
-  levelUp: function() {
-    this.setLevelUp();
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+    .text(800, 180, 'Level 2 - Living Room', { font: '35px Arial Black', fill: '#fff' })
+    .setStroke('#ffc812', 16)
+    .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(680, 230, 'Welcome to the Living Room!\n      Help Nina clean up\n   And sort waste properly!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp('Level 2 Complete');
     this.replayLevel('Level2');
     this.playNextLevel('Level3');
   },
 
-  loseLevel: function() {
+  loseLevel: function () {
     this.setLoseLevel();
     this.replayLevel('Level2');
   }
