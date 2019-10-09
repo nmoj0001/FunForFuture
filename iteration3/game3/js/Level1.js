@@ -29,7 +29,7 @@ var Level1 = new Phaser.Class({
     this.createPlayer();
     this.setOpening();
     instructions = this.add.image(1000, 450, 'instructions');
-    resume = this.add.image(1000, 650, 'resume');
+    resume = this.add.image(1000, 750, 'resume');
     this.resumeGame();
   },
 
