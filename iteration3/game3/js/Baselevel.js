@@ -413,7 +413,7 @@ var Baselevel = new Phaser.Class({
       'pointerup',
       function () {
         var sessionVales = "?game=" + 3 + "&username=" + username + "&score=" + totalScore;
-        window.open('iteration3/submitscore.html' + sessionVales, "_self");
+        window.open('/iteration3/submitscore.html' + sessionVales, "_self");
       },
       this
     );
