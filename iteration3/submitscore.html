@@ -102,13 +102,12 @@ var c = array[2];
 document.write(a);
 document.write(b);
 document.write(c);
-document.cookie = a;
 
 </script>
 <?php
-$myPhpVar= $_COOKIE['a'];
-$_SESSION['gameID'] = $myPhpVar;
-$_SESSION['score'] = c;
+
+$_SESSION['gameID'] = <script> document.write(a); </script>;
+$_SESSION['score'] = <script> document.writeln(c); </script>;
 ?> 
  
 <h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
