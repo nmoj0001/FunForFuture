@@ -1,3 +1,4 @@
+var session='<?php echo $session_value;?>';
 var background;
 var recycle;
 var player;
@@ -79,6 +80,10 @@ var Baselevel = new Phaser.Class({
   },
 
   setUp: function () {
+    this.add
+      .text(1705, 160, session, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
     startLevel = false;
     background = this.add.image(0, 0, 'background').setOrigin(0);
     home = this.add.image(15, 15, 'home').setOrigin(0);
