@@ -82,7 +82,7 @@ var Baselevel = new Phaser.Class({
 
     girl = this.add.image(50, 420, 'girl').setOrigin(0);
     speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
-    speechBubbleText = this.add.text(350, 250, 'Welcome', { fontSize: '32px', fill: '#000' });
+    speechBubbleText = this.add.text(320, 220, 'Welcome', { fontSize: '32px', fill: '#000' });
 
     home = this.add.image(15, 15, 'home').setOrigin(0);
     info = this.add.image(115, 15, 'info').setOrigin(0);
