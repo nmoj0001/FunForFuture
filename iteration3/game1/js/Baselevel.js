@@ -105,14 +105,14 @@ var Baselevel = new Phaser.Class({
     else if (num >= 11 && num <= 15) category = 'garbage';
 
     waste = this.matter.add
-      .image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true })
+      .image(1050, 250, 'l' + level + '_' + num, null, { isStatic: true })
       .setInteractive();
 
       var tween = this.tweens.add({
         targets: waste,
-        x: 100,
+        x: 20,
         ease: 'Power1',
-        duration: 400,
+        duration: 600,
         yoyo: true,
         repeat: 1,
     });
