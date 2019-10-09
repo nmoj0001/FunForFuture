@@ -92,7 +92,6 @@ var Baselevel = new Phaser.Class({
     playLevel = true;
     score = 0;
     counter = 5;
-    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
 
     this.updateWaste(level);
     this.showScore();
@@ -281,7 +280,6 @@ var Baselevel = new Phaser.Class({
   },
 
   setLevelUp: function (winText) {
-    player.setVisible(false);
     info.disableInteractive();
 
     if (addTotal) {
