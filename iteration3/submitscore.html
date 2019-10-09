@@ -85,7 +85,7 @@ if ($conn->connect_error) {
         </h1>
 		     
         <p class="lead font-italic" align = "centre">
-	<script>
+	<script type="text/javascript">
  
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
@@ -108,14 +108,34 @@ document.write(c);
 //                    xmlhttp.open("GET", "ajax.html?a=" + a + "&b=" + b + "&c=" +  c , true);
 //                    xmlhttp.send();
 
-$.ajax({
-		url:"c.php",
-		method: "post",
-		data: c,
-		success: function(res){
-		console.log(res);
-		}
-})
+// $.ajax({
+//		url:"c.php",
+//	method: "post",
+//	data: c,
+//	success: function(res){
+//	console.log(res);
+//	}
+//})
+
+function showUser(c) {
+  //if (str=="") {
+    //document.getElementById("aws").innerHTML="";
+    //return;
+  //}
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("aws").innerHTML=this.responseText;
+    }
+  }
+  xmlhttp.open("POST","score.php?q="+c,true);
+  xmlhttp.send();
+}
 
 <?php
 
@@ -133,7 +153,7 @@ $.ajax({
 		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
 		  
 		  <a href="work.html" class="btn-light">Replay Game</a>
-		<a href="leaderboard.html" class="btn-light">Submit Score</a>
+		<a href="leaderboard.html" class="btn-light" id = "aws">Submit Score</a>
 		
         </p>
       </div>
