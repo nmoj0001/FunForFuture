@@ -268,7 +268,7 @@ var Baselevel = new Phaser.Class({
         openingText.setVisible(false);
         levelText.setVisible(false);
         startLevel = true;
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 30 });
         player.setVisible(true);
         this.createBin(3);
         this.createRecycleBonus(5);
@@ -328,7 +328,7 @@ var Baselevel = new Phaser.Class({
     replay = this.add.image(850, 620, 'replay');
     playNext = this.add.image(1150, 620, 'playNext');
     winLevelText = this.add
-      .text(800, 230, winText, {
+      .text(810, 230, winText, {
         font: '40px Arial Black',
         fill: '#fff'
       })

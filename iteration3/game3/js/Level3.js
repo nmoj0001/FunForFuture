@@ -92,14 +92,14 @@ var Level3 = new Phaser.Class({
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
-      .text(680, 220, '     Hazardous waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest toxic-waste collection.\n   Collect these hazardous items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(680, 230, '     Hazardous waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest toxic-waste collection.\n   Collect these hazardous items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
   },
 
   levelUp: function () {
-    this.setLevelUp('Congratularions! Game Complete!');
+    this.setLevelUp('Game Complete!');
     replay.setVisible(false);
     playNext.setVisible(false);
     if (username != '') {
