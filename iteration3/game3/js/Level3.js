@@ -5,7 +5,7 @@ var Level3 = new Phaser.Class({
     Phaser.Scene.call(this, { key: 'Level3' });
   },
 
-  preload: function() {
+  preload: function () {
     this.loadAssets();
     // this.load.image('fish1', 'assets/Level1/fish1.png');
     // this.load.image('fish2', 'assets/Level1/fish2.png');
@@ -14,7 +14,7 @@ var Level3 = new Phaser.Class({
     // this.load.image('fish5', 'assets/Level1/fish5.png');
   },
 
-  create: function() {
+  create: function () {
     level = 1;
     score = 0;
 
@@ -25,7 +25,7 @@ var Level3 = new Phaser.Class({
     platform_4 = this.add.image(1000, 450, 'platform_short').setOrigin(0);
   },
 
-  levelUp: function() {
+  levelUp: function () {
     this.scene.start('Level1');
   }
 });
@@ -99,9 +99,11 @@ var Level3 = new Phaser.Class({
     replay.setVisible(false);
     playNext.setVisible(false);
     reload = this.add.image(850, 620, 'reload');
-    submit = this.add.image(1150, 620, 'submit');
+    if (username != '') {
+      submit = this.add.image(1150, 620, 'submit');
+      this.submitScore();
+    }
     this.reloadGame();
-    this.submitScore();
   },
 
   loseLevel: function () {

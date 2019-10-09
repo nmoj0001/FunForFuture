@@ -87,12 +87,6 @@ var Baselevel = new Phaser.Class({
     this.goHome();
     this.showInfo();
     cursors = this.input.keyboard.createCursorKeys();
-
-    sessiontext = this.add
-      .text(100, 100, 'The session' + session, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
-
     addTotal = true;
     playLevel = true;
   },
@@ -418,7 +412,8 @@ var Baselevel = new Phaser.Class({
     resume.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
-
+        var sessionVales = "?game=" + 3 + "&username=" + username + "&score=" + totalScore;
+        window.open('iteration3/submitscore.html' + sessionVales, "_self");
       },
       this
     );
