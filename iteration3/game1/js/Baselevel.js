@@ -180,7 +180,9 @@ var Baselevel = new Phaser.Class({
             (waste.x > 900 && waste.x < 1150))))
     ) {
       waste.destroy();
-      speechBubbleText.setText('Opps!\nThis is\n' + category);
+      speechBubbleText.setText('Oops!\nThis is ' + category);
+      speechBubble.setX(220);
+      speechBubble.setY(200);
       counter--;
       this.updateWaste(level);
       if (score > 0) {

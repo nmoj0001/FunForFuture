@@ -31,7 +31,7 @@ var Level1 = new Phaser.Class({
     level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
     this.setUp();
     this.setOpening();
-    speechBubbleText.setText('Level1');
+    speechBubbleText.setText('Level 1');
     instructions = this.add.image(1000, 450, 'instructions');
     resume = this.add.image(1000, 750, 'resume');
     this.resumeGame();

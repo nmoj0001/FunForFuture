@@ -31,7 +31,7 @@ var Level3 = new Phaser.Class({
     level3Bg = this.add.image(0, 0, 'level3_background').setOrigin(0);
     this.setUp();
     this.setOpening();
-    speechBubbleText.setText('Level3');
+    speechBubbleText.setText('Level 3');
   },
 
   setOpening: function () {
