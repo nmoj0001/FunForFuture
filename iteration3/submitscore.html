@@ -102,12 +102,15 @@ var c = array[2];
 document.write(a);
 document.write(b);
 document.write(c);
+document.cookie = a;
+
+</script>
 <?php
-$_SESSION['gameID'] = a;
+$myPhpVar= $_COOKIE['a'];
+$_SESSION['gameID'] = $myPhpVar;
 $_SESSION['score'] = c;
 ?> 
  
-</script>
 <h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
 <h3 align = "centre"><?php echo $_SESSION ['gameID']; ?></h3>
 		 <h3 align = "centre"><?php echo 'Your score for Know your waste game is' . $_SESSION ['score']; ?></h3>
