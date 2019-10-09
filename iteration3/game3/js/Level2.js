@@ -84,12 +84,12 @@ var Level2 = new Phaser.Class({
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.8)
     play = this.add.image(1020, 680, 'play');
-    this.add
+    levelText = this.add
     .text(800, 180, 'Level 2   -   E-Waste', { font: '35px Arial Black', fill: '#fff' })
     .setStroke('#ffc812', 16)
     .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
-      .text(680, 200, '     Electronic waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest e-wate collection.\n   Collect these e-waste items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(680, 220, '     Electronic waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n nearest e-wate collection.\n   Collect these e-waste items  \n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();

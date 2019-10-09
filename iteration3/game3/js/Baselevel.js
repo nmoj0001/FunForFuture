@@ -7,6 +7,7 @@ var cursors;
 var player;
 var waste;
 var bin;
+var levelText;
 var startLevel;
 var score;
 var scoreText;
@@ -265,6 +266,7 @@ var Baselevel = new Phaser.Class({
         dialogueBox.setVisible(false);
         play.setVisible(false);
         openingText.setVisible(false);
+        levelText.setVisible(false);
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
         player.setVisible(true);
@@ -343,7 +345,7 @@ var Baselevel = new Phaser.Class({
 
 
     if (totalScore <= 1200) {
-      totalScoreImage = this.add.image(1010, 440, 'totalScore');
+      totalScoreImage = this.add.image(1020, 440, 'totalScore');
       achievement = 'Beginner';
     }
     if (totalScore > 1200 && totalScore <= 2000) {
