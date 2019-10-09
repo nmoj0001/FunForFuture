@@ -143,7 +143,7 @@ var Baselevel = new Phaser.Class({
     bin = this.physics.add.group({
       key: 'bin',
       repeat: num,
-      setXY: { x: 200, y: 0, stepX: 300 }
+      setXY: { x: 180, y: 0, stepX: 350 }
     });
 
     bin.children.iterate(function (child) {
@@ -156,7 +156,7 @@ var Baselevel = new Phaser.Class({
     recycle = this.physics.add.group({
       key: 'recycle',
       repeat: num,
-      setXY: { x: 120, y: 0, stepX: 200 }
+      setXY: { x: 120, y: 0, stepX: 350 }
     });
 
     recycle.children.iterate(function (child) {
@@ -202,12 +202,12 @@ var Baselevel = new Phaser.Class({
     }
 
     if (cursors.left.isDown) {
-      player.setVelocityX(-160);
+      player.setVelocityX(-200);
 
       player.anims.play('left', true);
     }
     else if (cursors.right.isDown) {
-      player.setVelocityX(160);
+      player.setVelocityX(200);
 
       player.anims.play('right', true);
     }
@@ -268,9 +268,9 @@ var Baselevel = new Phaser.Class({
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
         player.setVisible(true);
-        this.createWaste();
         this.createBin(5);
-        this.createRecycleBonus(10);
+        this.createRecycleBonus(5);
+        this.createWaste();
         this.setUpCollision();
         this.showScore();
       },
