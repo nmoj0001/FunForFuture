@@ -316,15 +316,15 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
 
-    if (totalScore <= 700) {
+    if (score <= 700) {
       totalScoreImage = this.add.image(1020, 440, 'totalScore');
       achievement = 'Beginner';
     }
-    if (totalScore > 700 && totalScore <= 1100) {
+    if (score > 700 && score <= 1100) {
       totalScoreImage = this.add.image(970, 440, 'totalScore');
       totalScoreImage = this.add.image(1060, 440, 'totalScore');
       achievement = 'Medium';
-    } if (totalScore > 1100) {
+    } if (score > 1100) {
       totalScoreImage = this.add.image(920, 440, 'totalScore');
       totalScoreImage = this.add.image(1015, 440, 'totalScore');
       totalScoreImage = this.add.image(1110, 440, 'totalScore');
