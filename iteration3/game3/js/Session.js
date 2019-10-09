@@ -1,0 +1,1 @@
+window.alert('<?php echo $session_value;?>');
