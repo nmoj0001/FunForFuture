@@ -409,7 +409,7 @@ var Baselevel = new Phaser.Class({
   },
 
   submitScore: function () {
-    resume.setInteractive({ useHandCursor: true }).on(
+    submit.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
         var sessionVales = "?game=" + 3 + "&username=" + username + "&score=" + totalScore;
