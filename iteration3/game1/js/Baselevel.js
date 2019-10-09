@@ -107,6 +107,8 @@ var Baselevel = new Phaser.Class({
     waste = this.matter.add
       .image(1000, 250, 'l' + level + '_' + num, null, { isStatic: true })
       .setInteractive();
+
+      waste.setStroke('#ffc812', 16)
   },
 
   dragObject: function (object) {
