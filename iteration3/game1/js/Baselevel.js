@@ -82,10 +82,7 @@ var Baselevel = new Phaser.Class({
 
     girl = this.add.image(50, 420, 'girl').setOrigin(0);
     speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
-    speechBubbleText = this.add
-      .text(250, 140, 'Welcome', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
+    speechBubbleText = this.add.text(350, 250, 'Welcome', { fontSize: '32px', fill: '#000' });
 
     home = this.add.image(15, 15, 'home').setOrigin(0);
     info = this.add.image(115, 15, 'info').setOrigin(0);
@@ -95,7 +92,7 @@ var Baselevel = new Phaser.Class({
     addTotal = true;
     playLevel = true;
     score = 0;
-    counter = 5;
+    counter = 12;
 
     this.updateWaste(level);
   },
@@ -313,15 +310,15 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
 
 
-    if (totalScore <= 1200) {
+    if (totalScore <= 700) {
       totalScoreImage = this.add.image(1020, 440, 'totalScore');
       achievement = 'Beginner';
     }
-    if (totalScore > 1200 && totalScore <= 2000) {
+    if (totalScore > 700 && totalScore <= 1100) {
       totalScoreImage = this.add.image(970, 440, 'totalScore');
       totalScoreImage = this.add.image(1060, 440, 'totalScore');
       achievement = 'Medium';
-    } if (totalScore > 2000) {
+    } if (totalScore > 1100) {
       totalScoreImage = this.add.image(920, 440, 'totalScore');
       totalScoreImage = this.add.image(1015, 440, 'totalScore');
       totalScoreImage = this.add.image(1110, 440, 'totalScore');
