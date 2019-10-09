@@ -182,7 +182,7 @@ var Baselevel = new Phaser.Class({
       waste.destroy();
       speechBubbleText.setText('     Oops!\nThis is ' + category);
       speechBubble.setX(220);
-      speechBubble.setY(220);
+      speechBubble.setY(350);
       counter--;
       this.updateWaste(level);
       if (score > 0) {
