@@ -1,3 +1,6 @@
+var sessiontext;
+var levelText;
+var startLevel;
 var level1Bg;
 var startScreenBg;
 var waste;
@@ -70,6 +73,7 @@ var Baselevel = new Phaser.Class({
   },
 
   setUp: function () {
+    startLevel = false;
     this.matter.world.setBounds(0, 0, 1920, 1080);
 
     organic = this.add.image(650, 540, 'organic').setOrigin(0);
@@ -138,13 +142,15 @@ var Baselevel = new Phaser.Class({
 
   update: function () {
     if (playLevel == true) {
-      if (counter > 0) {
-        this.dragObject(waste);
-        this.sortWaste();
-        this.updateBonusTimer();
-      } else {
-        speechBubbleText.setText('Good Job!');
-        this.levelUp();
+      if (startLevel == true) {
+        if (counter > 0) {
+          this.dragObject(waste);
+          this.sortWaste();
+          this.updateBonusTimer();
+        } else {
+          speechBubbleText.setText('Good Job!');
+          this.levelUp();
+        }
       }
     } else {
       speechBubbleText.setText('Better Luck\nNext Time!');
