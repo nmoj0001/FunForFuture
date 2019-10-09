@@ -83,10 +83,25 @@ if ($conn->connect_error) {
               alt="..."
           /></span>
         </h1>
+		
        
         <p class="lead font-italic" align = "centre">
-	
-		 <h3 align = "centre">"Your score for Sort your waste game is "</h3>
+	<script>
+ 
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+for (var i = 0; i < queries.length; i++)
+{
+  document.write(queries[i] + "<br>");
+}
+<?php
+$_SESSION['gameID'] = queries[0];
+$_SESSION['score'] = queries[2];
+?> 
+ 
+</script>
+		 <h3 align = "centre"><?php echo 'Your score for Know your waste game is' . $_SESSION ['score']; ?></h3>
 		 <h3 align = "centre">"Your score for Know your waste game is "</h3>
 		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
 		  
