@@ -99,7 +99,7 @@ var Level3 = new Phaser.Class({
   },
 
   levelUp: function () {
-    this.setLevelUp('Level 3 Complete!');
+    this.setLevelUp('Game Complete!');
     replay.setVisible(false);
     playNext.setVisible(false);
     if (username != '') {
