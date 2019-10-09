@@ -42,11 +42,11 @@ var Level1 = new Phaser.Class({
     dialogueBox.setScale(0.8)
     play = this.add.image(1020, 680, 'play');
     levelText = this.add
-      .text(800, 180, 'Level 1 - Kitchen', { font: '35px Arial Black', fill: '#fff' })
+      .text(800, 250, 'Level 1 - Kitchen', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
-      .text(680, 230, '  Welcome to the Kitchen!\n  Help Nina clean up the\n Kitchen after breakfast\nAnd sort waste properly!\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(780, 350, '  Welcome to the Kitchen!\n  Help Nina clean up the\n Kitchen after breakfast\nAnd sort waste properly!\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
