@@ -63,8 +63,8 @@ session_start();
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
             <li><?php  if (!isset($_SESSION['username'])) : ?><a href="login.html">Signin</a><?php endif ?></li>
-			 <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
-			
+			<li><?php  if (isset($_SESSION['username'])) : ?><a href="logout.php">Signout</a><?php endif ?></li>
+			<li><?php  if (isset($_SESSION['username'])) : ?><a href="leaderboard.html">Leaderboard</a><?php endif ?></li>
           </ul>
         </nav>
         <div class="header-content">
