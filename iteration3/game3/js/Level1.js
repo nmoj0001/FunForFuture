@@ -30,6 +30,7 @@ var Level1 = new Phaser.Class({
     this.setOpening();
     instructions = this.add.image(1000, 450, 'instructions');
     resume = this.add.image(1000, 650, 'resume');
+    this.resumeGame();
   },
 
   createWaste: function () {
