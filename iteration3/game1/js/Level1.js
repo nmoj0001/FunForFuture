@@ -31,15 +31,34 @@ var Level1 = new Phaser.Class({
     level1Bg = this.add.image(0, 0, 'level1_background').setOrigin(0);
     this.setUp();
     speechBubbleText.setText('Level1');
+    this.setOpening();
+    instructions = this.add.image(1000, 450, 'instructions');
+    resume = this.add.image(1000, 750, 'resume');
+    this.resumeGame();
   },
 
-  levelUp: function() {
-    this.setLevelUp();
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+      .text(800, 180, 'Level 1 - Solid Waste', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(680, 230, '     Some solid waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n Municipal solid waste collection.\n Collect these solid waste items\n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp('Level 1 Complete');
     this.replayLevel('Level1');
     this.playNextLevel('Level2');
   },
 
-  loseLevel: function() {
+  loseLevel: function () {
     this.setLoseLevel();
     this.replayLevel('Level1');
   }
