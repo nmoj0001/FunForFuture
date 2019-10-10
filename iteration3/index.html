@@ -67,14 +67,61 @@ session_start();
             <li><a href="index.html" class="current">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
-            <li><?php  if (!isset($_SESSION['username'])) : ?><a href="login.html">Signin</a><?php endif ?></li>
-			<li><?php  if (isset($_SESSION['username'])) : ?><a href="logout.php"><?php echo "Signout - ".$_SESSION ['username']; ?></a><?php endif ?></li>
-			<li><?php  if (isset($_SESSION['username'])) : ?><a href="leaderboard.html">Leaderboard</a><?php endif ?></li>
+            <li>
+              <?php  if (!isset($_SESSION['username'])) : ?><a href="login.html"
+                >Signin</a
+              ><?php endif ?>
+            </li>
+            <li>
+              <?php  if (isset($_SESSION['username'])) : ?><a href="logout.php"
+                ><?php echo "Signout - ".$_SESSION ['username']; ?></a
+              ><?php endif ?>
+            </li>
+            <li>
+              <?php  if (isset($_SESSION['username'])) : ?><a
+                href="leaderboard.html"
+                >Leaderboard</a
+              ><?php endif ?>
+            </li>
           </ul>
         </nav>
-        <a id="flag1" class="animated infinite bounce" href=""
+        <a
+          class="gameButtonDesign"
+          id="game1Button"
+          href="/iteration3/game1/startScreen.html"
+          ><button>
+            <img
+              style="height:50px; width:50px;"
+              src="/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+        <a
+          class="gameButtonDesign"
+          id="game2Button"
+          href="/iteration3/game2/game.html"
+          ><button>
+            <img
+              style="height:50px; width:50px;"
+              src="/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+        <a
+          class="gameButtonDesign"
+          id="game3Button"
+          href="/iteration3/game3/startScreen.html"
+          ><button>
+            <img
+              style="height:50px; width:50px;"
+              src="/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+
+        <!-- <a id="flag1" class="animated infinite bounce" href=""
           ><img src="img/flag.svg" style="width:80px; height:80px;" alt=""
-        /></a>
+        /></a> -->
         <div class="header-content">
           <h1>
             Welcome to
@@ -88,7 +135,7 @@ session_start();
             Games For Children To Learn Waste Management!
           </p>
           <a href="work.html" class="btn-light">View My Games</a>
-          <br /><br /><br /><br />
+          <br /><br />
           <a href="#popup1" class="button factlogo" onclick="myFunction()"
             ><img
               class="img-fluid"

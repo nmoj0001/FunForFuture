@@ -4,7 +4,33 @@
   margin: auto;
   overflow: hidden;
 }
-#flag1 {
+.gameButtonDesign > button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  height: 10rem;
+  width: 20rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+#game1Button {
+  position: absolute;
+  top: 5%;
+  right: 15%;
+}
+
+#game2Button {
+  position: absolute;
+  left: 15%;
+}
+
+#game3Button {
+  position: absolute;
+  bottom: 18%;
+  left: 10%;
+}
+# #flag1 {
   animation-duration: 3s;
   animation-delay: 2s;
   animation-iteration-count: infinite;
@@ -291,6 +317,7 @@ h4 {
   color: #fff;
 }
 #header-home .header-content {
+  top: 40%;
   text-align: center;
   padding-top: 20%;
 }
