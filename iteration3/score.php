@@ -5,7 +5,11 @@ echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if(isset($_SESSION['username']))
 {
-echo '<script type= "text/JavaScript"> alert("You have not logedin!!.. LOGIN TO SEE LEADERBOARD"); </script>';
+$user = $_SESSION['username'];	
+$game =	1;	
+$score = 2323;
+
+echo $user + $game;
 }
 else
 {
