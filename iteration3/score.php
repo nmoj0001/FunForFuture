@@ -8,7 +8,7 @@ if(isset($_SESSION['username']))
 $user = $_SESSION['username'];	
 $game =	1;	
 $score = 2323;
-
+echo $_SESSION['username'];
 echo $user + $game;
 }
 else
