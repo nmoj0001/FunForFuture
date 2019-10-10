@@ -5,17 +5,18 @@ echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if(isset($_SESSION['username']))
 {
+
 //conversion
 //$game =	$_SESSION['gameID'];
 $user = $_SESSION['username'];	
 //$score = $_SESSION['score'];
-$game =	1;	
+$game =	$_POST['game'];	
 $score = $_POST['score'];
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 
-	 $SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = $game";
-     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values($game, '".$user."', ".$score.")";
-	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = ".$score." where username = '".$user."' and gameID = $game";
+	 $SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = ".$game.";
+     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(".$game.", '".$user."', ".$score.")";
+	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = ".$score." where username = '".$user."' and gameID = ".$game.";
 	 
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
