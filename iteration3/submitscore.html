@@ -86,101 +86,9 @@ if ($conn->connect_error) {
           /></span>
         </h1>
 		     
-        <p class="lead font-italic" align = "centre">
-		
-		
-		
-	<script type="text/javascript">
- 
-var queryString = decodeURIComponent(window.location.search);
-queryString = queryString.substring(1);
-var queries = queryString.split("&");
-for (var i = 0; i < queries.length; i++)
-{
-  document.write(queries[i] + "<br>");
-  
-}
-var array = queryString.split('&');
-var a = array[0];
-var b = array[1];
-var c = array[2];
-document.write(a);
-document.write(b);
-document.write(c);
-// if (window.XMLHttpRequest) {
-//                        xmlhttp = new XMLHttpRequest();
-//                    }
-//                    xmlhttp.open("GET", "ajax.html?a=" + a + "&b=" + b + "&c=" +  c , true);
-//                    xmlhttp.send();
-
-// $.ajax({
-//		url:"c.php",
-//	method: "post",
-//	data: c,
-//	success: function(res){
-//	console.log(res);
-//	}
-//})
-
-function jey()
-{
-//xhr = new XMLHttpRequest();
-//xhr.open("POST", "score.php");
-//xhr.setRequestHandler("content-type", "application/x-www-form-urlencoded");
-//xhr.send("score=9876");
-	var params = "score=9876"
-	var httpc = new XMLHttpRequest(); // simplified for clarity
-    var url = "score.php";
-    httpc.open("POST", url, true); // sending as POST
-
-    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    //httpc.setRequestHeader("Content-Length", params.length); // POST request MUST have a Content-Length header (as per HTTP/1.1)
-
-    httpc.onreadystatechange = function() { //Call a function when the state changes.
-        if(httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
-            alert(httpc.responseText); // some processing here, or whatever you want to do with the response
-        }
-    };
-    httpc.send(params);
-}
-
-
-function test1(_
-{
-var score = 256857548569856756;
- document.getElementById('score').innerHTML = score;
-}
-
-
-function test(){
-	var data = {
-          score: 9876
-        };
-		
-		
-
-        $.post("score.php", data);
-		load(score.php);
-}
-</script>
- 
-<h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
-<h3 align = "centre"><?php echo $_SESSION ['gameID']; ?></h3>
-		 <h3>"Your score is"</h3>
-		 <p id=score>
-		 
-		 
-		 </p>
-		 
-		  
+		 <h3>"Your score for "</h3><h3 id=game></h3><h3> is : </h3><h3 id=score></h3>
 		  <a href="work.html" class="btn-light">Replay Game</a>
-		  <form>
-         <input type="button" onclick="test()" value="Click" />
-		 
-      </form>
 		<a id = "aws" Class="btn-light" onclick="test();">Submit Score</a>
-		
-        </p>
       </div>
     </div>
    
@@ -195,11 +103,23 @@ function test(){
       </div>
     </footer>
 	
-	<script>
-	window.onload = function(){
-    var score = 2234252464;
+	<script type="text/javascript">
+ window.onload = function(){
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+for (var i = 0; i < queries.length; i++)
+{
+  document.write(queries[i] + "<br>");
+  
+}
+var array = queryString.split('&');
+var game = array[0];
+var username = array[1];
+var score = array[2];
 
-    document.getElementById('score').innerHTML = score;
+document.getElementById('game').innerHTML = game;
+document.getElementById('score').innerHTML = score;
 };
 </script>
   </body>
