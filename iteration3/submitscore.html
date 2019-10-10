@@ -116,33 +116,13 @@ document.write(c);
 //	console.log(res);
 //	}
 //})
-
-function showUser(c) {
-  //if (str=="") {
-    //document.getElementById("aws").innerHTML="";
-    //return;
-  //}
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else { // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("aws").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("POST","score.php?q="+c,true);
-  xmlhttp.send();
+submit_form()
+{
+const xhr = new XMLHttpRequest();
+xhr.open("POST", "score.php");
+xhr.setRequestHandler("content-type", "application/x-www-form-urlencoded")
+xhr.send("fdsfdsfsd");
 }
-
-<?php
-
-//$_SESSION['gameID'] = <script> document.write(a) </script>;
-//$_SESSION['score'] = <script> document.writeln(c); </script>;
-
-?> 
 </script>
  
 <h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
@@ -152,7 +132,7 @@ function showUser(c) {
 		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
 		  
 		  <a href="work.html" class="btn-light">Replay Game</a>
-		<a id = "aws" Class="btn-light">Submit Score</a>
+		<a id = "aws" Class="btn-light" onclick="submit_form();">Submit Score</a>
 		
         </p>
       </div>
