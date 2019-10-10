@@ -14,8 +14,8 @@ $score = $_POST['score'];
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 
 	 $SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = $game";
-     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values($game, '".$user."', $score)";
-	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = $score where username = '".$user."' and gameID = $game";
+     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values($game, '".$user."', ".$score.")";
+	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = ".$score." where username = '".$user."' and gameID = $game";
 	 
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
