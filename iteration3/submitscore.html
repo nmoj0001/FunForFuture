@@ -87,6 +87,9 @@ if ($conn->connect_error) {
         </h1>
 		     
         <p class="lead font-italic" align = "centre">
+		
+		
+		
 	<script type="text/javascript">
  
 var queryString = decodeURIComponent(window.location.search);
@@ -141,10 +144,20 @@ function jey()
     httpc.send(params);
 }
 
+
+function test1(_
+{
+var score = 256857548569856756;
+ document.getElementById('score').innerHTML = score;
+}
+
+
 function test(){
 	var data = {
           score: 9876
         };
+		
+		
 
         $.post("score.php", data);
 		load(score.php);
@@ -153,14 +166,17 @@ function test(){
  
 <h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
 <h3 align = "centre"><?php echo $_SESSION ['gameID']; ?></h3>
-		 <h3 align = "centre"><?php echo 'Your score for Know your waste game is' . $_SESSION ['score']; ?></h3>
-		 <h3 align = "centre">"Your score for Know your waste game is "</h3>
-		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
+		 <h3>"Your score is"</h3>
+		 <p id=score>
+		 
+		 
+		 </p>
+		 
 		  
 		  <a href="work.html" class="btn-light">Replay Game</a>
 		  <form>
          <input type="button" onclick="test()" value="Click" />
-		 <input type="button" onclick="score.php" value="Click1" />
+		 
       </form>
 		<a id = "aws" Class="btn-light" onclick="test();">Submit Score</a>
 		
@@ -178,5 +194,13 @@ function test(){
         </p>
       </div>
     </footer>
+	
+	<script>
+	window.onload = function(){
+    var score = 2234252464;
+
+    document.getElementById('score').innerHTML = score;
+};
+</script>
   </body>
 </html>
