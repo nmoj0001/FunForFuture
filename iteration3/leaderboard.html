@@ -85,27 +85,9 @@ if ($conn->connect_error) {
         </h1>
        
         <p class="lead font-italic">
-          <?php 
-      $username = $_SESSION ['username']; 
-		  
-	$sql = "select gameScore from jeyganesh.score where gameID = 1 and username = '".$username."'";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	echo "Your score for Sort your waste game is ". $row["gameScore"];
-	echo "<br>";
-	
-	$sql = "select gameScore from jeyganesh.score where gameID = 2 and username = '".$username."'";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	echo "Your score for Know your waste game is ". $row["gameScore"];
-	echo "<br>";
-	
-  	$sql = "select gameScore from jeyganesh.score where gameID = 3 and username = '".$username."'";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	echo "Your score for Learn unique waste game is ". $row["gameScore"];
-	echo "<br>";
-     ?> 
+          <br>
+          This is the leaderboard of our star players, 
+          <br>see if you can find your name here!!!
 		  
         </p>
       </div>
