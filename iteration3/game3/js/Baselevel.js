@@ -1,3 +1,4 @@
+var sessiontext;
 var background;
 var recycle;
 var player;
@@ -6,6 +7,8 @@ var cursors;
 var player;
 var waste;
 var bin;
+var levelText;
+var startLevel;
 var score;
 var scoreText;
 var scoreUpdateText;
@@ -20,13 +23,20 @@ var timerImage;
 var level;
 var playLevel;
 var dialogueBox;
+var play;
 var replay;
+var resume;
+var submit;
+var home;
+var info;
+var instructions;
 var playNext;
 var reload;
 var loseLevelText;
 var winLevelText;
 var addTotal;
-
+var achievement;
+var achievementText;
 
 var Baselevel = new Phaser.Class({
   Extends: Phaser.Scene,
@@ -44,6 +54,9 @@ var Baselevel = new Phaser.Class({
   },
 
   loadAssets: function () {
+    this.load.image('home', 'assets/common/icon_home.png');
+    this.load.image('info', 'assets/common/icon_info.png');
+    this.load.image('instructions', 'assets/common/instructions.png');
     this.load.image('background', 'assets/common/background.png');
     this.load.image('ground', 'assets/common/ground.png');
     this.load.image('recycle', 'assets/common/recycle_badge.png');
@@ -54,8 +67,11 @@ var Baselevel = new Phaser.Class({
     this.load.image('score', 'assets/common/score.png');
     this.load.image('timer', 'assets/common/timer.png');
     this.load.image('playNext', 'assets/common/play_next.png');
+    this.load.image('play', 'assets/common/play.png');
+    this.load.image('resume', 'assets/common/resume.png');
     this.load.image('replay', 'assets/common/replay.png');
     this.load.image('reload', 'assets/common/reload.png');
+    this.load.image('submit', 'assets/common/submit_score.png');
     this.load.image('totalScore', 'assets/common/total_score.png');
     this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
     this.load.spritesheet('girl',
@@ -65,15 +81,15 @@ var Baselevel = new Phaser.Class({
   },
 
   setUp: function () {
+    startLevel = false;
     background = this.add.image(0, 0, 'background').setOrigin(0);
+    home = this.add.image(15, 15, 'home').setOrigin(0);
+    info = this.add.image(115, 15, 'info').setOrigin(0);
+    this.goHome();
+    this.showInfo();
     cursors = this.input.keyboard.createCursorKeys();
-
     addTotal = true;
     playLevel = true;
-    score = 0;
-    counter = 5;
-    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
-    this.showScore();
   },
 
   setUpCollision: function () {
@@ -92,12 +108,12 @@ var Baselevel = new Phaser.Class({
     platforms.create(1600, 600, 'platform_long');
     platforms.create(200, 550, 'platform_medium');
     platforms.create(950, 450, 'platform_short');
-    platforms.create(650, 300, 'platform_short');
+    platforms.create(700, 300, 'platform_short');
   },
 
   createPlayer: function () {
-
     player = this.physics.add.sprite(850, 600, 'girl');
+    player.setVisible(false);
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
@@ -128,7 +144,7 @@ var Baselevel = new Phaser.Class({
     bin = this.physics.add.group({
       key: 'bin',
       repeat: num,
-      setXY: { x: 200, y: 0, stepX: 500 }
+      setXY: { x: 280, y: 0, stepX: 400 }
     });
 
     bin.children.iterate(function (child) {
@@ -141,7 +157,7 @@ var Baselevel = new Phaser.Class({
     recycle = this.physics.add.group({
       key: 'recycle',
       repeat: num,
-      setXY: { x: 300, y: 0, stepX: 600 }
+      setXY: { x: 120, y: 0, stepX: 350 }
     });
 
     recycle.children.iterate(function (child) {
@@ -155,12 +171,12 @@ var Baselevel = new Phaser.Class({
     timerImage = this.add.image(1650, 180, 'timer');
 
     scoreText = this.add
-      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 40, score, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 160, '00:00', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -174,11 +190,12 @@ var Baselevel = new Phaser.Class({
 
   update: function () {
     if (playLevel == true) {
-
-      if (waste.countActive(true) === 0) {
-        this.levelUp();
-      } else {
-        this.updateBonusTimer();
+      if (startLevel == true) {
+        if (waste.countActive(true) === 0) {
+          this.levelUp();
+        } else {
+          this.updateBonusTimer();
+        }
       }
     }
     else {
@@ -186,12 +203,12 @@ var Baselevel = new Phaser.Class({
     }
 
     if (cursors.left.isDown) {
-      player.setVelocityX(-160);
+      player.setVelocityX(-200);
 
       player.anims.play('left', true);
     }
     else if (cursors.right.isDown) {
-      player.setVelocityX(160);
+      player.setVelocityX(200);
 
       player.anims.play('right', true);
     }
@@ -211,8 +228,8 @@ var Baselevel = new Phaser.Class({
     scoreText.setText(score);
 
     scoreUpdateText = this.add
-      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(900, 250, update, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     var tween = this.tweens.add({
       targets: scoreUpdateText,
@@ -240,6 +257,27 @@ var Baselevel = new Phaser.Class({
     bin.disableBody(true, true);
     this.updateScore(-50);
     player.anims.play('turn');
+  },
+
+  startLevel: function (level) {
+    play.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        dialogueBox.setVisible(false);
+        play.setVisible(false);
+        openingText.setVisible(false);
+        levelText.setVisible(false);
+        startLevel = true;
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 30 });
+        player.setVisible(true);
+        this.createBin(3);
+        this.createRecycleBonus(5);
+        this.createWaste();
+        this.setUpCollision();
+        this.showScore();
+      },
+      this
+    );
   },
 
   replayLevel: function (level) {
@@ -276,43 +314,110 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  setLevelUp: function () {
+  setLevelUp: function (winText) {
+    player.setVisible(false);
+    info.disableInteractive();
+
     if (addTotal) {
       totalScore += score;
       addTotal = false;
     }
 
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(850, 440, 'replay');
-    playNext = this.add.image(1150, 440, 'playNext');
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    replay = this.add.image(850, 620, 'replay');
+    playNext = this.add.image(1150, 620, 'playNext');
     winLevelText = this.add
-      .text(800, 150, 'Level Complete!', {
+      .text(810, 230, winText, {
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(880, 220, 'Total Score:', {
+      .text(830, 300, 'Total Score: ' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-    totalScoreImage = this.add.image(970, 330, 'totalScore');
-    totalScoreText = this.add
-      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+
+
+    if (score <= 1200) {
+      totalScoreImage = this.add.image(1020, 440, 'totalScore');
+      achievement = 'Beginner';
+    }
+    if (score > 1200 && score <= 2000) {
+      totalScoreImage = this.add.image(970, 440, 'totalScore');
+      totalScoreImage = this.add.image(1060, 440, 'totalScore');
+      achievement = 'Medium';
+    } if (score > 2000) {
+      totalScoreImage = this.add.image(920, 440, 'totalScore');
+      totalScoreImage = this.add.image(1015, 440, 'totalScore');
+      totalScoreImage = this.add.image(1110, 440, 'totalScore');
+      achievement = 'Expert';
+    }
+
+    achievementText = this.add
+      .text(790, 500, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
   setLoseLevel: function () {
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(1000, 380, 'replay');
+    player.setVisible(false);
+    info.disableInteractive();
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    replay = this.add.image(1000, 500, 'replay');
     loseLevelText = this.add
-      .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-  }
+  },
+
+  goHome: function () {
+    home.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        window.open('/iteration3/index.html', "_self");
+      },
+      this
+    );
+  },
+
+  showInfo: function () {
+    info.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        instructions = this.add.image(1000, 450, 'instructions');
+        resume = this.add.image(1000, 750, 'resume');
+        this.resumeGame();
+      },
+      this
+    );
+  },
+
+  resumeGame: function () {
+    resume.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        instructions.setVisible(false);
+        resume.setVisible(false);
+      },
+      this
+    );
+  },
+
+  submitScore: function () {
+    submit.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        var sessionVales = "?3" + "&" + username + "&" + totalScore;
+        window.open('/iteration3/submitscore.html' + sessionVales, "_self");
+      },
+      this
+    );
+  },
 });

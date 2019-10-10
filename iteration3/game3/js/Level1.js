@@ -1,9 +1,3 @@
-var solid_1;
-var solid_2;
-var solid_3;
-var solid_4;
-var solid_5;
-
 var Level1 = new Phaser.Class({
   Extends: Baselevel,
 
@@ -28,20 +22,21 @@ var Level1 = new Phaser.Class({
   create: function () {
     level = 1;
     score = 0;
+    totalScore = 0;
 
     this.setUp();
     this.createPlatforms();
     this.createPlayer();
-    this.createWaste();
-    this.createBin(3);
-    this.createRecycleBonus(5);
-    this.setUpCollision();
+    this.setOpening();
+    instructions = this.add.image(1000, 450, 'instructions');
+    resume = this.add.image(1000, 750, 'resume');
+    this.resumeGame();
   },
 
   createWaste: function () {
     waste = this.physics.add.group({
       key: ['solid_1', 'solid_2', 'solid_3', 'solid_4', 'solid_5', 'solid_6', 'solid_7', 'solid_8', 'solid_9', 'solid_10'],
-      setXY: { x: 50, y: 0, stepX: 200 }
+      setXY: { x: 50, y: 0, stepX: 180 }
     });
 
     waste.children.iterate(function (child) {
@@ -50,8 +45,23 @@ var Level1 = new Phaser.Class({
     });
   },
 
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+      .text(800, 180, 'Level 1 - Solid Waste', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(680, 230, '     Some solid waste materials\n   cannot be disposed by putting\n               in kerbside bins.\n        These must be taken to\n Municipal solid waste collection.\n Collect these solid waste items\n  to keep the playground clean!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
   levelUp: function () {
-    this.setLevelUp();
+    this.setLevelUp('Level 1 Complete');
     this.replayLevel('Level1');
     this.playNextLevel('Level2');
   },

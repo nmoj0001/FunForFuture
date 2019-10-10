@@ -20,7 +20,7 @@ if (!empty($username) || !empty($psw)) {
       $stmt->bind_param("ss", $username, $psw);
       $stmt->execute();
       echo '<script type= "text/JavaScript"> alert("Signup successful"); </script>';
-	  include_once('sigin.html');
+	  include_once('login.html');
      }
 	 else {
      echo '<script type= "text/JavaScript"> alert("Name already exists. Enter new name."); </script>';

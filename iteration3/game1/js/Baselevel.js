@@ -1,3 +1,6 @@
+var sessiontext;
+var levelText;
+var startLevel;
 var level1Bg;
 var startScreenBg;
 var waste;
@@ -40,31 +43,37 @@ var Baselevel = new Phaser.Class({
     Phaser.Scene.call(this, { key: 'Baselevel' });
   },
 
-  preload: function() {
+  preload: function () {
     this.loadAssets();
   },
 
-  create: function() {
+  create: function () {
     this.setUp();
   },
 
-  loadAssets: function() {
+  loadAssets: function () {
     this.load.image('organic', 'assets/common/organic.png');
     this.load.image('garbage', 'assets/common/garbage.png');
     this.load.image('recycling', 'assets/common/recycling.png');
-    this.load.image('organic', 'assets/common/organic.png');
-    this.load.image('score', 'assets/common/score.png');
-    this.load.image('timer', 'assets/common/timer.png');
-    this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
-    this.load.image('playNext', 'assets/common/play_next.png');
-    this.load.image('replay', 'assets/common/replay.png');
-    this.load.image('reload', 'assets/common/reload.png');
-    this.load.image('totalScore', 'assets/common/total_score.png');
     this.load.image('girl', 'assets/common/girl_happy.png');
     this.load.image('speechBubble', 'assets/common/speech_bubble.png');
+    this.load.image('home', 'assets/common/icon_home.png');
+    this.load.image('info', 'assets/common/icon_info.png');
+    this.load.image('instructions', 'assets/common/instructions.png');
+    this.load.image('score', 'assets/common/score.png');
+    this.load.image('timer', 'assets/common/timer.png');
+    this.load.image('playNext', 'assets/common/play_next.png');
+    this.load.image('play', 'assets/common/play.png');
+    this.load.image('resume', 'assets/common/resume.png');
+    this.load.image('replay', 'assets/common/replay.png');
+    this.load.image('reload', 'assets/common/reload.png');
+    this.load.image('submit', 'assets/common/submit_score.png');
+    this.load.image('totalScore', 'assets/common/total_score.png');
+    this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
   },
 
-  setUp: function() {
+  setUp: function () {
+    startLevel = false;
     this.matter.world.setBounds(0, 0, 1920, 1080);
 
     organic = this.add.image(650, 540, 'organic').setOrigin(0);
@@ -73,22 +82,22 @@ var Baselevel = new Phaser.Class({
 
     girl = this.add.image(50, 420, 'girl').setOrigin(0);
     speechBubble = this.add.image(150, 100, 'speechBubble').setOrigin(0);
-    speechBubbleText = this.add
-      .text(250, 140, 'Welcome', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
+    speechBubbleText = this.add.text(320, 220, 'Welcome', { fontSize: '32px', fill: '#000' });
+
+    home = this.add.image(15, 15, 'home').setOrigin(0);
+    info = this.add.image(115, 15, 'info').setOrigin(0);
+    this.goHome();
+    this.showInfo();
 
     addTotal = true;
     playLevel = true;
     score = 0;
-    counter = 5;
-    timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+    counter = 12;
 
     this.updateWaste(level);
-    this.showScore();
   },
 
-  updateWaste: function(level) {
+  updateWaste: function (level) {
     num = Math.floor(Math.random() * (+max - +min)) + +min;
 
     if (num >= 1 && num <= 5) category = 'organic';
@@ -100,42 +109,46 @@ var Baselevel = new Phaser.Class({
       .setInteractive();
   },
 
-  dragObject: function(object) {
-    object.on('pointerover', function() {
+  dragObject: function (object) {
+    object.on('pointerover', function () {
       this.setTint(0xffc7f2);
     });
 
-    object.on('pointerout', function() {
+    object.on('pointerout', function () {
       this.clearTint();
     });
 
     this.input.setDraggable(object);
 
-    this.input.on('dragstart', function(pointer, gameObject) {
+    this.input.on('dragstart', function (pointer, gameObject) {
       gameObject.setTint(0xffc7f2);
     });
 
-    this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
+    this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
       gameObject.x = dragX;
       gameObject.y = dragY;
     });
 
-    this.input.on('dragend', function(pointer, gameObject) {
+    this.input.on('dragend', function (pointer, gameObject) {
       gameObject.clearTint();
       gameObject.x = 1000;
       gameObject.y = 250;
     });
   },
 
-  update: function() {
+  update: function () {
     if (playLevel == true) {
-      if (counter > 0) {
-        this.dragObject(waste);
-        this.sortWaste();
-        this.updateBonusTimer();
-      } else {
-        speechBubbleText.setText('Good Job!');
-        this.levelUp();
+      if (startLevel == true) {
+        if (counter > 0) {
+          this.dragObject(waste);
+          this.sortWaste();
+          this.updateBonusTimer();
+        } else {
+          speechBubbleText.setText('Congratulation!');
+          speechBubbleText.setX(280);
+          speechBubbleText.setY(220);
+          this.levelUp();
+        }
       }
     } else {
       speechBubbleText.setText('Better Luck\nNext Time!');
@@ -143,7 +156,7 @@ var Baselevel = new Phaser.Class({
     }
   },
 
-  sortWaste: function() {
+  sortWaste: function () {
     if (
       ((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
         (category == 'organic' && waste.x > 650 && waste.x < 900) ||
@@ -151,7 +164,9 @@ var Baselevel = new Phaser.Class({
       (waste.y > 700 && waste.y < 1100)
     ) {
       waste.destroy();
-      speechBubbleText.setText('Good Job\nidentifying\n' + category);
+      speechBubbleText.setText('Good Job identifying\n    ' + category);
+      speechBubbleText.setX(220);
+      speechBubbleText.setY(210);
       counter--;
       this.updateWaste(level);
       this.updateScore(+100);
@@ -169,7 +184,9 @@ var Baselevel = new Phaser.Class({
             (waste.x > 900 && waste.x < 1150))))
     ) {
       waste.destroy();
-      speechBubbleText.setText('Opps!\nThis is\n' + category);
+      speechBubbleText.setText('     Oops!\nThis is ' + category);
+      speechBubbleText.setX(230);
+      speechBubbleText.setY(200);
       counter--;
       this.updateWaste(level);
       if (score > 0) {
@@ -178,21 +195,21 @@ var Baselevel = new Phaser.Class({
     }
   },
 
-  showScore: function() {
+  showScore: function () {
     scoreImage = this.add.image(1650, 70, 'score');
     timerImage = this.add.image(1650, 180, 'timer');
 
     scoreText = this.add
-      .text(1705, 50, score, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 40, score, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, 'Timer Text', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(1705, 160, '00:00', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
-  updateBonusTimer: function() {
+  updateBonusTimer: function () {
     if (timedEvent.repeatCount == 0) {
       playLevel = false;
     }
@@ -200,7 +217,7 @@ var Baselevel = new Phaser.Class({
     timerText.setText('00:' + timedEvent.repeatCount);
   },
 
-  updateScore: function(update) {
+  updateScore: function (update) {
     score += update;
     scoreText.setText(score);
 
@@ -220,10 +237,26 @@ var Baselevel = new Phaser.Class({
     });
   },
 
-  replayLevel: function(level) {
+  startLevel: function (level) {
+    play.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        dialogueBox.setVisible(false);
+        play.setVisible(false);
+        openingText.setVisible(false);
+        levelText.setVisible(false);
+        startLevel = true;
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 60 });
+        this.showScore();
+      },
+      this
+    );
+  },
+
+  replayLevel: function (level) {
     replay.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         totalScore -= score;
         this.scene.start(level);
         replay.disableInteractive();
@@ -232,10 +265,10 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  playNextLevel: function(level) {
+  playNextLevel: function (level) {
     playNext.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         this.scene.start(level);
         replay.disableInteractive();
         playNext.disableInteractive();
@@ -244,57 +277,119 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  reloadGame: function() {
+  reloadGame: function () {
     reload.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         this.scene.start('Level1');
       },
       this
     );
   },
 
-  setLevelUp: function() {
+  setLevelUp: function (winText) {
+    info.disableInteractive();
+
     if (addTotal) {
       totalScore += score;
       addTotal = false;
     }
 
-    waste.setVisible(false);
-
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(850, 440, 'replay');
-    playNext = this.add.image(1150, 440, 'playNext');
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    replay = this.add.image(850, 620, 'replay');
+    playNext = this.add.image(1150, 620, 'playNext');
     winLevelText = this.add
-      .text(800, 150, 'Level Complete!', {
+      .text(810, 230, winText, {
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
-      .text(880, 220, 'Total Score:', {
+      .text(830, 300, 'Total Score: ' + totalScore, {
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffdd00', 16)
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-    totalScoreImage = this.add.image(970, 330, 'totalScore');
-    totalScoreText = this.add
-      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+
+
+    if (score <= 700) {
+      totalScoreImage = this.add.image(1020, 440, 'totalScore');
+      achievement = 'Beginner';
+    }
+    if (score > 700 && score <= 1100) {
+      totalScoreImage = this.add.image(970, 440, 'totalScore');
+      totalScoreImage = this.add.image(1060, 440, 'totalScore');
+      achievement = 'Medium';
+    } if (score > 1100) {
+      totalScoreImage = this.add.image(920, 440, 'totalScore');
+      totalScoreImage = this.add.image(1015, 440, 'totalScore');
+      totalScoreImage = this.add.image(1110, 440, 'totalScore');
+      achievement = 'Expert';
+    }
+
+    achievementText = this.add
+      .text(790, 500, 'Your Level: ' + achievement, { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
-  setLoseLevel: function() {
-    waste.setVisible(false);
-
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(1000, 380, 'replay');
+  setLoseLevel: function () {
+    player.setVisible(false);
+    info.disableInteractive();
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.7)
+    replay = this.add.image(1000, 500, 'replay');
     loseLevelText = this.add
-      .text(850, 150, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
+      .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
-  }
+  },
+
+  goHome: function () {
+    home.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        window.open('/iteration3/index.html', "_self");
+      },
+      this
+    );
+  },
+
+  showInfo: function () {
+    info.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        instructions = this.add.image(1000, 450, 'instructions');
+        resume = this.add.image(1000, 750, 'resume');
+        this.resumeGame();
+      },
+      this
+    );
+  },
+
+  resumeGame: function () {
+    resume.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        instructions.setVisible(false);
+        resume.setVisible(false);
+      },
+      this
+    );
+  },
+
+  submitScore: function () {
+    submit.setInteractive({ useHandCursor: true }).on(
+      'pointerup',
+      function () {
+        var sessionVales = "?1" + "&" + username + "&" + totalScore;
+        window.open('/iteration3/submitscore.html' + sessionVales, "_self");
+      },
+      this
+    );
+  },
 });

@@ -37,7 +37,7 @@ var Baselevel = new Phaser.Class({
   },
 
   loadAssets: function() {
-    this.load.image('background', 'assets/common/background.jpg');
+    this.load.image('background', 'assets/common/background.png');
     this.load.image('girl', 'assets/common/girl_happy.png');
     this.load.image('speechBubble', 'assets/common/speech_bubble.png');
     this.load.image('score', 'assets/common/score.png');
