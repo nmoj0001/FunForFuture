@@ -144,7 +144,6 @@ function showUser(c) {
 
 ?> 
 </script>
-
  
 <h3 align = "centre"><?php echo $_SESSION ['score']; ?></h3>
 <h3 align = "centre"><?php echo $_SESSION ['gameID']; ?></h3>
@@ -160,115 +159,6 @@ function showUser(c) {
     </div>
    
 
-    <div style="padding:0; " class="container-fluid bg-light">
-      <div class="row">
-        <div class="col">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Ranking</th>
-                <th scope="col">Name</th>
-                <th scope="col">Sort Your Waste Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $sql = "select username, gameScore from jeyganesh.score where
-              gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-               if ($result->num_rows > 0) { $a = 1; while($row =
-                $result->fetch_assoc()) { 
-                  
-                  echo "
-                <tr>
-                  "; echo "
-                  <td>" . $a . "</td>
-                  " . "
-                  <td>" . $row['username'] . "</td>
-                  " . "
-                  <td>" . $row['gameScore'] . "</td>
-                  "; echo "
-                </tr>
-                "; 
-              $a++;
-              } echo "
-              </table>
-
-              "; } Else { echo "Unable to load...come back later"; } ?>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="col">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Ranking</th>
-                <th scope="col">Name</th>
-                <th scope="col">Know Your Waste Score</th>
-              </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 2 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-                 if ($result->num_rows > 0) { $b = 1; while($row =
-                  $result->fetch_assoc()) { 
-                    
-                    echo "
-                  <tr>
-                    "; echo "
-                    <td>" . $b . "</td>
-                    " . "
-                    <td>" . $row['username'] . "</td>
-                    " . "
-                    <td>" . $row['gameScore'] . "</td>
-                    "; echo "
-                  </tr>
-                  "; 
-                $b++;
-                } echo "
-                </table>
-  
-                "; } Else { echo "Unable to load...come back later"; } ?>
-              </tbody>
-          </table>
-        </div>
-        <div class="col">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Ranking</th>
-                <th scope="col">Name</th>
-                <th scope="col">Learn Your Waste Score</th>
-              </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 3 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-                 if ($result->num_rows > 0) { $c = 1; while($row =
-                  $result->fetch_assoc()) { 
-                    
-                    echo "
-                  <tr>
-                    "; echo "
-                    <td>" . $c . "</td>
-                    " . "
-                    <td>" . $row['username'] . "</td>
-                    " . "
-                    <td>" . $row['gameScore'] . "</td>
-                    "; echo "
-                  </tr>
-                  "; 
-                $c++;
-                } echo "
-                </table>
-  
-                "; } Else { echo "Unable to load...come back later"; } ?>
-              </tbody>
-          </table>
-        </div>
-      </div>
     </div>
     <footer id="main-footer">
       <div class="footer-content container-fluid">
