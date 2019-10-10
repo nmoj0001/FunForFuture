@@ -4,7 +4,11 @@
   margin: auto;
   overflow: hidden;
 }
-
+#flag1 {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
 .btn-main,
 .btn-light,
 .btn-dark {
@@ -279,8 +283,7 @@ h4 {
 }
 
 #header-home {
-  background: url('/iteration2/img/homepagefull.png') no-repeat center center
-    fixed;
+  background: url('/img/newhomepage1.png') no-repeat center center fixed;
   background-size: 100% 100%;
   height: 100vh;
   overflow: hidden;
@@ -296,24 +299,25 @@ h4 {
 }
 
 #header-inner {
-  background: url('/iteration2/img/homepagefull.png') no-repeat 20% 30% / cover;
+  background: url('/img/newhomepage1.png') no-repeat 20% 30% / cover;
   height: 5.5rem;
   border-bottom: 3px solid #ffbc00;
 }
 
 .factlogo {
   position: absolute;
-  bottom: 20rem;
-  right: 18rem;
-  display: inline-block;
+  /* bottom: 20rem;
+  right: 18rem; */
+  left: 44%;
+  display: center;
   text-transform: uppercase;
   color: #fff;
   font-size: 1.5rem;
   border-bottom: 3px solid #ffbc00;
-  z-index: 50;
+  z-index: 80;
 }
 .factlogo:hover {
-  background: url('/iteration2/icons/icons8-cute-color-64.png') no-repeat;
+  background: url('/icons/icons8-cute-color-64.png') no-repeat;
 }
 
 #foot {
@@ -329,7 +333,13 @@ h4 {
   background: transparent;
   background-color: #2e86c1;
   color: black;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  bottom: 0;
   height: 3rem;
+}
+#main-footer p {
+  margin-bottom: 0;
 }
 #main-footer .footer-content {
   display: flex;
@@ -361,24 +371,24 @@ h4 {
   #header-home .header-content {
     padding-top: 5rem;
   }
-  .factlogo {
+  /* .factlogo {
     bottom: 18rem;
     right: 2rem;
-  }
+  } */
 }
 
 @media (max-width: 1100px) {
-  .factlogo {
+  /* .factlogo {
     bottom: 18rem;
     right: 5rem;
-  }
+  } */
 }
 
 @media (max-width: 1300px) {
-  .factlogo {
+  /* .factlogo {
     bottom: 20rem;
     right: 3rem;
-  }
+  } */
 }
 
 @media (max-width: 500px) {
@@ -389,10 +399,10 @@ h4 {
   #main-nav li {
     padding: 1rem;
   }
-  .factlogo {
+  /* .factlogo {
     bottom: 16rem;
     left: 6rem;
-  }
+  } */
   #header-home {
     height: 100vh;
     border-bottom: 3px solid #ffbc00;
