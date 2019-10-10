@@ -97,10 +97,12 @@ var score = array[2];
           /></span>
         </h1>
 		
-		  <form action="score.php" method="POST">  
-		  
-		 <h3>"Your score for "</h3><h3 id=game></h3><h3> is : </h3><h3 id=score></h3>
-		 
+		  <form action="score.php" method="POST"> 
+		  <h3>"Your score for "</h3>
+		  <input id=game type="text" name="game"/>
+		  <h3> is : </h3>
+		  <input id=score type="text" name="score"/>
+		 		 
 		 <input type="submit" value="Submit" />
 		 </form>
 		 
