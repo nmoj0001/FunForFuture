@@ -1,7 +1,7 @@
 <?php include("dbconnection.php"); ?> 
 
 <?php
-
+echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if(isset($_SESSION['username']))
 {
@@ -11,7 +11,8 @@ $user = $_SESSION['username'];
 //$score = $_SESSION['score'];
 $game =	1;	
 $score = $_POST['score'];
-echo '<script type= "text/JavaScript"> alert("hi"); </script>'; 
+echo '<script type= "text/JavaScript"> alert("hi"); </script>';
+ 
 echo $score;
 	 $SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = $game";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values($game, '".$user."', $score)";
