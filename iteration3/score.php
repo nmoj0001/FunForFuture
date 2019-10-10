@@ -6,17 +6,19 @@ session_start();
 if(isset($_SESSION['username']))
 {
 
-//conversion
-//$game =	$_SESSION['gameID'];
+
 $user = $_SESSION['username'];	
-//$score = $_SESSION['score'];
-$game =	$_POST['game'];	
-$score = $_POST['score'];
+$game =	1;	
+$score = 2323;
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 
-	 $SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = ".$game.";
-     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(".$game.", '".$user."', ".$score.")";
-	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = ".$score." where username = '".$user."' and gameID = ".$game.";
+	$SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = 1;
+     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, '".$user."', 2323)";
+	 $UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = '".$user."' and gameID = 1";
+	
+	//$SELECT = "SELECT username From jeyganesh.score Where username = '".$user."' and gameID = ".$game.";
+     //$INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(".$game.", '".$user."', ".$score.")";
+	 //$UPDATE = "UPDATE jeyganesh.score SET gameScore = ".$score." where username = '".$user."' and gameID = ".$game.";
 	 
      //Prepare statement
      $stmt = $conn->prepare($SELECT);
