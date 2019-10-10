@@ -116,12 +116,12 @@ document.write(c);
 //	console.log(res);
 //	}
 //})
-submit_form()
+jey()
 {
 const xhr = new XMLHttpRequest();
 xhr.open("POST", "score.php");
 xhr.setRequestHandler("content-type", "application/x-www-form-urlencoded")
-xhr.send("fdsfdsfsd");
+xhr.send("score=9876");
 }
 </script>
  
@@ -132,7 +132,8 @@ xhr.send("fdsfdsfsd");
 		 <h3 align = "centre">"Your score for Learn Unique waste game is "</h3>
 		  
 		  <a href="work.html" class="btn-light">Replay Game</a>
-		<a id = "aws" Class="btn-light" onclick="submit_form();">Submit Score</a>
+		  <button onclick="jey">Click me</button>
+		<a id = "aws" Class="btn-light" onclick="jey();">Submit Score</a>
 		
         </p>
       </div>
