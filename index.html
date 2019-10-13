@@ -150,7 +150,7 @@ session_start();
               </div>
               <div class="popuptext">
                 <h1>Did U Know?</h1>
-                <h2>
+                <p>
                   <?php
 
 $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
@@ -159,7 +159,7 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
                   "; echo "Source"; echo "
                   <h4>" . $row["fact_source"] . "</h4>
                   "; ?>
-                </h2>
+                </p>
               </div>
               <a class="closepopup" href="#">X</a>
             </div>

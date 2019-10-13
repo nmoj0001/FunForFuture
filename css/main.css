@@ -62,7 +62,7 @@
   text-transform: capitalize;
   color: #0a0a0a;
 }
-.popuptext h2 {
+.popuptext p {
   font-size: 0.8rem;
   text-transform: lowercase !important;
   color: black !important;
@@ -127,11 +127,7 @@
   bottom: 18%;
   left: 10%;
 }
-# #flag1 {
-  animation-duration: 3s;
-  animation-delay: 2s;
-  animation-iteration-count: infinite;
-}
+
 .btn-main,
 .btn-light,
 .btn-dark {
