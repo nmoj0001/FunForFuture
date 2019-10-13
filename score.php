@@ -8,8 +8,9 @@ if (isset($_SESSION['username'])) {
      $score = $_POST['score'];
      $username = $_SESSION['username'];
 
-     $game = 1;
-     $score = 9000;
+     // $game = 1;
+     // $score = 9000;
+    
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";

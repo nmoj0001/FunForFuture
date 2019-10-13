@@ -79,10 +79,22 @@ if ($conn->connect_error) {
       </h1>
 
       <form action="score.php" method="POST">
-        <h3>"Your score for "</h3>
-        <h3 id="game" type="text" name="game"></h3>
-        <h3> is : </h3>
-        <h3 id="score" type="text" name="score"></h3>
+        <input
+        type="game"
+        name="game"
+        placeholder="1"
+        required
+      /><br /><br />
+      <input
+        type="score"
+        name="score"
+        placeholder="4569"
+      /><br /><br />
+      <input
+        type="password"
+        name="pass"
+        placeholder="Confirm Password"
+      /><br /><br />
         <input type="submit" value="Submit" />
       </form>
     </div>
