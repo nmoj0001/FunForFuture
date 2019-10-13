@@ -86,6 +86,7 @@ if ($conn->connect_error) {
        
         <p class="lead font-italic">
 
+        
              <?php
             echo "hi";
             $sql = "SET @i=0;
@@ -94,11 +95,11 @@ if ($conn->connect_error) {
              ORDER BY gamescore DESC";    
             $result = $conn->query($sql);
             echo "hi1";
-            if ($result->num_rows > 0) 
+            if ($result->num_rows = 1) 
             { 
               echo "hi2";
               $row = $result->fetch_assoc();
-              echo "The Rank for Sort your waste is " . $row["ans"] . "";
+              echo "The Rank for Sort your waste is " . $row["rank"] . "";
               echo "<h3>" . $row["rank"] . "</h3>";
                }
                Else { echo "Play Sort your waste game to view your Rank"; } 
