@@ -3,19 +3,18 @@
 <?php
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
-if(isset($_SESSION['username']))
-{
-$game =	1;	
-$score = 2323;
-$username = "rithika";
+if (isset($_SESSION['username'])) {
+     $game =     1;
+     $score = 2323;
+     $username = "rithika";
 
-	$SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
+     $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
-	$UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
+     $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
 
-echo "Reached first";
+     echo "Reached first";
 
-	$stmt = $conn->prepare($SELECT);
+     $stmt = $conn->prepare($SELECT);
      $stmt->bind_param("s", $username);
      $stmt->execute();
      $stmt->bind_result($username);
@@ -25,37 +24,28 @@ echo "Reached first";
 
      echo "Reached 2nd" + $rnum;
 
-     if ($rnum==0) {
-		echo '<script type= "text/JavaScript"> alert("insert"); </script>'; 
-      $stmt->close();
-      $stmt = $conn->prepare($INSERT);
-     //  $stmt->bind_param("isi", $game, $username, $score);
-      $stmt->execute();
-
-      echo "Reached 3rd";
-
-      echo '<script type= "text/JavaScript"> alert("insert"); </script>';
-	  include_once('leaderboard.html');
-     }
-
-     echo "Reached 4th";
-
-	 else {
-	$stmt = $conn->prepare($UPDATE);
-      $stmt->bind_param("isi", $game, $username, $score);
-      $stmt->execute();
-     echo '<script type= "text/JavaScript"> alert("update"); </script>';
-	 include_once('leaderboard.html');
+     if ($rnum == 0) {
+          echo '<script type= "text/JavaScript"> alert("insert"); </script>';
+          $stmt->close();
+          $stmt = $conn->prepare($INSERT);
+          //  $stmt->bind_param("isi", $game, $username, $score);
+          $stmt->execute();
+          echo '<script type= "text/JavaScript"> alert("insert"); </script>';
+          include_once('leaderboard.html');
+     } else {
+          $stmt = $conn->prepare($UPDATE);
+          $stmt->bind_param("isi", $game, $username, $score);
+          $stmt->execute();
+          echo '<script type= "text/JavaScript"> alert("update"); </script>';
+          include_once('leaderboard.html');
      }
      $stmt->close();
      $conn->close();
 
      echo "Reached end";
+} else {
+     echo '<script type= "text/JavaScript"> alert("You have not logedin!!.. LOGIN TO SEE LEADERBOARD"); </script>';
+     header("refresh:2;url=signin.html");
 }
-else
-{
-echo '<script type= "text/JavaScript"> alert("You have not logedin!!.. LOGIN TO SEE LEADERBOARD"); </script>'; 
-header("refresh:2;url=signin.html");
-}
-	
+
 ?>
