@@ -62,7 +62,7 @@
   text-transform: capitalize;
   color: #0a0a0a;
 }
-#popuptext p {
+#popuptext h4 {
   font-size: 0.8rem;
   text-transform: lowercase !important;
   color: black !important;
