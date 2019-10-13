@@ -43,15 +43,15 @@ var Baselevel = new Phaser.Class({
     Phaser.Scene.call(this, { key: 'Baselevel' });
   },
 
-  preload: function() {
+  preload: function () {
     this.loadAssets();
   },
 
-  create: function() {
+  create: function () {
     this.setUp();
   },
 
-  loadAssets: function() {
+  loadAssets: function () {
     this.load.image('organic', 'assets/common/organic.png');
     this.load.image('garbage', 'assets/common/garbage.png');
     this.load.image('recycling', 'assets/common/recycling.png');
@@ -72,7 +72,7 @@ var Baselevel = new Phaser.Class({
     this.load.image('dialogueBox', 'assets/common/dialogue_box.png');
   },
 
-  setUp: function() {
+  setUp: function () {
     startLevel = false;
     this.matter.world.setBounds(0, 0, 1920, 1080);
 
@@ -100,7 +100,7 @@ var Baselevel = new Phaser.Class({
     this.updateWaste(level);
   },
 
-  updateWaste: function(level) {
+  updateWaste: function (level) {
     num = Math.floor(Math.random() * (+max - +min)) + +min;
 
     if (num >= 1 && num <= 5) category = 'organic';
@@ -112,34 +112,34 @@ var Baselevel = new Phaser.Class({
       .setInteractive();
   },
 
-  dragObject: function(object) {
-    object.on('pointerover', function() {
+  dragObject: function (object) {
+    object.on('pointerover', function () {
       this.setTint(0xffc7f2);
     });
 
-    object.on('pointerout', function() {
+    object.on('pointerout', function () {
       this.clearTint();
     });
 
     this.input.setDraggable(object);
 
-    this.input.on('dragstart', function(pointer, gameObject) {
+    this.input.on('dragstart', function (pointer, gameObject) {
       gameObject.setTint(0xffc7f2);
     });
 
-    this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
+    this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
       gameObject.x = dragX;
       gameObject.y = dragY;
     });
 
-    this.input.on('dragend', function(pointer, gameObject) {
+    this.input.on('dragend', function (pointer, gameObject) {
       gameObject.clearTint();
       gameObject.x = 1000;
       gameObject.y = 250;
     });
   },
 
-  update: function() {
+  update: function () {
     if (playLevel == true) {
       if (startLevel == true) {
         if (counter > 0) {
@@ -159,7 +159,7 @@ var Baselevel = new Phaser.Class({
     }
   },
 
-  sortWaste: function() {
+  sortWaste: function () {
     if (
       ((category == 'recycling' && waste.x > 1150 && waste.x < 1450) ||
         (category == 'organic' && waste.x > 650 && waste.x < 900) ||
@@ -198,7 +198,7 @@ var Baselevel = new Phaser.Class({
     }
   },
 
-  showScore: function() {
+  showScore: function () {
     scoreImage = this.add.image(1650, 70, 'score');
     timerImage = this.add.image(1650, 180, 'timer');
 
@@ -212,7 +212,7 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
-  updateBonusTimer: function() {
+  updateBonusTimer: function () {
     if (timedEvent.repeatCount == 0) {
       playLevel = false;
     }
@@ -220,7 +220,7 @@ var Baselevel = new Phaser.Class({
     timerText.setText('00:' + timedEvent.repeatCount);
   },
 
-  updateScore: function(update) {
+  updateScore: function (update) {
     score += update;
     scoreText.setText(score);
 
@@ -240,10 +240,10 @@ var Baselevel = new Phaser.Class({
     });
   },
 
-  startLevel: function(level) {
+  startLevel: function (level) {
     play.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         dialogueBox.setVisible(false);
         play.setVisible(false);
         openingText.setVisible(false);
@@ -256,10 +256,10 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  replayLevel: function(level) {
+  replayLevel: function (level) {
     replay.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         totalScore -= score;
         this.scene.start(level);
         replay.disableInteractive();
@@ -268,10 +268,10 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  playNextLevel: function(level) {
+  playNextLevel: function (level) {
     playNext.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         this.scene.start(level);
         replay.disableInteractive();
         playNext.disableInteractive();
@@ -280,17 +280,17 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  reloadGame: function() {
+  reloadGame: function () {
     reload.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         this.scene.start('Level1');
       },
       this
     );
   },
 
-  setLevelUp: function(winText) {
+  setLevelUp: function (winText) {
     info.disableInteractive();
 
     if (addTotal) {
@@ -343,7 +343,7 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
-  setLoseLevel: function() {
+  setLoseLevel: function () {
     info.disableInteractive();
     dialogueBox = this.add.image(1000, 450, 'dialogueBox');
     dialogueBox.setScale(0.7);
@@ -354,20 +354,20 @@ var Baselevel = new Phaser.Class({
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
-  goHome: function() {
+  goHome: function () {
     home.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         window.open('/index.html', '_self');
       },
       this
     );
   },
 
-  showInfo: function() {
+  showInfo: function () {
     info.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         instructions = this.add.image(1000, 450, 'instructions');
         resume = this.add.image(1000, 750, 'resume');
         this.resumeGame();
@@ -376,10 +376,10 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  resumeGame: function() {
+  resumeGame: function () {
     resume.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         instructions.setVisible(false);
         resume.setVisible(false);
       },
@@ -387,12 +387,12 @@ var Baselevel = new Phaser.Class({
     );
   },
 
-  submitScore: function() {
+  submitScore: function () {
     submit.setInteractive({ useHandCursor: true }).on(
       'pointerup',
-      function() {
+      function () {
         var sessionVales = '?1' + '&' + username + '&' + totalScore;
-        window.open('/score.php?score=' + totalScore, '_self');
+        window.open('/score.php?score=' + totalScore + "&game=1", '_self');
       },
       this
     );
