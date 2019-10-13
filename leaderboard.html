@@ -123,7 +123,12 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $a = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    echo "
                 <tr>
                   "; echo "
                   <td>" . $a . "</td>
