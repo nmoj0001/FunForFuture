@@ -8,16 +8,20 @@ if (isset($_SESSION['username'])) {
      $score = $_POST['score'];
      $username = $_SESSION['username'];
 
-     echo $game;
-     echo $score;
-     echo $username;
+     echo "Rereached 1";
+
+     echo "" + $game;
+     echo "" + $score;
+     echo "" + $username;
+
+     echo "Reached after";
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
      $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
 
      $stmt = $conn->prepare($SELECT);
-     $stmt->bind_param("si", $username, $game);
+     $stmt->bind_param("ss", $username, $game);
      $stmt->execute();
      $stmt->bind_result($username);
      $stmt->store_result();
@@ -26,13 +30,13 @@ if (isset($_SESSION['username'])) {
      if ($rnum == 0) {
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
-          $stmt->bind_param("isi", $game, $username, $score);
+          $stmt->bind_param("sss", $game, $username, $score);
           $stmt->execute();
           echo '<script type= "text/JavaScript"> alert("insert"); </script>';
           include_once('leaderboard.html');
      } else {
           $stmt = $conn->prepare($UPDATE);
-          $stmt->bind_param("isi", $score, $username, $game);
+          $stmt->bind_param("sss", $score, $username, $game);
           $stmt->execute();
           echo '<script type= "text/JavaScript"> alert("update"); </script>';
           include_once('leaderboard.html');
