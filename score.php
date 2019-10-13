@@ -32,7 +32,7 @@ if (isset($_SESSION['username'])) {
      if ($rnum == 0) {
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
-          $stmt->bind_param("isi", 1, $_SESSION['username'], 7000);
+          $stmt->bind_param("isi", $game, $_SESSION['username'], $score);
           $stmt->execute();
 
           echo "Inside inseret";
@@ -41,7 +41,7 @@ if (isset($_SESSION['username'])) {
           include_once('leaderboard.html');
      } else {
           $stmt = $conn->prepare($UPDATE);
-          $stmt->bind_param("isi", 8000, $_SESSION['username'], 1);
+          $stmt->bind_param("isi", $score, $_SESSION['username'], $game);
           $stmt->execute();
 
           echo "Inside update";
