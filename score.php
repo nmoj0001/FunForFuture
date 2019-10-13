@@ -17,29 +17,13 @@ session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
 
-     echo "Score  ";
      echo $score_string = "<script>document.write(score)</script>";
-     echo "    Game  ";
      echo $game_string = "<script>document.write(game)</script>";
-
-     echo "\n";
-     echo gettype($score_string), "\n";
-     echo gettype($game_string), "\n";
-     echo "\n";
 
      $score = (int)$score_string;
      $game = (int)$game_string;
 
-     
-     echo "\n";
-     echo gettype($score), "\n";
-     echo gettype($game), "\n";
-     echo "\n";
-
-
-     echo "  Score  ";
      echo $score;
-     echo "  Game  ";
      echo $game;
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
