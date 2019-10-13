@@ -20,7 +20,6 @@ if (isset($_SESSION['username'])) {
      $rnum = $stmt->num_rows;
 
      if ($rnum == 0) {
-          echo '<script type= "text/JavaScript"> alert("insert"); </script>';
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
           $stmt->bind_param("isi", $game, $username, $score);
