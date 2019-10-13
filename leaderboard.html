@@ -203,38 +203,19 @@ if ($conn->connect_error) {
         </div>
       </div>
     </div>
-    <br><br>
-
-
-
+    <br>
+<!-- personal leaderboard -->
     <div style="padding:0; " class="container-fluid bg-light">
       <div class="row">
         <div class="col">
           <table class="table table-hover">
            
             <tbody>
-              <?php
-              $sql = "select username, gameScore from jeyganesh.score where
-              gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-               if ($result->num_rows > 0) { $a = 1; while($row =
-                $result->fetch_assoc()) { 
-                  
-                  echo "
-                <tr>
-                  "; echo "
-                  <td>" . $a . "</td>
-                  " . "
-                  <td>" . $row['username'] . "</td>
-                  " . "
-                  <td>" . $row['gameScore'] . "</td>
-                  "; echo "
-                </tr>
-                "; 
-              $a++;
-              } echo "
-              </table>
-
-              "; } Else { echo "Unable to load...come back later"; } ?>
+             <tr>
+              <td>0</td>
+              <td>username</td>
+              <td>0</td>
+             </tr>
             </tbody>
           </table>
         </div>
@@ -243,28 +224,9 @@ if ($conn->connect_error) {
           <table class="table table-hover">
            
             <tbody>
-                <?php
-                $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 2 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-                 if ($result->num_rows > 0) { $b = 1; while($row =
-                  $result->fetch_assoc()) { 
-                    
-                    echo "
-                  <tr>
-                    "; echo "
-                    <td>" . $b . "</td>
-                    " . "
-                    <td>" . $row['username'] . "</td>
-                    " . "
-                    <td>" . $row['gameScore'] . "</td>
-                    "; echo "
-                  </tr>
-                  "; 
-                $b++;
-                } echo "
-                </table>
-  
-                "; } Else { echo "Unable to load...come back later"; } ?>
+             <tr><td>0</td>
+              <td>username</td>
+              <td>0</td></tr>
               </tbody>
           </table>
         </div>
@@ -272,33 +234,15 @@ if ($conn->connect_error) {
           <table class="table table-hover">
            
             <tbody>
-                <?php
-                $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 3 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-                 if ($result->num_rows > 0) { $c = 1; while($row =
-                  $result->fetch_assoc()) { 
-                    
-                    echo "
-                  <tr>
-                    "; echo "
-                    <td>" . $c . "</td>
-                    " . "
-                    <td>" . $row['username'] . "</td>
-                    " . "
-                    <td>" . $row['gameScore'] . "</td>
-                    "; echo "
-                  </tr>
-                  "; 
-                $c++;
-                } echo "
-                </table>
-  
-                "; } Else { echo "Unable to load...come back later"; } ?>
+                <tr><td>0</td>
+                  <td>username</td>
+                  <td>0</td></tr>
               </tbody>
           </table>
         </div>
       </div>
     </div>
+
     <br>
     <footer id="main-footer">
       <div class="footer-content container-fluid">
