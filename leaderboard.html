@@ -90,16 +90,14 @@ if ($conn->connect_error) {
              <?php
 
             $sql = "SET @i=0;
-            SELECT username, @i:=@i+1 AS ran 
+            SELECT @i:=@i+1 AS ran 
              FROM jeyganesh.score where gameID = 1 and username = 'emily'
-             ORDER BY gamescore DESC";    
+             ORDER BY gamescore DESC";
             $result = $conn->query($sql);
             echo "hi1";
-            if ($result->num_rows > 0) 
-            { 
+            if ($result->num_rows > 0) { 
               echo "hi2";
               $row = $result->fetch_assoc();
-              
               echo "<h5>" . $row["ran"] . "</h5>";
                }
                Else { echo "Play Sort your waste game to view your Rank"; } 
