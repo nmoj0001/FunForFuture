@@ -91,7 +91,7 @@ if ($conn->connect_error) {
             $sql = "SET @i=0;
             SELECT username, @i:=@i+1 AS rank 
              FROM jeyganesh.score where gameID = 1 and username = 'emily'
-             ORDER BY gamescore DESC;"    
+             ORDER BY gamescore DESC";    
             $result = $conn->query($sql);
             echo "hi";
             if ($result->num_rows > 0) 
