@@ -11,7 +11,7 @@ $username = "rithika";
 
 	$SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
-	$UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = ? and gameID = 1";
+	$UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
 
 echo "Reached first";
 
@@ -40,16 +40,17 @@ echo "Reached first";
 
      echo "Reached 4th";
 
-	//  else {
-	// $stmt = $conn->prepare($UPDATE);
-     //  $stmt->bind_param("isi", $game, rithika, $score);
-     //  $stmt->execute();
-     // echo '<script type= "text/JavaScript"> alert("update"); </script>';
-	//  include_once('leaderboard.html');
-     // }
-     // $stmt->close();
-     // $conn->close();
+	 else {
+	$stmt = $conn->prepare($UPDATE);
+      $stmt->bind_param("isi", $game, $username, $score);
+      $stmt->execute();
+     echo '<script type= "text/JavaScript"> alert("update"); </script>';
+	 include_once('leaderboard.html');
+     }
+     $stmt->close();
+     $conn->close();
 
+     echo "Reached end";
 }
 else
 {
