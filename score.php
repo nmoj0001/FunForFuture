@@ -7,28 +7,39 @@ if(isset($_SESSION['username']))
 {
 $game =	1;	
 $score = 2323;
+$username = "rithika";
 
-	$SELECT = "SELECT username From jeyganesh.score Where username = 'rithika' and gameID = 1";
+	$SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
-	$UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = 'rithika' and gameID = 1";
+	$UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = ? and gameID = 1";
+
+echo "Reached first";
 
 	$stmt = $conn->prepare($SELECT);
-     $stmt->bind_param("s", rithika);
+     $stmt->bind_param("s", $username);
      $stmt->execute();
-     $stmt->bind_result($user);
+     $stmt->bind_result($username);
      $stmt->store_result();
      $rnum = $stmt->num_rows;
+
+
+     echo "Reached 2nd" + $rnum;
+
      if ($rnum==0) {
 		echo '<script type= "text/JavaScript"> alert("insert"); </script>'; 
       $stmt->close();
       $stmt = $conn->prepare($INSERT);
-      $stmt->bind_param("isi", $game, rithika, $score);
+     //  $stmt->bind_param("isi", $game, $username, $score);
       $stmt->execute();
+
+      echo "Reached 3rd";
+
       echo '<script type= "text/JavaScript"> alert("insert"); </script>';
 	  include_once('leaderboard.html');
      }
 
-     echo "Reached 2nd";
+     echo "Reached 4th";
+
 	//  else {
 	// $stmt = $conn->prepare($UPDATE);
      //  $stmt->bind_param("isi", $game, rithika, $score);
