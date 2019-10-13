@@ -1,3 +1,14 @@
+<script>
+    var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+    var queries = queryString.split("&");
+
+    var array = queryString.split('&');
+    var game = array[0];
+    var username = array[1];
+    var score = array[2];
+  </script>
+
 <?php include("dbconnection.php"); ?> 
 
 <?php
@@ -7,6 +18,8 @@ if (isset($_SESSION['username'])) {
      $game = $_POST['game'];
      $score = $_POST['score'];
      $username = $_SESSION['username'];
+
+     echo $variable = "<script>document.write(score)</script>"
 
      // $game = 1;
      // $score = 9000;
