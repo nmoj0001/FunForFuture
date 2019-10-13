@@ -42,7 +42,7 @@
   max-height: 600px;
   width: 60%;
   height: 80%;
-  background-color: #fff;
+  background-color: rgb(38, 99, 168);
   transform: rotate(32deg);
   transition: 0.64s ease-in-out;
 }

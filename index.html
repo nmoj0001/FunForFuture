@@ -141,12 +141,12 @@ session_start();
           <a href="work.html" class="btn-light">View My Games</a>
           <br /><br />
           <a id="popupbutton" class="button" href="#popup"
-            >Click Here For PopUp</a
+            >Fact For The Day</a
           >
           <div class="popup" id="popup">
             <div class="popup-inner">
               <div class="popupphoto">
-                <img src="/iteration3/img/leaderboard1.png" alt="" />
+                <img src="/img/leaderboardgirl1.png" alt="" />
               </div>
               <div class="popuptext">
                 <h1>Do U Know?</h1>
@@ -159,7 +159,7 @@ $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Y
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
-echo "Fact";
+echo "Fact Of The Day";
 echo "<h3>" . $row["fact_description"] . "</h3>";
 echo "Source";
 echo "<h4>" . $row["fact_source"] . "</h4>";
