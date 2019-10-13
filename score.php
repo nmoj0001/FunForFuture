@@ -3,14 +3,14 @@
 <?php
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
-if(isset(rithika))
+if(isset($_SESSION['username']))
 {
 $game =	1;	
 $score = 2323;
 
-	$SELECT = "SELECT username From jeyganesh.score Where username = 'rithika' and gameID = 1";
-     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
-	$UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = 'rithika' and gameID = 1";
+	// $SELECT = "SELECT username From jeyganesh.score Where username = 'rithika' and gameID = 1";
+     // $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
+	// $UPDATE = "UPDATE jeyganesh.score SET gameScore = 2222 where username = 'rithika' and gameID = 1";
 	 
 	// $stmt = $conn->prepare($SELECT);
      // $stmt->bind_param("s", rithika);
