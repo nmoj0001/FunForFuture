@@ -22,8 +22,8 @@ if (isset($_SESSION['username'])) {
      echo "    Game  ";
      echo $game_string = "<script>document.write(game)</script>";
 
-     $score = number_format($score_string);
-     $game = number_format($game_string);
+     $score = $score_string + 0;
+     $game = $game_string + 0;
 
      echo "  Score  ";
      echo $score;
