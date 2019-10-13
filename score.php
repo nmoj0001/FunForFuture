@@ -14,18 +14,20 @@ echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
+     $game =1;
+     $score = $_GET["score"];
 
-     echo $score_string = "<script>document.write(score)</script>";
-     echo $game_string = "<script>document.write(game)</script>";
+     // echo $score_string = "<script>document.write(score)</script>";
+     // echo $game_string = "<script>document.write(game)</script>";
 
-     echo "\n";
-     echo gettype($score_string), "\n";
-     echo gettype($game_string), "\n";
-     echo "\n";
+     // echo "\n";
+     // echo gettype($score_string), "\n";
+     // echo gettype($game_string), "\n";
+     // echo "\n";
 
 
-     $score = (int) $score_string;
-     $game = (int) $game_string;
+     // $score = (int) $score_string;
+     // $game = (int) $game_string;
 
      echo $score;
      echo $game;
