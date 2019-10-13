@@ -55,8 +55,8 @@
   overflow: hidden;
 }
 .popupphoto img {
-  width: 80%;
-  height: 80%;
+  width: auto;
+  height: 100%;
 }
 .popuptext {
   display: flex;
