@@ -27,8 +27,15 @@ if (isset($_SESSION['username'])) {
      echo gettype($game_string), "\n";
      echo "\n";
 
-     $score = $score_string;
-     $game = $game_string;
+     $score = (int)$score_string;
+     $game = (int)$game_string;
+
+     
+     echo "\n";
+     echo gettype($score), "\n";
+     echo gettype($game), "\n";
+     echo "\n";
+
 
      echo "  Score  ";
      echo $score;
