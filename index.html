@@ -146,7 +146,7 @@ session_start();
           <div class="popup" id="popup">
             <div class="popup-inner">
               <div class="popupphoto">
-                <img src="/img/gamegirl1.jpeg" alt="" />
+                <img src="/img/gamegirl1.png" alt="" />
               </div>
               <div class="popuptext">
                 <h1>Do U Know?</h1>
@@ -159,7 +159,6 @@ $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Y
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
-echo "Fact Of The Day";
 echo "<h3>" . $row["fact_description"] . "</h3>";
 echo "Source";
 echo "<h4>" . $row["fact_source"] . "</h4>";
