@@ -429,7 +429,7 @@ h4 {
 }
 .popuptext p {
   font-size: 0.8rem;
-  color: #47bdff;
+  color: black !important;
   line-height: 1.5;
 }
 
