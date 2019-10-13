@@ -55,6 +55,24 @@
   height: 100%;
   padding: 3rem;
 }
+.popuptext h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+  color: #0a0a0a;
+}
+#popuptext p {
+  font-size: 0.8rem;
+  text-transform: lowercase !important;
+  color: black !important;
+  line-height: 1.5;
+}
+
+.popuptext a {
+  text-decoration: none;
+  color: #47bdff;
+}
 
 .popup:target {
   visibility: visible;
@@ -418,25 +436,6 @@ h4 {
   background: url('/iteration3/img/newhomepage1.png') no-repeat 20% 30% / cover;
   height: 5.5rem;
   border-bottom: 3px solid #ffbc00;
-}
-
-.popuptext h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-transform: capitalize;
-  color: #0a0a0a;
-}
-#popupstyle {
-  font-size: 0.8rem;
-  text-transform: lowercase !important;
-  color: black !important;
-  line-height: 1.5;
-}
-
-.popuptext a {
-  text-decoration: none;
-  color: #47bdff;
 }
 
 #foot {
