@@ -95,7 +95,7 @@ var Baselevel = new Phaser.Class({
     addTotal = true;
     playLevel = true;
     score = 0;
-    counter = 12;
+    counter = 1;
 
     this.updateWaste(level);
   },
