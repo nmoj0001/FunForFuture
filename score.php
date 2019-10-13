@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
           include_once('leaderboard.html');
      } else {
           $stmt = $conn->prepare($UPDATE);
-          $stmt->bind_param("isi", $game, $username, $score);
+          $stmt->bind_param("isi", $score, $username, $game);
           $stmt->execute();
           echo '<script type= "text/JavaScript"> alert("update"); </script>';
           include_once('leaderboard.html');
