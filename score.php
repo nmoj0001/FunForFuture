@@ -9,6 +9,8 @@ if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
 
      echo $_SESSION['username'];
+     echo $_POST['game'];
+     echo $_POST['score'];
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
