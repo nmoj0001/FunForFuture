@@ -391,7 +391,6 @@ var Baselevel = new Phaser.Class({
     submit.setInteractive({ useHandCursor: true }).on(
       'pointerup',
       function () {
-        var sessionVales = '?1' + '&' + username + '&' + totalScore;
         window.open('/score.php?score=' + totalScore + "&game=1", '_self');
       },
       this

@@ -17,21 +17,6 @@ if (isset($_SESSION['username'])) {
      $game = $_GET["game"];
      $score = $_GET["score"];
 
-     // echo $score_string = "<script>document.write(score)</script>";
-     // echo $game_string = "<script>document.write(game)</script>";
-
-     // echo "\n";
-     // echo gettype($score_string), "\n";
-     // echo gettype($game_string), "\n";
-     // echo "\n";
-
-
-     // $score = (int) $score_string;
-     // $game = (int) $game_string;
-
-     echo $score;
-     echo $game;
-
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
      $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
@@ -42,9 +27,6 @@ if (isset($_SESSION['username'])) {
      $stmt->bind_result($username);
      $stmt->store_result();
      $rnum = $stmt->num_rows;
-
-     echo "Reached after";
-     echo $rnum;
 
      if ($rnum == 0) {
           $stmt->close();
