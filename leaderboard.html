@@ -93,7 +93,8 @@ if ($conn->connect_error) {
             $result = $conn->query($sql);
             if ($result->num_rows > 0) { 
               $row = $result->fetch_assoc();
-              echo "The Rank for Sort your waste is " + $row["ans"];
+              <!-- echo "The Rank for Sort your waste is " . $row["ans"] . ""; -->
+              echo "<h3>" . $row["ans"] . "</h3>";
                }
                Else { echo "Play Sort your waste game to view your Rank"; }
             ?>       
