@@ -19,7 +19,9 @@ if (isset($_SESSION['username'])) {
      $score = $_POST['score'];
      $username = $_SESSION['username'];
 
+     echo "Reached 1";
      echo $variable = "<script>document.write(score)</script>";
+     echo "Reached 2";
 
      // $game = 1;
      // $score = 9000;
@@ -36,6 +38,7 @@ if (isset($_SESSION['username'])) {
      $stmt->store_result();
      $rnum = $stmt->num_rows;
 
+     echo "Reached after";
      echo $rnum;
 
      if ($rnum == 0) {
