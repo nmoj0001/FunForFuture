@@ -5,7 +5,7 @@ echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if (isset($_SESSION['username'])) {
      $game = 1;
-     $score = 2323;
+     $score = 5000;
      $username = "prayank";
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
