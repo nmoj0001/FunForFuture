@@ -4,16 +4,16 @@
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if (isset($_SESSION['username'])) {
-     $game = 1;
-     $score = 5000;
-     $username = "prayank";
+     $game = $_POST['game'];
+     $score = $_POST['score'];
+     $username = $_SESSION['username'];
 
-     $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
+     $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
      $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
 
      $stmt = $conn->prepare($SELECT);
-     $stmt->bind_param("s", $username);
+     $stmt->bind_param("si", $username, $game);
      $stmt->execute();
      $stmt->bind_result($username);
      $stmt->store_result();
