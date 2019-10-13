@@ -392,7 +392,7 @@ var Baselevel = new Phaser.Class({
       'pointerup',
       function() {
         var sessionVales = '?1' + '&' + username + '&' + totalScore;
-        window.open('/submitscore.html' + sessionVales, '_self');
+        window.open('/score.php' + sessionVales, '_self');
       },
       this
     );
