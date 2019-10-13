@@ -8,9 +8,13 @@ if (isset($_SESSION['username'])) {
      $score = $_POST['score'];
      $username = $_SESSION['username'];
 
+     echo $_SESSION['username'];
+
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
      $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
+
+     echo "reached 1";
 
      $stmt = $conn->prepare($SELECT);
      $stmt->bind_param("si", $_SESSION['username'], 1);
@@ -19,17 +23,25 @@ if (isset($_SESSION['username'])) {
      $stmt->store_result();
      $rnum = $stmt->num_rows;
 
+     echo $rnum;
+
      if ($rnum == 0) {
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
           $stmt->bind_param("isi", 1, $_SESSION['username'], 7000);
           $stmt->execute();
+
+          echo "Inside inseret";
+
           echo '<script type= "text/JavaScript"> alert("insert"); </script>';
           include_once('leaderboard.html');
      } else {
           $stmt = $conn->prepare($UPDATE);
           $stmt->bind_param("isi", 8000, $_SESSION['username'], 1);
           $stmt->execute();
+
+          echo "Inside update";
+
           echo '<script type= "text/JavaScript"> alert("update"); </script>';
           include_once('leaderboard.html');
      }
