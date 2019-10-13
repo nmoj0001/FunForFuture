@@ -14,7 +14,7 @@ echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
-     $game =1;
+     $game = 1;
      $score = $_GET["score"];
 
      // echo $score_string = "<script>document.write(score)</script>";
