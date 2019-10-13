@@ -17,11 +17,11 @@ session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
 
-     echo $score_string = "<script>document.write(score)</script>";
-     echo $game_string = "<script>document.write(game)</script>";
+     echo $score_string = "<script>document.write(score)</script>" + "";
+     echo $game_string = "<script>document.write(game)</script>" + "";
 
-     $score = (int)$score_string;
-     $game = (int)$game_string;
+     $score = (int) $score_string;
+     $game = (int) $game_string;
 
      echo $score;
      echo $game;
