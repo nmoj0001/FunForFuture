@@ -19,7 +19,7 @@ if (isset($_SESSION['username'])) {
      $score = $_POST['score'];
      $username = $_SESSION['username'];
 
-     echo $variable = "<script>document.write(score)</script>"
+     echo $variable = "<script>document.write(score)</script>";
 
      // $game = 1;
      // $score = 9000;
