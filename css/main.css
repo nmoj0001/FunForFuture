@@ -429,8 +429,8 @@ h4 {
 }
 .popuptext p {
   font-size: 0.8rem;
-  color: black !important;
   text-transform: lowercase !important;
+  color: black !important;
   line-height: 1.5;
 }
 
