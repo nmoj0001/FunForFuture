@@ -88,13 +88,16 @@ if ($conn->connect_error) {
 
             <?php
 
-            $sql = "SELECT ROW_NUMBER() OVER(ORDER BY score desc) AS ans,
-                    FROM jeyganesh.score WHERE gameID = 1 and username = 'emily';"    
+            $sql = "SET @i=0;
+            SELECT @i:=@i+1 AS rank 
+             FROM jeyganesh.score where gameID = 1 and username = 'emily'
+             ORDER BY gamescore DESC;"    
             $result = $conn->query($sql);
-            if ($result->num_rows > 0) { 
+            if ($result->num_rows > 0) 
+            { 
               $row = $result->fetch_assoc();
               <!-- echo "The Rank for Sort your waste is " . $row["ans"] . ""; -->
-              echo "<h3>" . $row["ans"] . "</h3>";
+              echo "<h3>" . $row["rank"] . "</h3>";
                }
                Else { echo "Play Sort your waste game to view your Rank"; }
             ?>       
