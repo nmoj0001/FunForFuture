@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<?php include("dbconnection.php"); ?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -139,7 +140,37 @@ session_start();
           </p>
           <a href="work.html" class="btn-light">View My Games</a>
           <br /><br />
-          <a href="#popup1" class="button factlogo" onclick="myFunction()"
+          <a id="popupbutton" class="button" href="#popup"
+            >Click Here For PopUp</a
+          >
+          <div class="popup" id="popup">
+            <div class="popup-inner">
+              <div class="popupphoto">
+                <img src="/iteration3/img/leaderboard1.png" alt="" />
+              </div>
+              <div class="popuptext">
+                <h1>Do U Know?</h1>
+                <p>
+                  
+
+<?php
+
+$sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
+echo "Fact";
+echo "<h3>" . $row["fact_description"] . "</h3>";
+echo "Source";
+echo "<h4>" . $row["fact_source"] . "</h4>";
+
+?>
+                </p>
+              </div>
+              <a class="closepopup" href="#">X</a>
+            </div>
+          </div>
+          <!-- <a href="#popup1" class="button factlogo" onclick="myFunction()"
             ><img
               class="img-fluid"
               src="/iteration3/icons/icons8-light-on-64.png"
@@ -175,7 +206,7 @@ session_start();
                 xhttp.send();
               }
             </script>
-          </a>
+          </a> -->
           <p id="foot">
             Copyright &copy; 2019. All Rights Reserved
             <strong>Guardians</strong>
