@@ -24,11 +24,11 @@ if (isset($_SESSION['username'])) {
      echo "\n";
 
 
-     // $score = (int) $score_string;
-     // $game = (int) $game_string;
+     $score = (int) $score_string;
+     $game = (int) $game_string;
 
-     // echo $score;
-     // echo $game;
+     echo $score;
+     echo $game;
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
