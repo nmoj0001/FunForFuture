@@ -4,15 +4,13 @@
 echo '<script type= "text/JavaScript"> alert("hi"); </script>';
 session_start();
 if (isset($_SESSION['username'])) {
-     $game =     1;
+     $game = 1;
      $score = 2323;
-     $username = "rithika";
+     $username = "prayank";
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = 1";
-     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(1, 'rithika', 2323)";
+     $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
      $UPDATE = "UPDATE jeyganesh.score SET gameScore = ? where username = ? and gameID = ?";
-
-     echo "Reached first";
 
      $stmt = $conn->prepare($SELECT);
      $stmt->bind_param("s", $username);
@@ -21,14 +19,11 @@ if (isset($_SESSION['username'])) {
      $stmt->store_result();
      $rnum = $stmt->num_rows;
 
-
-     echo "Reached 2nd" + $rnum;
-
      if ($rnum == 0) {
           echo '<script type= "text/JavaScript"> alert("insert"); </script>';
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
-          //  $stmt->bind_param("isi", $game, $username, $score);
+          $stmt->bind_param("isi", $game, $username, $score);
           $stmt->execute();
           echo '<script type= "text/JavaScript"> alert("insert"); </script>';
           include_once('leaderboard.html');
@@ -41,8 +36,6 @@ if (isset($_SESSION['username'])) {
      }
      $stmt->close();
      $conn->close();
-
-     echo "Reached end";
 } else {
      echo '<script type= "text/JavaScript"> alert("You have not logedin!!.. LOGIN TO SEE LEADERBOARD"); </script>';
      header("refresh:2;url=signin.html");
