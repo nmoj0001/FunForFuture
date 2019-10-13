@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<?php include("dbconnection.php"); ?> 
+<?php include("dbconnection.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -150,21 +150,16 @@ session_start();
               </div>
               <div class="popuptext">
                 <h1>Did U Know?</h1>
-                <p id="popupstyle">
-                  
-
-<?php
+                <h4 id="popupstyle">
+                  <?php
 
 $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-
-echo "<h3>" . $row["fact_description"] . "</h3>";
-echo "Source";
-echo "<h4>" . $row["fact_source"] . "</h4>";
-
-?>
-                </p>
+$result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
+                  <h3>" . $row["fact_description"] . "</h3>
+                  "; echo "Source"; echo "
+                  <h4>" . $row["fact_source"] . "</h4>
+                  "; ?>
+                </h4>
               </div>
               <a class="closepopup" href="#">X</a>
             </div>
