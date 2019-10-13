@@ -2,11 +2,9 @@
      var queryString = decodeURIComponent(window.location.search);
      queryString = queryString.substring(1);
      var queries = queryString.split("&");
-
      var array = queryString.split('&');
-     var game = array[0];
-     var username = array[1];
-     var score = array[2];
+     var game = parseInt(array[0], 10);
+     var score = parseInt(array[2], 10);
 </script>
 
 <?php include("dbconnection.php"); ?>
@@ -17,14 +15,20 @@ session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
 
-     echo $score_string = "<script>document.write(score)</script>" + "";
-     echo $game_string = "<script>document.write(game)</script>" + "";
+     echo $score_string = "<script>document.write(score)</script>";
+     echo $game_string = "<script>document.write(game)</script>";
 
-     $score = (int) $score_string;
-     $game = (int) $game_string;
+     echo "\n";
+     echo gettype($score_string), "\n";
+     echo gettype($game_string), "\n";
+     echo "\n";
 
-     echo $score;
-     echo $game;
+
+     // $score = (int) $score_string;
+     // $game = (int) $game_string;
+
+     // echo $score;
+     // echo $game;
 
      $SELECT = "SELECT username From jeyganesh.score Where username = ? and gameID = ?";
      $INSERT = "INSERT Into jeyganesh.score (gameID,username,gameScore) values(?, ?, ?)";
