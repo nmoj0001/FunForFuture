@@ -10,9 +10,9 @@ if (isset($_SESSION['username'])) {
 
      echo "Rereached 1";
 
-     echo "" + $game;
-     echo "" + $score;
-     echo "" + $username;
+     echo "\ngame id" + $game;
+     echo "\nscore" + $score;
+     echo "\nusername" + $username;
 
      echo "Reached after";
 
