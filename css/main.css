@@ -55,23 +55,7 @@
   height: 100%;
   padding: 3rem;
 }
-.popuptext h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  text-transform: capitalize;
-  color: #0a0a0a;
-}
-.popuptext p {
-  font-size: 0.8rem;
-  color: #47bdff;
-  line-height: 1.5;
-}
 
-.popuptext a {
-  text-decoration: none;
-  color: #47bdff;
-}
 .popup:target {
   visibility: visible;
   opacity: 1;
@@ -436,20 +420,22 @@ h4 {
   border-bottom: 3px solid #ffbc00;
 }
 
-.factlogo {
-  position: absolute;
-  /* bottom: 20rem;
-  right: 18rem; */
-  left: 44%;
-  display: center;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 1.5rem;
-  border-bottom: 3px solid #ffbc00;
-  z-index: 80;
+.popuptext h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+  color: #0a0a0a;
 }
-.factlogo:hover {
-  background: url('/iteration3/icons/icons8-cute-color-64.png') no-repeat;
+.popuptext p {
+  font-size: 0.8rem;
+  color: #47bdff;
+  line-height: 1.5;
+}
+
+.popuptext a {
+  text-decoration: none;
+  color: #47bdff;
 }
 
 #foot {
