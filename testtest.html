@@ -1,0 +1,44 @@
+<?php
+session_start();
+//$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+//echo $Vdata;
+//echo $_SESSION ['username'];
+?>
+<?php
+
+//$mysqli = new mysqli($dbServername,$dbUsername,$dbPassword,$dbName);
+$conn = new mysqli("waste.cdylivsvnwen.us-east-2.rds.amazonaws.com", "jeyganesh", "jeyganesh", "jeyganesh");
+if ($conn->connect_error) { exit('Could not connect'); } ?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    test
+  </head>
+  <body>
+  <p>
+    <?php 
+      $username = $_SESSION ['username']; 
+	  echo $username;
+	  
+	$sql = "select gameScore from jeyganesh.score where gameID = 1 and username = '".$username."'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo "Your score for Sort your waste game is ". $row["gameScore"];
+	echo "<br>";
+	
+	$sql = "select gameScore from jeyganesh.score where gameID = 2 and username = '".$username."'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo "Your score for Know your waste game is ". $row["gameScore"];
+	echo "<br>";
+	
+  	$sql = "select gameScore from jeyganesh.score where gameID = 3 and username = '".$username."'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	echo "Your score for Learn unique waste game is ". $row["gameScore"];
+	echo "<br>";
+    
+    ?>
+</p>	
+  </body>
+</html>

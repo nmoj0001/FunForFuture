@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +13,11 @@
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
+    />
+    <!-- css animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
     />
     <!-- Boostrap4 -->
     <link
@@ -50,7 +59,7 @@
   <body>
     <!-- Header -->
     <header id="header-home">
-      <div class="container" position:relative>
+      <div class="container" position:Relative>
         <nav id="main-nav">
           <img src="img/Teamlogo4.png" alt="My Portfolio" id="logo" />
 
@@ -58,9 +67,64 @@
             <li><a href="index.html" class="current">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
             <li><a href="work.html">Games</a></li>
-            <!-- <li><a  class="" href="contact.html">Contact</a></li> -->
+            <li>
+              <?php  if (!isset($_SESSION['username'])) : ?><a href="login.html"
+                >Signin</a
+              ><?php endif ?>
+            </li>
+            <li>
+              <?php  if (isset($_SESSION['username'])) : ?><a href="logout.php"
+                ><?php echo "Signout - ".$_SESSION ['username']; ?></a
+              ><?php endif ?>
+            </li>
+            <li>
+              <?php  if (isset($_SESSION['username'])) : ?><a
+                href="leaderboard.html"
+                >Leaderboard</a
+              ><?php endif ?>
+            </li>
           </ul>
         </nav>
+        <a
+          class="gameButtonDesign"
+          id="game1Button"
+          href="/iteration3/game1/startScreen.html"
+          ><button>
+            <img
+              class="animated infinite bounce delay-2s"
+              style="height:50px; width:50px;"
+              src="/iteration3/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+        <a
+          class="gameButtonDesign"
+          id="game2Button"
+          href="/iteration3/game2/game.html"
+          ><button>
+            <img
+              class="animated infinite bounce delay-2s"
+              style="height:50px; width:50px;"
+              src="/iteration3/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+        <a
+          class="gameButtonDesign"
+          id="game3Button"
+          href="/iteration3/game3/startScreen.html"
+          ><button>
+            <img
+              class="animated infinite bounce delay-2s"
+              style="height:50px; width:50px;"
+              src="/iteration3/img/placeholder1.svg"
+              alt=""
+            /></button
+        ></a>
+
+        <!-- <a id="flag1" class="animated infinite bounce" href=""
+          ><img src="img/flag.svg" style="width:80px; height:80px;" alt=""
+        /></a> -->
         <div class="header-content">
           <h1>
             Welcome to
@@ -74,11 +138,11 @@
             Games For Children To Learn Waste Management!
           </p>
           <a href="work.html" class="btn-light">View My Games</a>
-
+          <br /><br />
           <a href="#popup1" class="button factlogo" onclick="myFunction()"
             ><img
               class="img-fluid"
-              src="/icons/icons8-light-on-64.png"
+              src="icons/icons8-light-on-64.png"
               alt=""
             />Fact of the day
 
@@ -87,8 +151,8 @@
                 Swal.fire({
                   title: 'DO U KNOW?',
                   text:
-                    'Glass recycling is often separated into colors because glass keeps its color after recycling.',
-                  footer: 'From Science Kids Website',
+                    'Recycling Aluminum Cans Saves 95% of the Energy Used to Make New Cans.',
+                  footer: 'From Greenerideal Website',
                   type: 'success',
                   animation: false,
                   customClass: {
@@ -137,7 +201,7 @@
     <script src="js/typewriter.js"></script>
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="/iteration2/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/iteration3/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
   </body>

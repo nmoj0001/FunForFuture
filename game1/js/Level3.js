@@ -30,44 +30,42 @@ var Level3 = new Phaser.Class({
     addTotal = true;
     level3Bg = this.add.image(0, 0, 'level3_background').setOrigin(0);
     this.setUp();
-    speechBubbleText.setText('Level3');
+    this.setOpening();
+    speechBubbleText.setText('Level 3');
   },
 
-  levelUp: function() {
-    if (addTotal) {
-      totalScore += score;
-      addTotal = false;
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+      .text(820, 250, 'Level 3 - Bedroom', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(750, 350, 'Welcome to the Bed Room!\n      Help Nina clean up\n   And sort waste properly!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp('Game Complete!');
+    replay.setVisible(false);
+    playNext.setVisible(false);
+    if (username != '') {
+      submit = this.add.image(1150, 620, 'submit');
+      reload = this.add.image(850, 620, 'reload');
+      this.submitScore();
+    } else {
+      reload = this.add.image(1000, 620, 'reload');
     }
-
-    waste.setVisible(false);
-
-    dialogueBox = this.add.image(1000, 300, 'dialogueBox');
-    replay = this.add.image(850, 440, 'replay');
-    reload = this.add.image(1150, 440, 'reload');
-    winLevelText = this.add
-      .text(1000, 850, 'You Win!!', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
-
-    totalScorePrompt = this.add
-      .text(880, 220, 'Total Score:', {
-        font: '40px Arial Black',
-        fill: '#fff'
-      })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
-    totalScoreImage = this.add.image(970, 330, 'totalScore');
-    totalScoreText = this.add
-      .text(1020, 300, totalScore, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
-
-    this.replayLevel('Level3');
     this.reloadGame();
   },
 
-  loseLevel: function() {
+  loseLevel: function () {
     this.setLoseLevel();
     this.replayLevel('Level3');
   }
 });
+
