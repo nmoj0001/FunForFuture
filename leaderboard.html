@@ -97,8 +97,9 @@ if ($conn->connect_error) {
             echo "hi1";
             if ($result->num_rows > 0) { 
               echo "hi2";
-              $row = $result->fetch_assoc();
-              echo "<h5>" . $row["ran"] . "</h5>";
+              while($row = $result->fetch_assoc()){
+                echo "<h5>" . $row["ran"] . "</h5>";  
+              }
                }
                Else { echo "Play Sort your waste game to view your Rank"; } 
             ?>      
