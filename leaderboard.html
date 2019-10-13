@@ -85,6 +85,18 @@ if ($conn->connect_error) {
         </h1>
        
         <p class="lead font-italic">
+
+            <?php
+
+            $sql = "SELECT ROW_NUMBER() OVER(ORDER BY score desc) AS ans,
+                    FROM jeyganesh.score WHERE gameID = 1 and username = 'emily';"    
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) { 
+              $row = $result->fetch_assoc();
+              echo "The Rank for Sort your waste is " + $row["ans"];
+               }
+               Else { echo "Play Sort your waste game to view your Rank"; }
+            ?>       
           <br>
           This is the leaderboard of our star players, 
           <br>see if you can find your name here!!!
@@ -105,13 +117,7 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <?php
-              $sql = "select username, gameScore from jeyganesh.score where
-              gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-               if ($result->num_rows > 0) { $a = 1; while($row =
-                $result->fetch_assoc()) { 
-                  
-                  echo "
+
                 <tr>
                   "; echo "
                   <td>" . $a . "</td>
