@@ -18,8 +18,10 @@ if (isset($_SESSION['username'])) {
 
      echo "reached 1";
 
+     $game = 1;
+
      $stmt = $conn->prepare($SELECT);
-     $stmt->bind_param("si", $_SESSION['username'], 1);
+     $stmt->bind_param("si", $_SESSION['username'], $game);
      $stmt->execute();
      $stmt->bind_result($username);
      $stmt->store_result();
