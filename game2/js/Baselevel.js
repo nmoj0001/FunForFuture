@@ -92,7 +92,7 @@ var Baselevel = new Phaser.Class({
     girl = this.add.image(20, 150, 'girl').setOrigin(0);
     speechBubble = this.add.image(200, 20, 'speechBubble').setOrigin(0);
     speechBubble.setScale(0.8);
-    speechBubbleText = this.add.text(320, 220, 'Welcome', {
+    speechBubbleText = this.add.text(320, 120, 'Welcome', {
       fontSize: '32px',
       fill: '#000'
     });
@@ -290,7 +290,7 @@ var Baselevel = new Phaser.Class({
         openingText.setVisible(false);
         levelText.setVisible(false);
         startLevel = true;
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 10 });
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 150 });
         this.showScore();
         this.setUpQuestionAnswer();
       },
