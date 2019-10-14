@@ -86,9 +86,23 @@ if ($conn->connect_error) {
        
         <p class="lead font-italic">
 
-        <br>
-          This is the leaderboard of our star players, 
-          <br>see if you can find your name here!!!    
+        
+             <?php
+
+            $sql = "SET @i=0;
+Select rank from (SELECT username, @i:=@i+1 AS rank 
+ FROM jeyganesh.score where gameID = 1
+ ORDER BY gamescore DESC) t where username = 'emily';";
+            $result = $conn->query($sql);
+            echo "hi1";
+            if ($result->num_rows > 0) { 
+              echo "hi2";
+              $row = $result->fetch_assoc();
+                echo "<h5>" . $row['rank'] . "</h5>";  
+              
+               }
+               Else { echo "Play Sort your waste game to view your Rank"; } 
+            ?>      
           
         </p>
       </div>
@@ -206,7 +220,43 @@ if ($conn->connect_error) {
     </div>
     <hr >
 <!-- personal leaderboard -->
-    
+    <div style="padding:0; " class="container-fluid bg-light">
+      <div class="row">
+        <div class="col">
+          <table class="table table-hover">
+           
+            <tbody>
+             <tr>
+              <td>0</td>
+              <td>username</td>
+              <td>0</td>
+             </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col">
+          <table class="table table-hover">
+           
+            <tbody>
+             <tr><td>0</td>
+              <td>username</td>
+              <td>0</td></tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <table class="table table-hover">
+           
+            <tbody>
+                <tr><td>0</td>
+                  <td>username</td>
+                  <td>0</td></tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <br>
     <footer id="main-footer">
