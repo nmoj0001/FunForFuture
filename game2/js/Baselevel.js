@@ -127,35 +127,35 @@ var Baselevel = new Phaser.Class({
 
   setUpQuestionAnswer: function () {
     questionText = this.add
-      .text(650, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
+      .text(630, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
-    choice1 = this.add.image(650, 120, 'choice1').setOrigin(0);
-    choice2 = this.add.image(650, 250, 'choice2').setOrigin(0);
-    choice3 = this.add.image(650, 390, 'choice3').setOrigin(0);
-    choice4 = this.add.image(650, 510, 'choice4').setOrigin(0);
+    choice1 = this.add.image(630, 120, 'choice1').setOrigin(0);
+    choice2 = this.add.image(630, 250, 'choice2').setOrigin(0);
+    choice3 = this.add.image(630, 390, 'choice3').setOrigin(0);
+    choice4 = this.add.image(630, 510, 'choice4').setOrigin(0);
 
     answerText = this.add
-      .text(800, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
+      .text(780, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText1 = this.add
-      .text(800, y2, 'Wrong Choice 2', {
+      .text(780, y2, 'Wrong Choice 2', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText2 = this.add
-      .text(800, y3, 'Wrong Choice 3', {
+      .text(780, y3, 'Wrong Choice 3', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText3 = this.add
-      .text(800, y4, 'Wrong Choice 4', {
+      .text(780, y4, 'Wrong Choice 4', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -222,7 +222,7 @@ var Baselevel = new Phaser.Class({
 
   wrongAnswer: function () {
     speechBubbleText.setText('Wrong!');
-    speechBubbleText.x = 290;
+    speechBubbleText.x = 320;
     if (score > 0) {
       score -= 10;
       scoreText.setText(score);
