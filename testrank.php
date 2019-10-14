@@ -11,6 +11,10 @@ $rnum = $result->num_rows;
 echo "Executed Statement";
 echo $rnum;
 echo sizeof($row);
-echo $row['rank'];
+echo "username";
+echo $row[0];
+echo "score";
+echo $row[1];
 echo "Rank";
+echo $row[2];
 ?>
