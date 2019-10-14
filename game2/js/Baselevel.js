@@ -127,35 +127,35 @@ var Baselevel = new Phaser.Class({
 
   setUpQuestionAnswer: function () {
     questionText = this.add
-      .text(700, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
+      .text(670, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
-    choice1 = this.add.image(700, 120, 'choice1').setOrigin(0);
-    choice2 = this.add.image(700, 250, 'choice2').setOrigin(0);
-    choice3 = this.add.image(700, 390, 'choice3').setOrigin(0);
-    choice4 = this.add.image(700, 510, 'choice4').setOrigin(0);
+    choice1 = this.add.image(670, 120, 'choice1').setOrigin(0);
+    choice2 = this.add.image(670, 250, 'choice2').setOrigin(0);
+    choice3 = this.add.image(670, 390, 'choice3').setOrigin(0);
+    choice4 = this.add.image(670, 510, 'choice4').setOrigin(0);
 
     answerText = this.add
-      .text(850, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
+      .text(820, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText1 = this.add
-      .text(850, y2, 'Wrong Choice 2', {
+      .text(820, y2, 'Wrong Choice 2', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText2 = this.add
-      .text(850, y3, 'Wrong Choice 3', {
+      .text(820, y3, 'Wrong Choice 3', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText3 = this.add
-      .text(850, y4, 'Wrong Choice 4', {
+      .text(820, y4, 'Wrong Choice 4', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -164,7 +164,6 @@ var Baselevel = new Phaser.Class({
 
     questions = this.cache.json.get('questions');
     this.updateQuestion();
-
     this.updateScore();
   },
 
@@ -260,8 +259,8 @@ var Baselevel = new Phaser.Class({
   },
 
   showScore: function () {
-    scoreImage = this.add.image(1650, 70, 'score');
-    timerImage = this.add.image(1650, 180, 'timer');
+    scoreImage = this.add.image(1700, 70, 'score');
+    timerImage = this.add.image(1700, 180, 'timer');
 
     scoreText = this.add
       .text(1705, 40, score, { font: '40px Arial Black', fill: '#fff' })
