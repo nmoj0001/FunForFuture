@@ -4,10 +4,10 @@
             "level1": [
                 {
                     "question": "Does Plastic affect marine life?",
-                    "choice1": "Marine species cannot digest it",
-                    "choice2": "Marine species get tangled in it",
+                    "choice1": "Marine species can digest it",
+                    "choice2": "Marine species are improved",
                     "choice3": "Does not affect marine life",
-                    "answer": "Above 2 are correct"
+                    "answer": "Marine species get tangled in it"
                 },
                 {
                     "question": "Which contributes more to marine pollution?",
@@ -74,7 +74,7 @@
                     "choice1": "Reducing landfills",
                     "choice2": "Less pollution",
                     "choice3": "Fewer resources are taken from earth",
-                    "answer": "All the above"
+                    "answer": "All are True"
                 }
             ]
         },
@@ -99,7 +99,7 @@
                     "choice1": "Paper and plastic",
                     "choice2": "Things that cannot be recycled",
                     "choice3": "Recyclable dropped wrongly",
-                    "answer": "All the above"
+                    "answer": "All are True"
                 },
                 {
                     "question": "Landfill site should be chosen carefully cause -",
@@ -113,7 +113,7 @@
                     "choice1": "Reuse materials",
                     "choice2": "Recycle materials",
                     "choice3": "Avoid using packaging not needed",
-                    "answer": "All the above"
+                    "answer": "All are True"
                 }
             ]
         }
