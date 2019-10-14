@@ -90,15 +90,15 @@ if ($conn->connect_error) {
              <?php
 
             $sql = "SET @i=0;
-            SELECT @i:=@i+1 AS ran 
-             FROM jeyganesh.score where gameID = 1 and username = 'emily'
-             ORDER BY gamescore DESC";
+Select rank from (SELECT username, @i:=@i+1 AS rank 
+ FROM jeyganesh.score where gameID = 1
+ ORDER BY gamescore DESC) t where username = 'emily';";
             $result = $conn->query($sql);
             echo "hi1";
             if ($result->num_rows > 0) { 
               echo "hi2";
               $row = $result->fetch_assoc();
-                echo "<h5>" . $row["ran"] . "</h5>";  
+                echo "<h5>" . $row['rank'] . "</h5>";  
               
                }
                Else { echo "Play Sort your waste game to view your Rank"; } 
