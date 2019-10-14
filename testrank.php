@@ -8,5 +8,6 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
 echo "Executed Statement";
-echo "<h3>" . $row["rank"] . "</h3>";
+echo $row["rank"];
+echo "Rank";
 ?>
