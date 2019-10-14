@@ -98,7 +98,7 @@ Select rank from (SELECT username, @i:=@i+1 AS rank
             if ($result->num_rows > 0) { 
               echo "hi2";
               $row = $result->fetch_assoc();
-                echo "<h5>" . $row['rank'] . "</h5>";  
+                echo $row['rank'];  
               
                }
                Else { echo "Play Sort your waste game to view your Rank"; } 
