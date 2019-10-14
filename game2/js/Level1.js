@@ -32,7 +32,6 @@ var Level1 = new Phaser.Class({
     resume = this.add.image(1000, 750, 'resume');
     this.resumeGame();
 
-
     fish2 = this.add.image(740, 780, 'fish2').setVisible(false);
 
     level1Bg = this.add.image(0, 650, 'level1_background').setOrigin(0);

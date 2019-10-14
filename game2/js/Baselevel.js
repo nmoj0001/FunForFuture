@@ -104,7 +104,27 @@ var Baselevel = new Phaser.Class({
     addTotal = true;
     playLevel = true;
     score = 0;
+  },
 
+  update: function () {
+    if (playLevel == true) {
+      if (startLevel == true) {
+        if (counter > 0) {
+          this.updateBonusTimer();
+        } else {
+          speechBubbleText.setText('Congratulation!');
+          speechBubbleText.setX(280);
+          speechBubbleText.setY(220);
+          this.levelUp();
+        }
+      }
+    } else {
+      speechBubbleText.setText('Better Luck\nNext Time!');
+      this.loseLevel();
+    }
+  },
+
+  setUpQuestionAnswer: function () {
     questionText = this.add
       .text(700, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
@@ -141,28 +161,10 @@ var Baselevel = new Phaser.Class({
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
-    this.updateScore();
-
     questions = this.cache.json.get('questions');
     this.updateQuestion();
-  },
 
-  update: function () { 
-    if (playLevel == true) {
-      if (startLevel == true) {
-        if (counter > 0) {
-          this.updateBonusTimer();
-        } else {
-          speechBubbleText.setText('Congratulation!');
-          speechBubbleText.setX(280);
-          speechBubbleText.setY(220);
-          this.levelUp();
-        }
-      }
-    } else {
-      speechBubbleText.setText('Better Luck\nNext Time!');
-      this.loseLevel();
-    }
+    this.updateScore();
   },
 
   updateScore: function () {
@@ -309,6 +311,7 @@ var Baselevel = new Phaser.Class({
         startLevel = true;
         timedEvent = this.time.addEvent({ delay: 1000, repeat: 10 });
         this.showScore();
+        this.setUpQuestionAnswer();
       },
       this
     );
