@@ -202,7 +202,7 @@ if ($conn->connect_error) {
             <tbody>
 			<?php
                 $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 3 and username = '$_SESSION ['username']' LIMIT 1;"; $result = $conn->query($sql);
+                gameID = 3 and username = 'emily' LIMIT 1;"; $result = $conn->query($sql);
                  if ($result->num_rows > 0) { while($row =
                   $result->fetch_assoc()) { 
                     
