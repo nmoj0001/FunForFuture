@@ -135,9 +135,11 @@ session_start();
               data-words='["Fun For Future"]'
             ></span>
           </h1>
-          <p class="lead">
-            Games For Children To Learn Waste Management!
+          <p class="lead" style="text-shadow: 4px
+           4px 2px black;">
+            <strong>Games For Children To Learn Waste Management!</strong>
           </p>
+          
           <a href="work.html" class="btn-light">View My Games</a>
           <br /><br />
           <a id="popupbutton" class="btn-light" href="#popup"
@@ -158,7 +160,7 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
                   <h3>" . $row["fact_description"] . "</h3>
 
                   "; echo "Source"; echo "
-                  
+
                   <h4>" . $row["fact_source"] . "</h4>
                   "; ?>
                 </p>

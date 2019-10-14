@@ -48,13 +48,13 @@ input[type='submit'] {
 }
 input[type='submit']:hover {
   color: #fff;
-  background-color: black;
+  background-color: #ffbc00;
 }
 h2 {
   color: white;
 }
 a {
-  color: yellow;
+  color: #ffbc00;
   text-decoration: blink;
 }
 a:hover {

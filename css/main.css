@@ -93,6 +93,7 @@ input[class^='btn-']:hover {
 }
 
 .lead {
+  color: white;
   font-size: 1.3rem;
   margin-bottom: 2rem;
 }
@@ -138,6 +139,7 @@ input[class^='btn-']:hover {
 }
 
 .section-title {
+  color: white;
   font-size: 2rem;
   display: block;
   padding-bottom: 0.5rem;
@@ -198,7 +200,7 @@ input[class^='btn-']:hover {
 .item-image:before {
   content: '';
   display: inline-block;
-  padding-top: 65%;
+  padding-top: 59%;
   overflow: hidden;
 }
 .item-image img {
@@ -350,7 +352,7 @@ h4 {
 #main-footer {
   background: transparent;
   background-color: #2e86c1;
-  color: black;
+  color: white;
   margin-bottom: 0;
   padding-bottom: 0;
   bottom: 0;
@@ -542,6 +544,7 @@ hr {
   height: 100%;
 }
 .popuptext {
+  font-family: 'Dosis', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -550,6 +553,7 @@ hr {
   padding: 3rem;
 }
 .popuptext h1 {
+  font-family: 'Dosis', sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -560,6 +564,7 @@ hr {
 h3,
 h4,
 h5 {
+  font-family: 'Dosis', sans-serif;
   font-size: 1.2rem;
   text-transform: capitalize;
   color: black;
@@ -567,6 +572,7 @@ h5 {
 }
 
 .popuptext a {
+  font-family: 'Dosis', sans-serif;
   text-decoration: none;
   color: #47bdff;
 }
