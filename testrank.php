@@ -6,8 +6,10 @@ $sql = "SELECT username, gameScore, (SELECT COUNT(*)+1  FROM jeyganesh.score B W
 ORDER BY gamescore DESC";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+$rnum = $result->num_rows;
 
 echo "Executed Statement";
+echo $rnum;
 echo $row['rank'];
 echo "Rank";
 ?>
