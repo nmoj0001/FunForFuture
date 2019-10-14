@@ -127,35 +127,35 @@ var Baselevel = new Phaser.Class({
 
   setUpQuestionAnswer: function () {
     questionText = this.add
-      .text(670, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
+      .text(650, 20, 'Question', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
-    choice1 = this.add.image(670, 120, 'choice1').setOrigin(0);
-    choice2 = this.add.image(670, 250, 'choice2').setOrigin(0);
-    choice3 = this.add.image(670, 390, 'choice3').setOrigin(0);
-    choice4 = this.add.image(670, 510, 'choice4').setOrigin(0);
+    choice1 = this.add.image(650, 120, 'choice1').setOrigin(0);
+    choice2 = this.add.image(650, 250, 'choice2').setOrigin(0);
+    choice3 = this.add.image(650, 390, 'choice3').setOrigin(0);
+    choice4 = this.add.image(650, 510, 'choice4').setOrigin(0);
 
     answerText = this.add
-      .text(820, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
+      .text(800, y1, 'Answer', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText1 = this.add
-      .text(820, y2, 'Wrong Choice 2', {
+      .text(800, y2, 'Wrong Choice 2', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText2 = this.add
-      .text(820, y3, 'Wrong Choice 3', {
+      .text(800, y3, 'Wrong Choice 3', {
         font: '40px Arial Black',
         fill: '#fff'
       })
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     wrongText3 = this.add
-      .text(820, y4, 'Wrong Choice 4', {
+      .text(800, y4, 'Wrong Choice 4', {
         font: '40px Arial Black',
         fill: '#fff'
       })
@@ -263,11 +263,11 @@ var Baselevel = new Phaser.Class({
     timerImage = this.add.image(1700, 180, 'timer');
 
     scoreText = this.add
-      .text(1705, 40, score, { font: '40px Arial Black', fill: '#fff' })
+      .text(1755, 40, score, { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     timerText = this.add
-      .text(1705, 160, '00:00', { font: '40px Arial Black', fill: '#fff' })
+      .text(1755, 160, '00:00', { font: '40px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
