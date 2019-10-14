@@ -10,6 +10,7 @@ $rnum = $result->num_rows;
 
 echo "Executed Statement";
 echo $rnum;
+echo $row;
 echo $row['rank'];
 echo "Rank";
 ?>
