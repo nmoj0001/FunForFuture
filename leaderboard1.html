@@ -86,20 +86,7 @@ if ($conn->connect_error) {
        
         <p class="lead font-italic">
 
-        
-             <?php
-
-            $sql = "SET @i=0;
-Select rank from (SELECT username, @i:=@i+1 AS rank 
- FROM jeyganesh.score where gameID = 1
- ORDER BY gamescore DESC) t where username = 'emily';";
-            $result = $conn->query($sql);
-			$row = $result->fetch_assoc();
-            echo "hi1";
-			echo "<h3>" . $row["rank"] . "</h3>";
-      
-            ?>      
-          
+ 
         </p>
       </div>
     </div>
@@ -193,16 +180,7 @@ Select rank from (SELECT username, @i:=@i+1 AS rank
                  if ($result->num_rows > 0) { $c = 1; while($row =
                   $result->fetch_assoc()) { 
                     
-                    echo "
-                  <tr>
-                    "; echo "
-                    <td>" . $c . "</td>
-                    " . "
-                    <td>" . $row['username'] . "</td>
-                    " . "
-                    <td>" . $row['gameScore'] . "</td>
-                    "; echo "
-                  </tr>
+                    echo "<tr>"; echo "<td>" . $c . "</td> " . "<td>" . $row['username'] . "</td>" . "<td>" . $row['gameScore'] . "</td>"; echo "</tr>
                   "; 
                 $c++;
                 } echo "
@@ -222,11 +200,19 @@ Select rank from (SELECT username, @i:=@i+1 AS rank
           <table class="table table-hover">
            
             <tbody>
-             <tr>
-              <td>0</td>
-              <td>username</td>
-              <td>0</td>
-             </tr>
+			<?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 3 and username = '$_SESSION ['username']' LIMIT 1;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { while($row =
+                  $result->fetch_assoc()) { 
+                    
+                    echo "<tr>"; echo "<td>" . $row['username'] . "</td>" . "<td>" . $row['gameScore'] . "</td>"; echo "</tr>
+                  "; 
+               
+                } echo "
+                </table>
+  
+                "; } Else { echo "Unable to load...come back later"; } ?>
             </tbody>
           </table>
         </div>
