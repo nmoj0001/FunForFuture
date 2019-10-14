@@ -13,6 +13,13 @@
   </head>
 
   <body>
+      <?php 
+      session_start();
+      $session_value=(isset($_SESSION['username']))?$_SESSION['username']:''; 
+      ?></p>
+  <script type="text/javascript">
+    var username = '<?php echo $session_value;?>';
+  </script>
     <script type="text/javascript" src="js/Baselevel.js"></script>
     <script type="text/javascript" src="js/Level1.js"></script>
     <script type="text/javascript" src="js/Level2.js"></script>
