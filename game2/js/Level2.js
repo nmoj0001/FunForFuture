@@ -26,12 +26,11 @@ var Level2 = new Phaser.Class({
     this.setUp();
     level2Bg = this.add.image(0, 650, 'level2_background').setOrigin(0);
     trash2 = this.add.image(100, 700, 'trash2').setVisible(false);
-    this.setOpening();
-
     trash2 = this.add.image(100, 810, 'trash2');
     trash3 = this.add.image(370, 750, 'trash3');
     trash4 = this.add.image(680, 790, 'trash4');
     trash5 = this.add.image(1150, 880, 'trash1');
+    this.setOpening();
   },
 
   updateQuestion: function() {
