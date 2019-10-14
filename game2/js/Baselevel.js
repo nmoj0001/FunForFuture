@@ -162,9 +162,10 @@ var Baselevel = new Phaser.Class({
       .setStroke('#ffdd00', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
+    this.updateScore();
+
     questions = this.cache.json.get('questions');
     this.updateQuestion();
-    this.updateScore();
   },
 
   updateScore: function () {
@@ -280,26 +281,6 @@ var Baselevel = new Phaser.Class({
     timerText.setText('00:' + timedEvent.repeatCount);
   },
 
-  updateScore: function (update) {
-    score += update;
-    scoreText.setText(score);
-
-    scoreUpdateText = this.add
-      .text(1000, 250, update, { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffdd00', 16)
-      .setShadow(2, 2, '#333333', 2, true, true);
-    var tween = this.tweens.add({
-      targets: scoreUpdateText,
-      y: 300,
-      ease: 'Power1',
-      duration: 1500,
-      alpha: 0,
-      onComplete: () => {
-        scoreUpdateText.destroy();
-      }
-    });
-  },
-
   startLevel: function (level) {
     play.setInteractive({ useHandCursor: true }).on(
       'pointerup',
@@ -379,16 +360,16 @@ var Baselevel = new Phaser.Class({
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
 
-    if (score <= 700) {
+    if (score <= 350) {
       totalScoreImage = this.add.image(1020, 440, 'totalScore');
       achievement = 'Beginner';
     }
-    if (score > 700 && score <= 1100) {
+    if (score > 350 && score <= 450) {
       totalScoreImage = this.add.image(970, 440, 'totalScore');
       totalScoreImage = this.add.image(1060, 440, 'totalScore');
       achievement = 'Medium';
     }
-    if (score > 1100) {
+    if (score > 450) {
       totalScoreImage = this.add.image(920, 440, 'totalScore');
       totalScoreImage = this.add.image(1015, 440, 'totalScore');
       totalScoreImage = this.add.image(1110, 440, 'totalScore');
