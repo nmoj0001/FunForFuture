@@ -222,7 +222,7 @@ var Baselevel = new Phaser.Class({
 
   wrongAnswer: function () {
     speechBubbleText.setText('Wrong!');
-    speechBubbleText.x = 320;
+    speechBubbleText.x = 340;
     if (score > 0) {
       score -= 10;
       scoreText.setText(score);

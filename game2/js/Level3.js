@@ -19,11 +19,11 @@ var Level3 = new Phaser.Class({
   },
 
   create: function() {
-    level = 1;
-    tree2 = this.add.image(740, 780, 'tree2').setVisible(false);
-
+    level = 3;
     this.setUp();
+    tree2 = this.add.image(740, 780, 'tree2').setVisible(false);
     level3Bg = this.add.image(0, 650, 'level3_background').setOrigin(0);
+    this.setOpening();
 
     tree2 = this.add.image(740, 800, 'tree2').setVisible(false);
     tree3 = this.add.image(370, 800, 'tree2').setVisible(false);
@@ -63,26 +63,38 @@ var Level3 = new Phaser.Class({
     }
   },
 
-  levelUp: function() {
-    speechBubbleText.setText('You win!\nTotal Score\n    ' + score);
-    speechBubbleText.x = 280;
-    speechBubbleText.y = 100;
-    answerText.disableInteractive();
-    wrongText1.disableInteractive();
-    wrongText2.disableInteractive();
-    wrongText3.disableInteractive();
-    replay = this.add.image(500, 400, 'replay');
-    this.replayLevel('Level1');
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+    .text(810, 250, 'Level 2 - School Garden', { font: '35px Arial Black', fill: '#fff' })
+    .setStroke('#ffc812', 16)
+    .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(750, 350, 'Welcome to the School Garden!\n      Help Nina Answer Questions\n   And Grow Trees!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
   },
 
-  replayLevel: function(level) {
-    replay.setInteractive({ useHandCursor: true }).on(
-      'pointerup',
-      function() {
-        this.scene.start(level);
-        replay.disableInteractive();
-      },
-      this
-    );
+  levelUp: function () {
+    this.setLevelUp('Game Complete!');
+    replay.setVisible(false);
+    playNext.setVisible(false);
+    if (username != '') {
+      submit = this.add.image(1150, 620, 'submit');
+      reload = this.add.image(850, 620, 'reload');
+      this.submitScore();
+    } else {
+      reload = this.add.image(1000, 620, 'reload');
+    }
+    this.reloadGame();
+  },
+
+  loseLevel: function () {
+    this.setLoseLevel();
+    this.replayLevel('Level3');
   }
 });
+

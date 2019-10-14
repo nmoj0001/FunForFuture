@@ -24,7 +24,6 @@ var Level1 = new Phaser.Class({
   create: function () {
     level = 1;
     totalScore = 0;
-    score = 0;
     this.setUp();
     level1Bg = this.add.image(0, 650, 'level1_background').setOrigin(0);
     fish1 = this.add.image(100, 700, 'fish1');
@@ -92,11 +91,11 @@ var Level1 = new Phaser.Class({
     dialogueBox.setScale(0.8)
     play = this.add.image(1020, 680, 'play');
     levelText = this.add
-      .text(820, 250, 'Level 1 - Kitchen', { font: '35px Arial Black', fill: '#fff' })
+      .text(810, 250, 'Level 1 - School Pond', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
-      .text(750, 350, '  Welcome to the School!\n  Help Nina clean up the\n School Pond\nAnd grow the fishes\n', { font: '35px Arial Black', fill: '#fff' })
+      .text(730, 350, '  Welcome to the School Pond!\n  Help Nina answer questions\nAnd grow the fishes\n', { font: '35px Arial Black', fill: '#fff' })
       .setStroke('#ffc812', 16)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
