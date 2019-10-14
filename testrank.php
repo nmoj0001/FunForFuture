@@ -2,10 +2,8 @@
 
 <?php
 
-$sql = "SET @i=0;
-Select rank from (SELECT username, @i:=@i+1 AS rank 
- FROM jeyganesh.score where gameID = 1
- ORDER BY gamescore DESC) t where username = 'emily';";
+$sql = "SELECT username, gameScore, (SELECT COUNT(*)+1  FROM jeyganesh.score B WHERE gameID = 1 and A.gamescore<B.gamescore) AS Rank FROM jeyganesh.score A where gameID = 1 and username = 'emily'
+ORDER BY gamescore DESC";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 

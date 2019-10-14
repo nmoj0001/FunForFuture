@@ -66,7 +66,7 @@ if ($conn->connect_error) {
       </h1>
 
       <p class="lead font-italic">
-        
+
       </p>
     </div>
   </div>
@@ -120,15 +120,15 @@ if ($conn->connect_error) {
           </thead>
           <tbody>
             <?php
-                $sql = "select username, gameScore from jeyganesh.score where
-                gameID = 2 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-                 if ($result->num_rows > 0) { $b = 1; while($row =
+                $sql = "SELECT username, gameScore, (SELECT COUNT(*)+1  FROM jeyganesh.score B WHERE gameID = 1 and A.gamescore < B.gamescore) AS rank FROM jeyganesh.score A where gameID = 1 and username = 'emily'
+                ORDER BY gamescore DESC;" 
+                $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { while($row =
                   $result->fetch_assoc()) { 
-                    
                     echo "
                   <tr>
                     "; echo "
-                    <td>" . $b . "</td>
+                    <td>" . $row['rank'] . "</td>
                     " . "
                     <td>" . $row['username'] . "</td>
                     " . "
@@ -136,7 +136,6 @@ if ($conn->connect_error) {
                     "; echo "
                   </tr>
                   "; 
-                $b++;
                 } echo "
                 </table>
   
