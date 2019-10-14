@@ -26,6 +26,7 @@ var Level1 = new Phaser.Class({
     totalScore = 0;
     score = 0;
     this.setUp();
+    level1Bg = this.add.image(0, 650, 'level1_background').setOrigin(0);
     this.setOpening();
     speechBubbleText.setText('Level 1');
     instructions = this.add.image(1000, 450, 'instructions');
@@ -33,8 +34,6 @@ var Level1 = new Phaser.Class({
     this.resumeGame();
 
     fish2 = this.add.image(740, 780, 'fish2').setVisible(false);
-
-    level1Bg = this.add.image(0, 650, 'level1_background').setOrigin(0);
 
     fish1 = this.add.image(100, 700, 'fish1');
     fish2 = this.add.image(740, 780, 'fish2').setVisible(false);
