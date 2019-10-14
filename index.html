@@ -5,153 +5,90 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <!-- css animation -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
-    <!-- Boostrap4 -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Dosis"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="node_modules/sweetalert2/sweetalert2.min.css"
-    />
-    <title>Fun For Future</title>
-  </head>
-  <body>
-    <!-- Header -->
-    <header id="header-home">
-      <div class="container" position:Relative>
-        <nav id="main-nav">
-          <img src="img/Teamlogo4.png" alt="My Portfolio" id="logo" />
 
-          <ul>
-            <li><a href="index.html" class="current">Home</a></li>
-            <li><a href="about.html">Statistics</a></li>
-            <li><a href="work.html">Games</a></li>
-            <li>
-              <?php  if (!isset($_SESSION['username'])) : ?><a href="login.html"
-                >Signin</a
-              ><?php endif ?>
-            </li>
-            <li>
-              <?php  if (isset($_SESSION['username'])) : ?><a href="logout.php"
-                ><?php echo "Signout - ".$_SESSION ['username']; ?></a
-              ><?php endif ?>
-            </li>
-            <li>
-              <?php  if (isset($_SESSION['username'])) : ?><a
-                href="leaderboard.html"
-                >Leaderboard</a
-              ><?php endif ?>
-            </li>
-          </ul>
-        </nav>
-        <a
-          class="gameButtonDesign"
-          id="game1Button"
-          href="/iteration3/game1/startScreen.html"
-          ><button>
-            <img
-              class="animated infinite bounce delay-2s"
-              style="height:50px; width:50px;"
-              src="/iteration3/img/placeholder1.svg"
-              alt=""
-            /></button
-        ></a>
-        <a
-          class="gameButtonDesign"
-          id="game2Button"
-          href="/iteration3/game2/game.html"
-          ><button>
-            <img
-              class="animated infinite bounce delay-2s"
-              style="height:50px; width:50px;"
-              src="/iteration3/img/placeholder1.svg"
-              alt=""
-            /></button
-        ></a>
-        <a
-          class="gameButtonDesign"
-          id="game3Button"
-          href="/iteration3/game3/startScreen.html"
-          ><button>
-            <img
-              class="animated infinite bounce delay-2s"
-              style="height:50px; width:50px;"
-              src="/iteration3/img/placeholder1.svg"
-              alt=""
-            /></button
-        ></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <!-- css animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+  <!-- Boostrap4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+  <link rel="stylesheet" href="node_modules/sweetalert2/sweetalert2.min.css" />
+  <title>Fun For Future</title>
+</head>
 
-        <!-- <a id="flag1" class="animated infinite bounce" href=""
+<body>
+  <!-- Header -->
+  <header id="header-home">
+    <div class="container" position:Relative>
+      <nav id="main-nav">
+        <img src="img/Teamlogo4.png" alt="My Portfolio" id="logo" />
+
+        <ul>
+          <li><a href="index.html" class="current">Home</a></li>
+          <li><a href="about.html">Statistics</a></li>
+          <li><a href="work.html">Games</a></li>
+          <li>
+            <?php  if (!isset($_SESSION['username'])) : ?><a href="login.html">Signin</a><?php endif ?>
+          </li>
+          <li>
+            <?php  if (isset($_SESSION['username'])) : ?><a
+              href="logout.php"><?php echo "Signout - ".$_SESSION ['username']; ?></a><?php endif ?>
+          </li>
+          <li>
+            <?php  if (isset($_SESSION['username'])) : ?><a href="leaderboard.html">Leaderboard</a><?php endif ?>
+          </li>
+        </ul>
+      </nav>
+      <a class="gameButtonDesign" id="game1Button" href="/game1/startScreen.html"><button>
+          <img class="animated infinite bounce delay-2s" style="height:50px; width:50px;" src="/img/placeholder1.svg"
+            alt="" /></button></a>
+      <a class="gameButtonDesign" id="game2Button" href="/game2/startScreen.html"><button>
+          <img class="animated infinite bounce delay-2s" style="height:50px; width:50px;" src="/img/placeholder1.svg"
+            alt="" /></button></a>
+      <a class="gameButtonDesign" id="game3Button" href="/game3/startScreen.html"><button>
+          <img class="animated infinite bounce delay-2s" style="height:50px; width:50px;" src="/img/placeholder1.svg"
+            alt="" /></button></a>
+
+      <!-- <a id="flag1" class="animated infinite bounce" href=""
           ><img src="img/flag.svg" style="width:80px; height:80px;" alt=""
         /></a> -->
-        <div class="header-content">
-          <h1>
-            Welcome to
-            <span
-              class="txt-type"
-              data-wait="2000"
-              data-words='["Fun For Future"]'
-            ></span>
-          </h1>
-          <p class="lead">
-            Games For Children To Learn Waste Management!
-          </p>
-          <a href="work.html" class="btn-light">View My Games</a>
-          <br /><br />
-          <a id="popupbutton" class="btn-light" href="#popup"
-            >Fact Of The Day</a
-          >
-          <div class="popup" id="popup">
-            <div class="popup-inner">
-              <div class="popupphoto">
-                <img src="/img/popbg1.jpg" alt="" />
-              </div>
-              <div class="popuptext">
-                <h1>Did U Know?</h1>
-                <p>
-                  <?php
+      <div class="header-content">
+        <h1>
+          Welcome to
+          <span class="txt-type" data-wait="2000" data-words='["Fun For Future"]'></span>
+        </h1>
+        <p class="lead">
+          Games For Children To Learn Waste Management!
+        </p>
+        <a href="work.html" class="btn-light">View My Games</a>
+        <br /><br />
+        <a id="popupbutton" class="btn-light" href="#popup">Fact Of The Day</a>
+        <div class="popup" id="popup">
+          <div class="popup-inner">
+            <div class="popupphoto">
+              <img src="/img/popbg1.jpg" alt="" />
+            </div>
+            <div class="popuptext">
+              <h1>Did U Know?</h1>
+              <p>
+                <?php
 
 $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
 $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
@@ -161,12 +98,12 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
                   
                   <h4>" . $row["fact_source"] . "</h4>
                   "; ?>
-                </p>
-              </div>
-              <a class="closepopup" href="#">X</a>
+              </p>
             </div>
+            <a class="closepopup" href="#">X</a>
           </div>
-          <!-- <a href="#popup1" class="button factlogo" onclick="myFunction()"
+        </div>
+        <!-- <a href="#popup1" class="button factlogo" onclick="myFunction()"
             ><img
               class="img-fluid"
               src="/iteration3/icons/icons8-light-on-64.png"
@@ -203,16 +140,16 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
               }
             </script>
           </a> -->
-          <p id="foot">
-            Copyright &copy; 2019. All Rights Reserved
-            <strong>Guardians</strong>
-          </p>
-        </div>
+        <p id="foot">
+          Copyright &copy; 2019. All Rights Reserved
+          <strong>Guardians</strong>
+        </p>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Footer -->
-    <!-- <footer id="main-footer">
+  <!-- Footer -->
+  <!-- <footer id="main-footer">
       <div class="footer-content container">
         <p>Copyright &copy; 2019. All Rights Reserved</p>
         <div class="social">
@@ -224,12 +161,13 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
       </div>
     </footer> -->
 
-    <!-- Type Effect Tutorial: https://www.youtube.com/watch?v=POX3dT-pB4E -->
-    <script src="js/typewriter.js"></script>
-    <!-- sweetalert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="/iteration3/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
-    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-  </body>
+  <!-- Type Effect Tutorial: https://www.youtube.com/watch?v=POX3dT-pB4E -->
+  <script src="js/typewriter.js"></script>
+  <!-- sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
+  <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+</body>
+
 </html>

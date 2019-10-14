@@ -1,7 +1,7 @@
 <?php include("auth.php"); ?> 
 <?php
 session_start();
-$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+$Vdata = file_get_contents('https://www.funforfuture.tk/auth.php');
 echo $Vdata;
 echo $_SESSION ['username'];
 ?>
@@ -147,7 +147,7 @@ echo $_SESSION ['username'];
     <script src="js/typewriter.js"></script>
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    <script src="/iteration3/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/node_modules/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
   </body>
