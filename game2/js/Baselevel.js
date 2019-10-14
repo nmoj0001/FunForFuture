@@ -173,7 +173,7 @@ var Baselevel = new Phaser.Class({
       'pointerup',
       function () {
         speechBubbleText.setText('Good Job!');
-        speechBubbleText.x = 280;
+        speechBubbleText.x = 310;
         score += 100;
         scoreText.setText(score);
         scoreUpdateText = this.add
@@ -222,7 +222,7 @@ var Baselevel = new Phaser.Class({
 
   wrongAnswer: function () {
     speechBubbleText.setText('Wrong!');
-    speechBubbleText.x = 310;
+    speechBubbleText.x = 290;
     if (score > 0) {
       score -= 10;
       scoreText.setText(score);
@@ -290,7 +290,7 @@ var Baselevel = new Phaser.Class({
         openingText.setVisible(false);
         levelText.setVisible(false);
         startLevel = true;
-        timedEvent = this.time.addEvent({ delay: 1000, repeat: 150 });
+        timedEvent = this.time.addEvent({ delay: 1000, repeat: 80 });
         this.showScore();
         this.setUpQuestionAnswer();
       },
