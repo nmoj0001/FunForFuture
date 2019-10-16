@@ -1,6 +1,6 @@
 <?php
 session_start();
-//$Vdata = file_get_contents('https://www.funforfuture.tk/iteration3/auth.php');
+//$Vdata = file_get_contents('https://www.funforfuture.tk/auth.php');
 //echo $Vdata;
 //echo $_SESSION ['username'];
 ?>
@@ -61,8 +61,8 @@ if ($conn->connect_error) {
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
-            <li><a href="work.html" class="current">Games</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="work.html">Games</a></li>
+            <li><a href="leaderboard.html" class="current">Leaderboard</a></li>
             <li><a href="logout.php">Signout</a></li>
             <li>
               <a href="work.html"><?php echo $_SESSION ['username']; ?></a>
@@ -78,16 +78,18 @@ if ($conn->connect_error) {
         <h1 class="display-4">
           <?php echo 'Hello ' . $_SESSION ['username']; ?><span
             ><img
-              src="/iteration3/img/leaderboardgirl1.png"
+              src="/img/leaderboardgirl1.png"
               style="display:inline; float:right; height:200px;"
               alt="..."
           /></span>
         </h1>
        
         <p class="lead font-italic">
-          <br>
+
+        <br>
           This is the leaderboard of our star players, 
-          <br>see if you can find your name here!!!
+          <br>see if you can find your name here!!!    
+          
         </p>
       </div>
     </div>
@@ -105,13 +107,12 @@ if ($conn->connect_error) {
               </tr>
             </thead>
             <tbody>
-              <?php
-              $sql = "select username, gameScore from jeyganesh.score where
-              gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
-               if ($result->num_rows > 0) { $a = 1; while($row =
-                $result->fetch_assoc()) { 
-                  
-                  echo "
+                <?php
+                $sql = "select username, gameScore from jeyganesh.score where
+                gameID = 1 order by gameScore desc LIMIT 5;"; $result = $conn->query($sql);
+                 if ($result->num_rows > 0) { $a = 1; while($row =
+                  $result->fetch_assoc()) { 
+                    echo "
                 <tr>
                   "; echo "
                   <td>" . $a . "</td>
@@ -203,47 +204,9 @@ if ($conn->connect_error) {
         </div>
       </div>
     </div>
-    <hr >
+
 <!-- personal leaderboard -->
-    <div style="padding:0; " class="container-fluid bg-light">
-      <div class="row">
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-             <tr>
-              <td>0</td>
-              <td>username</td>
-              <td>0</td>
-             </tr>
-            </tbody>
-          </table>
-        </div>
 
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-             <tr><td>0</td>
-              <td>username</td>
-              <td>0</td></tr>
-              </tbody>
-          </table>
-        </div>
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-                <tr><td>0</td>
-                  <td>username</td>
-                  <td>0</td></tr>
-              </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <br>
     <footer id="main-footer">
       <div class="footer-content container-fluid">
         <p>

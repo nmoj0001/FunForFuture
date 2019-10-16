@@ -93,6 +93,7 @@ input[class^='btn-']:hover {
 }
 
 .lead {
+  font-family: 'Dosis', sans-serif;
   color: white;
   font-size: 1.3rem;
   margin-bottom: 2rem;

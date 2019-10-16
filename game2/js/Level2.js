@@ -23,14 +23,14 @@ var Level2 = new Phaser.Class({
 
   create: function() {
     level = 2;
-    trash2 = this.add.image(100, 700, 'trash2').setVisible(false);
     this.setUp();
     level2Bg = this.add.image(0, 650, 'level2_background').setOrigin(0);
-
+    trash2 = this.add.image(100, 700, 'trash2').setVisible(false);
     trash2 = this.add.image(100, 810, 'trash2');
     trash3 = this.add.image(370, 750, 'trash3');
     trash4 = this.add.image(680, 790, 'trash4');
     trash5 = this.add.image(1150, 880, 'trash1');
+    this.setOpening();
   },
 
   updateQuestion: function() {
@@ -65,7 +65,29 @@ var Level2 = new Phaser.Class({
     }
   },
 
-  levelUp: function() {
-    this.scene.start('Level3');
+  setOpening: function () {
+    dialogueBox = this.add.image(1000, 450, 'dialogueBox');
+    dialogueBox.setScale(0.8)
+    play = this.add.image(1020, 680, 'play');
+    levelText = this.add
+    .text(810, 250, 'Level 2 - School Ground', { font: '35px Arial Black', fill: '#fff' })
+    .setStroke('#ffc812', 16)
+    .setShadow(2, 2, '#333333', 2, true, true);
+    openingText = this.add
+      .text(750, 350, 'Welcome to the School Ground!\nHelp Nina Answer Questions\n   And Remove the Waste!\n', { font: '35px Arial Black', fill: '#fff' })
+      .setStroke('#ffc812', 16)
+      .setShadow(2, 2, '#333333', 2, true, true);
+    this.startLevel();
+  },
+
+  levelUp: function () {
+    this.setLevelUp('Level 2 Complete');
+    this.replayLevel('Level2');
+    this.playNextLevel('Level3');
+  },
+
+  loseLevel: function () {
+    this.setLoseLevel();
+    this.replayLevel('Level2');
   }
 });
