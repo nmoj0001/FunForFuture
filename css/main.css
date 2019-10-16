@@ -482,11 +482,15 @@ hr {
     font-size: 2rem;
   }
   #main-footer {
+    position: fixed;
+    margin-bottom: 0;
+    bottom: 0;
     height: 7rem;
   }
   #main-footer .footer-content {
     flex-direction: column;
     padding: 1rem;
+    color: white;
     height: 5rem;
   }
 }
