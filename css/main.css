@@ -367,6 +367,7 @@ h4 {
   justify-content: space-between;
   height: 1rem;
   align-items: center;
+  margin-bottom: 0;
   bottom: 0;
   background-color: #2e86c1;
   opacity: 0.9;
