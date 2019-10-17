@@ -56,6 +56,7 @@ session_start();
           </li>
         </ul>
       </nav>
+      
       <a class="gameButtonDesign" id="game1Button" href="/game1/startScreen.html"><button>
           <img class="animated infinite bounce delay-2s" style="height:50px; width:50px;" src="/img/placeholder1.svg"
             alt="" /></button></a>
@@ -66,36 +67,42 @@ session_start();
           <img class="animated infinite bounce delay-2s" style="height:50px; width:50px;" src="/img/placeholder1.svg"
             alt="" /></button></a>
 
-      <!-- <a id="flag1" class="animated infinite bounce" href=""
-          ><img src="img/flag.svg" style="width:80px; height:80px;" alt=""
-        /></a> -->
-      <div class="header-content">
-        <h1>
-          Welcome to
-          <span class="txt-type" data-wait="2000" data-words='["Fun For Future"]'></span>
-        </h1>
-        <p class="lead">
-          Games For Children To Learn Waste Management!
-        </p>
-        <a href="work.html" class="btn-light">View My Games</a>
-        <br /><br />
-        <a id="popupbutton" class="btn-light" href="#popup">Fact Of The Day</a>
-        <div class="popup" id="popup">
-          <div class="popup-inner">
-            <div class="popupphoto">
-              <img src="/img/popbg1.jpg" alt="" />
-            </div>
-            <div class="popuptext">
-              <h1>Did U Know?</h1>
-              <p>
-                <?php
+
+        <div class="header-content">
+          <h1>
+            Welcome to
+            <span
+              class="txt-type"
+              data-wait="2000"
+              data-words='["Fun For Future"]'
+            ></span>
+          </h1>
+          <p class="lead" style="text-shadow: 4px
+           4px 2px black;">
+            <strong>Games For Children To Learn Waste Management!</strong>
+          </p>
+          
+          <a href="work.html" class="btn-light">View My Games</a>
+          <br /><br />
+          <a id="popupbutton" class="btn-light" href="#popup"
+            >Fact Of The Day</a
+          >
+          <div class="popup" id="popup">
+            <div class="popup-inner">
+              <div class="popupphoto">
+                <img src="/img/popbg1.jpg" alt="" />
+              </div>
+              <div class="popuptext">
+                <h1>Did U Know?</h1>
+                <p>
+                  <?php
 
 $sql = "SELECT fact_description, fact_source FROM Fact ORDER BY RAND(" . date("Ymd") . ") LIMIT 1";
 $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
                   <h3>" . $row["fact_description"] . "</h3>
 
                   "; echo "Source"; echo "
-                  
+
                   <h4>" . $row["fact_source"] . "</h4>
                   "; ?>
               </p>
@@ -103,43 +110,7 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
             <a class="closepopup" href="#">X</a>
           </div>
         </div>
-        <!-- <a href="#popup1" class="button factlogo" onclick="myFunction()"
-            ><img
-              class="img-fluid"
-              src="/iteration3/icons/icons8-light-on-64.png"
-              alt=""
-            />Fact of the day
 
-            <script>
-              function myFunction() {
-                Swal.fire({
-                  title: 'DO U KNOW?',
-                  text:
-                    'Recycling Aluminum Cans Saves 95% of the Energy Used to Make New Cans.',
-                  footer: 'From Greenerideal Website',
-                  type: 'success',
-                  animation: false,
-                  customClass: {
-                    popup: 'animated tada'
-                  }
-                });
-              }
-            </script>
-            <script>
-              function loadDoc() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById(
-                      'demo'
-                    ).innerHTML = this.responseText;
-                  }
-                };
-                xhttp.open('GET', 'databasefact.php', true);
-                xhttp.send();
-              }
-            </script>
-          </a> -->
         <p id="foot">
           Copyright &copy; 2019. All Rights Reserved
           <strong>Guardians</strong>
@@ -148,20 +119,7 @@ $result = $conn->query($sql); $row = $result->fetch_assoc(); echo "
     </div>
   </header>
 
-  <!-- Footer -->
-  <!-- <footer id="main-footer">
-      <div class="footer-content container">
-        <p>Copyright &copy; 2019. All Rights Reserved</p>
-        <div class="social">
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-linkedin"></i>
-        </div>
-      </div>
-    </footer> -->
-
-  <!-- Type Effect Tutorial: https://www.youtube.com/watch?v=POX3dT-pB4E -->
+  
   <script src="js/typewriter.js"></script>
   <!-- sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>

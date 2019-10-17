@@ -61,8 +61,8 @@ if ($conn->connect_error) {
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">Statistics</a></li>
-            <li><a href="work.html" class="current">Games</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li><a href="work.html">Games</a></li>
+            <li><a href="leaderboard.html" class="current">Leaderboard</a></li>
             <li><a href="logout.php">Signout</a></li>
             <li>
               <a href="work.html"><?php echo $_SESSION ['username']; ?></a>
@@ -86,23 +86,9 @@ if ($conn->connect_error) {
        
         <p class="lead font-italic">
 
-        
-             <?php
-
-            $sql = "SET @i=0;
-Select rank from (SELECT username, @i:=@i+1 AS rank 
- FROM jeyganesh.score where gameID = 1
- ORDER BY gamescore DESC) t where username = 'emily';";
-            $result = $conn->query($sql);
-            echo "hi1";
-            if ($result->num_rows > 0) { 
-              echo "hi2";
-              $row = $result->fetch_assoc();
-                echo "<h5>" . $row['rank'] . "</h5>";  
-              
-               }
-               Else { echo "Play Sort your waste game to view your Rank"; } 
-            ?>      
+        <br>
+          This is the leaderboard of our star players, 
+          <br>see if you can find your name here!!!    
           
         </p>
       </div>
@@ -218,48 +204,10 @@ Select rank from (SELECT username, @i:=@i+1 AS rank
         </div>
       </div>
     </div>
-    <hr >
+<br><br><br><br><br>
 <!-- personal leaderboard -->
-    <div style="padding:0; " class="container-fluid bg-light">
-      <div class="row">
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-             <tr>
-              <td>0</td>
-              <td>username</td>
-              <td>0</td>
-             </tr>
-            </tbody>
-          </table>
-        </div>
 
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-             <tr><td>0</td>
-              <td>username</td>
-              <td>0</td></tr>
-              </tbody>
-          </table>
-        </div>
-        <div class="col">
-          <table class="table table-hover">
-           
-            <tbody>
-                <tr><td>0</td>
-                  <td>username</td>
-                  <td>0</td></tr>
-              </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <br>
-    <footer id="main-footer">
+    <footer id="main-footer" >
       <div class="footer-content container-fluid">
         <p>
           Copyright &copy; 2019. All Rights Reserved
