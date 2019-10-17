@@ -40,11 +40,11 @@ var Level3 = new Phaser.Class({
     play = this.add.image(1020, 680, 'play');
     levelText = this.add
       .text(820, 250, 'Level 3 - Bedroom', { font: '35px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
       .text(750, 350, 'Welcome to the Bed Room!\n      Help Nina clean up\n   And sort waste properly!\n', { font: '35px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
   },

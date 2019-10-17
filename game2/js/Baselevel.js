@@ -349,7 +349,7 @@ var Baselevel = new Phaser.Class({
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
 
     totalScorePrompt = this.add
@@ -357,7 +357,7 @@ var Baselevel = new Phaser.Class({
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
 
     if (score <= 350) {
@@ -381,7 +381,7 @@ var Baselevel = new Phaser.Class({
         font: '40px Arial Black',
         fill: '#fff'
       })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 
@@ -392,7 +392,7 @@ var Baselevel = new Phaser.Class({
     replay = this.add.image(1000, 500, 'replay');
     loseLevelText = this.add
       .text(900, 350, 'You failed!', { font: '40px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
   },
 

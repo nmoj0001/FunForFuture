@@ -92,11 +92,11 @@ var Level1 = new Phaser.Class({
     play = this.add.image(1020, 680, 'play');
     levelText = this.add
       .text(810, 250, 'Level 1 - School Pond', { font: '35px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
       .text(730, 350, '  Welcome to the School Pond!\n  Help Nina answer questions\n      And grow the fishes\n', { font: '35px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
   },

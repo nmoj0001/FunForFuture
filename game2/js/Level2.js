@@ -71,11 +71,11 @@ var Level2 = new Phaser.Class({
     play = this.add.image(1020, 680, 'play');
     levelText = this.add
     .text(810, 250, 'Level 2 - School Ground', { font: '35px Arial Black', fill: '#fff' })
-    .setStroke('#ffc812', 16)
+    .setStroke('#665705', 5)
     .setShadow(2, 2, '#333333', 2, true, true);
     openingText = this.add
       .text(750, 350, 'Welcome to the School Ground!\nHelp Nina Answer Questions\n   And Remove the Waste!\n', { font: '35px Arial Black', fill: '#fff' })
-      .setStroke('#ffc812', 16)
+      .setStroke('#665705', 5)
       .setShadow(2, 2, '#333333', 2, true, true);
     this.startLevel();
   },
