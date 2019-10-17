@@ -65,7 +65,8 @@ ul li {
   font-family: 'Poppins', sans-serif;
   background-color: #ea8520;
   color: #ffffff;
-  stroke: #665705;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #665705;
   margin: auto;
   padding: 20px;
   border: 2px solid #665705;
