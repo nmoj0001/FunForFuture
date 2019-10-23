@@ -10,7 +10,7 @@
 <?php include("dbconnection.php"); ?>
 
 <?php
-echo '<script type= "text/JavaScript"> alert("hi"); </script>';
+
 session_start();
 if (isset($_SESSION['username'])) {
      $username = $_SESSION['username'];
@@ -34,14 +34,14 @@ if (isset($_SESSION['username'])) {
           $stmt->bind_param("isi", $game, $_SESSION['username'], $score);
           $stmt->execute();
 
-          echo '<script type= "text/JavaScript"> alert("insert"); </script>';
+
           include_once('leaderboard.html');
      } else {
           $stmt = $conn->prepare($UPDATE);
           $stmt->bind_param("isi", $score, $_SESSION['username'], $game);
           $stmt->execute();
 
-          echo '<script type= "text/JavaScript"> alert("update"); </script>';
+
           include_once('leaderboard.html');
      }
      $stmt->close();
